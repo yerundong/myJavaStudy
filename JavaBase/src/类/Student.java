@@ -5,7 +5,7 @@ public class Student {
     int age = 18;
 
     public void say(){
-        System.out.println("I am "+this.name+",I am "+this.age + " years old.");
+        System.out.println("I am "+name+",I am "+age + " years old.");
     }
 
     public void friend(String name){

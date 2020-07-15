@@ -24,11 +24,31 @@ import 类.Student;
 public class 类的导入和调用 {
     public static void main(String[] args) {
         Student stu = new Student();
+        System.out.println(stu);
+
         stu.say();
 
         System.out.println(stu.name);
 
         stu.friend("LiSi");
 
+        stu.age = 20;
+
+        System.out.println(stu.age);
+
+        beParam(stu);
+
+        Student stu2 = beReturn();
+        System.out.println(stu2);;
+    }
+
+//  当一个对象类型作为一个参数或返回值时，它其实是传对象的地址值；
+    public static void beParam(Student param){
+        System.out.println(param);
+    }
+
+    public static Student beReturn(){
+        Student stu = new Student();
+        return stu;
     }
 }
