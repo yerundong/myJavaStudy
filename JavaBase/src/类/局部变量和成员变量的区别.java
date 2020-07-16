@@ -21,15 +21,31 @@ package 类;
 5. 生命周期不一样
 局部变量：随着方法进栈而诞生，随着方法出栈而消失
 成员变量：随着对象创建而诞生，随着对象被垃圾回收而消失
+
+
+
+当方法的局部变量和类的成员变量重名的时候，根据“就近原则”，优先使用局部变量。
+
+如果需要访问本类当中的成员变量，需要使用格式：
+this.成员变量名
+在类内部，this代表实例对象
  */
 public class 局部变量和成员变量的区别 {
+    public static void main(String[] args) {
+        Someone someone = new Someone();
+        someone.name = "Haha";
+        someone.methodA("Xixi");
+    }
+}
 
+class Someone{
     String name; // 成员变量
 
-    public void methodA() {
+    public void methodA(String name) {
         int num = 20; // 局部变量
         System.out.println(num);
         System.out.println(name);
+        System.out.println(this.name);
     }
 
     public void methodB(int param) { // 方法的参数就是局部变量
