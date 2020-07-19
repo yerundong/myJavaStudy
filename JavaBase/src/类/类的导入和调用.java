@@ -5,7 +5,10 @@ package 类;
 1. 导包：
 import 包名称.类名称;
 例如：import cn.itcast.day06.demo01.Student;
-对于和当前类属于同一个包的情况，可以省略导包语句不写。
+注意：
+    1.当前类所属于同一包的类，省略导包
+    2.java.lang下的包的类，省略导包
+    3.其他情况都需要import导包
 
 2. 创建（实例化），格式：
 类名称 对象名 = new 类名称();
@@ -42,7 +45,7 @@ public class 类的导入和调用 {
         System.out.println(stu2);;
     }
 
-//  当一个对象类型作为一个参数或返回值时，它其实是传对象的地址值；
+    // 当一个对象类型作为一个参数或返回值时，它其实是传对象的地址值；
     public static void beParam(Student param){
         System.out.println(param);
     }
