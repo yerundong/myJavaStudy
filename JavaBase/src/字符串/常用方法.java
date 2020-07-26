@@ -52,5 +52,15 @@ public class 常用方法 {
         String str6 = str1.replace("ll", "*");
         System.out.println("输出12：" + str6);
 
+        // <M> split(String regex)
+        // <M> split(String regex, int limit)
+        // <参数> regex为正则表达式，limit切割个数阈值
+        // <返回> 分割，返回字符串数组
+        String str7 = "aaa,bbb,ccc,ddd";
+        String[] stringArr = str7.split(",", 3);// {"aaa","bbb","ccc","ddd"}
+        System.out.println("输出13：" + stringArr);
+        for (int i = 0; i < stringArr.length; i++) {
+            System.out.println(stringArr[i]);
+        }
     }
 }

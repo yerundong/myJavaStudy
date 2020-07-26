@@ -26,18 +26,14 @@ import 类.Student;
 
 public class 类的导入和调用 {
     public static void main(String[] args) {
-        Student stu = new Student();
+        Student stu = new Student("郭靖", 18);
         System.out.println(stu);
 
         stu.say();
 
-        System.out.println(stu.name);
+        System.out.println(stu.getName());
 
-        stu.friend("LiSi");
-
-        stu.age = 20;
-
-        System.out.println(stu.age);
+        System.out.println(stu.getAge());
 
         beParam(stu);
 
@@ -51,7 +47,7 @@ public class 类的导入和调用 {
     }
 
     public static Student beReturn(){
-        Student stu = new Student();
+        Student stu = new Student("黄蓉", 16);
         return stu;
     }
 }

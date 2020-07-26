@@ -1,7 +1,7 @@
-package 类;
+package 修饰符;
 /*
 1.private作为一种权限修饰符可以修饰类，属性和方法
-2.用private修饰的类属性，方法，只能类的内部使用，对于类外部（包括它的子类和父类）来说是隐藏不可见的
+2.用private修饰的类属性，方法，只能类的内部使用(读写)，对于类外部（包括它的子类和父类）来说是隐藏不可见的
 3.private一般不修饰类，但是可以修饰内部类
 
 
@@ -13,7 +13,7 @@ package 类;
 对于Getter来说，不能有参数，返回值类型和成员变量对应；
 对于Setter来说，不能有返回值，参数类型和成员变量对应。
 */
-public class 私有属性 {
+public class Private属性 {
     public static void main(String[] args) {
         Hero hero = new Hero();
         hero.age = 20;

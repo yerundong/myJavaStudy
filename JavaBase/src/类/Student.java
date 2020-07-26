@@ -1,14 +1,35 @@
 package 类;
 
 public class Student {
-    String name = "ZhangSan";
-    int age = 18;
+    private String name;
+    private int age;
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public void say(){
-        System.out.println("I am "+name+",I am "+age + " years old.");
+        System.out.println("I am "+this.name+",I am "+this.age + " years old");
     }
 
-    public void friend(String name){
-        System.out.println("My friend is "+name+".");
-    }
 }
