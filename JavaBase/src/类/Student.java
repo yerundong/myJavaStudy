@@ -3,6 +3,7 @@ package 类;
 public class Student {
     private String name;
     private int age;
+    String tip = "i am default attr";
 
     public Student() {
     }

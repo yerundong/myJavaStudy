@@ -1,4 +1,4 @@
-package 类;
+package 类.练习;
 
 import java.util.Random;
 /*
