@@ -1,4 +1,4 @@
-package 修饰符;
+package 修饰符.Static修饰符;
 /*
 静态代码块的格式是：
 

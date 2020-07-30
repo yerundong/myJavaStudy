@@ -1,20 +1,24 @@
-package 修饰符;
+package 修饰符.Static修饰符;
 
 /*
-    一旦使用static修饰成员属性\方法，就成为了静态属性\方法，它们属于所在的类，非属于实例对象。
-    同一类的实例对象可以共享该类的静态属性\方法。
+1.static修饰类的属性和方法:
+    1.一旦使用static修饰成员属性\方法，就成为了静态属性\方法，它们属于所在的类，非属于实例对象。
+    2.同一类的实例对象可以共享该类的静态属性\方法。
+    3.实例属性需要new对象才能使用它，静态属性不需要，直接就能通过类名称来使用它。
 
-    如果没有static关键字，那么必须首先创建对象，然后通过对象才能使用它。
-    如果有了static关键字，那么不需要创建对象，直接就能通过类名称来使用它。
+2.public修饰类:
+    1.
 
 */
-public class Static属性 {
+public class Base {
     public static void main(String[] args) {
         Pupil pup1 = new Pupil("郭靖", 18);
-        pup1.country = "China";
 
+        // 静态属性
+        pup1.country = "China";
         System.out.println(pup1.country);// 正确，不推荐，这种写法在编译之后也会被javac翻译成为“类名称.静态属性名”
         System.out.println(Pupil.country); // 正确，推荐
+        // 静态方法
         pup1.yoxi();// 正确，不推荐 这种写法在编译之后也会被javac翻译成为“类名称.静态方法名”
         Pupil.yoxi(); // 正确，推荐
 
@@ -37,7 +41,10 @@ class Pupil {
     private String name;
     private int age;
     private int id = 0;
+
+    // 静态属性
     static String country;
+    // 私有静态属性
     private static int idCount = 0;
 
     public Pupil() {
@@ -48,6 +55,15 @@ class Pupil {
         this.name = name;
         this.age = age;
         this.id = ++idCount;
+    }
+    public void say() {
+        System.out.println("I am " + this.name + ",I am " + this.age + " years old," +
+                "I am from " + this.country+",my id is "+ this.id);
+    }
+
+    // 静态方法
+    public static void yoxi(){
+        System.out.println("I am static method!!!");
     }
 
     public String getName() {
@@ -81,12 +97,5 @@ class Pupil {
     public static void setIdCount(int idCount) {
         Pupil.idCount = idCount;
     }
-
-    public void say() {
-        System.out.println("I am " + this.name + ",I am " + this.age + " years old," +
-        "I am from " + this.country+",my id is "+ this.id);
-    }
-    public static void yoxi(){
-        System.out.println("I am static method!!!");
-    }
 }
+
