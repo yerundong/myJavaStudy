@@ -21,14 +21,15 @@ public class 静态代码块 {
         StaticBlock sb = new StaticBlock();
         StaticBlock sb2 = new StaticBlock();
     }
-}
-class StaticBlock{
-    static {
-        System.out.println("静态代码块执行！！！");
-    }
 
-    public StaticBlock() {
-        System.out.println("构造函数执行！！！");
+    static class StaticBlock{
+        static {
+            System.out.println("静态代码块执行！！！");
+        }
+
+        public StaticBlock() {
+            System.out.println("构造函数执行！！！");
+        }
     }
 }
 

@@ -16,11 +16,34 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08c93b02-3a31-47f3-bfa9-9df561e80b77" name="默认的" comment="888">
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/练习/随机字符串排序.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/练习/随机字符串排序.java" afterDir="false" />
+    <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="ppp">
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/Date/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Default修饰符.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Default修饰符.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Public修饰符.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Public修饰符.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/静态代码块.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/静态代码块.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Default修饰符.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Default修饰符.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Kit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Kit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Public修饰符.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Public修饰符.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/StaticBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/静态代码块.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/静态代码块.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Tom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Tom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/数组/Arrays工具类.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/数组/Arrays工具类.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Vehicle.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +80,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="应用程序.Arrays工具类">
-    <configuration name="常用方法 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="字符串.常用方法" />
+  <component name="RunManager" selected="应用程序.Base (1)">
+    <configuration name="局部变量和成员变量的区别" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.局部变量和成员变量的区别" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="字符串.*" />
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,12 +94,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="局部变量和成员变量的区别" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.局部变量和成员变量的区别" />
+    <configuration name="静态代码块" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="修饰符.Static修饰符.静态代码块" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="类.*" />
+          <option name="PATTERN" value="修饰符.Static修饰符.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,129 +120,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Base (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Date.Base" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Date.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="字符串.Base" />
+      <option name="MAIN_CLASS_NAME" value="类.继承.Base" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="字符串.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Static属性" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="修饰符.Static属性" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="修饰符.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="猜数字游戏" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.猜数字游戏" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.包装类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的调用格式" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的调用格式" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
+          <option name="PATTERN" value="类.继承.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -357,6 +276,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="猜数字游戏" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.猜数字游戏" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="数组元素的默认值" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="数组.数组元素的默认值" />
       <module name="JavaBase" />
@@ -383,12 +315,104 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.包装类" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的调用格式" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的调用格式" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Base (1)" />
+        <item itemvalue="应用程序.Base" />
+        <item itemvalue="应用程序.静态代码块" />
         <item itemvalue="应用程序.Arrays工具类" />
         <item itemvalue="应用程序.局部变量和成员变量的区别" />
-        <item itemvalue="应用程序.Static属性" />
-        <item itemvalue="应用程序.常用方法 (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -452,7 +476,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -468,18 +504,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="381" width="401" height="309" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593609786793" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1595506871896">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1596178327731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595506871896" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596178327731" />
     <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593522912632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593522912632" />
-    <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1595760147470">
+    <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1596177204929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1595760147470" />
+    <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1596177204929" />
     <state x="644" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593610674830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -496,22 +532,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596121736481" />
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom" timestamp="1596122314398">
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom" timestamp="1596182619210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596122314398" />
-    <state width="1877" height="260" key="GridCell.Tab.0.center" timestamp="1596122314398">
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596182619210" />
+    <state width="1876" height="239" key="GridCell.Tab.0.center" timestamp="1596182619210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596122314398" />
-    <state width="1877" height="260" key="GridCell.Tab.0.left" timestamp="1596122314397">
+    <state width="1876" height="239" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596182619210" />
+    <state width="1876" height="239" key="GridCell.Tab.0.left" timestamp="1596182619209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596122314397" />
-    <state width="1877" height="260" key="GridCell.Tab.0.right" timestamp="1596122314398">
+    <state width="1876" height="239" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596182619209" />
+    <state width="1876" height="239" key="GridCell.Tab.0.right" timestamp="1596182619210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596122314398" />
+    <state width="1876" height="239" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596182619210" />
     <state x="614" y="223" key="NewModule_or_Project.wizard" timestamp="1593269622370">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -520,10 +556,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="235" width="1195" height="712" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596121766444" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1596122557378">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1596182635689">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596122557378" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596182635689" />
     <state x="672" y="306" key="git4idea.merge.GitPullDialog" timestamp="1596121773703">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
