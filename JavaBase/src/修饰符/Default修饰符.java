@@ -10,6 +10,7 @@ default：即不加任何访问修饰符，通常称为“默认访问模式“�
 
 2.default修饰类:
     1.同一个包访问
+    2.可以修饰普通类和内部类
 
 */
 public class Default修饰符 {

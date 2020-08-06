@@ -11,6 +11,10 @@ public class Vehicle {
         this.name = name;
     }
 
+    public void says (){
+        System.out.println("我叫：" + name +"，是一种交通工具" );
+    }
+
     public String getName() {
         return name;
     }
