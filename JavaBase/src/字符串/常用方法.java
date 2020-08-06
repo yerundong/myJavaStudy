@@ -7,6 +7,10 @@ public class 常用方法 {
         // <M> length()
         System.out.println("输出1：" + str1.length());
 
+        // <M> charAt(int index)
+        // <返回> char 返回指定索引处的 char 值。
+        System.out.println("输出1.1：" + str1.charAt(1));
+
         // <M> concat(String str)
         // <返回> 拼接创建一个新的 String 对象返回
         String str2 = ", I am studying.";
