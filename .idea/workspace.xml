@@ -16,16 +16,26 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08c93b02-3a31-47f3-bfa9-9df561e80b77" name="默认的" comment="999">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/Math工具类/Base.java" afterDir="false" />
+    <list default="true" id="08c93b02-3a31-47f3-bfa9-9df561e80b77" name="默认的" comment="666">
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/This关键字.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/字符串/常用方法.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/字符串/常用方法.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/练习/随机字符串排序.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/练习/随机字符串排序.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/字符串/常用方法.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/字符串/常用方法.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/数组/Arrays工具类.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/数组/Arrays工具类.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Default修饰符.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Default修饰符.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Public修饰符.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/修饰符/Public修饰符.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/方法/方法的重载.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/方法/方法的重载.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaBase/类/继承/Vehicle.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,39 +72,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="应用程序.Base">
+  <component name="RunManager" selected="应用程序.This关键字">
     <configuration name="常用方法 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="字符串.常用方法" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="字符串.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="局部变量和成员变量的区别" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.局部变量和成员变量的区别" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="随机字符串排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.练习.随机字符串排序" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数组.练习.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,6 +99,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Base (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.继承.Base" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.继承.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Math工具类.Base" />
       <module name="JavaBase" />
@@ -128,25 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="数据类型的强制转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据的类型转换.数据类型的强制转换" />
+    <configuration name="This关键字" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.This关键字" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="数据的类型转换.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="数组异常" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.数组异常" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数组.*" />
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,6 +157,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="编译器隐含的转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据的类型转换.编译器隐含的转换" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据的类型转换.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -212,19 +209,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="数组.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="编译器隐含的转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据的类型转换.编译器隐含的转换" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数据的类型转换.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -284,6 +268,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="数据类型.包装类" />
       <module name="JavaBase" />
@@ -323,8 +320,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
@@ -336,12 +333,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+    <configuration name="随机字符串排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数组.练习.随机字符串排序" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="方法.*" />
+          <option name="PATTERN" value="数组.练习.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -388,13 +385,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="数据类型的强制转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据的类型转换.数据类型的强制转换" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据的类型转换.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="数组异常" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数组.数组异常" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数组.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.This关键字" />
+        <item itemvalue="应用程序.Base (1)" />
         <item itemvalue="应用程序.Base" />
-        <item itemvalue="应用程序.随机字符串排序" />
         <item itemvalue="应用程序.常用方法 (1)" />
         <item itemvalue="应用程序.Arrays工具类" />
-        <item itemvalue="应用程序.局部变量和成员变量的区别" />
       </list>
     </recent_temporary>
   </component>
@@ -432,7 +455,10 @@
       <workItem from="1595504923659" duration="3202000" />
       <workItem from="1595756979194" duration="5597000" />
       <workItem from="1596121552347" duration="1116000" />
-      <workItem from="1596716722751" duration="4170000" />
+      <workItem from="1596716722751" duration="4396000" />
+      <workItem from="1596815535044" duration="515000" />
+      <workItem from="1596880743788" duration="6442000" />
+      <workItem from="1596979866425" duration="3481000" />
     </task>
     <task id="LOCAL-00001" summary="888">
       <created>1596122499294</created>
@@ -455,7 +481,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596122637754</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="666">
+      <created>1596726688079</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596726688079</updated>
+    </task>
+    <task id="LOCAL-00005" summary="666">
+      <created>1596726694267</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596726694267</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +506,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -476,21 +528,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="888" />
     <MESSAGE value="999" />
-    <option name="LAST_COMMIT_MESSAGE" value="999" />
+    <MESSAGE value="666" />
+    <option name="LAST_COMMIT_MESSAGE" value="666" />
   </component>
   <component name="WindowStateProjectService">
     <state x="842" y="381" width="401" height="309" key="#Notifications" timestamp="1593609786793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="381" width="401" height="309" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593609786793" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1595506871896">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1596980805893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595506871896" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596980805893" />
     <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593522912632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593522912632" />
+    <state x="730" y="386" width="459" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596980550731">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="730" y="386" width="459" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1596980550731" />
     <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1595760147470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -511,22 +568,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596121736481" />
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom" timestamp="1596725909828">
+    <state width="1877" height="165" key="GridCell.Tab.0.bottom" timestamp="1596904446857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596725909828" />
-    <state width="1877" height="260" key="GridCell.Tab.0.center" timestamp="1596725909828">
+    <state width="1877" height="165" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596904446857" />
+    <state width="1877" height="165" key="GridCell.Tab.0.center" timestamp="1596904446857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596725909828" />
-    <state width="1877" height="260" key="GridCell.Tab.0.left" timestamp="1596725909828">
+    <state width="1877" height="165" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596904446857" />
+    <state width="1877" height="165" key="GridCell.Tab.0.left" timestamp="1596904446857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596725909828" />
-    <state width="1877" height="260" key="GridCell.Tab.0.right" timestamp="1596725909828">
+    <state width="1877" height="165" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596904446857" />
+    <state width="1877" height="165" key="GridCell.Tab.0.right" timestamp="1596904446857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596725909828" />
+    <state width="1877" height="165" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596904446857" />
+    <state x="150" y="138" key="MergeDialog" timestamp="1596726750047">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="150" y="138" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596726750047" />
+    <state x="844" y="386" width="532" height="268" key="MultipleFileMergeDialog" timestamp="1596726756630">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="844" y="386" width="532" height="268" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596726756630" />
     <state x="614" y="223" key="NewModule_or_Project.wizard" timestamp="1593269622370">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -535,14 +600,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="235" width="1195" height="712" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596121766444" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1596122641231">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1596726845418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596122641231" />
-    <state x="672" y="306" key="git4idea.merge.GitPullDialog" timestamp="1596121773703">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596726845418" />
+    <state x="672" y="306" key="git4idea.merge.GitPullDialog" timestamp="1596726825794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="672" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596121773703" />
+    <state x="672" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596726825794" />
     <state x="572" y="86" key="new project wizard" timestamp="1594559998366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

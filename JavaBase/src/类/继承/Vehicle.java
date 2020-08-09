@@ -1,6 +1,7 @@
 package 类.继承;
 
 public class Vehicle {
+    public String tip = "Vehicle tip";
     private String name;
     private boolean isCarry = true;
 
@@ -11,8 +12,9 @@ public class Vehicle {
         this.name = name;
     }
 
-    public void says (){
+    Object says (){
         System.out.println("我叫：" + name +"，是一种交通工具" );
+        return null;
     }
 
     public String getName() {

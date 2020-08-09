@@ -1,5 +1,7 @@
 package 修饰符;
 /*
+访问范围：public > protected > (default) > private
+
 public：访问限制最宽的修饰符，一般称之为“公共的”。被其修饰的类、属性以及方法不仅可以跨类访问，而且允许跨包（package）访问。
 
 1.public修饰类的属性和方法:
