@@ -1,16 +1,6 @@
-package 类;
-/*
-    this关键字：
-        1.用于访问本类的成员变量\静态变量，以及调用成员方法\静态方法
-        2.充当本类的构造函数this()\this(...)
-        3.静态方法中不能使用this
-* */
-public class This关键字 {
-    public static void main(String[] args) {
-        new TestThis();
-    }
-}
-class TestThis {
+package 类.This关键字;
+
+public class TestThis {
     public int num = 250;
     public static int num2 = 260;
 
@@ -37,4 +27,3 @@ class TestThis {
         // this.says2();// 报错
     }
 }
-

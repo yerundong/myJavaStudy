@@ -26,14 +26,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08c93b02-3a31-47f3-bfa9-9df561e80b77" name="默认的" comment="666">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/练习/发红包/CommonMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/练习/发红包/GroupLeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/练习/发红包/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/练习/发红包/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/ClassForAbstractMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/ClassForDefaultMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/ClassForStaticMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/InterfaceForAbstractMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/InterfaceForDefaultMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/InterfaceForPrivateMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/InterfaceForStaticMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Static修饰符/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Static修饰符/StaticBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Static修饰符/StaticModifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/This关键字/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/成员变量和方法/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/成员变量和方法/MemberVar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Default修饰符/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Default修饰符/TestDefault.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Private修饰符/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Private修饰符/TestPrivate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Public修饰符/TestPublic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/ArrayList/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/ArrayList/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/ArrayList/常用方法.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/ArrayList/常用方法.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/继承/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/继承/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Default修饰符.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Private修饰符.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Protect修饰符.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Public修饰符.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/Public修饰符/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/Base.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/Static修饰符/静态代码块.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/截图/02-静态static关键字概述.png" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/截图/02-静态static关键字概述.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/截图/03-静态的内存图.png" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/截图/03-静态的内存图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/修饰符/截图/修饰符访问范围.png" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/访问修饰符/截图/修饰符访问范围.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/变量与常量/变量.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/变量与常量/变量.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/方法/方法的定义.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/方法/方法的定义.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/方法/方法的调用格式.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/方法/方法的调用格式.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/This关键字.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/This关键字/TestThis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/局部变量和成员变量的区别.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/成员方法和属性.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/抽象/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/抽象/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Default修饰符.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Hero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Kit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Private修饰符$Axiba.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Private修饰符.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Protect修饰符.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Public修饰符.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/Base.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/Pupil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Static修饰符/静态代码块.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/Tom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/截图/02-静态static关键字概述.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/修饰符/截图/03-静态的内存图.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/Someone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/局部变量和成员变量的区别.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaBase/类/成员方法和属性.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +88,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,32 +110,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloRong" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Java" />
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="应用程序.Main">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="接口" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.Main (1)">
     <configuration name="Base (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="类.继承.Base" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="类.继承.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Math工具类.Base" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Math工具类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,6 +161,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.This关键字.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.成员变量和方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.Static修饰符.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.Static修饰符.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="接口.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="接口.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TesRandom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="类.练习.TesRandom" />
       <module name="JavaBase" />
@@ -136,12 +213,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="This关键字" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.This关键字" />
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="类.*" />
+          <option name="PATTERN" value="方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,12 +226,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="方法的调用格式" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的调用格式" />
+    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.包装类" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="方法.*" />
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -370,39 +447,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.包装类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Main (1)" />
+        <item itemvalue="应用程序.Main (1)" />
         <item itemvalue="应用程序.Main" />
         <item itemvalue="应用程序.TesRandom" />
-        <item itemvalue="应用程序.This关键字" />
-        <item itemvalue="应用程序.Base (1)" />
-        <item itemvalue="应用程序.Base" />
+        <item itemvalue="应用程序.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -445,7 +496,9 @@
       <workItem from="1596880743788" duration="6442000" />
       <workItem from="1596979866425" duration="3784000" />
       <workItem from="1597152308879" duration="4531000" />
-      <workItem from="1597331620596" duration="3181000" />
+      <workItem from="1597331620596" duration="3358000" />
+      <workItem from="1597497864372" duration="1686000" />
+      <workItem from="1597560664553" duration="18778000" />
     </task>
     <task id="LOCAL-00001" summary="888">
       <created>1596122499294</created>
@@ -496,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597158855541</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="111">
+      <created>1597334902556</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597334902556</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,21 +591,26 @@
     <MESSAGE value="666" />
     <MESSAGE value="777" />
     <MESSAGE value="888" />
-    <option name="LAST_COMMIT_MESSAGE" value="888" />
+    <MESSAGE value="111" />
+    <option name="LAST_COMMIT_MESSAGE" value="111" />
   </component>
   <component name="WindowStateProjectService">
     <state x="842" y="381" width="401" height="309" key="#Notifications" timestamp="1593609786793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="381" width="401" height="309" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593609786793" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1597332027387">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1597577892312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597332027387" />
-    <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593522912632">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597577892312" />
+    <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1597566352233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593522912632" />
+    <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597566352233" />
+    <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597581845566">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="696" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597581845566" />
     <state x="730" y="386" width="459" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596980550731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -554,10 +619,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1595760147470" />
-    <state x="644" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593610674830">
+    <state x="644" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597566103216">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="644" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593610674830" />
+    <state x="644" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597566103215" />
     <state x="552" y="178" width="816" height="731" key="#意图" timestamp="1595085447253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -566,26 +631,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#项目结构/0.0.1920.1040@0.0.1920.1040" timestamp="1592723060856" />
-    <state x="740" y="209" key="FileChooserDialogImpl" timestamp="1596121736481">
+    <state x="740" y="209" key="FileChooserDialogImpl" timestamp="1597583079876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596121736481" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1597334779995">
+    <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597583079876" />
+    <state width="1877" height="272" key="GridCell.Tab.0.bottom" timestamp="1597579136824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597334779995" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1597334779995">
+    <state width="1877" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597579136824" />
+    <state width="1877" height="272" key="GridCell.Tab.0.center" timestamp="1597579136823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597334779995" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1597334779995">
+    <state width="1877" height="272" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597579136823" />
+    <state width="1877" height="272" key="GridCell.Tab.0.left" timestamp="1597579136823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597334779995" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1597334779995">
+    <state width="1877" height="272" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597579136823" />
+    <state width="1877" height="272" key="GridCell.Tab.0.right" timestamp="1597579136824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597334779995" />
+    <state width="1877" height="272" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597579136824" />
     <state x="150" y="138" key="MergeDialog" timestamp="1596726750047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -602,25 +667,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="235" width="1195" height="712" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596121766444" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1597158860020">
+    <state x="311" y="160" key="Vcs.Push.Dialog.v2" timestamp="1597574903262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597158860020" />
+    <state x="311" y="160" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597574903262" />
     <state x="672" y="306" key="git4idea.merge.GitPullDialog" timestamp="1596726825794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596726825794" />
-    <state x="572" y="86" key="new project wizard" timestamp="1594559998366">
+    <state x="572" y="86" key="new project wizard" timestamp="1597583093421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="572" y="86" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1594559998366" />
+    <state x="572" y="86" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1597583093421" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1595506192313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595506192313" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597332434556">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597565225538">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597332434556" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597565225538" />
   </component>
 </project>
