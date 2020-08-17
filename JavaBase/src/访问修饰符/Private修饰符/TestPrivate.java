@@ -1,4 +1,4 @@
-package 类.访问修饰符.Private修饰符;
+package 访问修饰符.Private修饰符;
 
 // private class TestPrivate {}// 报错，不能修饰外部类
 

@@ -1,4 +1,4 @@
-package 类.访问修饰符.Default修饰符;
+package 访问修饰符.Default修饰符;
 
 import 类.Student;
 
