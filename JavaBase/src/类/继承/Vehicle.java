@@ -12,9 +12,17 @@ public class Vehicle {
         this.name = name;
     }
 
-    Object says (){
+    public Object says (){
         System.out.println("我叫：" + name +"，是一种交通工具" );
         return null;
+    }
+
+    public void run (){
+        System.out.println("我是父类的run方法" );
+    }
+
+    public static void look (){
+        System.out.println("我是父类的look方法" );
     }
 
     public String getName() {

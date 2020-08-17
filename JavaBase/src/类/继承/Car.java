@@ -14,9 +14,10 @@ public class Car extends Vehicle {
     }
 
     public Car(String name, String displacement) {
+        // 有参必须显式调用super()，并且必须第一执行
         super(name);
-        System.out.println(super.tip);
         this.displacement = displacement;
+        // System.out.println(super.tip);
     }
 
     @Override
@@ -25,6 +26,17 @@ public class Car extends Vehicle {
         return "我是重写方法！";
     }
 
+    // 重载父类方法
+    public void run (String word){
+        System.out.println(word);
+    }
+
+    // @Override 报错，static方法不能重写
+    public static void look (int num){
+        System.out.println("我是子类look");
+    }
+
+    // this和super的运用
     public void pop (){
         System.out.println("我的排量是：" + displacement + "，superTip：" + super.tip + "，subTip：" + this.tip);
     }
