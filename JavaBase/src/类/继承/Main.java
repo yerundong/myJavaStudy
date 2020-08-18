@@ -12,7 +12,9 @@ package 类.继承;
     5.提高了类之间的耦合性（继承的缺点，耦合度高就会造成代码之间的联系越紧密，代码独立性越差）。
     6.继承是多态的前提
     7.所有类继承的最顶级对象是java.lang.Object，Object是祖先类。
-    8.静态方法可以被继承，可以被重载，可以被重新声明，但不能被重写（重新声明其实相当于重写，只是不能注解）
+    8.子类对父类成员方法的重写和重载的前提是：子类继承了该方法；所以private方法无法被重载、重写
+    9.静态方法可以被继承，可以被重载，可以被重新声明，但不能被重写（重新声明其实相当于重写，只是不能注解）
+    10.重写只能适用于【实例方法】.不能用于静态方法.对于静态方法,只能隐藏(隐藏只是形式上的重写，并不满足多态的特征，所以严格说不是重写)
 
 @ 继承关键字: extends 和 implements
     1.extends关键字：在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。
@@ -44,23 +46,23 @@ package 类.继承;
 */
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("小汽车", "1.5t");
+        TestSub car1 = new TestSub("小汽车", "1.5t");
 
         // 子类继承父类非private成员变量
         System.out.println(car1.tip);
 
-        // 子类对父类的方法的重写
-        car1.says();
-
         // this和super的运用
         car1.pop();
+
+        // 子类对父类的方法的重写
+        car1.says();
 
         // 子类对父类的方法的重载
         car1.run();
         car1.run("我是子类的run方法，对父类的run进行了重载！");
 
         // 静态方法的重载和重新声明
-        Car.look(1);
-        Car.look();
+        TestSub.look(1);// 子类look
+        TestSub.look();// 父类look
     }
 }

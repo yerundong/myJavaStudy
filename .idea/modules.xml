@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HelloRong/HelloRong.iml" filepath="$PROJECT_DIR$/HelloRong/HelloRong.iml" />
-      <module fileurl="file://$PROJECT_DIR$/HelloWold/HelloWold.iml" filepath="$PROJECT_DIR$/HelloWold/HelloWold.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase/JavaBase.iml" filepath="$PROJECT_DIR$/JavaBase/JavaBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JustJava/JustJava.iml" filepath="$PROJECT_DIR$/JustJava/JustJava.iml" />
     </modules>
   </component>
 </project>

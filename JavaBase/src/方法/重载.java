@@ -23,6 +23,7 @@ package 方法;
 
 @ 注意事项：
     1.重载可以对本类方法的重载，也可以是子类可以对父类的非private方法进行重载，但不能是本类对子类的重载
+    2.子类对父类成员方法的重写和重载的前提是：子类继承了该方法；所以private方法无法被重载、重写
  */
 public class 重载 {
     public static void main(String[] args) {
