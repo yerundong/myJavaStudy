@@ -19,28 +19,39 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="qqq">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/ExtendImpClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/抽象方法/TestAbsClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/GrandPaClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/SubClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/SuperClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重继承/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重继承/SubInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重继承/SuperInterface1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重继承/SuperInterface2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重继承/TestClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/继承和实现组合/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/继承和实现组合/TestInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/继承和实现组合/TestSubClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/接口/继承和实现组合/TestSuperClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/一个类实现多个接口/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/一个类实现多个接口/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/TestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/一个类实现多个接口/TestInterface1.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/TestInterface1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/一个类实现多个接口/TestInterface2.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/TestInterface2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/常量/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/常量/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/常量/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/常量/TestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/常量/TestInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/常量/TestInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/ExtendImpClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/多重实现/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/抽象方法/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/抽象方法/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/抽象方法/TestAbsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/抽象方法/TestAbsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/私有方法/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/私有方法/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/私有方法/TestInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/私有方法/TestInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/静态方法/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/静态方法/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/静态方法/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/静态方法/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/TestInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/接口/默认方法/TestInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +78,9 @@
     <setting file="file://$PROJECT_DIR$/HelloWold/src/package1/p2/p3/HelloWorld.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1dcPApyW34c5qmlkSlKPDBeGKlO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="新增" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -85,6 +98,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="多态" />
+      <recent name="接口.多重继承" />
       <recent name="接口.一个类实现多个接口" />
       <recent name="接口" />
     </key>
@@ -92,13 +107,13 @@
       <recent name="C:\Users\Administrator\Desktop\myJavaStudy\JavaBase\src\类\隐藏" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Main (5)">
-    <configuration name="数组" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.数组" />
+  <component name="RunManager" selected="应用程序.Main">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="接口.默认方法.Main" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="数组.*" />
+          <option name="PATTERN" value="接口.默认方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,25 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.隐藏.Main" />
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="接口.多重继承.Main" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="类.隐藏.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="接口.静态方法.Main" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="接口.静态方法.*" />
+          <option name="PATTERN" value="接口.多重继承.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +148,24 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="接口.多重实现.Main" />
+      <option name="MAIN_CLASS_NAME" value="接口.继承和实现组合.Main" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="接口.多重实现.*" />
+          <option name="PATTERN" value="接口.继承和实现组合.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="多态.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="多态.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -229,6 +244,97 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="接口.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="猜数字游戏" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.猜数字游戏" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据类型.包装类" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据类型.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="随机字符串排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数组.练习.随机字符串排序" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数组.练习.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.包装类" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -340,97 +446,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="猜数字游戏" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.猜数字游戏" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据类型.包装类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数据类型.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="随机字符串排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.练习.随机字符串排序" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数组.练习.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.包装类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="JustJava" />
       <option name="VM_PARAMETERS" />
@@ -480,11 +495,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Main" />
+        <item itemvalue="应用程序.Main (2)" />
+        <item itemvalue="应用程序.Main" />
+        <item itemvalue="应用程序.Main (1)" />
         <item itemvalue="应用程序.Main (5)" />
-        <item itemvalue="应用程序.Main (4)" />
-        <item itemvalue="应用程序.Main (1)" />
-        <item itemvalue="应用程序.Main (1)" />
-        <item itemvalue="应用程序.Main (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -594,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597660037191</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="555">
+      <created>1597745433556</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1597745433556</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,17 +653,18 @@
     <MESSAGE value="888" />
     <MESSAGE value="111" />
     <MESSAGE value="333" />
-    <option name="LAST_COMMIT_MESSAGE" value="333" />
+    <MESSAGE value="555" />
+    <option name="LAST_COMMIT_MESSAGE" value="555" />
   </component>
   <component name="WindowStateProjectService">
     <state x="842" y="381" width="401" height="309" key="#Notifications" timestamp="1593609786793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="381" width="401" height="309" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593609786793" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1597764884720">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1597822917133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597764884720" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597822917133" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1597566352233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -674,22 +697,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597740208511" />
-    <state width="1877" height="270" key="GridCell.Tab.0.bottom" timestamp="1597765761988">
+    <state width="629" height="214" key="GridCell.Tab.0.bottom" timestamp="1597825928176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597765761988" />
-    <state width="1877" height="270" key="GridCell.Tab.0.center" timestamp="1597765761988">
+    <state width="629" height="214" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597825928176" />
+    <state width="629" height="214" key="GridCell.Tab.0.center" timestamp="1597825928176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597765761988" />
-    <state width="1877" height="270" key="GridCell.Tab.0.left" timestamp="1597765761988">
+    <state width="629" height="214" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597825928176" />
+    <state width="629" height="214" key="GridCell.Tab.0.left" timestamp="1597825928175">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597765761988" />
-    <state width="1877" height="270" key="GridCell.Tab.0.right" timestamp="1597765761988">
+    <state width="629" height="214" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597825928175" />
+    <state width="629" height="214" key="GridCell.Tab.0.right" timestamp="1597825928176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597765761988" />
+    <state width="629" height="214" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597825928176" />
     <state x="150" y="138" key="MergeDialog" timestamp="1596726750047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -726,9 +749,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595506192313" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597565225538">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597807802191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597565225538" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597807802191" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/JavaBase/src/接口/静态方法/TestInterface.java</url>
+          <line>4</line>
+          <properties class="接口.静态方法.TestInterface" method="says">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
