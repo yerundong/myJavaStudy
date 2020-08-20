@@ -26,15 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="qqq">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Class2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Class3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/GrandPaClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/SubClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/Class1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/SuperClass.java" beforeDir="false" />
-    </list>
+    <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="qqq" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -605,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597831904841</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="888">
+      <created>1597917314742</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1597917314742</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,12 +637,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="999" />
     <MESSAGE value="666" />
-    <MESSAGE value="888" />
     <MESSAGE value="111" />
     <MESSAGE value="333" />
     <MESSAGE value="555" />
     <MESSAGE value="777" />
-    <option name="LAST_COMMIT_MESSAGE" value="777" />
+    <MESSAGE value="888" />
+    <option name="LAST_COMMIT_MESSAGE" value="888" />
   </component>
   <component name="WindowStateProjectService">
     <state x="842" y="381" width="401" height="309" key="#Notifications" timestamp="1593609786793">
@@ -686,22 +685,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597904550179" />
-    <state width="1876" height="371" key="GridCell.Tab.0.bottom" timestamp="1597910438354">
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom" timestamp="1597917305439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="371" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597910438354" />
-    <state width="1876" height="371" key="GridCell.Tab.0.center" timestamp="1597910438353">
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597917305439" />
+    <state width="1638" height="261" key="GridCell.Tab.0.center" timestamp="1597917305439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="371" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597910438353" />
-    <state width="1876" height="371" key="GridCell.Tab.0.left" timestamp="1597910438352">
+    <state width="1638" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597917305439" />
+    <state width="1638" height="261" key="GridCell.Tab.0.left" timestamp="1597917305439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="371" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597910438352" />
-    <state width="1876" height="371" key="GridCell.Tab.0.right" timestamp="1597910438354">
+    <state width="1638" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597917305439" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right" timestamp="1597917305439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="371" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597910438354" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597917305439" />
     <state x="150" y="138" key="MergeDialog" timestamp="1596726750047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -722,10 +721,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="235" width="1195" height="712" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596121766444" />
-    <state x="311" y="160" key="Vcs.Push.Dialog.v2" timestamp="1597831950327">
+    <state x="311" y="160" key="Vcs.Push.Dialog.v2" timestamp="1597917316949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="311" y="160" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597831950327" />
+    <state x="311" y="160" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597917316949" />
+    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597917342750">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597917342750" />
     <state x="801" y="149" width="652" height="891" key="find.popup" timestamp="1597905580164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
