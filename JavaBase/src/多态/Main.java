@@ -22,32 +22,48 @@ package 多态;
     或者：
     接口名称 对象名 = new 实现类名称();
 
-@ 口诀：编译看左边，运行看右边。
+@ 口诀：编译看左，运行看右
 
-@ 使用多态调用成员方法时：
-    1.直接访问成员变量，看左边，没有则向上查找
-    2.通过方法间接访问成员变量，看方法属于谁，没有则向上查找
+@ 使用多态成员成员看两个方面：
+    1.有没有：看类\接口是否有这个成员（继承来的也算）
+    2.从哪找：从哪个类开始往上查找
 
-@ 使用多态访问成员变量时：
-    1.直接访问成员变量，看左边，没有则向上查找
-    2.通过方法间接访问成员变量，看方法属于谁，没有则向上查找
+@ 使用多态成员变量：有没有、从哪找都看左边，没有则报错
+注意：通过方法间接访问成员变量，跟成员方法的规则一致
+
+@ 使用多态成员方法：有没有看左边，从哪找看右边，没有则报错
+
+
 
 */
 public class Main {
     public static void main(String[] args) {
-        SubClass obj1 = new SubClass();
-        SuperClass obj2 = new SubClass();
+        Class1 obj1 = new Class1();
+        Class2 obj2 = new Class1();
+        Class3 obj3 = new Class1();
 
-        System.out.println(obj1.name);// SubClass name
-        System.out.println(obj1.tip);// SubClass tip
+        System.out.println("================ part 1 =================");
 
-        // 多态：直接访问成员变量看左边，没有则向上查找
-        System.out.println(obj2.name);// SuperClass name
-        System.out.println(obj2.tip);// GrandPaClass tip
+        System.out.println(obj1.name);// 我是 Class1 的 name
+        System.out.println(obj1.name1);// 我是 Class1 特有的
+        System.out.println(obj1.name2);// 我是 Class2 特有的
+        System.out.println(obj1.name3);// 我是 Class2 特有的
 
-        obj2.getName();
+        System.out.println("================= part 2 =================");
 
-        obj1.abs();// SubClass abs
-        obj2.abs();// SubClass abs
+        System.out.println(obj2.name);// 我是 Class2 的 name
+        // System.out.println(obj2.name1);// 报错，obj2里没有name1
+        System.out.println(obj2.name2);// 我是 Class2 特有的
+        System.out.println(obj2.name3);// 我是 Class3 特有的
+
+        System.out.println("================ part 3 ==================");
+
+        obj1.getName();// 我是 Class1 的 name
+        obj2.getName();// 我是 Class1 的 name
+        obj3.getName();// 我是 Class1 的 name
+
+        obj1.says();// 我是 Class1 的 says()
+        obj2.says();// 我是 Class1 的 says()
+        // obj3.says();// 报错，obj3里没有says()
     }
 }
