@@ -1,4 +1,4 @@
-package 多态;
+package 多态.继承和实现中的多态;
 
 public class Class2 extends Class3 {
     public String name = "我是 Class2 的 name";

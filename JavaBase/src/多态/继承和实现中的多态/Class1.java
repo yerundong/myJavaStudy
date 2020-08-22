@@ -1,6 +1,6 @@
-package 多态;
+package 多态.继承和实现中的多态;
 
-public class Class1 extends Class2 {
+public class Class1 extends Class2 implements Interface1 {
     public String name = "我是 Class1 的 name ";
     public String name1 = "我是 Class1 特有的";
 

@@ -1,6 +1,6 @@
-package 多态.向上和向下转型;
+package 多态.Instanceof关键字;
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Interface1 {
     @Override
     public void eat() {
         System.out.println("狗吃骨头");

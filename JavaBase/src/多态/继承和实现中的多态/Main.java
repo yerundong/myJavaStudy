@@ -1,10 +1,11 @@
-package 多态;
+package 多态.继承和实现中的多态;
 /*
 @ 定义：
-    多态（Polymorphism）是指同一个行为，具有多个不同表现形式或形态的能力。
-    比如跑的行为，小猫、小狗和大象，跑起来是不一样的。再比如飞的行为，昆虫、鸟类和飞机，飞起来也是不一样的。
+    多态（Polymorphism）是指同一个行为，具有多个不同表现形式或形态的能力。比如跑的行为，小猫、小狗和大象，跑起来是不一样的。再比如飞的行为，昆虫、鸟类和飞机，飞起来也是不一样的。
+    Java中，多态就是同一个接口，使用不同的实例而执行不同操作。
 
 @ 含义：
+    父类引用指向子类。
     多态写法实际是向上转型，是小范围到大范围的转变。
     把子类单做父类使用，只能使用父类有的成员，不能使用子类特有的成员。
     例如：把猫当作动物来看待，可以使用动物有的属性，但不能使用猫特有的属性。
@@ -29,12 +30,12 @@ package 多态;
 
 @ 口诀：编译看左，运行看右
 
-@ 使用多态成员成员看两个方面：
+@@ 使用多态成员成员看两个方面：
     1.有没有：看类\接口是否有这个成员（继承来的也算）
     2.从哪找：从哪个类开始往上查找
 
-@ 使用多态成员变量：有没有、从哪找都看左边，没有则报错
-注意：通过方法间接访问成员变量，跟成员方法的规则一致
+@@ 使用多态成员变量：有没有、从哪找都看左边，没有则报错
+@  注意：通过方法间接访问成员变量，跟成员方法的规则一致
 
 @ 使用多态成员方法：有没有看左边，从哪找看右边，没有则报错
 
@@ -44,6 +45,7 @@ public class Main {
         Class1 obj1 = new Class1();
         Class2 obj2 = new Class1();
         Class3 obj3 = new Class1();
+        Interface1 obj4 = new Class1();
 
         System.out.println("================ part 1 =================");
 
@@ -58,6 +60,9 @@ public class Main {
         // System.out.println(obj2.name1);// 报错，obj2里没有name1
         System.out.println(obj2.name2);// 我是 Class2 特有的
         System.out.println(obj2.name3);// 我是 Class3 特有的
+        // System.out.println(obj2.TIP);// 报错，obj2没有实现Interface1
+        System.out.println(obj1.TIP);// Interface1 TIP
+        System.out.println(obj4.TIP);// Interface1 TIP
 
         System.out.println("================ part 3 ==================");
 
@@ -68,5 +73,7 @@ public class Main {
         obj1.says();// 我是 Class1 的 says()
         obj2.says();// 我是 Class1 的 says()
         // obj3.says();// 报错，obj3里没有says()
+        obj4.says();// 我是 Class1 的 says()
+        obj4.look();// 我是 Interface1 特有的 look()
     }
 }
