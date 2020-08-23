@@ -27,25 +27,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="999">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Instanceof关键字/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Instanceof关键字/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Instanceof关键字/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Instanceof关键字/Interface1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/Instanceof关键字/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/练习/USB接口/Computer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/练习/USB接口/Keyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/练习/USB接口/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/练习/USB接口/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/练习/USB接口/USB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/多态/继承和实现中的多态/Interface1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final局部变量/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类/FinalClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类/Subclass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类成员/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类成员/SubClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类成员/SuperClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/类/内部类/Base.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/Class1.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/继承和实现中的多态/Class1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/Class2.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/继承和实现中的多态/Class2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/Class3.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/继承和实现中的多态/Class3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/继承和实现中的多态/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/多态/向上和向下转型/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/多态/向上和向下转型/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/类/Static修饰符/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/类/Static修饰符/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,13 +95,13 @@
       <recent name="C:\Users\Administrator\Desktop\myJavaStudy\JavaBase\src\类\隐藏" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Main (3)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="多态.练习.USB接口.Main" />
+  <component name="RunManager" selected="应用程序.Main (4)">
+    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="多态.练习.USB接口.*" />
+          <option name="PATTERN" value="方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,12 +109,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="接口.多重继承.Main" />
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="多态.练习.USB接口.Main" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="接口.多重继承.*" />
+          <option name="PATTERN" value="多态.练习.USB接口.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,12 +135,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.Final修饰符.Final类成员.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.Final修饰符.Final类成员.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="接口.继承和实现组合.Main" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="接口.继承和实现组合.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="接口.Main" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="接口.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -261,12 +278,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="接口.Main" />
+    <configuration name="标准的类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.标准的类" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="接口.*" />
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -274,12 +291,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="方法的重载" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的重载" />
+    <configuration name="数组长度" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数组.数组长度" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数组.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据类型.包装类" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据类型.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -391,71 +447,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="标准的类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.标准的类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="数组长度" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.数组长度" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数组.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="方法的定义" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.方法的定义" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="包装类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据类型.包装类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数据类型.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="类的导入和调用" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.类的导入和调用" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="JustJava" />
       <option name="VM_PARAMETERS" />
@@ -505,9 +496,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Main (4)" />
         <item itemvalue="应用程序.Main (3)" />
         <item itemvalue="应用程序.Main (1)" />
-        <item itemvalue="应用程序.Main (4)" />
         <item itemvalue="应用程序.Main (3)" />
         <item itemvalue="应用程序.Main" />
       </list>
@@ -691,10 +682,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="381" width="401" height="309" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593609786793" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1598084611258">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1598180886750">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1598084611258" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1598180886750" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1597566352233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -810,6 +801,12 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/JavaBase/src/类/Final修饰符/Final类成员/SubClass.java</url>
+          <line>3</line>
+          <properties field="name" class="类.Final修饰符.Final类成员.SubClass" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
