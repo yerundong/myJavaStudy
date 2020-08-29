@@ -22,6 +22,8 @@ public class 判断相等 {
         String str2 = "Hello";
         char[] charArray = {'H', 'e', 'l', 'l', 'o'};
         String str3 = new String(charArray);
+        charArray.equals(str2);
+        new String().equals(str2);
 
         // <1> equals
         System.out.println(str1.equals(str2)); // true
