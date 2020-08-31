@@ -18,33 +18,33 @@ import java.util.Date;
 */
 public class Date类 {
     public static void main(String[] args) {
-        // 构造方法
+        // @ 构造方法
         Date date = new Date();
         Date date2 = new Date(1598891904923L);
         System.out.println(date);// Sun Aug 30 20:54:51 CST 2020
         System.out.println(date2);// Tue Sep 01 00:38:24 CST 2020
 
-        // public long getTime()
+        // @ public long getTime()
         System.out.println(date.getTime());
 
-        // public String toString()
+        // @ public String toString()
         System.out.println(date.toString());// Sun Aug 30 20:54:51 CST 2020
 
-        // boolean after(Date date)
+        // @ boolean after(Date date)
         System.out.println(new Date(1598891904921L).after(new Date(1598891904920L)));// true
 
-        // boolean before(Date date)
+        // @ boolean before(Date date)
         System.out.println(new Date(1598891904921L).before(new Date(1598891904922L)));// true
 
-        // public Object clone()
+        // @ public Object clone()
         System.out.println(date2.clone());// Tue Sep 01 00:38:24 CST 2020
 
-        // public int compareTo(Date anotherDate)
+        // @ public int compareTo(Date anotherDate)
         System.out.println(date.compareTo(date));// 0
         System.out.println(new Date(3898891904921L).compareTo(new Date(1598891904921L)));// 1
         System.out.println(new Date(1598891904921L).compareTo(new Date(3898891904921L)));// -1
 
-        // public boolean equals(Object obj)
+        // @ public boolean equals(Object obj)
         System.out.println(date.equals(date));// true
         System.out.println(new Date(3898891904921L).equals(new Date(3898891904921L)));// true
     }
