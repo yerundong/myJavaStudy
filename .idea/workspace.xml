@@ -26,12 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8504f9ec-91d5-40c2-a01b-b1e8d8a493b8" name="默认的" comment="333">
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/System/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBase/src/日期与时间/Calendar/Calendar类.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/日期与时间/DateFormat类.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/日期与时间/DateFormat/DateFormat类.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/日期与时间/Date类.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/日期与时间/Date类.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/日期与时间/SimpleDateFormat类.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/日期与时间/DateFormat/SimpleDateFormat类.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/System/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/System/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/Arrays工具类.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/Arrays工具类.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/数组.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/数组异常.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/数组异常.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/数组/数组长度.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/数组/数组长度.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +91,19 @@
     </key>
   </component>
   <component name="RunManager" selected="应用程序.Base">
+    <configuration name="局部变量" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.局部变量" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="方法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="System.Base" />
       <module name="JavaBase" />
@@ -247,8 +260,73 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="局部变量" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.局部变量" />
+    <configuration name="数据类型的强制转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据的类型转换.数据类型的强制转换" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据的类型转换.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="数组异常" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数组.数组异常" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数组.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="编译器隐含的转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="数据的类型转换.编译器隐含的转换" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="数据的类型转换.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="局部变量和成员变量的区别" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.局部变量和成员变量的区别" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="标准的类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="类.标准的类" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="类.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="参数" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="方法.参数" />
       <module name="JavaBase" />
       <extension name="coverage">
         <pattern>
@@ -357,84 +435,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="数据类型的强制转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据的类型转换.数据类型的强制转换" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数据的类型转换.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="数组异常" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数组.数组异常" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数组.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="编译器隐含的转换" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="数据的类型转换.编译器隐含的转换" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="数据的类型转换.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="局部变量和成员变量的区别" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.局部变量和成员变量的区别" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="标准的类" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="类.标准的类" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="类.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="参数" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="方法.参数" />
-      <module name="JavaBase" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -748,22 +748,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597904550179" />
-    <state width="1876" height="260" key="GridCell.Tab.0.bottom" timestamp="1598956029576">
+    <state width="1877" height="301" key="GridCell.Tab.0.bottom" timestamp="1598969954317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598956029576" />
-    <state width="1876" height="260" key="GridCell.Tab.0.center" timestamp="1598956029576">
+    <state width="1877" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598969954317" />
+    <state width="1877" height="301" key="GridCell.Tab.0.center" timestamp="1598969954317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598956029576" />
-    <state width="1876" height="260" key="GridCell.Tab.0.left" timestamp="1598956029575">
+    <state width="1877" height="301" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598969954317" />
+    <state width="1877" height="301" key="GridCell.Tab.0.left" timestamp="1598969954317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598956029575" />
-    <state width="1876" height="260" key="GridCell.Tab.0.right" timestamp="1598956029576">
+    <state width="1877" height="301" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598969954317" />
+    <state width="1877" height="301" key="GridCell.Tab.0.right" timestamp="1598969954317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598956029576" />
+    <state width="1877" height="301" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598969954317" />
     <state x="150" y="138" key="MergeDialog" timestamp="1596726750047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -788,10 +788,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="311" y="160" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598869685964" />
-    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598930685200">
+    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598969788149">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598930685200" />
+    <state x="763" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598969788149" />
     <state x="801" y="149" width="652" height="891" key="find.popup" timestamp="1597905580164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

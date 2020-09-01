@@ -1,5 +1,6 @@
 package System;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /*
@@ -7,7 +8,7 @@ import java.util.Date;
 */
 public class Base {
     public static void main(String[] args) {
-        // @ currentTimeMillis() 获取系统当前毫秒值
+        // @ currentTimeMillis() 获取系统当前毫秒值，可用来测试程序运行时间
         // 注：与new Date().getTime()相当，但currentTimeMillis效率更高，new Date().getTime()也是利用currentTimeMillis()
         long start = System.currentTimeMillis();
         for (int i = 1; i <= 9; i++) {
@@ -33,7 +34,7 @@ public class Base {
         // System.out.println(System.getProperties());
 
         // @ public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length)
-        // 用来实现将源数组部分元素复制到目标数组的指定位置
+        // 用来实现将源数组部分元素复制替换到目标数组的指定位置
         // Object src：要复制的原数组；
         // Int srcPos：数组源的起始索引；
         // Object dest：复制后的目标数组；
@@ -42,9 +43,9 @@ public class Base {
 
         int[] src = {1, 22, 333, 4444, 5555, 666666, 7777777};
         int[] dest = {10, 20, 30};
-        System.arraycopy(src, 2, dest, 0, 2);
-        for (int i = 0; i < dest.length; i++) {
-            System.out.println(dest[i]);
-        }
+        System.out.println("复制前：" + Arrays.toString(dest));
+        System.arraycopy(src, 2, dest, 1, 2);
+        System.out.println("复制后：" + Arrays.toString(dest));
+        System.out.println("原数组不变：" + Arrays.toString(src));
     }
 }
