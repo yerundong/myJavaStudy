@@ -4,8 +4,8 @@ import java.util.Date;
 @ Date类：表示特定的瞬间，精确到毫秒。
 
 @ 构造方法：
-    1. Date()：获取当前时间对象
-    1. Date(long ms)：获取指定时间对象，ms：毫秒，long类型
+    1. Date()：获取当前日期对象
+    1. Date(long ms)：获取指定日期对象，ms：毫秒，long类型
 
 @ 成员方法：
     @ public long getTime()：获取Date 对象的毫秒数

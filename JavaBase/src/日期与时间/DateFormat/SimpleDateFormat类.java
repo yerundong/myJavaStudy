@@ -1,4 +1,4 @@
-package 日期与时间;
+package 日期与时间.DateFormat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,12 +6,13 @@ import java.util.Date;
 
 /*
 @ SimpleDateFormat类：
+    日期格式化类，继承DateFormat类
     是一个以与语言环境有关的方式来格式化和解析日期的具体类。
     它允许进行格式化（日期 -> 文本）、解析（文本 -> 日期）和规范化。
 
 @ 构造方法：
-    1. SimpleDateFormat()：用默认的模式和默认语言环境的日期格式符号构造
-    1. SimpleDateFormat(String pattern)：用特定的日期时间的字母模式构造
+    1. SimpleDateFormat()：用默认的模式和默认语言环境的日期格式符号构造【格式化对象】
+    1. SimpleDateFormat(String pattern)：用特定的日期时间的字母模式构造【格式化对象】
     ...
 
 @ 成员方法：
