@@ -18,6 +18,7 @@ public class TryCatch {
         int[] arr1 = new int[1];
         String str1 = "abc";
         try {
+            // 运行时异常
             // System.out.println(arr1[1]);// Exception--ArrayIndexOutOfBoundsException
             // System.out.println(str1.charAt(3));// Exception
             // int[] ints = new int[1024 * 1024 * 1024];// Error--OutOfMemoryError
@@ -25,21 +26,28 @@ public class TryCatch {
             // 编译时异常
             File file = new File("text.txt");
             FileInputStream fis = new FileInputStream(file);// FileNotFoundException
-        }catch (ArrayIndexOutOfBoundsException e){
+        }
+        catch (ArrayIndexOutOfBoundsException e){
             System.out.println("出现异常--数组索引越界");
         }catch (FileNotFoundException e){
             System.out.println("出现异常--FileNotFoundException");
         }catch (OutOfMemoryError e){
             System.out.println("出现错误--OutOfMemoryError");
             System.out.println(str1.charAt(3));
-        }catch (Exception e){
-            System.out.println(e);
+        }
+        catch (Exception e){
+            System.out.println("e：" + e);
+            System.out.println("toString()：" + e.toString());
+            System.out.println("getMessage()：" + e.getMessage());
+            System.out.println("getStackTrace()：" + e.getStackTrace());
+            System.out.println("getLocalizedMessage()：" + e.getLocalizedMessage());
+            // e.printStackTrace();
             System.out.println("出现异常--Exception");
         }catch (Error e){
             System.out.println(e);
             System.out.println("出现错误--Error");
         }finally {
-            System.out.println("finally");
+            System.out.println("--finally--");
         }
     }
 }
