@@ -1,7 +1,7 @@
 package 多态.Instanceof关键字;
 
 /*
-@ instanceof关键字：用来测试一个对象是否为一个类的实例，或一个对象是否为一个接口的实现实例
+@ instanceof关键字：用来测试一个对象是否为一个类或子类的实例，或一个对象是否为一个接口或子接口的实现实例
 
 @ 格式：boolean bool = object instanceof class/interface
 */
