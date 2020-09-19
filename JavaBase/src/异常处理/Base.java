@@ -7,14 +7,20 @@ import java.util.Date;
 @ 异常：在java语言中，将程序执行中发生不正常的情况称为“异常”
     注意：语法错误和逻辑错误不称为异常
 
+@ 常见类型异常：https://blog.csdn.net/Return_head/article/details/90243070
+
+@ java的异常处理是「抓抛模型」，「抓」是「捕获继而处理」的意思，「抛」是「抛出异常」的意思
+
 @ Throwable 类是 Java 语言中所有错误或异常的超类（广义上的异常）。
 @ Throwable有两个子类：
-    1.Error：java虚拟机无法解决的严重错误，无法捕获，它们在Java程序处理的范畴之外。例如，JVM 内存溢出
+    1.Error：java虚拟机无法解决的严重错误，无法捕获，只能改代码，它们在Java程序处理的范畴之外。例如，JVM 内存溢出
     2.Exception：编程错误或偶然性的外在因素导致的一般性问题，可以用针对性的代码处理（一般说的狭义上的异常）
 
-@ 异常分为两类：
+@ Exception异常分为两类：
     1.编译时异常，也叫受检异常（checked），如IOException、ClassNotFoundException、CloneNotSupportedException等
-    2.运行时异常，也叫非受检异常（unchecked），Error、RuntimeException极其子类异常
+    2.运行时异常，也叫非受检异常（unchecked），RuntimeException极其子类异常
+
+@ 注：Error也不可检测（unchecked），在运行时才抛出
 
 @ 异常对象的生成：
     1.虚拟机检测到异常，如果当前程序没有对异常进行处理，则会在后台自动创建一个异常对象抛出--自动抛出

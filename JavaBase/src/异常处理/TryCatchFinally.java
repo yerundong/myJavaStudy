@@ -6,13 +6,15 @@ import java.io.FileNotFoundException;
 
 /*
 @ try-catch-finally：用来捕获并处理异常（编译时+运行时）
+
 @ 注意：
     1.catch只捕获对应的异常类，一旦捕获，将不执行其他catch
     2.catch参数，子类应在前，父类在后，不然报错
-    3.finally兜底，放在最后，无论有没有发生异常，异常有没有捕获，他无论如何都会执行
+    3.finally兜底，放在最后，无论如何最后都会执行，统一处理try-catch中的错误
     4.try中只要检测到异常，代码将中止，进入catch或finally代码块
     5.catch代码块中若也发生异常，会进入同级的finally中
     6.运行时异常一般不必用try-catch-finally处理，因为太多了，编译时必须处理，将它延迟到运行时出现
+    7.数据库连接、输入输出流、网络编程socket等资源，jvm不会自动回收，我们需要看手动释放，释放代码需要写在finally中
 
 @ try-catch-finally中的return：
     1.try、catch、finally的代码块执行不会被return截止，会先执行各自return前的代码，最后执行return
@@ -20,7 +22,7 @@ import java.io.FileNotFoundException;
     3.finally的return优先级大于try、catch
 
 */
-public class TryCatch {
+public class TryCatchFinally {
     public static void main(String[] args) {
         int[] arr1 = new int[1];
         String str1 = "abc";
@@ -66,6 +68,7 @@ public class TryCatch {
             System.out.println(arr1[1]);
             return 1;
         }catch (Exception e){
+            // System.out.println(arr1[1]);
             System.out.println("*** catch ***");
             return 2;
         }finally {
