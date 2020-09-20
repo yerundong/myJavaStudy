@@ -1,4 +1,4 @@
-package 数组.练习;
+package 字符串.练习;
 
 import java.util.Arrays;
 

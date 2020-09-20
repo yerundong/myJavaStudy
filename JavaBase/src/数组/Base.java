@@ -38,58 +38,72 @@ package 数组;
 public class Base {
 
     public static void main(String[] args) {
-        // 格式一：数组的动态初始化
-        // 创建一个数组，里面可以存放300个int数据
+        // @ 格式一：数组的动态初始化
+        // 动态初始化会根据元素类型，给定默认值
         // 格式：数据类型[] 数组名称 = new 数据类型[数组长度];
-        int[] arrayA = new int[300];
-        // int[] arrayA = new int[];// 错误写法
+        int[] array1 = new int[1];
+        // 注：动态初始化必须写长度
+        // int[] array1 = new int[];// 错误写法
 
-        // 直接打印数组名称，得到的是数组对应的：内存地址哈希值。
-        System.out.println(arrayA);// [I@10f87f48
+        // 打印默认值
+        // for (int i = 0; i < array1.length; i++) {
+        //     System.out.println(array1[i]);
+        // }
 
-        // 创建一个数组，能存放10个double类型的数据
-        double[] arrayB = new double[10];
+        // 重新赋值
+        array1[0] = 0;
+        // 注：若超出设定的长度，报运行时错误：ArrayIndexOutOfBoundsException
+        // array1[1] = 1;
 
-        // 创建一个数组，能存放5个字符串
-        String[] arrayC = new String[5];
 
-        // 格式二：数组的静态初始化
-        int[] arr1 = new int[]{1, 2, 3};
-        // int[] arr1 = new int[3]{1, 2, 3};// 错误写法
 
-        // 格式三：数组的静态初始化（省略格式）
-        String[] arr2 = {"hello", "world", "java"};
+        // @ 格式二：数组的静态初始化
+        int[] array2 = new int[]{1, 2, 3};
+        // 注：静态和动态不能同时写
+        // int[] array2 = new int[3]{1, 2, 3};// 错误写法
 
-        // 动态/静态初始化拆分为两个步骤：
-        // 1.
-        byte[] arr3;
-        // 2.
-        arr3 = new byte[]{1, 2, 3};
-
-        // 1.
-        float[] arr4;
-        // 2.
-        arr4 = new float[5];
-
-        // 但省略模式不能分两步走
-        short[] arr5;
-        // arr5 = {1, 2, 3};// 错误写法
-
-        // 省略模式不能直接作为参数
+        // @ 格式三：静态初始化的省略写法
+        String[] array3 = {"hello", "world", "java"};
+        // 省略写法不能直接作为参数
         says(new int[]{1, 2, 3});
         says(new int[3]);
         // says({1, 2, 3});// 报错
 
-        // 长度
-        System.out.println(arrayA.length);// 3
-        // arrayA.length = 400;// 错误写法，长度不可改变
+        // @ []的位置
+        // []可以放在类型后面（java源代码写法，推荐），也可以放在变量后面（c语言写法）
+        int array4[] = new int[2];
+        int array5[] = new int[]{1,2,3};
+        int array6[] = {1,2,3};
 
-        // 取值设值
-        arrayA[0] = 1;
-        System.out.println(arrayA[0]);
+        // @ 声明初始化分步走
+        // 标准格式的初始化拆分为两个步骤：
+        byte[] array7;
+        array7 = new byte[]{1, 2, 3};
+
+        float[] array8;
+        array8 = new float[5];
+
+        // 但省略模式不能分两步走
+        short[] array9;
+        // array9 = {1, 2, 3};// 错误写法
+
+        // @ 合并声明
+        int[] array10 = new int[2], array11, array12 = {1};
+
+        // @ 内存地址哈希值
+        // 直接打印数组名称，得到的是数组对应的：内存地址哈希值。
+        System.out.println("输出1：" + array1);// [I@10f87f48
+
+        // @ 长度
+        System.out.println(array1.length);// 3
+        // array1.length = 400;// 错误写法，长度不可改变
+
+        // @ 取值设值
+        array1[0] = 1;
+        System.out.println(array1[0]);
     }
     static void says(int[] arr){
-        System.out.println(arr);
+        // System.out.println(arr);
     }
 }
 
