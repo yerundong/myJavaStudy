@@ -107,6 +107,8 @@ public class Arrays工具类 {
         int[] arr9 = {1,2,3};
         Arrays.fill(arr9, 0, 2, 33);
         System.out.println(Arrays.toString(arr9));// [33, 33, 3]
-
+        // 替换所有：public static void fill(int[] a, int val)
+        Arrays.fill(arr9,999);
+        System.out.println(Arrays.toString(arr9));//
     }
 }
