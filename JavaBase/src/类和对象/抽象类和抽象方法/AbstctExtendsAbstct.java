@@ -1,4 +1,4 @@
-package 类和对象.抽象;
+package 类和对象.抽象类和抽象方法;
 
 public abstract class AbstctExtendsAbstct extends AbsctClass {
 
