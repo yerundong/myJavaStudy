@@ -1,6 +1,6 @@
 package 值与址的等同判断;
 
-import 类.Student;
+import 类和对象.Student;
 
 import java.util.Objects;
 

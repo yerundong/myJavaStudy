@@ -1,6 +1,6 @@
 package 修饰符.Final修饰符.Final局部变量;
 
-import 类.Student;
+import 类和对象.Student;
 
 /*
 @ final局部变量：只能赋值一次，之后不可再赋值修改，即“一次赋值，终生使用”

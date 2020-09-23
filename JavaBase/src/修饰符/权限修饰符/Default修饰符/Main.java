@@ -1,6 +1,6 @@
 package 修饰符.权限修饰符.Default修饰符;
 
-import 类.Student;
+import 类和对象.Student;
 
 /*
 @ default：default不是关键字，不加任何访问修饰符即是default，通常称为“默认访问模式“。该模式下，只允许在同一个包中进行访问。
