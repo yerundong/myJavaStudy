@@ -1,4 +1,4 @@
-package 类和对象.成员变量和方法;
+package 类和对象.类的成员;
 
 public class MemberVar {
     // 成员变量

@@ -16,6 +16,7 @@ package 方法;
 @ 注意事项：
     1.局部变量没有默认值，都必须显示赋值，否则不能访问
     2.访问修饰符不能用于局部变量
+    3.final可以修改局部变量
 */
 public class 局部变量 {
     public static void main(String[] args) {
