@@ -1,4 +1,4 @@
-package 集合.ArrayList集合;
+package 集合框架.ArrayList集合;
 
 import java.util.ArrayList;
 
