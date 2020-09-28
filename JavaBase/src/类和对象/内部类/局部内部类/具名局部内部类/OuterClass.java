@@ -8,7 +8,7 @@ public class OuterClass {
 
         // 局部内部类
         class InnerClass{
-            // 若局部内部类的成员方法和局部变量重名，则访问不到局部变量了（Naming Shadow）
+            // 若局部内部类的成员方法和局部变量重名，则访问不到方法的局部变量了（Naming Shadow）
             // int num = 30;
 
             public void look(){
