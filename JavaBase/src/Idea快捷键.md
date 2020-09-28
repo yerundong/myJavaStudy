@@ -2,3 +2,4 @@
 + 查看diagram： `ctrl + alt + U`
 + 查找： `ctrl + F`
 + 替换： `ctrl + R`
++ 展示建议/展示所有重载方法： `ctrl + alt + space`
