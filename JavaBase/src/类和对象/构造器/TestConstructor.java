@@ -1,4 +1,4 @@
-package 类和对象.构造方法;
+package 类和对象.构造器;
 
 public class TestConstructor {
     String brand;
