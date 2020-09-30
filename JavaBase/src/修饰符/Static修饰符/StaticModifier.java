@@ -11,6 +11,7 @@ class StaticModifier {
 
     // 构造函数
     public StaticModifier(){
+
     }
 
     public StaticModifier(String name) {
@@ -20,6 +21,10 @@ class StaticModifier {
     // 普通成员方法
     public void setName(String name) {
         this.name = name;
+
+        // 实例方法中可以调用静态方法，类名可以省略
+        // StaticModifier.run();
+        // run();
     }
     public void say() {
         System.out.println("name：" + this.name + ",my country is "+ this.country);
@@ -31,9 +36,13 @@ class StaticModifier {
     }
 
     // 静态成员方法
-    // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问类变量
+    // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问类变量和类方法
     public static void setCountry(String country) {
         StaticModifier.country = country;
+
+        // 类名可以省略
+        // StaticModifier.run();
+        // run();
     }
     public static void run(){
         System.out.println("I am static run!!!");
