@@ -58,6 +58,7 @@ public class CustomerList {
     public boolean deleteCustomer(int index){
         try{
             customers[index] = null;
+            total--;
             return true;
         }catch (RuntimeException exception){
             return false;
@@ -73,6 +74,10 @@ public class CustomerList {
      */
     public Customer[] getAllCustomers(){
         Customer[] custs = new Customer[total];
+        if(total == 0){
+            return custs;
+        }
+
         int num = 0;
         for (int i = 0; i < customers.length; i++) {
             if(customers[i] != null){

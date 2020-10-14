@@ -19,9 +19,11 @@ public class CustomerView {
     }
 
     public CustomerView() {
-        customerList = new CustomerList(2);
+        customerList = new CustomerList(10);
         Customer cust = new Customer("叶润东", '男', 26, "13454782955", "414868970@qq.com");
+        Customer cust2 = new Customer("叶润东2", '男', 26, "13454782955", "414868970@qq.com");
         customerList.addCustomer(cust);
+        customerList.addCustomer(cust2);
     }
 
     /**
@@ -158,7 +160,12 @@ public class CustomerView {
     private void listAllCustomers() {
         System.out.println("---------------------客户列表---------------------");
         Customer[] custs = customerList.getAllCustomers();
-        // System.out.println(custs.length);
+        if(custs.length == 0){
+            System.out.println("暂无客户！");
+            System.out.println();
+            return;
+        }
+
         System.out.println("序号      姓名      性别      年龄      电话      邮箱");
         for (int i = 0; i < custs.length; i++) {
             Customer cust = custs[i];
@@ -166,6 +173,4 @@ public class CustomerView {
         }
         System.out.println();
     }
-
-
 }
