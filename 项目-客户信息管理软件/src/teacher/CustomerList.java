@@ -47,7 +47,6 @@ public class CustomerList {
 
     public Customer getCustomer(int index) {
         if (index < 0 || index >= total) return null;
-        
         return customers[index];
     }
 }

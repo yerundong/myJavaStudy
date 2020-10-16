@@ -1,4 +1,4 @@
-package 数据类型;
+package 类和对象;
 
 /*
 @包装类(Wrapper Class)：
@@ -28,7 +28,7 @@ package 数据类型;
 @ 从JDK 1.5+开始，支持自动装箱、自动拆箱
     @ 自动装箱格式：Type var = value;
 */
-public class 装箱和拆箱 {
+public class 包装类 {
     public static void main(String[] args) {
         // 装箱
         // byte bt = new Byte((byte)126);

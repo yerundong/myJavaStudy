@@ -1,5 +1,4 @@
 package myself.view;
-
 import myself.bean.Customer;
 import myself.service.CustomerList;
 import myself.util.CMUtility;
@@ -19,7 +18,7 @@ public class CustomerView {
     }
 
     public CustomerView() {
-        customerList = new CustomerList(2);
+        customerList = new CustomerList(10);
         Customer cust = new Customer("叶润东", '男', 26, "13454782955", "414868970@qq.com");
         customerList.addCustomer(cust);
     }
@@ -107,19 +106,22 @@ public class CustomerView {
         System.out.println("---------------------修改客户---------------------");
         System.out.print("请输入要修改的客户序号：");
         int index = CMUtility.readInt();
-        System.out.println(index);
-        Customer cust = customerList.getCustomer(index-1);
+        Customer pcust = customerList.getCustomer(index-1);
+        if (pcust == null){
+            return;
+        }
 
-        System.out.print("请输入姓名（"+ cust.getName() +"）：");
-        String name = CMUtility.readString(4);
-        System.out.print("请输入性别（"+ cust.getGender() +"）：");
-        char gender = CMUtility.readChar('男');
-        System.out.print("请输入年龄（"+ cust.getAge() +"）：");
-        int age = CMUtility.readInt(0);
-        System.out.print("请输入电话（"+ cust.getPhone() +"）：");
-        String phone = CMUtility.readString(11);
-        System.out.print("请输入邮箱（"+ cust.getEmail() +"）：");
-        String email = CMUtility.readString(30);
+        Customer cust = new Customer();
+        System.out.print("请输入姓名（"+ pcust.getName() +"）：");
+        String name = CMUtility.readString(4, pcust.getName());
+        System.out.print("请输入性别（"+ pcust.getGender() +"）：");
+        char gender = CMUtility.readChar(pcust.getGender());
+        System.out.print("请输入年龄（"+ pcust.getAge() +"）：");
+        int age = CMUtility.readInt(pcust.getAge());
+        System.out.print("请输入电话（"+ pcust.getPhone() +"）：");
+        String phone = CMUtility.readString(11, pcust.getPhone());
+        System.out.print("请输入邮箱（"+ pcust.getEmail() +"）：");
+        String email = CMUtility.readString(30, pcust.getEmail());
         System.out.print("确认是否修改(Y/N)：");
         char yn = CMUtility.readConfirmSelection();
         if (yn == 'Y'){
@@ -128,7 +130,12 @@ public class CustomerView {
             cust.setPhone(phone);
             cust.setAge(age);
             cust.setEmail(email);
-            System.out.println("修改成功！");
+            boolean b = customerList.replaceCustomer(index - 1, cust);
+            if(b){
+                System.out.println("修改成功！");
+            }else{
+                System.out.println("修改失败！");
+            }
         }else{
             System.out.println("取消修改！");
         }
@@ -145,7 +152,12 @@ public class CustomerView {
         System.out.println("---------------------删除客户---------------------");
         System.out.print("请输入要删除的客户序号：");
         int index = CMUtility.readInt();
-        customerList.deleteCustomer(index-1);
+        boolean isDelete = customerList.deleteCustomer(index - 1);
+        if(isDelete){
+            System.out.println("删除成功!");
+        }else{
+            System.out.println("删除失败!");
+        }
     }
 
     /**
@@ -158,7 +170,10 @@ public class CustomerView {
     private void listAllCustomers() {
         System.out.println("---------------------客户列表---------------------");
         Customer[] custs = customerList.getAllCustomers();
-        // System.out.println(custs.length);
+        if(custs.length == 0){
+            System.out.println("暂无客户记录！");
+            return;
+        }
         System.out.println("序号      姓名      性别      年龄      电话      邮箱");
         for (int i = 0; i < custs.length; i++) {
             Customer cust = custs[i];
@@ -166,6 +181,4 @@ public class CustomerView {
         }
         System.out.println();
     }
-
-
 }

@@ -28,8 +28,10 @@ public class CustomerList {
         if(total < customers.length){
             customers[total++] = customer;
             return true;
+        }else{
+            System.out.println("客户数组满了！");
+            return false;
         }
-        return false;
     }
 
     /**
@@ -40,10 +42,11 @@ public class CustomerList {
      * @return boolean
      */
     public boolean replaceCustomer(int index, Customer cust){
-        try{
+        if(index >= 0 && index < total){
             customers[index] = cust;
             return true;
-        }catch (RuntimeException exception){
+        }else{
+            System.out.println("未找到该用户！");
             return false;
         }
     }
@@ -56,10 +59,20 @@ public class CustomerList {
      * @return boolean
      */
     public boolean deleteCustomer(int index){
+        if(index > total-1 || index < 0){
+            System.out.println("未找到该用户！");
+            return false;
+        }
         try{
-            customers[index] = null;
+            for (int i = 0; i < customers.length-1; i++) {
+                if(i >= index){
+                    customers[i] = customers[i+1];
+                }
+            }
+            customers[--total] = null;
             return true;
-        }catch (RuntimeException exception){
+        }catch (Exception e){
+            e.printStackTrace();
             return false;
         }
     }
@@ -90,11 +103,11 @@ public class CustomerList {
      * @return myself.bean.Customer
      */
     public Customer getCustomer(int index){
-        try{
-            return customers[index];
-        }catch (RuntimeException exception){
+        if(index > total-1 || index < 0){
+            System.out.println("未找到该用户！");
             return null;
         }
+        return customers[index];
     }
 
     public int getTotal(){
