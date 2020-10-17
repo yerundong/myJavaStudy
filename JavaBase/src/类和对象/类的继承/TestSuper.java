@@ -2,6 +2,7 @@ package 类和对象.类的继承;
 
 public class TestSuper {
     public String tip = "Vehicle tip";
+    public int age = 15;
     private String name;
     private boolean isCarry = true;
 
@@ -39,5 +40,21 @@ public class TestSuper {
 
     public void setCarry(boolean carry) {
         isCarry = carry;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

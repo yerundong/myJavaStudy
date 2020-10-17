@@ -38,6 +38,9 @@ public class TestSub extends TestSuper {
 
     // this和super的运用
     public void pop (){
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
         System.out.println("我的排量是：" + displacement + "，superTip：" + super.tip + "，subTip：" + this.tip);
     }
 
@@ -48,4 +51,5 @@ public class TestSub extends TestSuper {
     public void setDisplacement(String displacement) {
         this.displacement = displacement;
     }
+
 }
