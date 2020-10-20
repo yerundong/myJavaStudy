@@ -5,16 +5,14 @@ public class TestSub extends TestSuper {
     private String displacement;
 
     public TestSub() {
-        // 无参会隐式调用super()
+        // 默认隐式调用super()
     }
 
     public TestSub(String name) {
-        // 有参必须显式调用super()，并且必须第一执行
         super(name);
     }
 
     public TestSub(String name, String displacement) {
-        // 有参必须显式调用super()，并且必须第一执行
         super(name);
         this.displacement = displacement;
         // System.out.println(super.tip);

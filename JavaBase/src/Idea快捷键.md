@@ -24,4 +24,6 @@
 + 查看类的继承列表：`Ctrl + H`
 + 查看diagram： `Ctrl + Alt + U`
 + 跳到实现类和子类：`Ctrl + Alt + 点击左键`
++ 最近文件：`Ctrl + E`
++ 全局搜索：`Double click Shift`
 
