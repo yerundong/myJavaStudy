@@ -1,5 +1,7 @@
 package 变量与常量;
 
+import common.Util;
+
 /*
 常量：在程序运行期间，固定不变的量。
 
@@ -13,6 +15,10 @@ package 变量与常量;
 */
 public class 常量{
     public static void main(String[] args){
+        Integer a = 111;
+        String b = "111";
+        Util util = new Util();
+
         // @ 整数常量
         System.out.println(123);// 默认为int
         System.out.println((byte)125);// -128-127
@@ -20,6 +26,8 @@ public class 常量{
         System.out.println((long)777);
         System.out.println(888L);
         System.out.println("************************");
+        System.out.println(util.getType(888L));
+        System.out.println(util.getType("ppp"));
 
         // 字符串常量
         System.out.println("abc");
