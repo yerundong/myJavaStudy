@@ -4,25 +4,27 @@ package 变量与常量;
 常量：在程序运行期间，固定不变的量。
 
 常量的分类：
-1. 字符串常量：凡是用双引号引起来的部分，叫做字符串常量。例如："abc"、"Hello"、"123"
-2. 整数常量：直接写上的数字，没有小数点。例如：100、200、0、-250
-3. 浮点数常量：直接写上的数字，有小数点。例如：2.5、-3.14、0.0
+1. 整数常量：分为byte、short、int、long，默认为int类型。如果
+2. 字符串常量：凡是用双引号引起来的部分，叫做字符串常量。例如："abc"、"Hello"、"123"
+3. 浮点数常量：直接写上的数字，有小数点，默认为double类型。例如：2.5、-3.14、0.0
 4. 字符常量：凡是用单引号引起来的单个字符，就做字符常量。例如：'A'、'b'、'9'、'中'
 5. 布尔常量：只有量中取值。true、false。
 6. 空常量：null。代表没有任何数据。
 */
 public class 常量{
     public static void main(String[] args){
+        // @ 整数常量
+        System.out.println(123);// 默认为int
+        System.out.println((byte)125);// -128-127
+        System.out.println((short)666);
+        System.out.println((long)777);
+        System.out.println(888L);
+        System.out.println("************************");
 
         // 字符串常量
         System.out.println("abc");
         System.out.println("");
         System.out.println("123");
-
-        // 整数常量
-        System.out.println(123);
-        System.out.println(0);
-        System.out.println(-456);
 
         // 浮点数常量
         System.out.println(1.5);
