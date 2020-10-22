@@ -30,7 +30,8 @@ package 多态.向上和向下转型;
 
 @ 向下转型注意事项：
     1.向下转型是大范围到小范围的转变
-    2.向上转型是安全的，但向下转型是有风险的，【前提条件】：只能转为原有类型，若转为其他类型，则编译过，运行报错，
+    2.向上转型是安全的，但向下转型是有风险的
+    3.【前提条件】：必须先多态（向上转型），才能向下转型，而且只能转为原有类型，若转为其他类型，则编译过，运行报错，
       报ClassCastException（猫只能还原为猫，不能还原为狗）。所以向下转型前先用instanceof判断。
 
 */
@@ -50,5 +51,10 @@ public class Main {
         Dog dog = (Dog)animal;
         dog.eat();
         dog.watchHouse();
+
+        // 没有多态，不能向下转型
+        Dog dog2 = new Dog();
+        // RedDog rd = (RedDog)dog;// ClassCastException
+        // RedDog rd = (RedDog)dog2;// ClassCastException
     }
 }

@@ -19,48 +19,45 @@ public class 常量{
         String b = "111";
         Util util = new Util();
 
-        // @ 整数常量
-        System.out.println(123);// 默认为int
-        System.out.println((byte)125);// -128-127
-        System.out.println((short)666);
-        System.out.println((long)777);
-        System.out.println(888L);
-        System.out.println("************************");
-        System.out.println(util.getType(888L));
+        System.out.println("************整数常量************");
+        // 整数常量
+        System.out.println(util.getType(111));// 默认为int类型
+        System.out.println(util.getType((int)111));// int类型
+        System.out.println(util.getType((byte)222));
+        System.out.println(util.getType((short)333));
+        System.out.println(util.getType(444L));
+        System.out.println(util.getType((long)444));
+        System.out.println(1l + 2);
+        System.out.println(util.getType(1 + (byte)2));
+
+        System.out.println("************浮点数常量************");
+        System.out.println(util.getType(1.5));// 默认为double类型
+        System.out.println(util.getType(0.0));
+        System.out.println(util.getType(3.3F));
+        System.out.println(util.getType((float)3.3));
+
+        System.out.println("************字符串常量************");
         System.out.println(util.getType("ppp"));
+        System.out.println(util.getType(""));
+        System.out.println(util.getType("123"));
 
-        // 字符串常量
-        System.out.println("abc");
-        System.out.println("");
-        System.out.println("123");
-
-        // 浮点数常量
-        System.out.println(1.5);
-        System.out.println(-3.2);
-        System.out.println(0.0);
-
-        // 字符常量
-        // 有且仅有一个
-        System.out.println('A');
-        System.out.println('b');
-        System.out.println('9');
-        System.out.println(' ');
+        System.out.println("************字符常量************");
+        System.out.println(util.getType('a'));
+        System.out.println(util.getType('9'));
+        System.out.println(util.getType(' '));
+        System.out.println('中');
         // System.out.println('');// 报错
         // System.out.println('-5');// 报错
         // System.out.println('ab');// 报错
-        System.out.println('中');
 
-        // 浮点数常量
-        System.out.println(1.5);
-        System.out.println(-3.2);
-        System.out.println(0.0);
-
-        // 布尔常量
+        System.out.println("************布尔常量************");
+        System.out.println(util.getType(true));
         System.out.println(true);
         System.out.println(false);
 
         // 空常量
         // 无法打印输出
         // System.out.println(null);// 报错
+        System.out.println(util.getType(null));
     }
 }

@@ -25,6 +25,7 @@ import 类和对象.Student;
 @ 注意事项：
     1.一个方法中只能指定一个可变参数
     2.可变参数必须是最后一个参数
+    3.与(type[] name)是相同的形参列表，可构成重写条件，不构成重载条件
 
 */
 public class 参数 {
@@ -55,12 +56,15 @@ public class 参数 {
     }
 
     // 可变参数
-    public static void look(String str, int... nums){
+    public static void look(String str, int... intArr){
         System.out.println(str);
-        System.out.println(nums);
+        System.out.println(intArr);
 
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println(nums[i]);
+        for (int i = 0; i < intArr.length; i++) {
+            System.out.println(intArr[i]);
         }
     }
+
+    // 不构成重载，报错
+    // public static void look(String str, str[] intArr){}
 }

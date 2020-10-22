@@ -28,11 +28,8 @@ public class Util {
             return "Boolean";
         }else if(obj.getClass() == String.class){
             return "String";
-        }else if(obj.getClass() == Array.class){
-            return "Array";
-        }else if(obj.getClass() == Class.class){
-            return "Class";
+        }else{
+            return "Reference";
         }
-        return "";
     }
 }

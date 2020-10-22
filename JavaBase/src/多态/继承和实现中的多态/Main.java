@@ -52,7 +52,11 @@ public class Main {
     public static void main(String[] args) {
         Class1 obj1 = new Class1();
         Class2 obj2 = new Class1();
-        Class3 obj3 = new Class1();
+
+        Class1 obj3_ = new Class1();
+        Class3 obj3 = obj3_;
+        System.out.println(obj3 == obj3_);// 地址值相同，但通过obj3和obj3调用方法却有不同的规则_
+
         Interface1 obj4 = new Class1();
 
         System.out.println("================ part 1 =================");
