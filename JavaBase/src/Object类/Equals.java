@@ -13,10 +13,11 @@ import 类和对象.Student;
 @ 判断机制：除【所有基本类型】和【部分引用类型】外，其他引用类型没有重写equals，他们equals的方法继承自Object，判断机制与 == 一样，判断两个类是否地址一样
 
 @ equals重写情况：
-    1.基本类型（Byte，Integer...）对equals重写，用于比较【内容】是否相等
-    2.字符串String对equals重写，用于比较【内容】是否相等
-    3.Date类对equals重写，
-    4.其他引用类型（接口、类、数组），没有重写equals，用于比较【地址】是否相等
+    1.基本类型的包装类（Byte，Integer...）：重写，比较【内容】是否相等
+    2.字符串String：重写，比较【实体内容】是否相等
+    3.Date类：重写，比较【实体内容】是否相等
+    4.File类：重写，比较【实体内容】是否相等
+    4.其他引用类型（对象、数组）：没有重写，比较【地址】是否相等
 
 @ 注意事项：
     1.只能引用类型数据调用，基本类型数据需要使用【包装类】才能调用
@@ -86,6 +87,8 @@ public class Equals {
         OverrideEquals oe2 = new OverrideEquals("张三", 15);
 
         System.out.println(oe1.equals(oe2));// true
+
+
     }
 }
 
