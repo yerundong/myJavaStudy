@@ -1,4 +1,4 @@
-package 值与址的等同判断;
+package 运算符;
 
 import 类和对象.Student;
 
@@ -48,13 +48,12 @@ public class 双等号 {
         char[] arr1 = {'a'};
         char[] arr2 = {'a'};
 
-
         System.out.println(stu1 == stu2);// false
         System.out.println(arr1 == arr2);// false
 
         System.out.println("================ part 3 ===================");
 
-        // 字符串（也是引用类型，但有一个常量池机制）
+        // 字符串（是引用类型，但有一个常量池机制）
         String str1 = "abc";
         String str2 = "abc";
         String str3 = new String("abc");

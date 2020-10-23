@@ -1,15 +1,24 @@
-package 值与址的等同判断;
+package Object类;
 
 import java.util.Objects;
 
-/*
-重写 equals 方法
-*/
-
+/**
+ * @Description 重写引用类型的equals方法，自定义判断机制
+ * @Author 叶润东
+ * @Date 2020/10/23
+ * @Version 1.0
+ */
 public class OverrideEquals {
     private String name;
     private int age;
 
+    /**
+     * @Description 判断成员变量是否相同
+     * @Param [o]
+     * @Author 叶润东
+     * @Date 10:15 2020/10/23
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

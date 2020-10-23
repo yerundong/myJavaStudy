@@ -1,4 +1,4 @@
-package 值与址的等同判断;
+package Object类.Objects工具类;
 
 import 类和对象.Student;
 
@@ -8,7 +8,7 @@ import java.util.Objects;
     Objects.equals()与equals区别在于可以容忍空指针异常（null），判断基本类型时不用包装类，其他一致
 */
 
-public class ObjectsEquals {
+public class Equals {
     public static void main(String[] args) {
         Student stu1 = new Student("张三", 15);
         Student stu2 = new Student("张三", 15);
