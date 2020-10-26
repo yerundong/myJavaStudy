@@ -13,25 +13,37 @@ public class OverrideEquals {
     private int age;
 
     /**
-     * @Description 判断成员变量是否相同
+     * @Description ide自动生成（推荐）
      * @Param [o]
      * @Author 叶润东
-     * @Date 10:15 2020/10/23
+     * @Date 10:01 2020/10/26
      * @return boolean
      */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OverrideEquals OverrideEquals = (OverrideEquals) o;
-        return age == OverrideEquals.age &&
-                Objects.equals(name, OverrideEquals.name);
+        if (!(o instanceof OverrideEquals)) return false;
+        OverrideEquals that = (OverrideEquals) o;
+        return getAge() == that.getAge() &&
+                getName().equals(that.getName());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
-    }
+    /**
+     * @Description 手写
+     * @Param [o]
+     * @Author 叶润东
+     * @Date 10:15 2020/10/23
+     * @return boolean
+     */
+    // @Override
+    // public boolean equals(Object o) {
+    //     if (this == o) return true;
+    //     if (o == null || getClass() != o.getClass()) return false;
+    //     OverrideEquals OverrideEquals = (OverrideEquals) o;
+    //     return age == OverrideEquals.age &&
+    //             Objects.equals(name, OverrideEquals.name);
+    // }
+
 
     public OverrideEquals(String name, int age) {
         this.name = name;

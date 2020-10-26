@@ -1,4 +1,4 @@
-package 多态.Instanceof关键字;
+package 运算符.Instanceof;
 
 public class Dog extends Animal implements Interface1 {
     @Override
