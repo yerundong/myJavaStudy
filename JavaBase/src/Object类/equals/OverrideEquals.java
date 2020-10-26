@@ -1,6 +1,4 @@
-package Object类;
-
-import java.util.Objects;
+package Object类.equals;
 
 /**
  * @Description 重写引用类型的equals方法，自定义判断机制

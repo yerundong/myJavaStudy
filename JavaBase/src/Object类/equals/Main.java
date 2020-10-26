@@ -1,4 +1,4 @@
-package Object类;
+package Object类.equals;
 
 import 类和对象.Student;
 
@@ -32,7 +32,7 @@ import 类和对象.Student;
     4.推荐把【常量】或【确定非null的对象】用来放在前面：推荐："abc".equals(str)    不推荐：str.equals("abc")
 
 */
-public class Equals {
+public class Main {
     public static void main(String[] args) {
         // @ 基本类型
         // 比较内容
