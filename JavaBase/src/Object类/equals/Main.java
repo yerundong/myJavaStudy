@@ -2,30 +2,30 @@ package Object类.equals;
 
 import 类和对象.Student;
 
-/*
-@ equals：equals是Object中的成员方法，而Object是所有类的父类，都继承了该方法，基本类型需要包装类才能使用。
+/**
+@equals： equals是Object中的成员方法，而Object是所有类的父类，都继承了该方法，基本类型需要包装类才能使用。
 
-@ Object中的源码：
+@Object中的源码：
     public boolean equals(Object obj) {
         return (this == obj);
     }
 
-@ 判断机制：除【所有基本类型】和【部分引用类型】外，其他引用类型没有重写equals，他们equals的方法继承自Object，判断机制与 == 一样，判断两个类是否地址一样
+@判断机制： 除【所有基本类型】和【部分引用类型】外，其他引用类型没有重写equals，他们equals的方法继承自Object，判断机制与 == 一样，判断两个类是否地址一样
 
-@ equals重写情况：
+@equals重写情况：
     1.基本类型的包装类（Byte，Integer...）：重写，比较【内容】是否相等
     2.字符串String：重写，比较【实体内容】是否相等
     3.Date类：重写，比较【实体内容】是否相等
     4.File类：重写，比较【实体内容】是否相等
     4.其他引用类型（对象、数组）：没有重写，比较【地址】是否相等
 
-@ 特性：
+@特性：
      对称性：如果x.equals(y)返回是“true”，那么y.equals(x)也应该返回是“true”。
      自反性：x.equals(x)必须返回是“true”。
      传递性：如果x.equals(y)返回是“true”，而且y.equals(z)返回是“true”，那么z.equals(x)也应该返回是“true”。
      一致性：如果x.equals(y)返回是“true”，只要x和y内容一直不变，不管你重复x.equals(y)多少次，返回都是“true”。
 
-@ 注意事项：
+@注意事项：
     1.只能引用类型数据调用，基本类型数据需要使用【包装类】才能调用
     2.x.equals(null)，永远返回是“false”，x.equals(和x不同类型的对象)永远返回是“false
     3.null.equals()会报空指针异常NullPointerException，所以调用之前需要判断一下非null
@@ -34,7 +34,7 @@ import 类和对象.Student;
 */
 public class Main {
     public static void main(String[] args) {
-        // @ 基本类型
+        // @基本类型
         // 比较内容
         Byte byte1 = 1;
         Byte byte2 = 1;
@@ -63,7 +63,7 @@ public class Main {
 
         System.out.println("================ part 2 ===================");
 
-        // @ 字符串
+        // @字符串
         // 比较内容
         String str1 = "abc";
         String str2 = "abc";
@@ -79,7 +79,7 @@ public class Main {
 
         System.out.println("================ part 3 ===================");
 
-        // @ 其他引用类型
+        // @其他引用类型
         // 没有重写equals，继承Object类的equals，是比较地址
         Student stu1 = new Student("张三", 15);
         Student stu2 = new Student("张三", 15);
@@ -87,7 +87,7 @@ public class Main {
         char[] arr2 = {'a'};
         System.out.println(stu1.equals(stu2));
 
-        // @ 重写类中的 equals 方法
+        // @重写类中的 equals 方法
         OverrideEquals oe1 = new OverrideEquals("张三", 15);
         OverrideEquals oe2 = new OverrideEquals("张三", 15);
 

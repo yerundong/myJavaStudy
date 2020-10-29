@@ -2,9 +2,8 @@ package 字符串.练习;
 
 import java.util.Arrays;
 
-/*
-题目：
-请使用Arrays相关的API，将一个随机字符串中的所有字符升序排列，并倒序打印。
+/**
+题目：请使用Arrays相关的API，将一个随机字符串中的所有字符升序排列，并倒序打印。
 */
 public class 随机字符串排序 {
     public static void main(String[] args) {

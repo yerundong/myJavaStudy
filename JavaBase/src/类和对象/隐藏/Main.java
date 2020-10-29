@@ -1,7 +1,7 @@
 package 类和对象.隐藏;
 
-/*
-@ 隐藏：隐藏是对于成员变量（包括实例变量和静态变量）和静态方法而言的
+/**
+@隐藏： 隐藏是对于成员变量（包括实例变量和静态变量）和静态方法而言的
 */
 public class Main {
     public static void main(String[] args) {

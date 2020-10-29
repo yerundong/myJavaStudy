@@ -2,9 +2,9 @@ package 数组;
 
 import java.util.Arrays;
 
-/*
-@ Arrays：Arrays是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作。
- */
+/**
+@Arrays： Arrays是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作。
+*/
 public class Arrays类 {
     public static void main(String[] args) {
 

@@ -1,9 +1,9 @@
 package 方法;
-/*
-* @ 递归方法（recursive method）：一个方法在内部调用自己。递归方法会实现一种隐式循环，重复某段代码。
-*   但这种循环必须有终止条件，否则将变成无穷递归
-*
-* */
+/**
+@递归方法 （recursive method）：一个方法在内部调用自己。递归方法会实现一种隐式循环，重复某段代码。
+    但这种循环必须有终止条件，否则将变成无穷递归
+
+*/
 public class 递归 {
     public static void main(String[] args) {
         // recursion1(1);

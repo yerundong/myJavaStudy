@@ -1,8 +1,8 @@
 package 数据类型;
-/*
+/***
 Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。
-其中整数型（byte、short、int、long）
 
+其中整数型（byte、short、int、long）
 byte：
 
 byte 数据类型是8位、有符号的，以二进制补码表示的整数；
@@ -64,7 +64,7 @@ char类型是一个单一的 16 位 Unicode 字符；
 最大值是 \uffff（即为65,535）；
 char 数据类型可以储存任何字符；
 例子：char letter = 'A';。
-* */
+*/
 public class Base {
 
 }

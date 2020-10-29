@@ -4,8 +4,8 @@ import 类和对象.Student;
 
 import java.util.Objects;
 
-/*
-    Objects.equals()与equals区别在于可以容忍空指针异常（null），判断基本类型时不用包装类，其他一致
+/**
+    Objects.equals() 与 equals区别在于可以容忍空指针异常（null），判断基本类型时不用包装类，其他一致
 */
 
 public class Equals {

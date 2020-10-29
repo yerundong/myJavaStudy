@@ -1,19 +1,12 @@
 package 字符串;
 
-/*
-<1> ==
-进行对象的[地址值]比较，不是数值的比较
+/**
+@==： 详见 \src\运算符\双等号
 
-<2> equals
-public boolean equals(Object obj)：参数可以是任何对象，只有参数是一个字符串并且内容相同的才会给true；否则返回false。
-注意事项：
-1. 任何对象都能用Object进行接收。
-2. equals方法具有对称性，也就是a.equals(b)和b.equals(a)效果一样。
-3. 如果比较双方一个常量一个变量，推荐把常量字符串写在前面。
-推荐："abc".equals(str)    不推荐：str.equals("abc")
+@equals： 详见 \src\Object类\equals
 
-<3> equalsIgnoreCase
-public boolean equalsIgnoreCase(String str)：忽略大小写，进行内容比较。
+@equalsIgnoreCase：
+    public boolean equalsIgnoreCase(String str)：忽略大小写，进行内容比较。
  */
 public class 判断相等 {
 

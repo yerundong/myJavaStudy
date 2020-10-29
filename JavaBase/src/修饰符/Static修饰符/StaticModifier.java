@@ -1,6 +1,6 @@
 package 修饰符.Static修饰符;
-/*
-@ ClassForStatic：静态属性和方法
+/**
+@ClassForStatic： 静态属性和方法
 */
 class StaticModifier {
     // 普通成员变量

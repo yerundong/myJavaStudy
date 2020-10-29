@@ -1,7 +1,7 @@
 package 类和对象.This关键字;
 
-/*
-@ this关键字作用：
+/**
+@this关键字作用：
     1.充当当前实例对象，用于访问实例的成员变量\方法，用法：this.field/this.method()
       注：当与成员变量或形参不重名的情况下，this可以省略
 
@@ -12,7 +12,7 @@ package 类和对象.This关键字;
         3.只允许调用其他构造器
         4.构造器不允许循环调用
 
-@ 注意：静态方法、静态代码块中不能使用this，因为实例对象还没生成
+@注意： 静态方法、静态代码块中不能使用this，因为实例对象还没生成
 */
 public class Main {
     public static void main(String[] args) {

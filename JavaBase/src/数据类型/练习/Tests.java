@@ -1,13 +1,15 @@
 package 数据类型.练习;
 
+import org.junit.Test;
+
 import java.io.PrintStream;
 
-/*
-* 问题：请编写handle方法，让输出a=100，b=200
-*
-* */
-public class 面试题1 {
-    public static void main(String[] args) {
+public class Tests {
+    /**
+     * @问题 请编写handle方法，让输出a=100，b=200
+     */
+    @Test
+    public void test1(){
         int a = 10, b = 20;
         handle1(a, b);
         // handle2(a, b);
@@ -27,10 +29,8 @@ public class 面试题1 {
         PrintStream printStream = new PrintStream(System.out){
             @Override
             public void println(String x){
-            // 。。。。
+                // 。。。。
             }
         };
-
-
     }
 }
