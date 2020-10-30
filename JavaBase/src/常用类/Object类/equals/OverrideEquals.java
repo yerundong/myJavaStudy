@@ -1,4 +1,4 @@
-package Object类.equals;
+package 常用类.Object类.equals;
 
 /**
  * @Description 重写引用类型的equals方法，自定义判断机制

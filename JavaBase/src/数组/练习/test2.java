@@ -1,5 +1,5 @@
 package 数组.练习;
-/*
+/**
 * 题目：数组反转
 * */
 public class test2 {

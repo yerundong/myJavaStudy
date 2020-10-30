@@ -1,4 +1,4 @@
-package Object类.Objects工具类;
+package 常用类.Object类.Objects工具类;
 
 import 类和对象.Student;
 

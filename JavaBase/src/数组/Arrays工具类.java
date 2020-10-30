@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
 @Arrays： Arrays是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作。
 */
-public class Arrays类 {
+public class Arrays工具类 {
     public static void main(String[] args) {
 
         // <SM> public static String toString(T[])
@@ -46,7 +46,6 @@ public class Arrays类 {
         // <SM> public static int deepHashCode(Object[])
         // <返> hashCode的加强版，将计算其基于深层内容的哈希码的数组
         // <略>
-
 
         // <SM> public static boolean equals(T[], T[])
         // <返> 判断数组内容是否相同

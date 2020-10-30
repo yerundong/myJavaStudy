@@ -3,6 +3,7 @@ package 数据类型.练习;
 import org.junit.Test;
 
 import java.io.PrintStream;
+import java.util.Vector;
 
 public class Tests {
     /**
@@ -32,5 +33,10 @@ public class Tests {
                 // 。。。。
             }
         };
+    }
+
+    @Test
+    public void test2(){
+        new Vector();
     }
 }

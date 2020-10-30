@@ -1,12 +1,14 @@
 package 字符串;
 
 /**
-@==： 详见 \src\运算符\双等号
+ @==： 详见 \src\运算符\双等号
 
-@equals： 详见 \src\Object类\equals
+ @equals： 详见 \src\常用类.Object类\equals
 
-@equalsIgnoreCase：
+ @equalsIgnoreCase：
     public boolean equalsIgnoreCase(String str)：忽略大小写，进行内容比较。
+
+ @注： 不推荐使用 == 判断字符串相等
  */
 public class 判断相等 {
 

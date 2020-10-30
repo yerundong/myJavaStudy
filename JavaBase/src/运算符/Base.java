@@ -1,7 +1,7 @@
 package 运算符;
 /***
- *
-@参考 https://www.runoob.com/java/java-operators.html?_t_t_t=0.3133259497117251
+
+参考 https://www.runoob.com/java/java-operators.html?_t_t_t=0.3133259497117251
 
 @Java运算符可分为：
     算术运算符：+ - * / % ++ --

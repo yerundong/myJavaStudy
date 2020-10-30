@@ -1,4 +1,4 @@
-package Math类;
+package 常用类.Math类;
 /**
 java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，完成与数学运算相关的操作。
  */

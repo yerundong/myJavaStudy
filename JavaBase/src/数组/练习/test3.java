@@ -1,5 +1,5 @@
 package 数组.练习;
-/*
+/**
  * 题目：找到元素位置
  * */
 public class test3 {

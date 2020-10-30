@@ -1,4 +1,4 @@
-package Object类.equals;
+package 常用类.Object类.equals;
 
 import 类和对象.Student;
 

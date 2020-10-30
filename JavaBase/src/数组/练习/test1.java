@@ -3,7 +3,7 @@ package 数组.练习;
 import java.lang.reflect.Array;
 import java.util.Random;
 
-/*
+/**
 * 题目：随机生成一个int数组，元素是1-10之间的随机不重复的整数
 * */
 public class test1 {
