@@ -2,7 +2,7 @@ package 数据类型;
 
 import common.Util;
 
-public class 不同类型的数据转换 {
+public class 基本数据和String之间的类型转换 {
     public static void main(String[] args) {
         Util util = new Util();
 

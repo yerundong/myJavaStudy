@@ -14,7 +14,7 @@ package 数据类型;
 	  boolean 类型与数字不相关，不能发生数据类型转换，强制和自动都不行
 
 */
-public class 基本数据类型的强制转换 {
+public class 基本数据类型之间的强制转换 {
     public static void main(String[] args){
 
         // @ =时的强制类型的转换

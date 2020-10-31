@@ -13,7 +13,7 @@ import common.Util;
 	  boolean 类型与数字不相关，不能发生数据类型转换，强制和自动都不行
 
 */
-public class 基本数据类型的自动转换 {
+public class 基本数据类型之间的自动转换 {
     public static void main(String[] args){
         // @ =时的自动类型提升
         // 左边long类型，右边是默认int，左比右大，发生自动类型提升。

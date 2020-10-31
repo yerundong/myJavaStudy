@@ -1,8 +1,8 @@
-package 修饰符.Static修饰符;
+package 类和对象.静态成员;
 /**
 @ClassForStatic： 静态属性和方法
 */
-class StaticModifier {
+class StaticMember {
     // 普通成员变量
     private String name;
 
@@ -10,11 +10,11 @@ class StaticModifier {
     static String country = "宋";
 
     // 构造函数
-    public StaticModifier(){
+    public StaticMember(){
 
     }
 
-    public StaticModifier(String name) {
+    public StaticMember(String name) {
         this.name = name;
     }
 
@@ -29,8 +29,8 @@ class StaticModifier {
     public void say() {
         System.out.println("name：" + this.name + ",my country is "+ this.country);
 
-        new StaticModifier.StaticInsideClass();
-        StaticModifier.setCountry("中国");
+        new StaticInsideClass();
+        StaticMember.setCountry("中国");
         // 等同于：
         // this.setCountry("中国");
     }
@@ -38,7 +38,7 @@ class StaticModifier {
     // 静态成员方法
     // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问类变量和类方法
     public static void setCountry(String country) {
-        StaticModifier.country = country;
+        StaticMember.country = country;
 
         // 类名可以省略
         // StaticModifier.run();
