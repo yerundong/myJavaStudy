@@ -1,6 +1,6 @@
 package 数据类型.练习;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.PrintStream;
 import java.util.Vector;

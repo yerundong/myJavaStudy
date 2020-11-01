@@ -1,6 +1,6 @@
 package 数据类型;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /***
 

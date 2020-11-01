@@ -1,6 +1,6 @@
 package JUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
 @简介：
