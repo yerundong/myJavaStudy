@@ -1,4 +1,4 @@
-package 修饰符.Final修饰符.Final类成员;
+package 类和对象.final修饰符.Final类成员;
 
 public class SubClass extends SuperClass {
     public String name = "SubClass name";

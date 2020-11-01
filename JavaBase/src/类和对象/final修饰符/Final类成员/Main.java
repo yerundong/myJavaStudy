@@ -1,4 +1,4 @@
-package 修饰符.Final修饰符.Final类成员;
+package 类和对象.final修饰符.Final类成员;
 /**
 @final成员方法： final方法不可被重写、隐藏，但可以被重载，成为最终方法
 

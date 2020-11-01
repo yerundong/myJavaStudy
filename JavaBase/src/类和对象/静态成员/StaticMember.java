@@ -1,24 +1,20 @@
 package 类和对象.静态成员;
-/**
-@ClassForStatic： 静态属性和方法
-*/
+
 class StaticMember {
-    // 普通成员变量
+    // 实例变量
     private String name;
 
-    // 静态成员变量
+    // 静态变量
     static String country = "宋";
 
     // 构造函数
-    public StaticMember(){
-
-    }
+    public StaticMember(){}
 
     public StaticMember(String name) {
         this.name = name;
     }
 
-    // 普通成员方法
+    // 实例方法
     public void setName(String name) {
         this.name = name;
 
@@ -35,15 +31,18 @@ class StaticMember {
         // this.setCountry("中国");
     }
 
-    // 静态成员方法
+    // 静态方法
     // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问类变量和类方法
     public static void setCountry(String country) {
+        // System.out.println(name);// 无法访问实例变量
+
         StaticMember.country = country;
 
         // 类名可以省略
         // StaticModifier.run();
         // run();
     }
+
     public static void run(){
         System.out.println("I am static run!!!");
     }

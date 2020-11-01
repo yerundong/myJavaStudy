@@ -1,4 +1,4 @@
-package 修饰符.Final修饰符.Final类成员;
+package 类和对象.final修饰符.Final类成员;
 
 public class SuperClass {
     // 成员变量：必须直接赋值，或者所有的构造函数进行赋值，二者选其一

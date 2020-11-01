@@ -7,7 +7,7 @@ package common;
  * @Version 1.0
  */
 public class Util {
-    public String getType(Object obj){
+    public static String getType(Object obj){
         if(obj.getClass() == Byte.class){
             return "Byte";
         }else if(obj.getClass() == Short.class){

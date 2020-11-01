@@ -1,4 +1,4 @@
-package 类和对象.This关键字;
+package 类和对象.this关键字;
 
 public class TestThis {
     public int num = 250;

@@ -1,4 +1,4 @@
-package 修饰符.Final修饰符.Final类;
+package 类和对象.final修饰符.Final类;
 
 /**
 @final修饰类： 使这个类不可被继承（太监类），成为最终类

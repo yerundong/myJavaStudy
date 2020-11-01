@@ -62,7 +62,7 @@ public class 基本数据类型之间的自动转换 {
         // @ 三元运算符要求两个结果的类型相同，所以也存在自动类型提升
         Object o1 = true ? 1 : 2.0;
         System.out.println(o1);// 1.0
-        System.out.println(new Util().getType(o1));// Double
+        System.out.println(Util.getType(o1));// Double
 
     }
 }

@@ -1,4 +1,4 @@
-package 修饰符.Final修饰符.Final局部变量;
+package 方法;
 
 import 类和对象.Student;
 
@@ -9,7 +9,7 @@ import 类和对象.Student;
     1.对于基本类型来说，不可变说的是变量当中的数据不可改变
     2.对于引用类型来说，不可变说的是变量当中的地址值不可改变
 */
-public class Main {
+public class final局部变量 {
     public static void main(String[] args) {
         final int num1 = 10;
         // num1 = 10;// 报错

@@ -4,7 +4,6 @@ import common.Util;
 
 public class 基本数据和String之间的类型转换 {
     public static void main(String[] args) {
-        Util util = new Util();
 
         // @ 8种基本类型 --> String类型
         byte byte1 = 1;
@@ -53,7 +52,7 @@ public class 基本数据和String之间的类型转换 {
         System.out.println(sht2);
         System.out.println(int2);
         System.out.println(lng2);
-        // System.out.println(util.getType(lng2));// Long
+        // System.out.println(Util.getType(lng2));// Long
         System.out.println(flt2);
         System.out.println(dbe2);
         System.out.println(boo2);
