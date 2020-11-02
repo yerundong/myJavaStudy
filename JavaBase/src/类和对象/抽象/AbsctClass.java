@@ -1,4 +1,4 @@
-package 类和对象.抽象类和抽象方法;
+package 类和对象.抽象;
 
 public abstract class AbsctClass {
     private int num;
@@ -24,6 +24,10 @@ public abstract class AbsctClass {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    abstract class Abs{
+
     }
 }
 
