@@ -1,4 +1,4 @@
-package import和package;
+package 层级与模块;
 
 import java.util.*;
 import static java.lang.System.out;
@@ -15,8 +15,6 @@ import static java.lang.Math.*;
 
 @三、全名称方式：
     存在命名冲突时，不用import导包，直接使用全名称方式，如：new 包1.包2.包3.类\接口();
-
-@类、接口的命名规范： 大驼峰（MyClass）
 
 @注意事项：
     1.如果有 package 语句，import 语句放在 package 语句和类定义之间；如果没有 package 语句，import 语句应该在源文件中最前面。
