@@ -1,4 +1,4 @@
-package 类和对象.静态成员;
+package 类和对象.类的成员.静态成员;
 
 class StaticMember {
     // 实例变量
