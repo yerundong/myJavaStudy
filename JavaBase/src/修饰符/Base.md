@@ -32,7 +32,7 @@
      5.局部变量：参考：JavaBase\src\方法\final局部变量.java
      6.接口常量：参考：JavaBase\src\接口\常量
 
-> 常量命名规则： 大写（CONST）
+> 常量命名规则： 大写，下划线连接（MY_CONST）
 
 #### 注意：
      1.abstract 和 final 互相矛盾，所以不能同时使用（abstract 必须要被继承或重写）
