@@ -12,4 +12,11 @@ package 类和对象.final修饰符.final类;
 
  */
 public final class FinalClass {
+     final class SA{
+          public void jjj(){
+               final class AAA{
+
+               }
+          }
+     }
 }

@@ -36,6 +36,6 @@ public class Main {
         hero.executeAxiba();
 
         hero.setMale(true);
-        System.out.println("是爷们们儿吗："+hero.isMale());
+        System.out.println("是爷们儿吗："+hero.isMale());
     }
 }
