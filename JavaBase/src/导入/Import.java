@@ -1,6 +1,6 @@
 package 导入;
 
-import 接口.静态方法.TestClass;
+import 接口.静态方法.MyClass;
 import 类和对象.Student;
 
 /**
@@ -25,6 +25,6 @@ import 类和对象.Student;
 public class Import {
     public static void main(String[] args) {
         new Student();
-        new TestClass();
+        new MyClass();
     }
 }

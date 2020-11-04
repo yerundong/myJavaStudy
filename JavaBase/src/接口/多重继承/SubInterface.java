@@ -1,6 +1,6 @@
 package 接口.多重继承;
 
-public interface SubInterface extends SuperInterface1,SuperInterface2 {
+public interface SubInterface extends SuperInterface1, SuperInterface2 {
     // 常量隐藏
     public static final String MY_CONST = "SubInterface MY_CONST";
 

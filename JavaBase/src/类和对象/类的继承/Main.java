@@ -36,6 +36,11 @@ package 类和对象.类的继承;
  @重载与重写：
     重载（Overload）：方法的名称一样，参数列表【不一样】。
     重写（Override）（覆盖、覆写）：方法的名称一样，参数列表【也一样】；子类覆盖父类方法。
+
+ @匿名子类格式：
+     new 父类名称(){
+        子类结构
+     };
 */
 public class Main {
     public static void main(String[] args) {
@@ -67,5 +72,10 @@ public class Main {
         // 静态方法的重载和重新声明
         TestSub.look(1);// 子类look
         TestSub.look();// 父类look
+
+        // 匿名子类
+        new TestSuper(){
+            // 子类结构
+        };
     }
 }

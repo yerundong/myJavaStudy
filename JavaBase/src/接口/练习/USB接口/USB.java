@@ -1,4 +1,4 @@
-package 多态.练习.USB接口;
+package 接口.练习.USB接口;
 
 public interface USB {
     // 打开设备

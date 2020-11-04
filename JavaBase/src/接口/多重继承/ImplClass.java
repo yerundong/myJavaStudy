@@ -1,6 +1,6 @@
 package 接口.多重继承;
 
-public class TestClass implements SubInterface {
+public class ImplClass implements SubInterface {
     // 抽象方法重写
     @Override
     public void abs() {

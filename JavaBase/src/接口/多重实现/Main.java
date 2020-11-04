@@ -9,6 +9,12 @@ package 接口.多重实现;
     3.抽象方法重复，实现类只需重写一次
     4.默认方法重复，实现类必须重写
 
+ @匿名实现类格式：
+    new Interface(){
+        ...
+    };
+
+    @注： 只能一个实现一个接口的实现类才能匿名
 */
 public class Main {
     public static void main(String[] args) {
@@ -19,5 +25,26 @@ public class Main {
         obj.def();
         obj.def1();
         obj.def2();
+
+        // 匿名实现类
+        TestInterface1 cls = new TestInterface1(){
+
+            @Override
+            public void says() {
+
+            }
+
+            @Override
+            public void def() {
+
+            }
+
+            @Override
+            public void def1() {
+
+            }
+        };
+
+
     }
 }
