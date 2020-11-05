@@ -1,6 +1,6 @@
 package 运算符;
 
-import 类和对象.Student;
+import 示例.Student;
 
 /**
 @说明：
@@ -42,8 +42,8 @@ public class 双等号 {
         System.out.println("================ part 2 ===================");
 
         // 引用类型
-        Student stu1 = new Student("张三", 15);
-        Student stu2 = new Student("张三", 15);
+        Student stu1 = new Student("张三");
+        Student stu2 = new Student("张三");
         char[] arr1 = {'a'};
         char[] arr2 = {'a'};
 

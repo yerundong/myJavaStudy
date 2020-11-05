@@ -1,6 +1,6 @@
 package 常用类.Object类.Objects工具类;
 
-import 类和对象.Student;
+import 示例.Student;
 
 import java.util.Objects;
 
@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Equals {
     public static void main(String[] args) {
-        Student stu1 = new Student("张三", 15);
-        Student stu2 = new Student("张三", 15);
+        Student stu1 = new Student("张三");
+        Student stu2 = new Student("张三");
         char[] arr1 = {'a'};
         char[] arr2 = {'a'};
 

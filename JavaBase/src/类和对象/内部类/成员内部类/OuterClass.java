@@ -1,11 +1,13 @@
 package 类和对象.内部类.成员内部类;
 
+import 示例.Student;
+
 public class OuterClass {
     int num = 10;
     int age1 = 10;
     static int year = 2020;
 
-    // 非静态成员内部类
+    // 成员内部类
     public class InnerClass{
 
         int num = 20;
@@ -17,10 +19,12 @@ public class OuterClass {
             int age3 = 30;
 
             // 访问内外部成员变量和局部变量
+
             // 不重名时：
             // System.out.println(age1);// 10
             // System.out.println(age2);// 20
             // System.out.println(age3);// 30
+
             // 重名时，完整格式：
             // System.out.println(num);// 30
             // System.out.println(this.num);// 20
@@ -32,11 +36,16 @@ public class OuterClass {
         }
     }
 
-    // 静态成员内部类
+    // 静态内部类
     public static class StaticInnerClass{
         public void see(){
             System.out.println("静态成员内部类执行了");
         }
+    }
+
+    // 成员内部类也可以做继承和实现的操作
+    public class collegeStudent extends Student{
+
     }
 
     public void cook(){

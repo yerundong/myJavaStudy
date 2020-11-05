@@ -1,6 +1,6 @@
 package 类和对象.构造器;
 
-import 类和对象.Student;
+import 示例.Student;
 
 /**
 @构造器（Constructor/构造方法/构造函数）： 构造器是专门用来创建对象的特殊方法，当我们通过关键字new来创建对象时，其实就是在调用构造方法。

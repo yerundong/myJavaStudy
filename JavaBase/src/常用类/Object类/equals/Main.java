@@ -1,6 +1,6 @@
 package 常用类.Object类.equals;
 
-import 类和对象.Student;
+import 示例.Student;
 
 /**
 @equals： equals是Object中的成员方法，而Object是所有类的父类，都继承了该方法，基本类型需要包装类才能使用。
@@ -81,8 +81,8 @@ public class Main {
 
         // @其他引用类型
         // 没有重写equals，继承Object类的equals，是比较地址
-        Student stu1 = new Student("张三", 15);
-        Student stu2 = new Student("张三", 15);
+        Student stu1 = new Student("张三");
+        Student stu2 = new Student("张三");
         char[] arr1 = {'a'};
         char[] arr2 = {'a'};
         System.out.println(stu1.equals(stu2));

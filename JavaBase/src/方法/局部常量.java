@@ -1,6 +1,6 @@
 package 方法;
 
-import 类和对象.Student;
+import 示例.Student;
 
 /**
 

@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 
 @ try-catch-finally中的return：
     1.try、catch、finally的代码块执行不会被return截止，会先执行各自return前的代码，最后执行return
-    2.try、catch、finally只会执行一次return
+    2.try、catch、finally只会执行一次return，执行哪个取决于哪个return最后执行
     3.finally的return优先级大于try、catch
 
 */
@@ -65,6 +65,7 @@ public class TryCatchFinally {
     static int says(){
         int[] arr1 = new int[1];
         try{
+            System.out.println("*** try ***");
             System.out.println(arr1[1]);
             return 1;
         }catch (Exception e){
