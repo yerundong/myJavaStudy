@@ -1,4 +1,4 @@
-package domain;
+package teacher.domain;
 
 public interface Equipment {
 	

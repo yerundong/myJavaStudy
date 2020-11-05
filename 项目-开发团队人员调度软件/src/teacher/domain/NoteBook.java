@@ -1,4 +1,4 @@
-package domain;
+package teacher.domain;
 
 public class NoteBook implements Equipment{
 	private String model;//机器的型号

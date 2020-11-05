@@ -1,4 +1,4 @@
-package domain;
+package teacher.domain;
 
 public class Employee {
     private int id;

@@ -1,7 +1,7 @@
-package view;
+package teacher.view;
 
-import domain.*;
-import service.*;
+import teacher.domain.*;
+import teacher.service.*;
 
 public class TeamView {
 	private NameListService listSvc = new NameListService();

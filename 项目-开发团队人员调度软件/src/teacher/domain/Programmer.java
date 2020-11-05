@@ -1,6 +1,6 @@
-package domain;
+package teacher.domain;
 
-import service.Status;
+import teacher.service.Status;
 
 public class Programmer extends Employee {
     private int memberId;

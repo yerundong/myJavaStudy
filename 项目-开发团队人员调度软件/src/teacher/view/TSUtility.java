@@ -1,4 +1,4 @@
-package view;
+package teacher.view;
 
 import java.util.*;
 

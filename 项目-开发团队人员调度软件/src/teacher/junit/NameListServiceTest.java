@@ -1,10 +1,10 @@
 
-package junit;
+package teacher.junit;
 
-import domain.Employee;
+import teacher.domain.Employee;
 import org.junit.jupiter.api.Test;
-import service.NameListService;
-import service.TeamException;
+import teacher.service.NameListService;
+import teacher.service.TeamException;
 
 public class NameListServiceTest {
 

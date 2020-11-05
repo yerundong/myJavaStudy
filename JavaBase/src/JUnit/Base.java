@@ -34,7 +34,7 @@ public class Base {
 
     @Test
     public void testSays(){
-        says("hello junit");
+        says("hello teacher.junit");
     }
 
 }

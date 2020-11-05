@@ -1,4 +1,4 @@
-package service;
+package teacher.service;
 public class Status {
 	private final String NAME;
 	private Status(String name) {

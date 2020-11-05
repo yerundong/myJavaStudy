@@ -1,8 +1,8 @@
-package service;
+package teacher.service;
 
-import domain.*;
+import teacher.domain.*;
 
-import static service.Data.*;
+import static teacher.service.Data.*;
 
 public class NameListService {
 	private Employee[] employees;

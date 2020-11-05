@@ -1,4 +1,4 @@
-package domain;
+package teacher.domain;
 
 public class Designer extends Programmer{
     private double bonus;

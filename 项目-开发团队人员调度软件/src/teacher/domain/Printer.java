@@ -1,4 +1,4 @@
-package domain;
+package teacher.domain;
 
 public class Printer implements Equipment{
 	private String name;//名称

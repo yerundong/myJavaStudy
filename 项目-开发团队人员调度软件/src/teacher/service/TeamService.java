@@ -1,6 +1,6 @@
-package service;
+package teacher.service;
 
-import domain.*;
+import teacher.domain.*;
 
 
 public class TeamService {
