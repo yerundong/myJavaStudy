@@ -23,10 +23,7 @@ public class Printer implements Equipment {
 
     @Override
     public String toString() {
-        return "Printer{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        return "Printer-" + getDescription();
     }
 
     public String getName() {

@@ -17,9 +17,7 @@ public class Architect extends Designer {
 
     @Override
     public String toString() {
-        return "Architect{" +
-                "stock=" + stock +
-                "} " + super.toString();
+        return getBaseInfo() + "\t架构师\t" + getStatus() + "\t"+ getBonus() +"\t" + getStock() + "\t" + getEquipment();
     }
 
     public int getStock() {

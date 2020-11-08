@@ -8,6 +8,7 @@ public class Designer extends Programmer {
     private double bonus;// 奖金
 
     public Designer() {
+
     }
 
     public Designer(int id, String name, int age, double salary, Equipment equipment, double bonus) {
@@ -17,9 +18,7 @@ public class Designer extends Programmer {
 
     @Override
     public String toString() {
-        return "Designer{" +
-                "bonus=" + bonus +
-                "} " + super.toString();
+        return getBaseInfo() + "\t设计师\t" + getStatus() + "\t"+ getBonus() +"\t    \t" + getEquipment();
     }
 
     public double getBonus() {

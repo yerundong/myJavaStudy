@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-/*
+/**
 @ try-catch-finally：用来捕获并处理异常（编译时+运行时）
 
 @ 注意：

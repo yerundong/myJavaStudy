@@ -23,10 +23,7 @@ public class NoteBook implements Equipment {
 
     @Override
     public String toString() {
-        return "NoteBook{" +
-                "model='" + model + '\'' +
-                ", price='" + price + '\'' +
-                '}';
+        return "NoteBook-" + getDescription();
     }
 
     public String getModel() {

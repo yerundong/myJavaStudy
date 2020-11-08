@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../HelloWold/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../项目-客户信息管理软件/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../项目-开发团队人员调度软件/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -21,10 +21,30 @@ public class Programmer extends Employee{
 
     @Override
     public String toString() {
-        return "Programmer{" +
-                "memberId=" + memberId +
-                ", status=" + status +
-                ", equipment=" + equipment +
-                '}';
+        return getBaseInfo() + "\t程序员\t" + getStatus() + "\t     \t    \t" + getEquipment();
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
     }
 }

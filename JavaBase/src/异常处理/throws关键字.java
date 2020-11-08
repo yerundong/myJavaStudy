@@ -2,11 +2,12 @@ package 异常处理;
 
 import java.io.IOException;
 
-/*
+/**
 @ throws：针对方法内部的异常处理，将方法内部的异常抛出，由调用处接受，一层层向上抛出，直到虚拟机
 
-@ 优点：
-    1.要求调用处必须try-catch-finally处理可能出现的异常，对于极有可能出现异常的代码提供了保障
+@ 作用：
+    1.编译时异常，要求方法调用处必须 try-catch-finally 处理可能出现的异常，对于极有可能出现异常的代码提供了保障
+        @注： 如果是继承自编译时异常的自定义异常，也硬性要求需要 try-catch-finally 处理
     2.抛出外部，统一处理异常，
 
 @ 格式：method() throws ExceptionType1, ExceptionType2...{
