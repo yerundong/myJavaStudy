@@ -1,7 +1,10 @@
 package myself.service;
 
 import myself.domain.Employee;
+import myself.domain.Programmer;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 class TeamServiceTest {
 
@@ -12,12 +15,25 @@ class TeamServiceTest {
     void addMember() {
 
         try {
-            Employee employee = nameListService.getEmployeeById(2);
-            teamService.addMember(employee);
+            Employee employee2 = nameListService.getEmployeeById(2);
+            // ((Programmer)employee2).setStatus(Status.VOCATION);
+
+            teamService.addMember(employee2);
             teamService.addMember(nameListService.getEmployeeById(3));
             teamService.addMember(nameListService.getEmployeeById(4));
-            teamService.addMember(nameListService.getEmployeeById(5));
             teamService.addMember(nameListService.getEmployeeById(6));
+            teamService.addMember(nameListService.getEmployeeById(7));
+
+            System.out.println(teamService);
+            // System.out.println(Arrays.toString(teamService.getTeam()));
+
+            try{
+                teamService.removeMember(5);
+            }catch (TeamException e){
+                e.printStackTrace();
+            }
+
+
             System.out.println(teamService);
 
         } catch (TeamException e) {

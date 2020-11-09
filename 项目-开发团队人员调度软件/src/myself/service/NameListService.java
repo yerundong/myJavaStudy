@@ -96,12 +96,13 @@ public class NameListService {
 
     @Override
     public String toString() {
-        String str = "";
+        String str = "------------------------------ 开发团队调度软件 ----------------------------------\n";
         str += "ID \t名字   \t年龄\t工资   \t岗位   \t状态  \t奖金   \t股票  \t设备\n";
         for (int i = 0; i < employees.length-1; i++) {
             str += employees[i].toString()+"\n";
         }
-        str += employees[employees.length-1].toString();
+        str += employees[employees.length-1].toString()+"\n";
+        str += "-------------------------------------------------------------------------------\n";
         return str;
     }
 

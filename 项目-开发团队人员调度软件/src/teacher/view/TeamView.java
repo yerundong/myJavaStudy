@@ -41,7 +41,7 @@ public class TeamView {
 	// 显示所有的员工成员
 	private void listAllEmployees() {
 		System.out
-				.println("\n-------------------------------开发团队调度软件--------------------------------\n");
+				.println("\n---------------------------------开发团队调度软件----------------------------------\n");
 		Employee[] emps = listSvc.getAllEmployees();
 		if (emps.length == 0) {
 			System.out.println("没有客户记录！");
