@@ -1,7 +1,7 @@
 package myself.service;
 
 /**
- * @Description 模拟数据库中的数据文件
+ * @Description 模拟数据库中的数据文件：员工、设备
  */
 public class Data {
     public static final int EMPLOYEE = 10;

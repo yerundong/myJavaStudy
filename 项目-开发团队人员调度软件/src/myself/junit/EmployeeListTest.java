@@ -1,13 +1,15 @@
-package myself.service;
+package myself.junit;
 
 import myself.domain.Employee;
+import myself.service.EmployeeList;
+import myself.service.TeamException;
 import org.junit.jupiter.api.Test;
 
 /**
  * @Description 测试 NameListService
  */
-public class NameListServiceTest {
-    NameListService service = new NameListService();
+public class EmployeeListTest {
+    EmployeeList service = new EmployeeList();
 
     {
         System.out.println(service);

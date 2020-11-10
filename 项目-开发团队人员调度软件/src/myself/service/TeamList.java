@@ -1,21 +1,16 @@
 package myself.service;
 
-import jdk.swing.interop.SwingInterOpUtils;
 import myself.domain.Architect;
 import myself.domain.Designer;
 import myself.domain.Employee;
 import myself.domain.Programmer;
 
-import java.util.Arrays;
-
-import static myself.service.Data.*;
-
 /**
- * @Description 关于开发团队成员的管理：添加、删除等。
+ * @Description 开发团队
  */
-public class TeamService {
+public class TeamList {
 
-    private static int counter = 1;// 自增主键 给memberId赋值
+    private static int counter = 1;// 自增主键 给teamId赋值
     private final int MAX_MEMBER = 5;// 最大开发团队人数
     private Programmer[] team = new Programmer[MAX_MEMBER];// 开发团队数组
     private static int total;// 开发团队人数
@@ -33,7 +28,7 @@ public class TeamService {
         String statusName = pg.getStatus().getNAME();
 
         if (statusName.equals("BUSY")) {
-            throw new TeamException("该员工已是某团队成员！");
+            throw new TeamException("该员工已是BUSY状态！");
         }
 
         if (statusName.equals("VOCATION")) {
@@ -71,7 +66,7 @@ public class TeamService {
                 throw new TeamException("团队中最多只能有三个程序员！");
         }
 
-        pg.setMemberId(counter++);
+        pg.setTeamId(counter++);
         team[total++] = pg;
         pg.setStatus(Status.BUSY);
 
@@ -79,9 +74,9 @@ public class TeamService {
 
     /**
      * @Description 删除成员
-     * @Param [memberId]
+     * @Param [teamId]
      */
-    public void removeMember(int memberId) throws TeamException {
+    public void removeMember(int teamId) throws TeamException {
 
         boolean isFound = false;// 是否找到目标成员
 
@@ -97,7 +92,9 @@ public class TeamService {
 
             } else {// 未找到
 
-                if (team[i].getMemberId() == memberId) {// 匹配到目标成员
+                if (team[i].getTeamId() == teamId) {// 匹配到目标成员
+                    team[i].setStatus(Status.FREE);
+                    team[i] = null;
                     isFound = true;
                 }
 
@@ -105,10 +102,10 @@ public class TeamService {
         }
 
         if (!isFound)
-            throw new TeamException("找不到指定memberId的员工，删除失败");
+            throw new TeamException("找不到指定 teamId 的员工，删除失败");
 
-        System.out.println("删除成功！");
         total--;
+
     }
 
     /**
@@ -129,15 +126,17 @@ public class TeamService {
 
     @Override
     public String toString() {
-        String str = "";
+        Programmer[] t = getTeam();
+        String str = "------------------------------ 开发团队成员列表 ----------------------------------\n";
         str += "TID\\ID \t名字   \t年龄\t工资   \t岗位   \t状态  \t奖金   \t股票  \t设备\n";
-        for (int i = 0; i < team.length; i++) {
-            if (team[i] == null) {
-                str += "null\n";
-            } else {
-                str += team[i].toString() + "\t tid=" + team[i].getMemberId() + "\n";
-            }
+
+        if(t.length == 0){
+            str += "\n暂无开发人员!\n\n";
         }
+        for (int i = 0; i < t.length; i++) {
+            str += team[i].getTeamId() + " \\ " + team[i].toString()  + "\n";
+        }
+        str += "-------------------------------------------------------------------------------\n";
         return str;
     }
 

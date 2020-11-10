@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import teacher.service.NameListService;
 import teacher.service.TeamException;
 
-public class NameListServiceTest {
+public class EmployeeListTest {
 
 	@Test
 	public void testGetAllEmployees(){

@@ -7,7 +7,7 @@ import myself.service.Status;
  */
 public class Programmer extends Employee{
 
-    private int memberId;// TID 开发团队中的Id
+    private int teamId;// TID 开发团队Id
     private Status status = Status.FREE;// 状态
     private Equipment equipment;// 设备
 
@@ -24,12 +24,12 @@ public class Programmer extends Employee{
         return getBaseInfo() + "\t程序员\t" + getStatus() + "\t     \t    \t" + getEquipment();
     }
 
-    public int getMemberId() {
-        return memberId;
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     public Status getStatus() {

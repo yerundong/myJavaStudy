@@ -4,11 +4,14 @@ import myself.domain.*;
 
 import static myself.service.Data.*;
 
-public class NameListService {
+/**
+ * @Description 全部员工列表
+ */
+public class EmployeeList {
 
     private Employee[] employees;// 员工数组
 
-    public NameListService() {
+    public EmployeeList() {
 
         employees = new Employee[EMPLOYEES.length];
 
