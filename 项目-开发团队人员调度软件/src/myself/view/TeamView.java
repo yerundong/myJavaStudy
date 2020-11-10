@@ -13,7 +13,6 @@ public class TeamView {
     public static void main(String[] args) {
         TeamView teamView = new TeamView();
         teamView.enterMainMenu();
-
     }
 
     private EmployeeList employeeList = new EmployeeList();
