@@ -21,39 +21,58 @@ package 多线程.Thread类创建线程;
 
     @getName()\setName()： 获取\设置线程名字
 
-    @yield()： 暂停当前正在执行的线程对象，并执行其他线程。
+    @join()：
+        1.写在线程外部：（主线程）进入等待状态（waiting），等待当前分线程执行完，才重新执行
+        2.写在线程内部：（当前线程）进入等待状态（waiting），先执行其他线程
 
  @Thread静态方法：
     @currentThread(): 返回对当前正在执行的线程对象的引用。
+
+    @yield()： 向调度程序提示当前线程愿意让步，释放当前cpu执行权，重新分配，但也有可能还是分配到当前线程
+
+    @sleep(long millis):在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。
 
 */
 public class Base {
     public static void main(String[] args) {
         Thread.currentThread().setName("主线程");
 
-        SubThread subThread1 = new SubThread("subThread1");
-        SubThread subThread2 = new SubThread("subThread2");
+        SubThread subThread1 = new SubThread("-分线程1");
+        SubThread subThread2 = new SubThread("--分线程2");
 
-        // 线程1
-        // start()：1.启动当前线程 2.start里调用当前线程的run方法
+        // @线程1
         subThread1.start();
         // subThread1.start();// 报错：IllegalThreadStateException
 
-        // 线程2
-        subThread2.start();
+        // @join （主线程）需等待当前线程执行完，才能执行其他线程
+        // try {
+        //     subThread1.join();
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
 
-        // 主线程
+        // @线程2
+        // subThread2.start();
+
+        // try {
+        //     subThread2.join();
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
+
+        System.out.println(subThread1.isAlive());
+
+        // @主线程
         for (int i = 0; i < 10; i++) {
             System.out.println(Thread.currentThread().getName() + "---" + i);
         }
 
-        // 如果线程类只用一次，可使用匿名子类
-
+        // @如果线程类只用一次，可使用匿名子类
         new Thread("SubThread3"){
             @Override
             public void run() {
                 for (int i = 0; i < 10; i++) {
-                    System.out.println("---------------我是SubThread3----------------");
+                    // System.out.println("---------------我是SubThread3----------------");
                 }
             }
         }.start();
