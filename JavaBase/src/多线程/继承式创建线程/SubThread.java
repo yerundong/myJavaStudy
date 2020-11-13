@@ -1,4 +1,4 @@
-package 多线程.Thread类创建线程;
+package 多线程.继承式创建线程;
 
 public class SubThread extends Thread {
 
@@ -11,6 +11,13 @@ public class SubThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
+            // @sleep
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             System.out.println(currentThread().getName() + "---" + i);
             if ( i == 5){
                 // @yield
@@ -22,13 +29,6 @@ public class SubThread extends Thread {
                 // } catch (InterruptedException e) {
                 //     e.printStackTrace();
                 // }
-
-                // @sleep
-                try {
-                    sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
