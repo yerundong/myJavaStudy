@@ -1,8 +1,8 @@
-package 多线程.实现式创建线程;
+package 多线程.创建线程.实现式;
 
 /**
 
- @实现式创建线程步骤：
+ @步骤：
     1.创建一个 Runnable 接口的实现类：MThread
     2.在 MThread 中重写 Runnable 的 run 方法
     3.创建MThread的实例对象：mThread

@@ -1,4 +1,4 @@
-package 多线程.实现式创建线程;
+package 多线程.创建线程.实现式;
 
 public class MThread implements Runnable {
 
