@@ -21,14 +21,14 @@ package 多线程.线程的常规操作;
 
      @isAlive()： 测试此线程是否仍然存活
 
-
  @Thread静态方法：
 
      @currentThread(): 返回对当前正在执行的线程对象的引用。
 
      @yield()： 向调度程序提示当前线程愿意让步，释放当前cpu执行权，回到就绪状态，重新分配，但也有可能还是分配到当前线程
 
-     @sleep(long millis): 当前线程休眠（暂停执行），进入阻塞状态，此操作受到系统计时器和调度程序精度和准确性的影响。
+    @sleep(long): 当前线程休眠（暂停执行），进入阻塞状态，此操作受到系统计时器和调度程序精度和准确性的影响。
+
 
  */
 public class Base {
@@ -51,7 +51,7 @@ public class Base {
 
         // @配合内部join，查看subThread1状态，确定为：阻塞
         // try {
-        //     Thread.currentThread().sleep(2000);
+        //     Thread.sleep(2000);
         //     System.out.println(subThread1.isAlive());
         // } catch (InterruptedException e) {
         //     e.printStackTrace();

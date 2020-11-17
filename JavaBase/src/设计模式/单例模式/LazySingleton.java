@@ -14,9 +14,22 @@ public class LazySingleton {
 
     private static LazySingleton instance;
 
+    // 性能稍差
+    // public static synchronized LazySingleton getInstance() {
+    //     if(instance == null){
+    //         instance = new LazySingleton();
+    //     }
+    //     return instance;
+    // }
+
+    // 双重检索
     public static LazySingleton getInstance() {
         if(instance == null){
-            instance = new LazySingleton();
+            synchronized(LazySingleton.class){
+                if(instance == null){
+                    instance = new LazySingleton();
+                }
+            }
         }
         return instance;
     }
