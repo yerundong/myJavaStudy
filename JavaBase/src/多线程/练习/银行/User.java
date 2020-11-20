@@ -1,8 +1,18 @@
 package 多线程.练习.银行;
 
-public class User {
+public class User implements Runnable {
     private String name;
     private Account account;
+
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 3; i++) {
+            account.deposit(1000);
+            // account.withdraw(1000);
+        }
+
+    }
 
     public User(String name, Account account) {
         this.name = name;
