@@ -1,4 +1,4 @@
-package 多线程.练习.银行;
+package 多线程.练习.存款取款;
 
 import java.util.concurrent.locks.ReentrantLock;
 
