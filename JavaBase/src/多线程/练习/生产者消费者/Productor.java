@@ -3,13 +3,8 @@ package 多线程.练习.生产者消费者;
 /**
  * @Description 供应商
  */
-public class Productor implements Runnable{
+public class Productor{
     private int productCounter = 20;
-
-    @Override
-    public void run() {
-        product();
-    }
 
     // 生产：每秒生产一个
     public void product(){

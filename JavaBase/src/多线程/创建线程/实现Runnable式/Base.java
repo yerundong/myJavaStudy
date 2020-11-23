@@ -1,4 +1,4 @@
-package 多线程.创建线程.实现式;
+package 多线程.创建线程.实现Runnable式;
 
 /**
 

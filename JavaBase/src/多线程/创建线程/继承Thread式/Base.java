@@ -1,4 +1,4 @@
-package 多线程.创建线程.继承式;
+package 多线程.创建线程.继承Thread式;
 
 /**
  @方式： 创建 Thread 子类：SubThread，SubThread实例化几次，就创建几个线程

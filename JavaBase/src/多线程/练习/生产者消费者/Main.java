@@ -13,21 +13,19 @@ package 多线程.练习.生产者消费者;
  */
 public class Main {
     public static void main(String[] args) {
-        Productor productor = new Productor();
-        Clerk clerk = new Clerk(productor, "小红");
 
-        Thread productThread = new Thread(productor, "生产线程");// 生产线程
-        Thread clerkThread = new Thread(clerk, "销售员线程");// 销售员线程
+        ProductThread productThread = new ProductThread();
+        ClerkThread clerkThread = new ClerkThread();
 
         productThread.start();
         clerkThread.start();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        clerk.purchase(10);
+        //
+        // try {
+        //     Thread.sleep(5000);
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
+        // clerk.purchase(10);
 
         // System.out.println(productor.getProductCounter());
     }

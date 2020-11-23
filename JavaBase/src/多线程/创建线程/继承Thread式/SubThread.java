@@ -1,4 +1,4 @@
-package 多线程.创建线程.继承式;
+package 多线程.创建线程.继承Thread式;
 
 public class SubThread extends Thread {
 
