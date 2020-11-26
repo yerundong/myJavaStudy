@@ -1,9 +1,19 @@
 package 多线程.创建线程.实现Callable式;
 
-public class MThread implements Runnable {
+import java.util.concurrent.Callable;
+
+public class MThread implements Callable {
 
     @Override
-    public void run() {
-        System.out.println(123);
+    public Object call() throws Exception {
+        int sum = 0;
+        for (int i = 0; i < 1000; i++) {
+
+            Thread.sleep(10);
+
+            System.out.println(Thread.currentThread().getName() + "---" + i);
+            sum+=i;
+        }
+        return sum;
     }
 }
