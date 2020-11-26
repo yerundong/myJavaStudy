@@ -17,10 +17,7 @@ import java.util.concurrent.FutureTask;
 
  futureTask.get() 返回call方法的返回值
 
- @Callable与Runnable方式对比优势：
-    1.Callable 可以在任务结束的时候提供一个返回值，Runnable 无法提供这个功能
-    2.Callable 的 call 方法分可以抛出异常，而 Runnable 的 run 方法不能抛出异常。
-    3.Callable 支持泛型
+
  */
 public class Base {
     public static void main(String[] args) {

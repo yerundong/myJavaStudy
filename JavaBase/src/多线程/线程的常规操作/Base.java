@@ -7,8 +7,8 @@ package 多线程.线程的常规操作;
 
  @Thread实例方法：
 
-     @start()： 做了两件事：1.启动线程，进入就绪状态（ready）。2.调用该线程的 run 方法。
-         注：一个线程只能启动一次，start()不能执行两次，否则报错：IllegalThreadStateException
+     @start()： 辟新的栈空间，启动线程，执行 run 方法，进入就绪状态（ready）。
+         注：一个线程只能启动一次，即个线程的start()只能执行一次，否则报错：IllegalThreadStateException
 
      @run()： 通常需要重写，将当前线程需要执行的操作写在此方法里
         注：直接只调用 run 方法（不调start）不会创建线程，而是在主线程里执行 run 方法
