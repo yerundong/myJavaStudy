@@ -11,9 +11,13 @@ package 多线程.线程安全.lock锁;
 
  @创建锁： ReentrantLock lock = new ReentrantLock();
 
+ @方法：
+    lock()：获取锁，锁上。在可能出现线程安全的同步代码前调用
+    unlock()：释放锁，解锁。在可能出现线程安全的同步代码后调用
+
  @注意事项：
     1.一定要手动关闭锁，否则将造成死锁
-    2.为了避免报错执行不到解锁操作，造成死锁，建议使用 try-finally
+    2.为了避免报错执行不到解锁操作，造成死锁，建议使用 try-finally，在finally调用unlock
 
  */
 public class Main {

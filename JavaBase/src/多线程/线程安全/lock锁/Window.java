@@ -1,6 +1,5 @@
 package 多线程.线程安全.lock锁;
 
-import java.util.Arrays;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Thread.sleep;
