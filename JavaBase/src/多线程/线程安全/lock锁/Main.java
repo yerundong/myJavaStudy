@@ -19,6 +19,11 @@ package 多线程.线程安全.lock锁;
     1.一定要手动关闭锁，否则将造成死锁
     2.为了避免报错执行不到解锁操作，造成死锁，建议使用 try-finally，在finally调用unlock
 
+ @Lock相较于synchronized的优势：
+     1. Lock是显式锁，手动释放，是更为灵活的结构，synchronized是隐式锁，出了作用域自动释放
+     2. Lock只有代码块锁，synchronized有代码块锁和方法锁
+     3. 使用Lock锁，JVM将花费较少的时间来调度线程，性能更好。并且具有更好的扩展性（提供更多的子类）
+
  */
 public class Main {
     public static void main(String[] args) {

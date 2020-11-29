@@ -1,5 +1,8 @@
 package 字符串;
 
+/**
+ @注： 由于String的不可变性，String的所有方法都不会改变字符串
+ */
 public class 常用方法 {
     public static void main(String[] args) {
         String str1 = "Hello Java";
@@ -66,5 +69,15 @@ public class 常用方法 {
         for (int i = 0; i < stringArr.length; i++) {
             System.out.println(stringArr[i]);
         }
+
+        // <M> intern()
+        // <解释> 当调用 intern 方法时，如果常量池已存在一个等于此 String 对象的字符串（用 equals(Object) 方法确定），则返回池中的字符串。
+        //       否则，将此 String 对象添加到池中，并返回此 String 对象的引用。
+        // <返回> 返回内容一致的数组，不过是在放在常量池中的
+        String str8 = new String("abc");
+        String str9 = str8.intern();
+        String str10 = "abc";
+        System.out.println(str8 == str9);// false
+        System.out.println(str9 == str10);// true
     }
 }
