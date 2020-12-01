@@ -1,11 +1,13 @@
 package 数据类型;
 
-import common.Util;
+/**
 
+ @快速记忆： 基本转String用valueOf，拼接符号黑科技；String转基本用parse，只有char搞特殊。
+
+ */
 public class 基本数据和String之间的类型转换 {
     public static void main(String[] args) {
-
-        // @ 8种基本类型 --> String类型
+        // 一、8种基本类型 --> String类型
         byte byte1 = 1;
         short sht1 = 2;
         int int1 = 3;
@@ -15,7 +17,7 @@ public class 基本数据和String之间的类型转换 {
         char char1 = 'a';
         boolean boo1 = true;
 
-        // valueOf方法
+        // 1.valueOf方法
         String str1 = String.valueOf(byte1);
         String str2 = String.valueOf(sht1);
         String str3 = String.valueOf(int1);
@@ -25,7 +27,7 @@ public class 基本数据和String之间的类型转换 {
         String str7 = String.valueOf(char1);
         String str8 = String.valueOf(boo1);
 
-        // 字符串拼接方式
+        // 2.字符串拼接方式
         String str9 = lng1 + "";
         String str10 = char1 + "";
         String str11 = boo1 + "";
@@ -35,9 +37,9 @@ public class 基本数据和String之间的类型转换 {
 
         System.out.println("=================================");
 
-        // @ String --> 8种基本类型
+        // 二、String --> 8种基本类型
 
-        // Xxx.parseXxx(s) （不适用于char）
+        // 1.Xxx.parseXxx(s) （不适用于char）
         // s 必须是符合转换类型规则的字符串
         byte byte2 = Byte.parseByte("1");
         short sht2 = Short.parseShort("2");
@@ -57,7 +59,7 @@ public class 基本数据和String之间的类型转换 {
         System.out.println(dbe2);
         System.out.println(boo2);
 
-        // String --> char
+        // 2.String --> char
         // charAt()
         char char2 = "A".charAt(0);
         char char3 = (char)Integer.parseInt("65");
@@ -66,13 +68,5 @@ public class 基本数据和String之间的类型转换 {
 
         System.out.println("=================================");
 
-        // @ 基本类型互转
-        // 可以用自动和强制类型转换
-
-        // char --> int
-        int int4 = 'a';
-        System.out.println(int4);// 97
-        System.out.println((int)'a');// 97
-        System.out.println('a' + 0);// 97
     }
 }
