@@ -1,5 +1,6 @@
 package 字符串;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Arrays;
 
  */
 public class 常用方法 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         String topStr = "Hello Java";
 
         {
@@ -93,9 +94,18 @@ public class 常用方法 {
 
         {
             // <名称> public byte[] getBytes()
-            // <解释> 将此字符串转换为一个新的字节数组并返回。
-            byte[] byteArr1 = topStr.getBytes();
-            System.out.println("getBytes：" + byteArr1[0]);
+            // <解释> 编码，将此字符串转换为一个新的字节数组并返回，使用默认字符集转换。
+            // <名称> public byte[] getBytes(String charsetName)
+            // <解释> 编码，将此字符串转换为一个新的字节数组并返回，使用特定字符集转换。
+            String str = "abc123中国";
+            byte[] byteArr1 = str.getBytes();
+            byte[] byteArr2 = str.getBytes("UTF-16");
+            byte[] byteArr3 = str.getBytes("US-ASCII");
+            byte[] byteArr4 = str.getBytes("GBK");
+            System.out.println("getBytes：" + Arrays.toString(byteArr1));
+            System.out.println("getBytes：" + Arrays.toString(byteArr2));
+            System.out.println("getBytes：" + Arrays.toString(byteArr3));
+            System.out.println("getBytes：" + Arrays.toString(byteArr4));
         }
 
         {

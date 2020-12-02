@@ -1,4 +1,7 @@
 package 字符串;
+
+import java.io.UnsupportedEncodingException;
+
 /**
 @字符串： String是一个final类，引用类型，代表不可变字符序列
 
@@ -34,20 +37,28 @@ package 字符串;
     而Java9的字符串采用byte[]数组再加一个encoding-flag字段来保存字符，因此字符串的每个字符只占1字节。
     所以Java9的字符串更加节省空间，字符串的功能方法也没有受到影响。
 
- @字符串连接的储存：
-    1.常量与常量连接是用字面量方式创建（如："abc"+"d"），因为常量确定，可以在编译期优化：先连接，后储存
-    2.若有变量参与连接是用构造函数方式创建（如：s1+"abc"），因为变量不确定，无法在编译期优化
+ @字符串拼接的区别：
+    1.常量与常量（包括final常量）拼接是用字面量方式创建（如："abc"+"d"），因为常量确定，可以在编译期优化：先连接，后储存
+    2.若有变量参与拼接是用构造函数方式创建（如：s1+"abc"），因为变量不确定，无法在编译期优化
+
+ @字符串与各类数据转换：
+    char[] -> String：new String(charArray)
+    String ->  char[]：toCharArray()
+
+    byte[] -> String：new String(byteArray)
+    String ->  byte[]：getBytes()
 
  */
 public class Base {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         // @常见的创建方式
         String str1 = new String();
         String str2 = new String("abc");
         char[] charArray = {'e', 'd', 'f'};
         String str3 = new String(charArray);
-        char[] byteArray = {101, 102, 103};
-        String str4 = new String(byteArray);
+        byte[] byteArray = {-42, -48, -71, -6};
+        // 解码
+        String str4 = new String(byteArray, "gbk");// 中国
         String str5 = "hello";
 
         // @字符串的内容永不可变
@@ -63,15 +74,20 @@ public class Base {
         // @字符串连接
         String ss1 = "abc";
         String ss2 = "def";
+        final String ss22 = "def";
         String ss3 = "abcdef";
         String ss4 = "abc" + "def";
         String ss5 = ss1 + "def";
         String ss6 = "abc" + ss2;
         String ss7 = ss1 + ss2;
+        String ss9 = "abc" + ss22;
+
         System.out.println(ss3 == ss4);// true
         System.out.println(ss3 == ss5);// false
         System.out.println(ss5 == ss6);// false
         System.out.println(ss3 == ss7);// false
+        System.out.println(ss3 == ss7);// false
+        System.out.println(ss3 == ss9);// true
         System.out.println(ss1.intern() + "def" == ss3);// false
         System.out.println((ss1 + "def").intern() == ss3);// true，
     }
