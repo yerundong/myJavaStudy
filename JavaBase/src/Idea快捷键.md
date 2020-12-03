@@ -20,7 +20,7 @@
 + 点击多选：`Shift + Alt + 点击左键`
 + 滑动多选：`Ctrl + Shift + Alt + 长按左键`
 + 打印语句：`sout + Enter`
-+ 查看当前类的所有成员：`Ctrl + F12`
++ 查看当前类的所有成员：`Ctrl + F12` 或 `Alt + 7`
 + 查看类的继承列表：`Ctrl + H`
 + 查看diagram： `Ctrl + Alt + U`
 + 跳到实现类和子类：`Ctrl + Alt + 点击左键`
