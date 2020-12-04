@@ -4,9 +4,14 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
-@定义： String是不可变的字符序列，StringBuffer/StringBuilder 代表可变的字符序列，StringBuffer是JDK1.0就存在，StringBuilder是JDK1.5才新增的。
+ @定义： String是不可变的字符序列，StringBuffer/StringBuilder 代表可变的字符序列，StringBuffer是JDK1.0就存在，StringBuilder是JDK1.5才新增的。
 
-@StringBuffer与StringBuilder相同：
+ @StringBuffer、StringBuilder与String的不同：
+    1.StringBuffer、StringBuilder都代表可变字符串序列，String代表不可变的字符序列
+    2.StringBuffer、StringBuilder因为是可变，可对底层数组进行扩容，String只会开辟新的内存
+    3.StringBuffer、StringBuilder总体而言，效率比String高
+
+ @StringBuffer、StringBuilder相同：
     1.两个类都代表可变字符串对象
     2.两个类的构造器和方法也基本相同（但不保证同步）。
     3.两个类底层都是byte[]储存数据

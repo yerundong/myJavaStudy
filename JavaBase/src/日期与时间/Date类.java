@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Date;
 /**
 
-@Date类： java.util.Date 表示日期时间对象，精确到毫秒。 java.sql.Date 是 java.util.Date 的子类。
+ @Date类： java.util.Date 表示日期对象，精确到毫秒。 java.sql.Date 表示数据库中的日期类型变量。java.sql.Date 是 java.util.Date 的子类。
 
+ @快速记忆： 方法比较少（很多弃用）：比较，克隆，时间戳，更具体地获取和设置可以用 Calendar 类
 */
 public class Date类 {
     /**
@@ -44,41 +45,31 @@ public class Date类 {
     }
 
     @Test
-    public void getTime() {
+    public void getTime_setTime() {
         // <M> public long getTime()
         // <返> 获取 Date 对象的毫秒数，即时间戳
+        // <M> public void setTime(long time)
+        // <改> 设置 Date 对象的毫秒数
         Date date = new Date();
         System.out.println(date.getTime());
-    }
 
-    @Test
-    public void setTime() {
-        // <M> public void setTime(long time)
-        // <返> 设置 Date 对象的毫秒数
-        Date date = new Date();
         date.setTime(1598891904921L);
         System.out.println(date.getTime());// 1598891904921
     }
 
     @Test
-    public void after() {
-        // <M> public boolean after(Date when)
-        // <返> 时间是否晚于 when
-        System.out.println(new Date(1598891904921L).after(new Date(1598891904920L)));// true
-    }
-
-    @Test
-    public void before() {
+    public void before_after_compareTo() {
         // <M> public boolean before(Date when)
         // <返> 时间是否早于 when
-        System.out.println(new Date(1598891904921L).before(new Date(1598891904922L)));// true
-    }
-
-    @Test
-    public void compareTo() {
+        // <M> public boolean after(Date when)
+        // <返> 时间是否晚于 when
         // <M> public int compareTo(Date anotherDate)
         // <返> 比较两个日期的先后顺序，早于 anotherDate 返-1，晚于 anotherDate 返1，相等返0
         Date date = new Date();
+
+        System.out.println(new Date(1598891904921L).before(new Date(1598891904922L)));// true
+        System.out.println(new Date(1598891904921L).after(new Date(1598891904920L)));// true
+
         System.out.println(date.compareTo(date));// 0
         System.out.println(new Date(3898891904920L).compareTo(new Date(3898891904929L)));// -1
         System.out.println(new Date(1598891904929L).compareTo(new Date(1598891904920L)));// 1
