@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- @SimpleDateFormat类： 日期格式化类，继承DateFormat类。是一个以与语言环境有关的方式来格式化和解析日期的具体类。
+ @SimpleDateFormat类： 用于对Date对象进行格式化和解析的类，继承DateFormat类。是一个以与语言环境有关的方式来格式化和解析日期的具体类。
 
  @作用： 许进行格式化（日期 -> 文本）、解析（文本 -> 日期）和规范化。
 

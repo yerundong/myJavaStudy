@@ -8,11 +8,11 @@ import java.util.Arrays;
 public class 随机字符串排序 {
     public static void main(String[] args) {
         String str = "kfjghigahfgrq3645wemniklmrn.+ gtlxcuyts";
-        char[] charArr = str.toCharArray();
-        Arrays.sort(charArr);
-        System.out.println(charArr);
-        for (int i = charArr.length-1; i >= 0; i--) {
-            System.out.println(charArr[i]);
+            char[] charArr = str.toCharArray();
+            Arrays.sort(charArr);
+            System.out.println(charArr);
+            for (int i = charArr.length-1; i >= 0; i--) {
+                System.out.println(charArr[i]);
         }
     }
 }

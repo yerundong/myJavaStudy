@@ -47,8 +47,8 @@ public class StringBuilder和StringBuffer {
 
     @Test
     public void toString_() {
-        // <M> public synchronized int length()
-        // <返> 返回字符串【有值长度】，而容量 capacity
+        // <M> public synchronized String toString()
+        // <返> StringBuffer 转 String
         StringBuffer sb = new StringBuffer("abc");
         String s = sb.toString();
         System.out.println(s);
