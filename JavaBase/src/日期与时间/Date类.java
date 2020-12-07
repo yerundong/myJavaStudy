@@ -6,6 +6,15 @@ import java.util.Date;
 
  @Date类： java.util.Date 表示日期对象，精确到毫秒。 java.sql.Date 表示数据库中的日期类型变量。java.sql.Date 是 java.util.Date 的子类。
 
+ @注：
+    Date类自jdk 1.0即存在，但是它的大多数方法已经在JDK 1.1引入Calendar类之后被弃用了。而Calendar并不比Date好多少。它们面临的问题有：
+        1.可变性：像日期和时间这样的类应该是不可变的。
+        2.偏移性：Date中的年份是从1900开始的，而月份都从0开始。
+        3.格式化：格式化只对Date有用，Calendar则不行。
+        4.此外，它们也不是线程安全的；不能处理闰秒等。
+    第三次引入的API是成功的，Java 8 吸收了 Joda-Time 的精华，本地日期（LocalDate）、本地时间（LocalTime）、本地日期时间（LocalDateTime）、
+    时区（ZonedDateTime）和持续时间（Duration）的类。
+
  @快速记忆： 方法比较少（很多弃用）：比较，克隆，时间戳，更具体地获取和设置可以用 Calendar 类
 */
 public class Date类 {

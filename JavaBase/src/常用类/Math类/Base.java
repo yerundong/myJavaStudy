@@ -13,7 +13,7 @@ public class Base {
 
         // <SM> public static double ceil(double num)
         // <PS> 向上取整
-        // <返回> 返回向下取整值
+        // <返回> 返回向上取整值
         System.out.println("输出2.1：" + Math.ceil(3.1466));
 
         // <SM> public static double floor(double num)

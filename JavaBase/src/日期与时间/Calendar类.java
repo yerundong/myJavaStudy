@@ -9,13 +9,18 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
-@Calendar类：
+ @Calendar类：
     Calendar类是一个[ 抽象类 ]，它为特定瞬间与一组诸如 YEAR、MONTH、DAY_OF_MONTH、HOUR 等 日历字段之间的转换提供了一些方法，
     并为操作日历字段（例如获得下星期的日期）提供了一些方法。
 
-@唯一子类： GregorianCalendar
+ @唯一子类： GregorianCalendar
 
- @快速记忆： 抽象类，单例，获取和设置各个日历字段，转时间戳，转Date，比较，克隆
+ @注：
+    1.月份 MONTH 的值是从0开始计算，一月是0，二月是1...
+    2.周几 DAY_OF_WEEK 的值是从周日开始计算，周日是1，周一是2..
+    3.23:59 是一天中的最后一分钟，而 00:00 是下一天的第一分钟
+
+ @快速记忆： 抽象类，可变性，获取和设置各个日历字段，转时间戳，转Date，比较，克隆
 */
 public class Calendar类 {
     /**
@@ -24,10 +29,15 @@ public class Calendar类 {
     @Test
     public void getInstance() {
         // <SM> public static Calendar getInstance()
-        // <返> GregorianCalendar 获得一个日历对象。返回的 Calendar 基于[当前时间]，使用了默认时区和默认语言环境。
+        // <返> 创建并返回一个 GregorianCalendar 日历对象。返回的日期是基于[当前时间]，使用了默认时区和默认语言环境。
+        // <注>
+        // 1.并非单例
+        // 2.效果和 new GregorianCalendar() 一样
         Calendar calendar = Calendar.getInstance();
-        System.out.println(calendar instanceof GregorianCalendar);// true
+        Calendar calendar2 = Calendar.getInstance();
+        System.out.println(calendar.getClass());// GregorianCalendar
         System.out.println(calendar);
+        System.out.println(calendar == calendar2);// false，并非单例
         System.out.println(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1) + "-" + calendar.get(Calendar.DATE)
                 + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.MILLISECOND));
     }
@@ -122,14 +132,22 @@ public class Calendar类 {
         // <改> 清除，将此 Calendar 的所日历字段值和时间值（从历元至现在的毫秒偏移量）设置成初始值：1970-1-1 0:0:0。
         // <M> public final void clear(int field)
         // <改> 清除对应的日历字段
+        // <注> DAY_OF_MONTH、HOUR_OF_DAY、HOUR、AM_PM等无法清楚，不实用！
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
         System.out.println(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1) + "-" + calendar.get(Calendar.DATE)
                 + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE)
                 + ":" + calendar.get(Calendar.SECOND));// 1970-1-1 0:0:0
 
-        calendar.clear(Calendar.MILLISECOND);
-        System.out.println(calendar.get(Calendar.MILLISECOND));// 0
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.clear(Calendar.MONTH);
+        calendar2.clear(Calendar.DAY_OF_MONTH);
+        calendar2.clear(Calendar.HOUR);
+        calendar2.clear(Calendar.MINUTE);
+        calendar2.clear(Calendar.SECOND);
+        System.out.println(calendar2.get(Calendar.YEAR) + "-" + (calendar2.get(Calendar.MONTH)+1) + "-" + calendar2.get(Calendar.DATE)
+                + " " + calendar2.get(Calendar.HOUR_OF_DAY) + ":" + calendar2.get(Calendar.MINUTE)
+                + ":" + calendar2.get(Calendar.SECOND));// 2020-1-6 15:0:0
 
     }
 
@@ -216,6 +234,7 @@ public class Calendar类 {
         Date date = calendar.getTime();
         calendar.setTime(date);
         System.out.println(date);
+        System.out.println(calendar);
     }
 
     @Test
