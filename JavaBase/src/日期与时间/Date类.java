@@ -15,7 +15,7 @@ import java.util.Date;
     第三次引入的API是成功的，Java 8 吸收了 Joda-Time 的精华，本地日期（LocalDate）、本地时间（LocalTime）、本地日期时间（LocalDateTime）、
     时区（ZonedDateTime）和持续时间（Duration）的类。
 
- @快速记忆： 方法比较少（很多弃用）：比较，克隆，时间戳，更具体地获取和设置可以用 Calendar 类
+ @快速记忆： 方法比较少（很多弃用）：比较，克隆，时间戳，更具体地获取和设置可以用 Calendar 类、线程不安全
 */
 public class Date类 {
     /**
