@@ -2,17 +2,17 @@ package 日期与时间.java.time;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.*;
 
 /**
- @LocalDateTime: JDK8新特性里提供了3个时间类：LocalDate、LocalTime、LocalDateTime。时间表示为纳秒精度。
+ @LocalDateTime: JDK8新特性里提供了3个时间类：LocalDate、LocalTime、LocalDateTime，替换 Calendar。精度为纳秒。
 
- @注：
+ @特性：
+    1.LocalDate、LocalTime、LocalDateTime构造器是私有，不能直接new
+
+ @快速记忆： 方法与旧版 calendar 类似，和 ZonedDateTime、Instant 转换
 
  */
 public class LocalDateTime类 {
@@ -32,12 +32,16 @@ public class LocalDateTime类 {
      * @返回特定时间日期实例
      */
     @Test
-    public void of() {
+    public void of_ofXxx() {
         // <SM> public static LocalDateTime of(int year, int month, int dayOfMonth, int hour, ...)
         // <返> 返回特定时间日期的 localDateTime 对象
         LocalDateTime localDateTime1 = LocalDateTime.of(2020, 6, 12, 15, 28);
         LocalDateTime localDateTime2 = LocalDateTime.of(2020, 6, 12, 15, 28, 33);
         LocalDateTime localDateTime3 = LocalDateTime.of(2020, 6, 12, 15, 28, 33, 105);
+        LocalDateTime localDateTime4 = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault());
+        LocalDateTime localDateTime5 = LocalDateTime.ofEpochSecond(1607566596, 387272600, ZoneOffset.of("+8"));
+        System.out.println(localDateTime4);
+        System.out.println(localDateTime5);
     }
 
     /**
@@ -163,4 +167,77 @@ public class LocalDateTime类 {
         System.out.println(localDateTime5);
         System.out.println(localDateTime6);
     }
+
+    /**
+     * @转ZonedDateTime
+     */
+    @Test
+    public void atZone() {
+        // <M> public ZonedDateTime atZone(ZoneId zone)
+        // <返> 转ZonedDateTime
+        LocalDateTime localDateTime1 = LocalDateTime.now();
+        ZonedDateTime zonedDateTime = localDateTime1.atZone(ZoneId.systemDefault());
+        System.out.println(zonedDateTime);
+
+
+    }
+
+
+
+    /**
+     * @转Instant
+     */
+    @Test
+    public void toInstant() {
+        // <M> default Instant toInstant(ZoneOffset offset)
+        LocalDateTime localDateTime1 = LocalDateTime.now();
+        // 方式一：先转zonedDateTime，再转Instant
+        ZonedDateTime zonedDateTime = localDateTime1.atZone(ZoneId.systemDefault());
+        Instant instant1 = zonedDateTime.toInstant();
+        // 方式二：直接转Instant
+        Instant instant2 = localDateTime1.toInstant(ZoneOffset.of("+8"));
+
+        System.out.println(instant1);// 2020-12-10T02:21:04.387272600Z
+        System.out.println(instant2);// 2020-12-10T02:21:04.387272600Z
+    }
+
+    /**
+     * @转OffsetDateTime
+     */
+    @Test
+    public void atOffset() {
+        // <M> public OffsetDateTime atOffset(ZoneOffset offset)
+        // <返> 转OffsetDateTime
+        LocalDateTime localDateTime1 = LocalDateTime.now();
+        OffsetDateTime offsetDateTime = localDateTime1.atOffset(ZoneOffset.of("+8"));
+        System.out.println(offsetDateTime);
+    }
+
+    /**
+     * @获取秒数
+     */
+    @Test
+    public void toEpochSecond() {
+        // <M> public LocalDateTime with_withXxxs(int newValue)
+        LocalDateTime localDateTime1 = LocalDateTime.now();
+        long sec = localDateTime1.toEpochSecond(ZoneOffset.of("+8"));
+        System.out.println(sec);// 1607566596
+    }
+
+    /**
+     * @获取毫秒数\时间戳
+     */
+    @Test
+    public void toEpochMilli() {
+        // <注> 只有转为Instant才能获取时间戳
+        LocalDateTime localDateTime1 = LocalDateTime.now();
+        Instant instant = localDateTime1.toInstant(ZoneOffset.of("+8"));
+        long msec = instant.toEpochMilli();
+        System.out.println(msec);// 1607567014805
+
+
+    }
+
+
 }
+
