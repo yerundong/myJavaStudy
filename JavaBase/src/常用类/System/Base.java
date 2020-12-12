@@ -1,4 +1,4 @@
-package 常用类.System类;
+package 常用类.System;
 
 import java.util.Arrays;
 

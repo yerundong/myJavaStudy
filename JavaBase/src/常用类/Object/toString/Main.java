@@ -1,4 +1,4 @@
-package 常用类.Object类.toString;
+package 常用类.Object.toString;
 
 /**
 @定义： 返回该对象的字符串表示。通常，toString 方法会返回一个“以文本方式表示”此对象的字符串。

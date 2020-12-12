@@ -1,4 +1,4 @@
-package 常用类.Object类.toString;
+package 常用类.Object.toString;
 
 /**
  * @Description 重写 toString

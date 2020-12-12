@@ -1,4 +1,4 @@
-package 常用类.Object类.equals;
+package 常用类.Object.equals;
 
 import java.util.Objects;
 

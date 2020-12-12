@@ -35,7 +35,7 @@ public class Arrays工具类 {
         // <注>
         //     1. 如果是数值，sort默认按照升序从小到大
         //     2. 如果是字符串，sort默认按照字母升序
-        //     3. 如果是自定义的类型，那么这个自定义的类需要有Comparable或者Comparator接口的支持。（待了解）
+        //     3. 如果是自定义的类型，那么这个自定义的类需要有Comparable或者Comparator接口的支持。
         int[] arr1 = {3, 2, 10, 7, 6};
         Arrays.sort(arr1);
         System.out.println("sort：" + Arrays.toString(arr1));// [2, 3, 6, 7, 10]
