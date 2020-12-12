@@ -9,12 +9,9 @@ package 常用类.Object.toString;
         return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
 
-@toString重写情况：
-    1.基本类型的包装类（Byte，Integer...）：重写，
-    2.字符串String：重写，返回实体内容
-    3.Date类：重写，返回实体内容
-    4.File类：重写，返回实体内容
-    4.其他引用类型（对象、数组）：没有重写，
+@重写了toString的常见类： 包装类（Byte，Integer...）、String、Date、File、BigInteger、BigDecimal...
+
+@未重写了toString的常见类： 数组...
 */
 
 public class Main {

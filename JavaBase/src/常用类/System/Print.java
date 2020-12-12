@@ -1,15 +1,13 @@
 package 常用类.System;
 
+/**
+ @print/printf/println： 打印
+ */
 public class Print {
     public static void main(String[] args) {
-        byte byt = 1;
-        short sht = 2;
-        int num = 3;
-        long lon = 4;
-        float flo = 5;
-        double dou = 6;
-        char chr = 'c';
-        boolean boo = true;
+        // <M> public void println(Object x)
+        // <M> public void println(char[] x)
+        // <注> 打印引用类型，println方法只对String和char[]做了特殊处理，其他引用类型都打印toString返回内容，没toString打印地址值
 
         int[] intArr = new int[]{1,2,3};
         char[] charArr = new char[]{'a','b','c'};
@@ -18,17 +16,8 @@ public class Print {
         double[] doubleArr = new double[]{1,2,3};
         boolean[] booleanArr = new boolean[]{true, false};
 
-
-        System.out.println(byt);
-        System.out.println(sht);
-        System.out.println(num);
-        System.out.println(lon);
-        System.out.println(flo);
-        System.out.println(dou);
-        System.out.println(chr);
-        System.out.println(boo);
-
         System.out.println(intArr);// 地址值
+        // System.out.printf();// 地址值
         System.out.println(byteArr);// 地址值
         System.out.println(shortArr);// 地址值
         System.out.println(doubleArr);// 地址值
