@@ -23,10 +23,10 @@ public class BigInteger类 {
      */
     @Test
     public void constructor(){
-        // <C> public BigInteger(String val)
+        // <C><More> public BigInteger(String val)
+        // <More>
         BigInteger bigInteger1 = new BigInteger("123456789012345678901234567890");
         System.out.println(bigInteger1);
-        System.out.println(bigInteger1.compareTo(new BigInteger("1234567890123")));
     }
 
     /**
@@ -145,10 +145,13 @@ public class BigInteger类 {
     public void compareTo(){
         // <M>  public int compareTo(BigInteger val)
         // <返> 比较
-        BigInteger bigInteger1 = new BigInteger("1245");
-        BigInteger bigInteger2 = new BigInteger("123");
-        System.out.println(bigInteger1.compareTo(bigInteger2));// 1
-        System.out.println(bigInteger2.compareTo(bigInteger1));// -1
+        // <注> 前补0不影响大小比较
+        BigInteger bigInteger1 = new BigInteger("123");
+        BigInteger bigInteger2 = new BigInteger("0123");
+        BigInteger bigInteger3 = new BigInteger("124");
+        System.out.println(bigInteger1.compareTo(bigInteger2));// 0
+        System.out.println(bigInteger1.compareTo(bigInteger3));// -1
+        System.out.println(bigInteger3.compareTo(bigInteger1));// 1
     }
 
     /**
@@ -158,9 +161,12 @@ public class BigInteger类 {
     public void equals(){
         // <M> public boolean equals(Object x)
         // <返> 判等
+        // <注> 前补0不影响判等
         BigInteger bigInteger1 = new BigInteger("123");
         BigInteger bigInteger2 = new BigInteger("123");
+        BigInteger bigInteger3 = new BigInteger("000123");
         System.out.println(bigInteger1.equals(bigInteger2));// true
+        System.out.println(bigInteger1.equals(bigInteger3));// true
     }
 
     /**
@@ -177,16 +183,19 @@ public class BigInteger类 {
     }
 
     /**
-     * @Description 转换为 long
+     * @Description 转换为 long\int\short\byte
      */
     @Test
-    public void longValue(){
-        // <M> public long longValue()
-        // <返> 将此 BigInteger 转换为 long。
-        // <注> 如果超过 long 位数，将损失精度
+    public void xxxValue(){
+        // <M> public long longValue\intValue\shortValue\byteValue()
+        // <返> 将此 BigInteger 转换为 long\int\short\byte。
+        // <注> 如果超过所转换的最大容纳位数，将损失精度
         BigInteger bigInteger1 = new BigInteger("1234567890123456");
         BigInteger bigInteger2 = new BigInteger("123456789012345678901234567890");
-        System.out.println(bigInteger1.longValue());// 124
+        System.out.println(bigInteger1.longValue());// 1234567890123456
         System.out.println(bigInteger2.longValue());// -4362896299872285998
+        System.out.println(bigInteger2.intValue());// 1312754386
+        System.out.println(bigInteger2.shortValue());// 2770
+        System.out.println(bigInteger2.byteValue());// -46
     }
 }

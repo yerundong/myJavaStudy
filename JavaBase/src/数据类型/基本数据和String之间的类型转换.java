@@ -1,46 +1,100 @@
 package 数据类型;
 
+import org.junit.jupiter.api.Test;
+
 /**
 
- @快速记忆： 基本转String用valueOf，拼接符号黑科技；String转基本用parse，只有char搞特殊。
+ @快速记忆： 基本转String用valueOf，toString，拼接符号黑科技；String转基本用parse，只有char搞特殊。
 
  */
 public class 基本数据和String之间的类型转换 {
-    public static void main(String[] args) {
-        // 一、8种基本类型 --> String类型
-        byte byte1 = 1;
-        short sht1 = 2;
-        int int1 = 3;
-        long lng1 = 4;
-        float flt1 = 5.5F;
-        double dbe1 = 6.6;
-        char char1 = 'a';
-        boolean boo1 = true;
 
-        // 1.valueOf方法
-        String str1 = String.valueOf(byte1);
-        String str2 = String.valueOf(sht1);
-        String str3 = String.valueOf(int1);
-        String str4 = String.valueOf(lng1);
-        String str5 = String.valueOf(flt1);
-        String str6 = String.valueOf(dbe1);
-        String str7 = String.valueOf(char1);
-        String str8 = String.valueOf(boo1);
+/*************** 8种基本类型（byte\short\int\long\float\double\char\boolean） --> String类型 ***************/
 
-        // 2.字符串拼接方式
-        String str9 = lng1 + "";
-        String str10 = char1 + "";
-        String str11 = boo1 + "";
-        System.out.println(str9);
-        System.out.println(str10);
-        System.out.println(str11);
+    /**
+     * @Description 一、String.valueOf
+     */
+    @Test
+    public void valueOf(){
+        // <SM> public static String valueOf(BasicTypes val)
+        String str1 = String.valueOf((byte)1);
+        String str2 = String.valueOf((short)2);
+        String str3 = String.valueOf(3);
+        String str4 = String.valueOf(4L);
+        String str5 = String.valueOf(5.1F);
+        String str6 = String.valueOf(6.2);
+        String str7 = String.valueOf('a');
+        String str8 = String.valueOf(true);
 
-        System.out.println("=================================");
+        System.out.println(str1);
+        System.out.println(str2);
+        System.out.println(str3);
+        System.out.println(str4);
+        System.out.println(str5);
+        System.out.println(str6);
+        System.out.println(str7);
+        System.out.println(str8);
+    }
 
-        // 二、String --> 8种基本类型
+    /**
+     * @Description 二、包装类的toString方法
+     */
+    @Test
+    public void toString_(){
+        // <SM> public static String toString(BasicTypes val)
 
-        // 1.Xxx.parseXxx(s) （不适用于char）
-        // s 必须是符合转换类型规则的字符串
+        String str1 = Byte.toString((byte)1);
+        String str2 = Short.toString((short)2);
+        String str3 = Integer.toString((short)3);
+        String str4 = Long.toString(4L);
+        String str5 = Float.toString(5.1F);
+        String str6 = Double.toString(6.2);
+        String str7 = Character.toString('a');
+        String str8 = Boolean.toString(true);
+
+        System.out.println(str1);
+        System.out.println(str2);
+        System.out.println(str3);
+        System.out.println(str4);
+        System.out.println(str5);
+        System.out.println(str6);
+        System.out.println(str7);
+        System.out.println(str8);
+    }
+
+    /**
+     * @Description 三、字符串拼接方式
+     */
+    @Test
+    public void connected(){
+        String str1 = (byte)1 + "";
+        String str2 = (short)2 + "";
+        String str3 = 3 + "";
+        String str4 = 4L + "";
+        String str5 = 5.1F + "";
+        String str6 = 6.2 + "";
+        String str7 = 'a' + "";
+        String str8 = true + "";
+
+        System.out.println(str1);
+        System.out.println(str2);
+        System.out.println(str3);
+        System.out.println(str4);
+        System.out.println(str5);
+        System.out.println(str6);
+        System.out.println(str7);
+        System.out.println(str8);
+    }
+
+/**************** String类型 --> 8种基本类型（byte\short\int\long\float\double\char\boolean） ***************/
+
+    /**
+     * @Description 一、包装类的parseXxx(s)方法（不适用于char）
+     */
+    @Test
+    public void parseXxx(){
+        // <SM> public static byte parseByte(String s)
+        // <注> s 必须是符合转换类型规则的字符串
         byte byte2 = Byte.parseByte("1");
         short sht2 = Short.parseShort("2");
         int int2 = Integer.parseInt("3");
@@ -54,19 +108,21 @@ public class 基本数据和String之间的类型转换 {
         System.out.println(sht2);
         System.out.println(int2);
         System.out.println(lng2);
-        // System.out.println(Util.getType(lng2));// Long
         System.out.println(flt2);
         System.out.println(dbe2);
         System.out.println(boo2);
+    }
 
-        // 2.String --> char
-        // charAt()
-        char char2 = "A".charAt(0);
-        char char3 = (char)Integer.parseInt("65");
+    /**
+     * @Description 二、String --> char
+     */
+    @Test
+    public void stringTochar(){
+        // 方式一
+        char char1 = "A".charAt(0);
+        // 方式二
+        char char2 = (char)Integer.parseInt("65");
+        System.out.println(char1);// A
         System.out.println(char2);// A
-        System.out.println(char3);// A
-
-        System.out.println("=================================");
-
     }
 }
