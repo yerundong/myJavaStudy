@@ -11,13 +11,20 @@ import org.junit.jupiter.api.Test;
 
  @两种方式：
     1.自定义枚举类（JDK 5.0之前），参见Season
-    2.enum关键字定义枚举类（JDK 5.0之后），参见Season
+    2.Enum枚举类（JDK 5.0之后），使用enum关键字定义，参见Payment
  */
 public class Base {
     @Test
-    public void test(){
+    public void test_season(){
         Season spring = Season.SPRING;
         Season winter = Season.WINTER;
         System.out.println(spring);
     }
+
+    @Test
+    public void test_payment(){
+        Payment cash = Payment.CASH;
+        System.out.println(cash);
+    }
+
 }
