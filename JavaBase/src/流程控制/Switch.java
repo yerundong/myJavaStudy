@@ -18,7 +18,7 @@ package 流程控制;
  @解释：
     @switch: switch内为一个代码块，各个case之间的声明可以通用，但赋值不能通用
 
-    @expression: expression 限定类型是 byte/short/char/int、String字符串、enum枚举（？），否则编译报错
+    @expression: expression 限定类型是 byte/short/char/int、String字符串、enum枚举实例，否则编译报错
 
     @case: 匹配哪一个case就从哪一个位置向下执行，直到遇到了break或者整体结束为止。
 

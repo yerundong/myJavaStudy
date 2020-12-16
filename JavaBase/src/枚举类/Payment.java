@@ -9,12 +9,19 @@ package 枚举类;
         ...
     }
 
+ @解释：
+    尽管 enum 看起来像是一种新的数据类型，事实上，enum是一种受限制的类，并且具有自己的方法。
+    创建enum时，编译器会为你生成一个相关的类，这个类继承自 java.lang.Enum。
+
  @特性：
      1.Enum和Class、Interface的地位一样
-     2.使用enum定义的枚举类默认继承了java.lang.Enum，而不是继承Object类。
-     3.Enum枚举类可以实现一个或多个接口。
-     4.非抽象的 Enum 枚举类固定使用 final 修饰，不能显式修饰，不可以被继承,
-     5.Enum枚举类的toString方法继承至Enum，返回枚举实例的常量名，直接打印枚举实例，输出的是枚举实例的常量名（ALIPAY）
+     2.使用enum定义的枚举类默认继承了java.lang.Enum，而不是继承Object类，除此之外不能继承其他类和其他enum类。
+     3.非抽象的 Enum 枚举类固定使用 final 修饰，不能显式修饰，不可以被继承
+     4.Enum 枚举类的构造函数是私有的
+     5.Enum枚举类跟类一样，可以实现一个或多个接口。
+     6.Enum枚举类的toString方法继承至Enum，返回枚举实例的常量名，直接打印枚举实例，输出的是枚举实例的常量名（ALIPAY）
+     7.Enum枚举类不能抽象
+     8.可以有静态方法
 
  @枚举实例：
     @定义格式：
@@ -58,4 +65,5 @@ public enum Payment {
     public String getPaymentName() {
         return paymentName;
     }
+
 }
