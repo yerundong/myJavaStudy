@@ -25,6 +25,11 @@ public class Person {
         System.out.println("人，走路");
     }
 
+    @Deprecated
+    public void speak(){
+        System.out.println("人，说话");
+    }
+
     @Override
     public String toString() {
         return "Person{" +
