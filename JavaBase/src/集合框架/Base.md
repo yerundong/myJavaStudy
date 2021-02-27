@@ -19,18 +19,29 @@
 > 结构
 ```
 ├── 集合框架
-│ ├── Collection
-│ │ ├── List
-│ │ ├── Set
-│ │ └── Queue
-│ └── Map
-     
+    ├── Collection(I)
+        ├── List(I)
+            ├──ArrayList   
+            ├──linkedList  
+            └──Vector     
+        ├── Set(I)
+            ├──HashSet   
+                ├──linkedHashSet   
+            ├──TreeSet   
+        └── Queue(I)
+    └── Map(I)
+        ├── HashMap
+            ├──linkedHashSet   
+        ├── treeMap    
+        ├── HashTable
 ```
 > 说明   
-
-一种是单列集合（Collection接口），存储一个元素集合，另一种是图（Map接口），存储键/值对映射。
-Collection 接口又有 3 种子接口：List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，
-常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。
+* Collection：接口；单列集合，存储一个一个对象
+* Map：接口；双列集合，存储键/值对（key-value）映射；允许一对一、多对一，不允许一对多
+* List：接口；储存有序的、可重复的数据；习惯称之为“动态数组”
+* Set：接口；储存无序的、不可重复的数据；习惯称之为“集合”
+* Queue：接口；
+* 注：这些下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。
 
 ### 集合和数组的对比：
 1. 数组只能放同一类型的数据，集合可以储存不同类型
