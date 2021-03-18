@@ -7,6 +7,9 @@ import java.util.Collection;
 
 /**
  @Collection接口: 统一定义了一套单列集合的接口，它规定它的子接口及其实现类都必须满足它重新设定的规则。是List和Set的父接口。
+
+ @注意事项：
+        1.要求Collection接口的实现类的对象添加数据obj时，要求obj所在类需要重写equals方法。
  */
 public class Base {
     /**
@@ -88,5 +91,20 @@ public class Base {
         System.out.println(clt);
         clt.clear();
         System.out.println(clt);
+    }
+
+    /**
+     * @Description 包含
+     */
+    @Test
+    public void contains(){
+        // <M> boolean contains(Object o);
+        // <返> 如果此集合包含指定的元素，则返回true
+        // <注> 底层是调用o的equals()方法进行判定是否包含
+        Collection clt = new ArrayList();
+        clt.add('a');
+        clt.add(new String("b"));
+        System.out.println(clt.contains('a'));
+        System.out.println(clt.contains(new String("b")));// true 调用了String的equals()
     }
 }
