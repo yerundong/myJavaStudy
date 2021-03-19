@@ -3,6 +3,7 @@ package 集合框架.Collection;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -102,9 +103,24 @@ public class Base {
         // <返> 如果此集合包含指定的元素，则返回true
         // <注> 底层是调用o的equals()方法进行判定是否包含
         Collection clt = new ArrayList();
-        clt.add('a');
+        clt.add("a");
         clt.add(new String("b"));
-        System.out.println(clt.contains('a'));
+        System.out.println(clt.contains("a"));
         System.out.println(clt.contains(new String("b")));// true 调用了String的equals()
+    }
+
+    /**
+     * @Description 包含所有
+     */
+    @Test
+    public void containsAll(){
+        // <M> boolean containsAll(Collection<?> c)
+        // <返> 如果此集合包含指定 集合中的所有元素，则返回true。
+        Collection clt1 = new ArrayList();
+        Collection clt2 = Arrays.asList("a","b");
+        clt1.add("a");
+        clt1.add(new String("b"));
+        clt1.add("c");
+        System.out.println(clt1.containsAll(clt2));
     }
 }
