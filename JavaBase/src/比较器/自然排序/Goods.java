@@ -6,6 +6,7 @@ package 比较器.自然排序;
  @步骤：
     1.需要排序的类要实现 Comparable 接口，并重写 compareTo 方法；
     2.在 compareTo 接口里，比较该类的两个实例的属性，按特定的规则比较一个或若干个属性，返回1\-1\0三个值；
+    3.1代表往后排，-1往前排，0不变
 
  @实现Comparable的类（默认都是从小到大排列的）：
     1.包装类
@@ -46,9 +47,9 @@ public class Goods implements Comparable {
                 return -1;
             }else{
                 // 若不比较名称：
-                return 0;
+                // return 0;
                 // 若价格相等还需比较名称：
-                // return this.name.compareTo(g.name);
+                return g.name.compareTo(this.name);
             }
 
             // 方式二：

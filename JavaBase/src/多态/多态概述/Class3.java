@@ -1,4 +1,4 @@
-package 多态.继承和实现中的多态;
+package 多态.多态概述;
 
 public class Class3 {
     public String name = "我是 Class3 的 name";

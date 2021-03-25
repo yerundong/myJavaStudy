@@ -1,4 +1,4 @@
-package 多态.继承和实现中的多态;
+package 多态.多态概述;
 
 public interface Interface1 {
     String TIP = "Interface1 TIP";

@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
  @字符串的特性：
     1. String声明为一个final类，表示不可继承
     2. String实现Serializable接口，表示支持序列化；？？？
-    3. String实现Comparable接口，表示可比较大小；？？？
+    3. String实现Comparable接口，表示可比较大小；
     4. String内部定义 final byte[] value 属性，用于储存字符串内容；
         @注： 字符串效果上相当于是char[]字符数组，但是底层原理是byte[]字节数组。
     5. 不可变性：即一旦一个String对象被创建以后，包含在这个对象中的字符序列是不可改变的，直至这个对象被销毁。这是与其他对象区别之一。

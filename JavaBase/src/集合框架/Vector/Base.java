@@ -1,4 +1,4 @@
-package 数组.Vector;
+package 集合框架.Vector;
 
 import java.util.Vector;
 

@@ -19,7 +19,7 @@ import static java.lang.Math.*;
 @注意事项：
     1.如果有 package 语句，import 语句放在 package 语句和类定义之间；如果没有 package 语句，import 语句应该在源文件中最前面。
     2.import 语句对源文件中定义的所有类都有效。
-    3.java.lang包下的结构可省略导入  注：不包括lang包的子包，即仅限ava.lang这一级目录下类或接口
+    3.java.lang包下的结构可省略导入  注：不包括lang包的子包，仅限java.lang这一级目录下类或接口
     4.同一包下的类或接口可省略导入
 */
 public class Import {

@@ -1,5 +1,7 @@
 package 数组;
 
+import org.junit.jupiter.api.Test;
+
 /**
 @空指针异常：
     所有的引用类型变量，都可以赋值为一个null值。但是代表其中什么都没有。
@@ -19,18 +21,23 @@ package 数组;
     原因：索引编号写错了。
     解决：修改成为存在的正确索引编号。
  */
-public class 数组异常 {
-    public static void main(String[] args) {
-          // 空指针异常
-        int[] arr1 = null;
-        System.out.println(arr1);// null
-        // System.out.println(arr1[0]);// NullPointerException:空指针异常
-        arr1 = new int[3];
-        System.out.println(arr1);// [I@10f87f48
-        System.out.println(arr1[0]);// 0
+public class 数组相关异常 {
+    /**
+     * @Description 空指针异常
+     */
+    @Test
+    public void NullPointerException(){
+        int[] arr = null;
+        System.out.println(arr);// null
+        System.out.println(arr[0]);// NullPointerException
+    }
 
-        // 越界异常
-        int[] arr2 = new int[5];
-        System.out.println(arr2[5]);//ArrayIndexOutOfBoundsException: 越界异常
+    /**
+     * @Description 数组索引越界异常
+     */
+    @Test
+    public void ArrayIndexOutOfBoundsException(){
+        int[] arr = {1, 2, 3};
+        System.out.println(arr[10]);// ArrayIndexOutOfBoundsException
     }
 }

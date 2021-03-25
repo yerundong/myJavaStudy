@@ -1,6 +1,8 @@
 package 示例;
 
-public class Person {
+import java.util.Objects;
+
+public class Person implements Comparable {
 
     private String name;
 
@@ -37,6 +39,21 @@ public class Person {
                 ", age=" + age +
                 ", sex=" + sex +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getAge() == person.getAge() &&
+                getSex() == person.getSex() &&
+                Objects.equals(getName(), person.getName());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 
     public String getName() {

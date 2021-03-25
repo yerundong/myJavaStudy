@@ -1,4 +1,4 @@
-package 多态.向上和向下转型;
+package 多态.转型;
 
 public class Dog extends Animal {
     @Override

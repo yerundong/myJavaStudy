@@ -35,13 +35,16 @@
         ├── treeMap    
         ├── HashTable
 ```
-> 说明   
+> 说明
+    
+    Java集合框架有两大家族，一个Collection（集合），另一个是Map（图）；Collection下有三元大将：List、Set、Queue，这些下面是一些抽象类，最后是具体实现类，
+    常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。；
+    
 * Collection：接口；单列集合，存储一个一个对象
 * Map：接口；双列集合，存储键/值对（key-value）映射；允许一对一、多对一，不允许一对多
 * List：接口；储存有序的、可重复的数据；习惯称之为“动态数组”
 * Set：接口；储存无序的、不可重复的数据；习惯称之为“集合”
 * Queue：接口；
-* 注：这些下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。
 
 ### 集合和数组的对比：
 1. 数组只能放同一类型的数据，集合可以储存不同类型
