@@ -11,7 +11,7 @@ import java.util.*;
 
  @特性：
     1.继承了 Iterator 接口
-    2.不提供类似get和set方法用于取值设值
+    2.由于Set是无序的，所以Collection不提供索引相关的特性，所以也没有类似get和set方法用于取值设值
 
  @注意事项：
     1.要求Collection接口的实现类的对象添加数据obj时，要求obj所在类需要重写equals方法，因为集合的许多方法（如：contains、remove、equals...）

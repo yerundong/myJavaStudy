@@ -227,7 +227,7 @@ public class Base {
     @Test
     public void asList() {
         // <SM> public static <T> List<T> asList(T... a)
-        // <返>
+        // <返> 返回值是一个固定长度的 List 集合
 
         List<String> list1 = Arrays.asList("a", "b", "c");
         System.out.println(list1);// [a, b, c]
