@@ -13,10 +13,11 @@ import java.util.List;
     linkedList、Vector。
 
  ├── Collection(I)
-    ├── List(I)
-         ├──ArrayList：主要实现类，使用最多；线程不安全，效率高；底层使用 Object[] elementData 储存数据
-         ├──linkedList：底层使用双向链表储存；对于频繁的插入、删除操作，使用此类效率比 ArrayList 高，但查询效率不如ArrayList；
-         └──Vector：出现比较早（1.0，比List还早），基本被ArrayList替代；线程安全，效率低；底层使用 Object[] elementData 储存数据
+    ├── List(I)：储存有序的、可重复的数据；容量不固定，随着容量的增加而动态扩容
+         └──AbstractList
+             ├──ArrayList：主要实现类，使用最多；线程不安全，效率高；底层使用 Object[] elementData 储存数据
+             ├──linkedList：底层使用双向链表储存；对于频繁的插入、删除操作，使用此类效率比 ArrayList 高，但查询效率不如ArrayList；
+             └──Vector：出现比较早（1.0，比List还早），基本被ArrayList替代；线程安全，效率低；底层使用 Object[] elementData 储存数据
  */
 public class Base {
     /**

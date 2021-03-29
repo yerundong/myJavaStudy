@@ -1,5 +1,7 @@
 package 示例;
 
+import 比较器.自然排序.Goods;
+
 import java.util.Objects;
 
 public class Person implements Comparable {
@@ -43,6 +45,7 @@ public class Person implements Comparable {
 
     @Override
     public boolean equals(Object o) {
+        // System.out.println("Person 的 equals() 执行！");
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
@@ -52,8 +55,22 @@ public class Person implements Comparable {
     }
 
     @Override
+    public int hashCode() {
+        // System.out.println("Person 的 hashCode() 执行！");
+        int result = getName() != null ? getName().hashCode() : 0;
+        result = 31 * result + getAge();
+        result = 31 * result + (int) getSex();
+        return result;
+    }
+
+    @Override
     public int compareTo(Object o) {
-        return 0;
+        if(o instanceof Person){
+            Person p = (Person)o;
+            return Integer.compare(getAge(), p.getAge());
+        }
+
+        throw new RuntimeException("传入的参数非Person对象");
     }
 
     public String getName() {
@@ -79,4 +96,6 @@ public class Person implements Comparable {
     public void setSex(byte sex) {
         this.sex = sex;
     }
+
+
 }

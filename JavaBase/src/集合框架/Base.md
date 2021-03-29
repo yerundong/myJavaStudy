@@ -21,19 +21,21 @@
 ├── 集合框架
     ├── Collection(I)
         ├── List(I)
-            ├──ArrayList   
-            ├──linkedList  
-            └──Vector     
+            └──AbstractList（AC）
+                ├──ArrayList（C）   
+                ├──LinkedList（C）    
+                └──Vector（C）       
         ├── Set(I)
-            ├──HashSet   
-                ├──linkedHashSet   
-            ├──TreeSet   
+            └──AbstractSet（AC）
+                ├──HashSet（C）     
+                    └──LinkedHashSet（C）   
+                └──TreeSet（C）   
         └── Queue(I)
     └── Map(I)
-        ├── HashMap
-            ├──linkedHashSet   
-        ├── treeMap    
-        ├── HashTable
+        ├── HashMap（C）
+            ├──LinkedHashMap（C）   
+        ├── treeMap（C）    
+        └── HashTable（C）
 ```
 > 说明
     
@@ -47,6 +49,7 @@
 * Set：接口；储存无序的、不可重复的数据；习惯称之为“集合”
 * ArrayList：类；数组队列，Java集合框架中被使用最多的，线程不安全，效率高
 * LinkedList：类；双向链表
+* HashSet：类；HashSet 基于 HashMap 来实现的；
 
 ### 集合和数组的对比：
 1. 数组只能放同一类型的数据，集合可以储存不同类型
