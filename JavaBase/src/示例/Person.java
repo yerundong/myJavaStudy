@@ -19,6 +19,11 @@ public class Person implements Comparable {
         this.name = name;
     }
 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public Person(String name, int age, byte sex) {
         this.name = name;
         this.age = age;

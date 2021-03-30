@@ -21,21 +21,20 @@
 ├── 集合框架
     ├── Collection(I)
         ├── List(I)
-            └──AbstractList（AC）
-                ├──ArrayList（C）   
-                ├──LinkedList（C）    
-                └──Vector（C）       
+            ├──ArrayList（C）   
+            ├──LinkedList（C）    
+            └──Vector（C）       
         ├── Set(I)
-            └──AbstractSet（AC）
-                ├──HashSet（C）     
-                    └──LinkedHashSet（C）   
-                └──TreeSet（C）   
+            ├──HashSet（C）     
+                └──LinkedHashSet（C）   
+            └──TreeSet（C）   
         └── Queue(I)
     └── Map(I)
         ├── HashMap（C）
             ├──LinkedHashMap（C）   
         ├── treeMap（C）    
-        └── HashTable（C）
+        └── Hashtable（C）
+            └── Properties（C）
 ```
 > 说明
     

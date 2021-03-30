@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -35,7 +36,7 @@ public class For {
     public void strongerFor(){
         // <格式> for (type item : ite)
 
-        // 遍历集合
+        // 遍历数组
         int[] arr1 = {1, 2, 3, 4, 5, 6};
         for (int item : arr1) {
             System.out.println(item);
@@ -44,6 +45,7 @@ public class For {
         // 也可以用于遍历集合
         // 底层是用迭代器 Iterator 实现的
         Collection clt = Arrays.asList('a', 123, "gg");
+
         for (Object o : clt) {
             System.out.println(o);
         }

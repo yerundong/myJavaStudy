@@ -247,5 +247,6 @@ public class Base {
         Collection clt = Arrays.asList("a", "b");
         Iterator iterator = clt.iterator();
         System.out.println(iterator);// [a, b]
+
     }
 }
