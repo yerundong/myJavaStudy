@@ -9,6 +9,11 @@ import java.util.*;
 /**
  @Collection接口: Collection 是最基本的集合接口，存储一个元素集合，集合框架中最顶级的接口。其子接口和实现类都必须满足它重新设定的规则。
 
+ @结构：
+    ├── Collection(I)
+        ├── List(I)
+        └── Set(I)
+
  @特性：
     1.继承了 Iterator 接口
     2.由于Set是无序的，所以Collection不提供索引相关的特性，所以也没有类似get和set方法用于取值设值

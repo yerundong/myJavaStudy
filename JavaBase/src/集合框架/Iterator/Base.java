@@ -7,7 +7,9 @@ import java.util.*;
 
 /**
  @Iterator： Iterator接口（迭代器）不是一个集合，它是一种用于访问集合的，迭代器模式，就是为容器而生。可用于迭代 ArrayList 和 HashSet 等集合。
-             Iterator 是 Java 迭代器最简单的实现，ListIterator 是 Collection API 中的接口，它扩展了 Iterator 接口。
+            Iterator 是 Java 迭代器最简单的实现，ListIterator 是 Collection API 中的接口，它扩展了 Iterator 接口。
+
+ @注意： Collection 继承了 Iterator 接口，但Map没有继承 Iterator 接口
  */
 public class Base {
     /**

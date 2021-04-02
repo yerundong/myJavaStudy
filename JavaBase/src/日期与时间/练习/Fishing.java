@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @Description Three days fishing and tow days drying net.
+ * @Description if three days fishing and tow days drying net,what about today?
  */
 public class Fishing {
     @Test

@@ -46,7 +46,7 @@ import java.util.TreeSet;
      总结：七上八下
 
  @要求：
-    1. HashSet、LinkedHashSet中添加的数据，其所在的类一定要重写hashCode()和equals()
+    1. HashSet、LinkedHashSet中添加的数据，其所在的类一定要重写hashCode()和equals()，否则添加时都默认是未存在相同的，造成重复的数据
     2. 重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码（哈希值）
     @重写两个方法的小技巧： 对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。
  */

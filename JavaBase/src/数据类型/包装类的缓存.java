@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 */
 public class 包装类的缓存 {
     @Test
-    public void test1(){
+    public void test(){
         Integer i = new Integer(1);
         Integer j = new Integer(1);
         System.out.println(i == j);// false 引用类型，new了，地址不一样
@@ -26,7 +26,7 @@ public class 包装类的缓存 {
         System.out.println(x == y);// false 引用类型，超出缓存，new了，地址不一样
         // 解释：超出了缓存的范围，重新new了
 
-        // 其他数字类型也是一样
+        // 其他数字类型也一样
 
         Byte bt1 = 125;
         Byte bt2 = 125;

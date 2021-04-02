@@ -28,7 +28,7 @@ public class For {
 
         // 无限循环
         // for (;;) {
-        //
+        //     System.out.println(0);
         // }
     }
 
