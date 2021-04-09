@@ -16,7 +16,7 @@ package 比较器.自然排序;
  @注： 实现 Comparable 接口的对象列表（和数组）可以通过 Collections.sort 或 Arrays.sort 进行自动排序。
 
  */
-public class Goods implements Comparable {
+public class Goods implements Comparable<Goods> {
     private String name;
     private double price;
 
@@ -37,25 +37,21 @@ public class Goods implements Comparable {
      * @Description 比较器：按价格从低到高
      */
     @Override
-    public int compareTo(Object o) {
-        if(o instanceof Goods){
-            Goods g = (Goods)o;
-            // 方式一：
-            if(this.price > g.price){
-                return 1;
-            }else if (this.price < g.price){
-                return -1;
-            }else{
-                // 若不比较名称：
-                // return 0;
-                // 若价格相等还需比较名称：
-                return g.name.compareTo(this.name);
-            }
-
-            // 方式二：
-            // return Double.compare(this.price, g.price);
+    public int compareTo(Goods g) {
+        // 方式一：
+        if(this.price > g.price){
+            return 1;
+        }else if (this.price < g.price){
+            return -1;
+        }else{
+            // 若不比较名称：
+            // return 0;
+            // 若价格相等还需比较名称：
+            return g.name.compareTo(this.name);
         }
-        throw new RuntimeException("传入的参数非Goods对象");
+
+        // 方式二：
+        // return Double.compare(this.price, g.price);
     }
 
     @Override

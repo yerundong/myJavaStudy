@@ -21,9 +21,13 @@ public class Main {
         Arrays.sort(arr, new Comparator<String>(){
             @Override
             public int compare(String o1, String o2) {
-               return -o1.compareTo(o2);
+               return o1.compareTo(o2);
             }
         });
+
+        System.out.println(Arrays.toString(arr));
+
+        Arrays.sort(arr, new StringComparator());
 
         System.out.println(Arrays.toString(arr));
     }
