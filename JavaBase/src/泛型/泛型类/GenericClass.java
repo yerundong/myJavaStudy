@@ -1,5 +1,7 @@
 package 泛型.泛型类;
 
+import 示例.Person;
+
 public class GenericClass<E,T>  {
     private E name;
     private T age;

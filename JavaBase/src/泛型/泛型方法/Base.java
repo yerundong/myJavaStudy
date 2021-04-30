@@ -14,7 +14,7 @@ import 泛型.泛型类.GenericClass;
  @类型传入格式：
     methodName(Type param);
 
- @泛型方法中，类型传入的时间点： 在方法被调用的时候确定类型，通过实参来确定
+ @泛型方法中，类型传入的时间点： 在方法被调用的时候确定类型，通过实参的类型来来确定
 
  @注意事项：
     1.方法上泛型的差异不构成重载
@@ -22,14 +22,17 @@ import 泛型.泛型类.GenericClass;
 public class Base {
     @Test
     public void test(){
-        Integer look = look(15);
+        GenericClass gc = look('a', 15);
+        System.out.println(gc.getName());
+        System.out.println(gc.getAge());
+
         see('J', 16);
 
         run(new GenericClass<String, Integer>("Tom", 99), 66);
     }
 
-    public <T> T look (T num) {
-        return num;
+    public <T, E> GenericClass<T, E> look (T p1, E p2) {
+        return new GenericClass<>(p1, p2);
     }
 
     public static <T,E> void see (E name, T num) {}
