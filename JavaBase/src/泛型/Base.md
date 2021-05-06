@@ -25,7 +25,47 @@
 - 若泛型参数未传入，默认是Object类型
 - 泛型参数必须是引用类型，不能是基本类型
 
-类型擦除机制???
+## 类型擦除机制
+java的泛型在编译阶段实现，在运行期被删除。编译器生成的字节码在运行期间并不包含泛型的类型信息。 泛型（Generic）的引入加强了参数类型的安全性，减少了类型的转换。
+
+> 在编译后所有的泛型类型都会做相应的转化，转化如下：
+
+    List<String>、List<T> 擦除后的类型为 List。
+    List<String>[]、List<T>[] 擦除后的类型为 List[]。
+    List<? extends E>、List<? super E> 擦除后的类型为 List<E>。
+    List<T extends Serialzable & Cloneable> 擦除后类型为 List<Serializable>。
+
+
+> jvm如此操作的原因：
+1. 如果把类型信息保留到运行时，需要做大量的重构工作
+2. 兼容原生的老版本类型
+
+> 注意:
+
+- 泛型的class对象时一样的，类型擦除不会改变class属性:
+```
+List<String> t1 = new ArrayList<String>();
+List<String> t2 = new ArrayList<Integer>();
+System.out.println(t1.getclass() == t2.getclass());
+```
+
+- 泛型数组初始化时不能声明泛型类型
+```
+List<String>[] list = new List<String>[];
+```
+在这里可以声明一个带有泛型参数的数组，但是不能初始化该数组，因为执行了类型擦除操作后，相当于List[Object] list = new List<String>()[];编译器拒绝如此声明,所以提前报错，不允许到jvm那一边，java实现的是伪泛型。
+
+- instanceof 不能带泛型参数:
+```
+List<String> list = new ArrayList<String>();
+System.out.println(list instanceof List<String>);
+```
+jvm编译后会丢失信息，所以编译器不允许这么做，因为要是这么做，在运行时候会出问题。实际上list是一个实例，但是丢失类型后无法判断。
+
+
+
+
+
 
 
 

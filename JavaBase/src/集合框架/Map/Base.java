@@ -102,7 +102,7 @@ public class Base {
         hashMap.put("a", 222);
         hashMap.put(true, 'a');
         hashMap.put(666, null);
-        System.out.println(hashMap.size());
+        System.out.println(hashMap);
     }
 
     /**

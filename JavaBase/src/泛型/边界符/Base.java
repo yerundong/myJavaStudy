@@ -9,7 +9,8 @@ import java.util.List;
 public class Base {
 
     /**
-     * @Description 上边界符（<=）
+     * @extends 上边界符（<=）
+     * 限定为目标类及其子类，T型和通配型均可用
      */
     @Test
     public void test1(){
@@ -19,7 +20,8 @@ public class Base {
     }
 
     /**
-     * @Description 下边界符（>=）
+     * @super 下边界符（>=）
+     * 限定为目标类及其父类，仅通配型可用
      */
     @Test
     public void test2(){
@@ -36,9 +38,10 @@ public class Base {
     public void see(List<? super Student> t) {}
 
     /**
-     * @Description 多重界符（<=）
+     * @& 多重界符（<=）
      * 使用 & 符号设定多重边界（Multi Bounds)，指定泛型类型 T 必须是 Student 和 USB 的共有子类型，
      * 此时变量 t 就具有了所有限定的方法和属性。对于通配符？来说，因为它不是一个确定的类型，所以不能进行多重限定。
+     * 仅T型可用
      */
     @Test
     public void test3(){
