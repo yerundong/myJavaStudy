@@ -7,19 +7,19 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 
-/**
- * @File： 文件和目录路径名的抽象表示。File类的一个对象代表一个文件或文件目录（文件夹）。
- *
- * @注意： File类只涉及到文件层面的操作，不涉及到文件内容层面，文件内容层面需要IO流来操作
- *
- * @路径分隔符和系统有关：
- *  1. windows和DOS系统默认使用反斜杆“\”来表示（\在java代码中有特殊意义，需要转义写成/），但在windows下也能识别“/”
- *  2. Linux、UNIX和URL使用正斜杆“/”来表示
- *  3. 最好使用“/”，因为java是跨平台的。
- *  注：Java程序支持跨平台运行，因此路径分隔符要慎用。
- *
- * @系统相关分隔符
- *  File类提供了一个常量：separator/separatorChar，会根据操作系统，动态的提供分隔符。
+/*
+ @File： 文件和目录路径名的抽象表示。File类的一个对象代表一个文件或文件目录（文件夹）。
+
+ @注意： File类只涉及到文件层面的操作，不涉及到文件内容层面，文件内容层面需要IO流来操作
+
+ @路径分隔符和系统有关：
+  1. windows和DOS系统默认使用反斜杆“\”来表示（\在java代码中有特殊意义，需要转义写成/），但在windows下也能识别“/”
+  2. Linux、UNIX和URL使用正斜杆“/”来表示
+  3. 最好使用“/”，因为java是跨平台的。
+  注：Java程序支持跨平台运行，因此路径分隔符要慎用。
+
+ @系统相关分隔符
+  File类提供了一个常量：separator/separatorChar，会根据操作系统，动态的提供分隔符。
  */
 
 public class Base {
@@ -62,12 +62,12 @@ public class Base {
         File file1 = new File("IOTestFile/newFile.txt");
         // file1 = new File("IOTestFile/none/newFile.txt");// 父目录不存在，会报错，需要判断父目录是否存在
         File parentFile = file1.getParentFile();
-        if(file1.exists()){
+        if (file1.exists()) {
             file1.delete();
             System.out.println("文件删除成功！");
-        }else if(!parentFile.exists()){
-            System.out.println("父目录："+parentFile+"不存在，无法创建！");
-        }else{
+        } else if (!parentFile.exists()) {
+            System.out.println("父目录：" + parentFile + "不存在，无法创建！");
+        } else {
             file1.createNewFile();
             System.out.println("文件创建成功！");
         }
@@ -77,18 +77,18 @@ public class Base {
      * @创建文件目录
      */
     @Test
-    public void mkdir(){
+    public void mkdir() {
         // <M> public boolean mkdir()
         // <返，改> 根据File对象创建硬盘中的实体文件目录，若【文件目录存在或者父目录不存在】，则不创建，返回false
         File file1 = new File("IOTestFile/newDir");
         // file1 = new File("IOTestFile/none/newDir");// 父目录不存在，不创建
         File parentFile = file1.getParentFile();
-        if(file1.exists()){
+        if (file1.exists()) {
             file1.delete();
             System.out.println("文件夹删除成功！");
-        }else if(!parentFile.exists()){
-            System.out.println("父目录："+parentFile+"不存在，无法创建！");
-        }else{
+        } else if (!parentFile.exists()) {
+            System.out.println("父目录：" + parentFile + "不存在，无法创建！");
+        } else {
             file1.mkdir();
             System.out.println("文件夹创建成功！");
         }
@@ -98,16 +98,16 @@ public class Base {
      * @递归创建文件目录
      */
     @Test
-    public void mkdirs(){
+    public void mkdirs() {
         // <M> public boolean mkdir()
         // <返，改> 根据File对象创建硬盘中的实体文件目录，若文件目录存在，则不创建，返回false，若父目录不存在，连所需父目录一并创建
         File file1 = new File("IOTestFile/newDirs");
         file1 = new File("IOTestFile/none/newDir");// 若父目录不存在，连所需父目录一并创建
-        if(file1.exists()){
+        if (file1.exists()) {
             file1.delete();
             new File("IOTestFile/none").delete();
             System.out.println("文件夹删除成功！");
-        }else{
+        } else {
             file1.mkdirs();
             System.out.println("文件夹创建成功！");
         }
@@ -136,7 +136,7 @@ public class Base {
      * @获取路径
      */
     @Test
-    public void getPath_getAbsolutePath(){
+    public void getPath_getAbsolutePath() {
         File file1 = new File("E:/Desktop/myJavaStudy/IOTestFile/hello-io.txt");
         File file2 = new File("IOTestFile/hello-io.txt");
 
@@ -155,7 +155,7 @@ public class Base {
      * @路径是否绝对
      */
     @Test
-    public void isAbsolute(){
+    public void isAbsolute() {
         // <M> public boolean isAbsolute()
         // <返> 判断是目录或文件路径是否是绝对的，不存在返回false
         File file1 = new File("E:/Desktop/myJavaStudy/IOTestFile/hello-io.txt");
@@ -171,7 +171,7 @@ public class Base {
      * @名称
      */
     @Test
-    public void getName(){
+    public void getName() {
         // <M> public String getName()
         // 返回由此抽象路径名表示的文件或目录的名称。 这只是路径名称序列中的最后一个名字。 如果路径名的名称序列为空，则返回空字符串。
         File file1 = new File("E:/Desktop/myJavaStudy/IOTestFile/hello-io.txt");
@@ -189,7 +189,7 @@ public class Base {
      * @父
      */
     @Test
-    public void getParent_getParentFile(){
+    public void getParent_getParentFile() {
         File file1 = new File("IOTestFile/up/go");
         File file2 = new File("IOTestFile/hello-io.txt");
         File file3 = new File("IOTestFile");
@@ -211,7 +211,7 @@ public class Base {
      * @长度
      */
     @Test
-    public void length(){
+    public void length() {
         // <M> public long length()
         // <返> 返回由此抽象路径名表示的文件的长度（以字节为单位）。如果此路径名表示目录，则返回值未指定。
         File file1 = new File("IOTestFile/hello-io.txt");
@@ -226,7 +226,7 @@ public class Base {
      * @上次修改的时间
      */
     @Test
-    public void lastModified(){
+    public void lastModified() {
         // <M> public long lastModified()
         // <返> 返回此抽象路径名表示的文件上次修改的时间。毫秒时间戳
         File file1 = new File("IOTestFile/hello-io.txt");
@@ -238,7 +238,7 @@ public class Base {
      * @列表
      */
     @Test
-    public void list_listFiles(){
+    public void list_listFiles() {
         File file1 = new File("IOTestFile/hello-io.txt");
         File file2 = new File("IOTestFile");
         File file3 = new File("IOTestFile/none");// 不存在
@@ -260,7 +260,7 @@ public class Base {
      * @重设（名称、路径）
      */
     @Test
-    public void renameTo(){
+    public void renameTo() {
         // <M> public boolean renameTo(File dest)
         // <返、改> 重设文件的名称和路径
         // <注> 要想重设成功（返回true），必须保证file1存在，file2不存在
@@ -274,7 +274,7 @@ public class Base {
      * @判断文件类型
      */
     @Test
-    public void isFile_isDirectory(){
+    public void isFile_isDirectory() {
         // <M> public boolean isFile()
         // <M> public boolean isDirectory()
         // <返> 判断是目录还是文件类型，不存在返回false
@@ -291,7 +291,7 @@ public class Base {
      * @是否文件存在
      */
     @Test
-    public void exists(){
+    public void exists() {
         // <M> public boolean exists()
         // <返> 判断是目录或文件是否存在，不存在返回false
         File file1 = new File("IOTestFile/up/go/fight.txt");
@@ -304,7 +304,7 @@ public class Base {
      * @是否可读/可写
      */
     @Test
-    public void canRead_canWrite(){
+    public void canRead_canWrite() {
         // <M> public boolean canRead/canWrite()
         // <返> 判断是目录或文件是否可读/可写，不存在返回false
         File file1 = new File("IOTestFile/hello-io.txt");
@@ -325,7 +325,7 @@ public class Base {
      * @是否可执行
      */
     @Test
-    public void canExecute(){
+    public void canExecute() {
         // <M> public boolean canExecute()
         // <返> 判断是目录或文件是否可执行，不存在返回false
         File file1 = new File("IOTestFile/up/go/fight.txt");
@@ -342,7 +342,7 @@ public class Base {
      * @是否隐藏
      */
     @Test
-    public void isHidden(){
+    public void isHidden() {
         // <M> public boolean isHidden()
         // <返> 判断是目录或文件是否隐藏，不存在返回false
         File file1 = new File("IOTestFile/hello-io.txt");

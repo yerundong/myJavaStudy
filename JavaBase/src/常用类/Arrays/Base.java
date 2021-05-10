@@ -222,21 +222,25 @@ public class Base {
     }
 
     /**
-     * @Description 数组转集合??????(等学完集合和泛型再看)
+     * @Description 数组转集合
      */
     @Test
     public void asList() {
         // <SM> public static <T> List<T> asList(T... a)
-        // <返> 返回值是一个固定长度的 List 集合
+        // <返> 返回值是一个固定长度的 List 集合，参数可以是多个参数，也可是数组
+        // <注> 参数若是数组，只有是对象型数据的数组才能被解析成多个元素，若是基本数据类型的数组，就会一整个数组被当成一个元素
 
         List<String> list1 = Arrays.asList("a", "b", "c");
         System.out.println(list1);// [a, b, c]
 
         String[] arr1 = {"a", "b", "c"};
         Integer[] arr2 = {1, 2, 3};
+        char[] arr3 = {'a','b','c'};
         List<String> list2 = Arrays.asList(arr1);
         List<Integer> list3 = Arrays.asList(arr2);
+        List<char[]> chars = Arrays.asList(arr3);// 基本数据类型的数组，一整个数组被当成一个元素
         System.out.println(list2);// [a, b, c]
         System.out.println(list3);// [1, 2, 3]
+        System.out.println(chars);
     }
 }
