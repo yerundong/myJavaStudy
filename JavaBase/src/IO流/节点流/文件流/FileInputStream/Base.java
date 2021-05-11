@@ -1,4 +1,4 @@
-package IO流.节点流.FileInputStream;
+package IO流.节点流.文件流.FileInputStream;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,9 +7,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /*
- @FileInputStream：字节输入流，属于文件流、节点流的一种；用于读取诸如图像数据之类的原始字节流。
+ @FileInputStream：字节输入文件流，节点流的一种；用于读取诸如图像数据之类的原始字节流。
 
- @注：文本也可以使用字节流处理，但从内存直接读取打印会可能乱码，读取写入不会有问题
+ @注：文本文件也可以使用字节文件流，但从内存直接读取打印会可能乱码，读取写入不会有问题
  */
 public class Base {
     /**

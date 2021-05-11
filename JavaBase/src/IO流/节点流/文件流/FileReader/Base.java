@@ -1,4 +1,4 @@
-package IO流.节点流.FileReader;
+package IO流.节点流.文件流.FileReader;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /*
-@FileReader: 字符输入流，属于文件流、节点流的一种；用来读取字符文件的便捷类。字符流只能处理字符数据（.txt\.html\.java\...），不能处理字节数据（图片\视频\音频\.doc\.ppt...）。
+@FileReader: 字符输入文件流，属于节点流的一种；用来读取字符文件的便捷类。字符流只能处理字符数据（.txt\.html\.java\...），不能处理字节数据（图片\视频\音频\.doc\.ppt...）。
  */
 public class Base {
     /**
