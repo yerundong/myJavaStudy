@@ -1,4 +1,4 @@
-package IO流.FileWriter;
+package IO流.节点流.FileWriter;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /*
- @FileWriter:文件流、节点流、字符输出流；用来写入字符文件的便捷类。字符流只能处理字符数据，不能处理图片等字节数据。
+ @FileWriter:字符输出流，属于文件流、节点流的一种；用来写入字符文件的便捷类。字符流只能处理字符数据（.txt\.html\.java\...），不能处理字节数据（图片\视频\音频\.doc\.ppt...）。
  */
 public class Base {
     /**
@@ -41,7 +41,7 @@ public class Base {
     public void Constructor() throws IOException {
         // <CM> public FileWriter(File file) throws IOException
         // <返> 创建 FileWriter 流，并返回
-        // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，会创建一个空文件覆盖它；
+        // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，会创建一个同名空文件覆盖它；
         // <注> 如果父目录不存在，则报错 FileNotFoundException
 
         // <CM> public FileWriter(File file, boolean append) throws IOException
@@ -64,7 +64,6 @@ public class Base {
         // <M> public void write(char[] cbuf, int off, int len) throws IOException
         // <M> public void write(String str, int off, int len) throws IOException
         // <改> 通过FileWriter流对文件写入字符
-        // <注> 写入的字符前，会先将该文件内容全部清空
         File file = new File("IOTestFile/writerTest.txt");
         FileWriter fw = new FileWriter(file);
         // fw.write('a');
