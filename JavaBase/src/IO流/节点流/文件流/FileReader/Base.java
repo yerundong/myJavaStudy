@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /*
-@FileReader: 字符输入文件流，属于节点流的一种；用来读取字符文件的便捷类。字符流只能处理字符数据（.txt\.html\.java\...），不能处理字节数据（图片\视频\音频\.doc\.ppt...）。
+@FileReader: 字符输入文件流，属于节点流的一种；用来读取字符文件的便捷类。
  */
 public class Base {
     /**
@@ -62,12 +62,15 @@ public class Base {
     @Test
     public void read() throws IOException {
         // <M> public int read() throws IOException
-        // <返> 读取的字符数值（ascii码），如果已到达流的末尾，则返回 -1;调用一次只读取一个字符，迭代读取
+        // <返> 读取的字符数值，如果已到达流的末尾，则返回 -1;调用一次只读取一个字符，迭代读取
         File file = new File("IOTestFile\\hello-io.txt");
         FileReader fr = new FileReader(file);
-        int readChar = fr.read();
-        System.out.println(readChar);
-        System.out.println((char) readChar);
+        int readChar;
+        while ((readChar = fr.read()) != -1) {
+            System.out.print((char) readChar);
+
+        }
+        fr.close();
     }
 
     /**
@@ -77,7 +80,7 @@ public class Base {
     public void read2() throws IOException {
         // <M>  public int read(char[] cbuf) throws IOException
         // <返> 返回读取的字符数len（len <= cbuf.length），如果已到达流的末尾，则返回 -1
-        // <改> 读取的字符ascii码，将字符读入数组cbuf。每read()一次，cbuf都会被重头覆盖，如果最后一次不够数组长度，则会部分保留上一次字符
+        // <改> 读取的字数，将字符数读入数组cbuf。每read()一次，cbuf都会被重头覆盖，如果最后一次不够数组长度，则会部分保留上一次字符
         //      （比如第一次取“hello”，第二次取”java“，cbuf的最后一次更新就是：[h,e,l,l,o] => [j,a,v,a,o]）
         // <注> 在某个输入可用、发生 I/O 错误或者已到达流的末尾前，此方法一直阻塞。
         File file = new File("IOTestFile\\hello-io.txt");

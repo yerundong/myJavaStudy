@@ -8,8 +8,6 @@ import java.io.IOException;
 
 /*
  @FileInputStream：字节输入文件流，节点流的一种；用于读取诸如图像数据之类的原始字节流。
-
- @注：文本文件也可以使用字节文件流，但从内存直接读取打印会可能乱码，读取写入不会有问题
  */
 public class Base {
     /**
@@ -39,6 +37,7 @@ public class Base {
             int read = fis.read();
             System.out.println(read);
         }
+        fis.close();
     }
 
     /**
@@ -47,7 +46,7 @@ public class Base {
     @Test
     public void read2() throws IOException {
         // <M> public int read(byte[] b) throws IOException
-        // <返> 返回读取的字节数量len（len <= cbuf.length），如果已到达流的末尾，则返回 -1
+        // <返> 返回读取的字节数量len（len <= b.length），如果已到达流的末尾，则返回 -1
         // <改> 读取的字节数值，将字节数读入数组b。每read()一次，b都会被重头覆盖，如果最后一次不够数组长度，则会部分保留上一次字符
         //      （比如第一次取“12,13,14,15,16”，第二次取“22,23,24”，b的最后一次更新就是：[12,13,14,15,16] => [22,23,24,15,16]）
         File file = new File("IOTestFile/img/剪纸.jpg");
@@ -59,6 +58,7 @@ public class Base {
                 System.out.println(bytes[i]);
             }
         }
+        fis.close();
     }
 
     /**

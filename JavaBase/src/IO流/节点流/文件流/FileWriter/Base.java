@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /*
- @FileWriter:字符输出文件流，属于节点流的一种；用来写入字符文件的便捷类。字符流只能处理字符数据（.txt\.html\.java\...），不能处理字节数据（图片\视频\音频\.doc\.ppt...）。
+ @FileWriter:字符输出文件流，属于节点流的一种；用来写入字符文件的便捷类。
  */
 public class Base {
     /**
