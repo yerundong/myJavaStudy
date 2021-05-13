@@ -11,46 +11,25 @@ import java.io.IOException;
  */
 public class Base {
     /**
-     * @一般正确写法示例
-     */
-    @Test
-    public void demo() {
-        File file = new File("IOTestFile/writerTest.txt");
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(file, true);
-            fw.write("i have a dream!");
-            fw.write("\n\twe have many dreams!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fw != null) {
-                try {
-                    fw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /**
      * @ 构造器，创建FileWriter流
      */
     @Test
     public void Constructor() throws IOException {
         // <CM> public FileWriter(File file) throws IOException
+        // <CM> public FileWriter(String fileName) throws IOException
         // <返> 创建 FileWriter 流，并返回
         // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，会创建一个同名空文件覆盖它；
         // <注> 如果父目录不存在，则报错 FileNotFoundException
 
         // <CM> public FileWriter(File file, boolean append) throws IOException
+        // <CM> public FileWriter(String fileName, boolean append) throws IOException
         // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，在它基础上追加；
 
         File file = new File("IOTestFile/writerTest.txt");
         // file = new File("IOTestFile/none/writerTest.txt");// 父目录不存在
         // FileWriter fw = new FileWriter(file);
-        FileWriter fw = new FileWriter(file, true);// 追加
+        // FileWriter fw = new FileWriter(file, true);// 追加
+        FileWriter fw = new FileWriter("IOTestFile/writerTest.txt", true);// 追加
         fw.close();
     }
 

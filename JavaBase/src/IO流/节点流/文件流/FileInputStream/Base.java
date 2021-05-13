@@ -16,10 +16,13 @@ public class Base {
     @Test
     public void Constructor() throws IOException {
         // <CM> public FileInputStream(File file) throws FileNotFoundException
+        // <CM> public FileInputStream(String name) throws FileNotFoundException
         // <返> 创建读取字节文件的流管道；返回 FileInputStream 对象
         // <注> file必须存在，否则报 FileNotFoundException
-        File file = new File("IOTestFile/img/剪纸.jpg");
-        FileInputStream fis = new FileInputStream(file);
+
+        // File file = new File("IOTestFile/img/剪纸.jpg");
+        // FileInputStream fis = new FileInputStream(file);
+        FileInputStream fis = new FileInputStream("IOTestFile/img/剪纸.jpg");
         fis.close();
     }
 

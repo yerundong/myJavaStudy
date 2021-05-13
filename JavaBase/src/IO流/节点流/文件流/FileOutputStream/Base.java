@@ -16,18 +16,21 @@ public class Base {
     @Test
     public void Constructor() throws IOException {
         // <CM> public FileOutputStream(File file) throws FileNotFoundException
+        // <CM> public FileOutputStream(String name, boolean append) throws FileNotFoundException
         // <返> 创建 FileOutputStream 流，并返回
         // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，会创建一个同名空文件覆盖它；
         // <注> 如果父目录不存在，则报错 FileNotFoundException
 
-        // <CM> public FileOutputStream(File file, boolean append) throws IOException
+        // <CM> public FileOutputStream(File file, boolean append) throws FileNotFoundException
+        // <CM> public FileOutputStream(String name, boolean append) throws FileNotFoundException
         // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，在它基础上追加；
 
         File file = new File("IOTestFile/img/剪纸.jpg");
         // file = new File("IOTestFile/none/剪纸.jpg");// 父目录不存在
 
         // FileOutputStream fos = new FileOutputStream(file);
-        FileOutputStream fos = new FileOutputStream(file, true);
+        // FileOutputStream fos = new FileOutputStream(file, true);
+        FileOutputStream fos = new FileOutputStream("IOTestFile/img2/剪纸.jpg", true);
         fos.close();
     }
 

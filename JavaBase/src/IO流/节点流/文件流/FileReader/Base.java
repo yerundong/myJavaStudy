@@ -12,47 +12,19 @@ import java.util.Arrays;
  */
 public class Base {
     /**
-     * @一般正确写法示例
-     */
-    @Test
-    public void demo() {
-        // 1.创建File
-        File file = new File("IOTestFile\\hello-io.txt");
-        FileReader fr = null;
-        try {
-            // 2.创建流
-            fr = new FileReader(file);
-            int readChar;
-            // 3.读取流
-            while ((readChar = fr.read()) != -1) {
-                System.out.print((char) readChar);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            // 4.关闭流
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /**
      * @构造器，创建FileReader流
      */
     @Test
     public void Constructor() throws IOException {
         // <CM> public FileReader(File file) throws FileNotFoundException
+        // <CM> public FileReader(String fileName) throws FileNotFoundException
         // <返> 创建读取字符文件的流管道（文件流）；返回 FileReader 对象
         // <注> file必须存在，否则报 FileNotFoundException
 
         File file = new File("IOTestFile\\hello-io.txt");
         // file = new File("IOTestFile\\none.txt");// 不存在
-        FileReader fr = new FileReader(file);
+        // FileReader fr = new FileReader(file);
+        FileReader fr = new FileReader("IOTestFile\\hello-io.txt");
         fr.close();
     }
 

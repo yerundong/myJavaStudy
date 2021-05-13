@@ -14,15 +14,21 @@
     ├──FileReader：字符输入文件流
     └──FileWriter：字符输出文件流
 └──处理流
-  └──缓冲流  
+  ├──缓冲流  
     ├──BufferedInputStream：字节输入缓冲流
     ├──BufferedOutputStream：字节输出缓冲流
     ├──BufferedReader：字符输入缓冲流
     └──BufferedWriter：字符输出缓冲流
+  ├──转换流
+    ├──InputStreamReader：字节转字符输入流
+    └──OutputStreamWriter：字符转字节输出流
+  ├──标准输入输出流
+    ├──System.in：标准输入流
+    └──System.out：标准输出流
 ```
 # 分类
 ### 以传送数据的基本单位分：
-- 字节流：传输过程中，传输数据的最基本单位是字节的流。一般以stream结尾。一般用于处理字节数据（图片\视频\音频\.doc\.ppt...）。
+- 字节流：传输过程中，传输数据的最基本单位是字节的流。一般以xxxputStream结尾。一般用于处理字节数据（图片\视频\音频\.doc\.ppt...）。
 字符文件也可以处理，但从内存直接读取打印会可能乱码，单纯的读取写入不会有问题。
 - 字符流：传输过程中，传输数据的最基本单位是字符的流。一般以reader\writer结尾。一般只能处理字符数据（.txt\.html\.java\...）。
 

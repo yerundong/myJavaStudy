@@ -15,7 +15,7 @@ public class Base {
      * @构造器，创建BufferedOutputStream流
      */
     @Test
-    public void test() throws IOException {
+    public void Constructor() throws IOException {
         // <CM> public BufferedOutputStream(OutputStream out)
         // <CM> public BufferedOutputStream(OutputStream out, int size)
         // <返> 创建 BufferedOutputStream 对象
