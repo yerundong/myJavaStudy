@@ -9,12 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- @通配符: ?表示不确定的 java 类型
-
- @用处：
-     通常用于变量声明、泛型方法的调用代码和形参，不能用于定义泛型类、方法、接口。
-     1.变量接收
-     2.方法形参
+ * @通配符: ?表示不确定的 java 类型
+ * @用处： 通常用于变量声明、泛型方法的调用代码和形参，不能用于定义泛型类、方法、接口。
+ * 1.变量接收
+ * 2.方法形参
  */
 public class Base {
 
@@ -30,7 +28,7 @@ public class Base {
         list1 = list2;
 
         // 2.方法形参
-        look(new ArrayList<String>());
+        ArrayList<?> look = look(new ArrayList<String>());
 
         // 读取
         GenericClass<?, ?> genericClass = new GenericClass<>();
@@ -42,7 +40,7 @@ public class Base {
         genericClass.setName(null);// 只有null允许，因为不确定?代表哪个类型
     }
 
-    public ArrayList look(ArrayList<?> l) {
+    public ArrayList<?> look(ArrayList<?> l) {
         return l;
     }
 

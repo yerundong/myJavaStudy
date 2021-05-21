@@ -1,7 +1,5 @@
 package 示例;
 
-import 比较器.自然排序.Goods;
-
 import java.util.Objects;
 
 public class Person implements Comparable {
@@ -30,13 +28,17 @@ public class Person implements Comparable {
         this.sex = sex;
     }
 
-    public void walk(){
+    public void walk() {
         System.out.println("人，走路");
     }
 
     @Deprecated
-    public void speak(){
+    public void speak() {
         System.out.println("人，说话");
+    }
+
+    private void stay() {
+        System.out.println("I stay here!");
     }
 
     @Override
@@ -70,8 +72,8 @@ public class Person implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        if(o instanceof Person){
-            Person p = (Person)o;
+        if (o instanceof Person) {
+            Person p = (Person) o;
             return Integer.compare(getAge(), p.getAge());
         }
 
