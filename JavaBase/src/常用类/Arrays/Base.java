@@ -222,7 +222,7 @@ public class Base {
     }
 
     /**
-     * @Description 数组转集合
+     * @Description 数组转List
      */
     @Test
     public void asList() {
@@ -230,17 +230,30 @@ public class Base {
         // <返> 返回值是一个固定长度的 List 集合，参数可以是多个参数，也可是数组
         // <注> 参数若是数组，只有是对象型数据的数组才能被解析成多个元素，若是基本数据类型的数组，就会一整个数组被当成一个元素
 
-        List<String> list1 = Arrays.asList("a", "b", "c");
-        System.out.println(list1);// [a, b, c]
+        List<String> ls1 = Arrays.asList("a", "b", "c");
+        System.out.println(ls1);// [a, b, c]
 
         String[] arr1 = {"a", "b", "c"};
         Integer[] arr2 = {1, 2, 3};
-        char[] arr3 = {'a','b','c'};
-        List<String> list2 = Arrays.asList(arr1);
-        List<Integer> list3 = Arrays.asList(arr2);
+        char[] arr3 = {'a', 'b', 'c'};
+
+        List<String> ls2 = Arrays.asList(arr1);
+        List<Integer> ls3 = Arrays.asList(arr2);
         List<char[]> chars = Arrays.asList(arr3);// 基本数据类型的数组，一整个数组被当成一个元素
-        System.out.println(list2);// [a, b, c]
-        System.out.println(list3);// [1, 2, 3]
+        System.out.println(ls2);// [a, b, c]
+        System.out.println(ls3);// [1, 2, 3]
         System.out.println(chars);
+
+        /*
+        注：由于Arrays.asList() 返回的是Arrays的内部类ArrayList， 而不是java.util.ArrayList。
+        Arrays的内部类ArrayList和java.util.ArrayList都是继承AbstractList，remove、add、clear等方法在
+        AbstractList中是默认throw UnsupportedOperationException而且不作任何操作。
+        参考：https://www.jianshu.com/p/52cdcec633bd
+        */
+        // ls1.add(4);// 报错 UnsupportedOperationException
+        // ls1.remove(1);// 报错 UnsupportedOperationException
+        ls1.set(1, "java");
+        ls1.get(1);
+        ls1.indexOf(1);
     }
 }
