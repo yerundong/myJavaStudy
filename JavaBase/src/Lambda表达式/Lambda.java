@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
     (parameters) ->{ statements; }
 
     ->：lambda操作符或箭头操作符
-    左边：(o1, o2)，形参列表，其实就是接口中抽象方法的形参列表
-    右边：重写的抽象方法的方法体
+    parameter：形参列表，其实就是接口中抽象方法的形参列表
+    expression：lambda体，重写的抽象方法的方法体
 
 @举例：(o1, o2) -> Integer(o1, o2);
 
@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
     可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。
 
  */
-public class Base {
+public class Lambda {
 
     /**
      * @无参

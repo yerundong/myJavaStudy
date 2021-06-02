@@ -224,13 +224,10 @@ public class Map接口 {
         System.out.println(entrySet);
         System.out.println("----------------------");
 
-        for (Object value : entrySet) {
-            Map.Entry value_ = (Map.Entry) value;
-            // System.out.println(value);
-            System.out.println(value_);
-            System.out.println(value_.getKey());
-            System.out.println(value_.getValue());
-            System.out.println("----------------------");
+        for (Map.Entry es : entrySet) {
+            // System.out.println(es);
+            System.out.println(es.getKey());
+            System.out.println(es.getValue());
         }
     }
 }
