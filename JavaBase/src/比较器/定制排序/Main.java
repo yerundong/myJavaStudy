@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Function;
 
 /***
  @定制排序： 当元素的类型没有实现 java.lang.Comparable 接口而又不方便修改代码，或者实现了 java.lang.Comparable 接口的排序规则不适合当前的操作，那
@@ -17,13 +18,14 @@ public class Main {
     public void sort() {
         // 对数组里的对象进行排序
         String[] arr = new String[]{"NN", "AA", "GG", "PP"};
-
-        Arrays.sort(arr, new Comparator<String>() {
+        Comparator<String> comparator = new Comparator<>() {
             @Override
             public int compare(String o1, String o2) {
                 return o1.compareTo(o2);
             }
-        });
+        };
+
+        Arrays.sort(arr, comparator);
 
         // Lambda写法
         // Arrays.sort(arr, (o1, o2) -> o1.compareTo(o2));
@@ -36,5 +38,19 @@ public class Main {
         Arrays.sort(arr, new StringComparator());
 
         System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * @
+     */
+    @Test
+    public void test() {
+        Comparator<Integer> comparing = Comparator.comparing(new Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer i) {
+                return i + 1;
+            }
+        });
+
     }
 }

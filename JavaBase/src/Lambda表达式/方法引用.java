@@ -11,17 +11,19 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /*
-@方法引用：当使用Lambda表达式时，lambda体已存在方法，可以直接拿来使用，可简写成更简洁的Lambda表达式-方法引用。其本质还是Lambda表达式。
-
+@方法引用：当使用Lambda表达式时，lambda体已存在方法，可以直接拿来使用，可简写成更简洁的Lambda表达式-方法引用格式。其本质还是Lambda表达式。
 @格式： 类（或对象）::方法名
-
 @要求：引用的方法必须和接口中的抽象方法具有相同的形参、返参
 
+@构造器引用：当使用Lambda表达式时，lambda体是一个调用构造器、实例化的表达式，而后返回一个实例，可简写成构造器引用的格式
+@格式： 类::new
+@要求：引用的构造器方法必须和接口中的抽象方法具有相同的形参，而抽象方法返回这个类的实例
 
-@有三种情况：
+@有四种情况：
     1.对象::非静态方法
     2.类::静态方法
     3.类::非静态方法（最特殊）
+    4.类::new（构造器引用）
  */
 
 public class 方法引用 {
@@ -110,7 +112,7 @@ public class 方法引用 {
     }
 
     /**
-     * @情况3：类调用实例方法（费解） 需要把方法调用的主体对象当作形参传入
+     * @情况3：类调用实例方法（费解） 第一个参数s1, 是方法调用的主体，第二个参数s2是方法调用的入参，或者只有一个参数o，方法无参
      */
     @Test
     public void test7() {
@@ -135,5 +137,26 @@ public class 方法引用 {
 
         System.out.println(fn1.apply(tc));
         System.out.println(fn2.apply(tc));
+    }
+
+    /**
+     * @情况4：构造器引用
+     */
+    @Test
+    public void test8() {
+        // 无参数
+        Supplier<TestClass> sl1 = () -> new TestClass();
+        // 等同写法
+        Supplier<TestClass> sl2 = TestClass::new;
+
+        // 有参数
+        BiFunction<String, Integer, TestClass> bf1 = (s, i) -> new TestClass(s, i);
+        // 等同写法
+        BiFunction<String, Integer, TestClass> bf2 = TestClass::new;
+
+        // 数组类型的构造器引用，属于特殊的构造器引用
+        Function<Integer, String[]> fc1 = i -> new String[i];
+        // 等同写法
+        Function<Integer, String[]> fc2 = String[]::new;
     }
 }
