@@ -46,9 +46,12 @@ public class Base {
     @Test
     public void round() {
         // <SM> public static long round(double num)
-        // <返> 返回四舍五入值
+        // <返> 返回四舍五入值，保留整数
+        // <注> 更多舍入模式请用BigDecimal
         System.out.println(Math.round(3.444));
         System.out.println(Math.round(3.544));
+        System.out.println(Math.round(-1.5));// -1
+        System.out.println(Math.round(-1.45));// -1
     }
 
     /**
@@ -87,7 +90,7 @@ public class Base {
         for (int i = 0; i < 3; i++) {
             System.out.println(Math.random());
         }
-        
+
         System.out.println("----------------------");
 
         // 取[1,10]随机数
