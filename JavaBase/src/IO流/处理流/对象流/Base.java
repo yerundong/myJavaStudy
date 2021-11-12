@@ -1,7 +1,6 @@
 package IO流.处理流.对象流;
 
 import org.junit.jupiter.api.Test;
-import 类和对象.对象的序列化.serializedClass;
 
 import java.io.*;
 
@@ -27,7 +26,7 @@ public class Base {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("IOTestFile/object.dat"));
         // oos.writeObject(new Person("亚索"));// 写入的对象需要实现序列化，否则报错：NotSerializableException
         // oos.writeObject(new String("亚索"));// String已经实现序列化
-        oos.writeObject(new serializedClass("俺是可序列化类"));
+        oos.writeObject(new 类和对象.对象的序列化.Base("俺是可序列化类"));
         oos.close();
     }
 
@@ -37,7 +36,7 @@ public class Base {
     @Test
     public void read() throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("IOTestFile/object.dat"));
-        serializedClass p = (serializedClass) ois.readObject();
+        类和对象.对象的序列化.Base p = (类和对象.对象的序列化.Base) ois.readObject();
         ois.close();
         System.out.println(p);
         System.out.println(p.getName());

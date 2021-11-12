@@ -2,21 +2,15 @@ package 数据类型;
 
 import org.junit.jupiter.api.Test;
 
-/***
-
-@缓存 包装类内部有一个 XxxCache 的静态结构（如：IntegerCache），如果我们自动装箱的范围在：-128~127之间，就会缓存在 XxxCache.cache 这个数组里，
-如果再次调用，直接使用缓存中的地址，不会再去 new 了。
-
-@目的 提高效率
-
-*/
 public class 包装类的缓存 {
     @Test
-    public void test(){
+    public void test() {
+        // 手动装箱没有缓存
         Integer i = new Integer(1);
         Integer j = new Integer(1);
         System.out.println(i == j);// false 引用类型，new了，地址不一样
 
+        // 自动装箱有缓存
         Integer m = 1;
         Integer n = 1;
         System.out.println(m == n);// true 引用类型，使用缓存，地址一样

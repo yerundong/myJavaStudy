@@ -2,11 +2,6 @@ package 数据类型;
 
 import org.junit.jupiter.api.Test;
 
-/**
-
- @快速记忆： 基本转String用valueOf，toString，拼接符号黑科技；String转基本用parse，只有char搞特殊。
-
- */
 public class 基本数据和String之间的类型转换 {
 
 /*************** 8种基本类型（byte\short\int\long\float\double\char\boolean） --> String类型 ***************/
@@ -15,10 +10,10 @@ public class 基本数据和String之间的类型转换 {
      * @Description 一、String.valueOf
      */
     @Test
-    public void valueOf(){
+    public void valueOf() {
         // <SM> public static String valueOf(BasicTypes val)
-        String str1 = String.valueOf((byte)1);
-        String str2 = String.valueOf((short)2);
+        String str1 = String.valueOf((byte) 1);
+        String str2 = String.valueOf((short) 2);
         String str3 = String.valueOf(3);
         String str4 = String.valueOf(4L);
         String str5 = String.valueOf(5.1F);
@@ -40,12 +35,12 @@ public class 基本数据和String之间的类型转换 {
      * @Description 二、包装类的toString方法
      */
     @Test
-    public void toString_(){
+    public void toString_() {
         // <SM> public static String toString(BasicTypes val)
 
-        String str1 = Byte.toString((byte)1);
-        String str2 = Short.toString((short)2);
-        String str3 = Integer.toString((short)3);
+        String str1 = Byte.toString((byte) 1);
+        String str2 = Short.toString((short) 2);
+        String str3 = Integer.toString((short) 3);
         String str4 = Long.toString(4L);
         String str5 = Float.toString(5.1F);
         String str6 = Double.toString(6.2);
@@ -66,9 +61,9 @@ public class 基本数据和String之间的类型转换 {
      * @Description 三、字符串拼接方式
      */
     @Test
-    public void connected(){
-        String str1 = (byte)1 + "";
-        String str2 = (short)2 + "";
+    public void connected() {
+        String str1 = (byte) 1 + "";
+        String str2 = (short) 2 + "";
         String str3 = 3 + "";
         String str4 = 4L + "";
         String str5 = 5.1F + "";
@@ -92,7 +87,7 @@ public class 基本数据和String之间的类型转换 {
      * @Description 一、包装类的parseXxx(s)方法（不适用于char）
      */
     @Test
-    public void parseXxx(){
+    public void parseXxx() {
         // <SM> public static byte parseByte(String s)
         // <注> s 必须是符合转换类型规则的字符串
         byte byte2 = Byte.parseByte("1");
@@ -117,11 +112,11 @@ public class 基本数据和String之间的类型转换 {
      * @Description 二、String --> char
      */
     @Test
-    public void stringTochar(){
+    public void stringTochar() {
         // 方式一
         char char1 = "A".charAt(0);
         // 方式二
-        char char2 = (char)Integer.parseInt("65");
+        char char2 = (char) Integer.parseInt("65");
         System.out.println(char1);// A
         System.out.println(char2);// A
     }

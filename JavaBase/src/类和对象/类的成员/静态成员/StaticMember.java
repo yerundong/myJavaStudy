@@ -8,7 +8,8 @@ class StaticMember {
     static String country = "宋";
 
     // 构造函数
-    public StaticMember(){}
+    public StaticMember() {
+    }
 
     public StaticMember(String name) {
         this.name = name;
@@ -22,8 +23,9 @@ class StaticMember {
         // StaticModifier.run();
         // run();
     }
+
     public void say() {
-        System.out.println("name：" + this.name + ",my country is "+ this.country);
+        System.out.println("name：" + this.name + ",my country is " + this.country);
 
         new StaticInsideClass();
         StaticMember.setCountry("中国");
@@ -32,7 +34,7 @@ class StaticMember {
     }
 
     // 静态方法
-    // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问类变量和类方法
+    // 静态方法中不可使用this关键字，即不能访问实例变量，但可以访问静态变量和静态方法
     public static void setCountry(String country) {
         // System.out.println(name);// 无法访问实例变量
 
@@ -43,12 +45,12 @@ class StaticMember {
         // run();
     }
 
-    public static void run(){
+    public static void run() {
         System.out.println("I am static run!!!");
     }
 
     // 静态内部类
-    static class StaticInsideClass{
+    static class StaticInsideClass {
         public StaticInsideClass() {
             System.out.println("我是StaticInsideClass静态内部类");
         }
