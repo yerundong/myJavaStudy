@@ -1,4 +1,4 @@
-package 多态.多态概述;
+package 多态.基础;
 
 public class Class2 extends Class3 {
     public String name = "我是 Class2 的 name";
@@ -9,7 +9,7 @@ public class Class2 extends Class3 {
     }
 
     @Override
-    public void getName(){
+    public void getName() {
         System.out.println("我是 Class2 的getName()：" + name);
     }
 }

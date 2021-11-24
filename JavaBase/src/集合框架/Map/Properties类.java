@@ -18,7 +18,7 @@ public class Properties类 {
         Properties properties = new Properties();
         FileReader fileReader = new FileReader("jdbc.properties");
         properties.load(fileReader);
-        String userName = properties.getProperty("userName");
+        String userName = properties.getProperty("user");
         String password = properties.getProperty("password");
         String abc = properties.getProperty("abc");
         System.out.println(userName);

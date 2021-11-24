@@ -1,4 +1,4 @@
-package 多态.多态概述;
+package 多态.基础;
 
 public class Class1 extends Class2 implements Interface1 {
     public String name = "我是 Class1 的 name ";
@@ -17,7 +17,7 @@ public class Class1 extends Class2 implements Interface1 {
     }
 
     @Override
-    public void getName(){
+    public void getName() {
         System.out.println("我是 Class1 的 getName()：" + name);
     }
 }

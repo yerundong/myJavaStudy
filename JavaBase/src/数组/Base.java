@@ -4,30 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-/*
- * @数组： 数组是一种类，一种特殊的类。数组也是一种容器，可以同时存放多个数据值。数组本身不提供任何操作方法，其他全部继承自 Object，如果需要操作数组建议使用 Arrays 工具类。
- * @特殊性： 数组没有一个class文件（例如Array.class）来储存数组类的相关属性和方法，所以实创实例过程与常规类不同。具体原因参考以下链接：
- * 链接1：https://blog.csdn.net/iteye_3313/article/details/81800350?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-2.nonecase&depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-2.nonecase
- * 链接2：https://bbs.csdn.net/topics/390943750
- * @特点： 1. 数组是一种引用数据类型
- * 2. 数组只能储存同一种类型数据
- * 3. 数组的长度在程序运行期间不可改变
- * 4. 未重写 equals、toString 方法
- * @两种常见的初始化方式： 1. 动态初始化（指定长度）：在创建数组的时候，直接指定数组当中的数据元素个数。
- * 2. 静态初始化（指定内容）：在创建数组的时候，不直接指定数据个数多少，而是直接将具体的数据内容进行指定。
- * @动态初始化数组的格式： 数据类型[] 数组名称 = new 数据类型[数组长度];
- * @静态初始化格式： 1.标准格式：
- * 数据类型[] 数组名称 = new 数据类型[] { 元素1, 元素2, ... };
- * 2.省略格式：
- * 数据类型[] 数组名称 = { 元素1, 元素2, ... };
- * @注意事项： 1. 静态初始化没有直接指定长度，但是仍然会自动推算得到长度。
- * 2. 初始化格式可以拆分成为两个步骤。
- * 3. 静态初始化一旦使用省略格式，就不能拆分成为两个步骤了。
- * @使用建议： 如果不确定数组当中的具体内容，用动态初始化；否则，已经确定了具体的内容，用静态初始化。
- * @数组的长度： 数组的成员个数，是int类型的整数
- * @访问格式： array.length
- * @注意事项： length是 final 类型，数组一旦创建，程序运行期间，length不可改变
- */
 public class Base {
     @Test
     public void 动态初始化() {

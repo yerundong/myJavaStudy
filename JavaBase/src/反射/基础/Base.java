@@ -1,4 +1,4 @@
-package 反射.Class类;
+package 反射.基础;
 
 import org.junit.jupiter.api.Test;
 import 反射.lib.Son;

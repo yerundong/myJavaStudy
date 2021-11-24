@@ -2,7 +2,7 @@ package 字符串;
 
 import java.io.UnsupportedEncodingException;
 
-/**
+/*
 @字符串： String是一个final类，引用类型，代表不可变字符序列
 
 @实例对象说明：
@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 
  @字符串的特性：
     1. String声明为一个final类，表示不可继承
-    2. String实现Serializable接口，表示支持序列化；？？？
+    2. String实现Serializable接口，表示支持序列化；
     3. String实现Comparable接口，表示可比较大小；
     4. String内部定义 final byte[] value 属性，用于储存字符串内容；
         @注： 字符串效果上相当于是char[]字符数组，但是底层原理是byte[]字节数组。
@@ -64,7 +64,7 @@ public class Base {
         // @字符串的内容永不可变
         // 下面操作并没有改变字符串，而是又新增了一个字符串"java"，而原先的"hello"内容依然存在
         // 赋值是将str5的存的地址值改变了，而堆中的原字符串数值并未变化
-        System.out.println( System.identityHashCode(str5));// 地址1
+        System.out.println(System.identityHashCode(str5));// 地址1
         String str6 = str5;
         str5 = "java";// 字符串虽然是引用类型，但str5的改变了指向，并不影响str6的内容，即可不变性
         System.out.println(str6);// "hello"
