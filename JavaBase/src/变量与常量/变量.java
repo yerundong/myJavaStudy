@@ -1,16 +1,5 @@
 package 变量与常量;
 
-/**
- * @格式： 1. Type var = value;
- * 2. Type var1 = value1, var2, var3 = value3;
- * @使用变量注意事项： 1.变量名不能重复。
- * 2.对于float和long类型，后缀F和L不能忘记。
- * 3.byte和short类型，数值不能超出范围。
- * 4.变量一定先定义（声明+赋值）后使用。
- * 5.变量的使用不能超出作用域范围。
- * 6.作用域的范围是花括号。
- * 7.局部变量声明后，必须显式赋值才能使用（局部变量声没有默认值），若不使用可以不赋值。成员变量可以不显式赋值，因为它有隐式赋值（默认值）。
- */
 public class 变量 {
     public static void main(String[] args) {
         System.out.println("=========整数==========");

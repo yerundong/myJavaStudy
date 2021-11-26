@@ -2,15 +2,9 @@ package 循环语句;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
-/**
- *
- */
 public class For {
     @Test
     public void normalFor() {
@@ -21,7 +15,7 @@ public class For {
         // 无限制条件
         for (int i = 0; ; i++) {
             // System.out.println(i);
-            if(i>15){
+            if (i > 15) {
                 break;
             }
         }
@@ -33,7 +27,7 @@ public class For {
     }
 
     @Test
-    public void strongerFor(){
+    public void strongerFor() {
         // <格式> for (type item : ite)
 
         // 遍历数组
@@ -52,11 +46,13 @@ public class For {
     }
 
     @Test
-    public void flagFor(){
-        a:for (int i = 0; ; i++) {
-            b:for (int j = 0; ; j++) {
+    public void flagFor() {
+        a:
+        for (int i = 0; ; i++) {
+            b:
+            for (int j = 0; ; j++) {
                 System.out.println(i);
-                if(j > 5){
+                if (j > 5) {
                     break a;
                 }
             }

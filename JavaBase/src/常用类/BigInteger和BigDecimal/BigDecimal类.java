@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
 
-/**
+/*
  * @BigDecimal： 一般的 Float 类和 Double 类可以用来做科学计算或工程计算，双精度浮点型变量double可以处理16位有效数，但在商业计算中，要求数字精度更高，
  * 故用到 java.math.BigDecimal类 。BigDecimal类支持不可变的、任意精度的有符号十进制定点数。
  * BigDecimal所创建的是对象，故我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法。

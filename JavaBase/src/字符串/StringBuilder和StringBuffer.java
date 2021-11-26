@@ -1,33 +1,9 @@
 package 字符串;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
-/**
- @定义： String是不可变的字符序列，StringBuffer/StringBuilder 代表可变的字符序列，StringBuffer是JDK1.0就存在，StringBuilder是JDK1.5才新增的。
-
- @StringBuffer、StringBuilder与String的不同：
-    1.StringBuffer、StringBuilder都代表可变字符串序列，String代表不可变的字符序列
-    2.StringBuffer、StringBuilder因为是可变，可对底层数组进行扩容，String只会开辟新的内存
-    3.StringBuffer、StringBuilder总体而言，效率比String高
-
- @StringBuffer、StringBuilder相同：
-    1.两个类都代表可变字符串对象
-    2.两个类的构造器和方法也基本相同（但不保证同步）。
-    3.两个类底层都是byte[]储存数据
-    4.两个类都会自动对底层数组进行扩容
-
- @StringBuilder与StringBuffer不同：
-    1.StringBuffer 是线程安全的（方法都添加了synchronized），效率更低
-    2.StringBuilder 是线程不安全的，效率更高（优先采用）
-
- @效率都比： StringBuilder > StringBuffer > String
-
- @关键点： 大部分方法改变原字符序列，左闭右开
-
- @注： 以下为 StringBuffer 的归纳，StringBuilder与此类似，不再赘述
-
-*/
 public class StringBuilder和StringBuffer {
     /**
      * @Description 构造器
@@ -96,14 +72,14 @@ public class StringBuilder和StringBuffer {
         sb.append("bc");
         System.out.println(sb);// abc
         System.out.println(sb.length());// 3
-        System.out.println(sb.append('d').append(1).append((byte)2).append(true).append(new char[]{'e','f'}).append(new int[]{1,2}));
+        System.out.println(sb.append('d').append(1).append((byte) 2).append(true).append(new char[]{'e', 'f'}).append(new int[]{1, 2}));
         System.out.println(sb == sb.append("***"));// true
 
         StringBuffer sb2 = new StringBuffer("ab");
         sb2.append("123", 1, 2);
         System.out.println(sb2);// ab2
 
-        char[] chars = new char[]{'x','y','z'};
+        char[] chars = new char[]{'x', 'y', 'z'};
         sb2.append(chars, 1, 2);
         System.out.println(sb2);// ab2yz
         System.out.println(Arrays.toString(chars));// [x, y, z]
@@ -119,7 +95,7 @@ public class StringBuilder和StringBuffer {
         StringBuffer sb1 = new StringBuffer("abc");
         sb1.insert(0, "***");
         System.out.println(sb1);// ***abc
-        sb1.insert(4, "123", 1,2);
+        sb1.insert(4, "123", 1, 2);
         System.out.println(sb1);// ***a2bc
     }
 

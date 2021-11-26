@@ -1,12 +1,7 @@
-package 变量与常量;
+package 方法;
 
 import 示例.Student;
 
-/**
-
- @局部常量： final局部变量，只能赋值一次，之后不可再赋值修改，即“一次赋值，终生使用”
-
-*/
 public class 局部常量 {
     public static void main(String[] args) {
         final int NUM1 = 10;
@@ -27,7 +22,7 @@ public class 局部常量 {
     }
 
     // final形参
-    public static void mth(final int NUM){
+    public static void mth(final int NUM) {
         // NUM = 666;// 报错
         // NUM++;// 报错
 
