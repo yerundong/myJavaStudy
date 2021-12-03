@@ -1,47 +1,81 @@
 package 比较器.定制排序;
 
 import org.junit.jupiter.api.Test;
+import 比较器.自然排序.Goods;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.function.Function;
 
-/***
- @定制排序： 当元素的类型没有实现 java.lang.Comparable 接口而又不方便修改代码，或者实现了 java.lang.Comparable 接口的排序规则不适合当前的操作，那
- 么可以考虑使用 Comparator的对象来排序，强行对多个对象进行整体排序的比较。
-
- @注： 1.可以 将 Comparator 传递给 sort 方法（如 Collections.sort 或 Arrays.sort 从而允许在排序顺序上实现精确控制 。
- 2.可以使用 Comparator 来控制某些数据结构（如有序 set 或有序映射）的序，或者为那些没有自然顺序的对象 collection 提供排序 。
- */
 public class Main {
     @Test
-    public void sort() {
-        // 对数组里的对象进行排序
-        String[] arr = new String[]{"NN", "AA", "GG", "PP"};
-        Comparator<String> comparator = new Comparator<>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        };
+    public void compare() {
+        Goods g1 = new Goods("华为", 2999);
+        Goods g2 = new Goods("小米", 1899);
+        Goods g3 = new Goods("小米", 2899);
+        GoodsComparator gc = new GoodsComparator();
+        System.out.println(gc.compare(g1, g2));
+        System.out.println(gc.compare(g2, g3));
+    }
 
-        Arrays.sort(arr, comparator);
-
-        // Lambda写法
-        // Arrays.sort(arr, (o1, o2) -> o1.compareTo(o2));
-
-        // 方法引用写法
-        // Arrays.sort(arr, String::compareTo);
-
+    @Test
+    public void Arrays_sort() {
+        Goods[] arr = new Goods[6];
+        arr[0] = new Goods("华为", 2999);
+        arr[1] = new Goods("小米", 1899);
+        arr[2] = new Goods("苹果", 8900);
+        arr[3] = new Goods("一加", 4200);
+        arr[4] = new Goods("三星", 5200);
+        arr[5] = new Goods("三星", 6200);
+        Arrays.sort(arr, new GoodsComparator());
         System.out.println(Arrays.toString(arr));
+    }
 
-        Arrays.sort(arr, new StringComparator());
+    @Test
+    public void 匿名写法() {
+        Goods[] arr = new Goods[6];
+        arr[0] = new Goods("华为", 2999);
+        arr[1] = new Goods("小米", 1899);
+        arr[2] = new Goods("苹果", 8900);
+        arr[3] = new Goods("一加", 4200);
+        arr[4] = new Goods("三星", 5200);
+        arr[5] = new Goods("三星", 6200);
+        Arrays.sort(arr, new Comparator<Goods>() {
+            @Override
+            public int compare(Goods g1, Goods g2) {
+                int nameCompare = g2.getName().compareTo(g1.getName());
+                if (nameCompare == 0) {
+                    return Double.compare(g2.getPrice(), g1.getPrice());
+                }
 
+                return nameCompare;
+            }
+        });
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void Lambda写法() {
+        Goods[] arr = new Goods[6];
+        arr[0] = new Goods("华为", 2999);
+        arr[1] = new Goods("小米", 1899);
+        arr[2] = new Goods("苹果", 8900);
+        arr[3] = new Goods("一加", 4200);
+        arr[4] = new Goods("三星", 5200);
+        arr[5] = new Goods("三星", 6200);
+        Arrays.sort(arr, (g1, g2) -> {
+            int nameCompare = g2.getName().compareTo(g1.getName());
+            if (nameCompare == 0) {
+                return Double.compare(g2.getPrice(), g1.getPrice());
+            }
+
+            return nameCompare;
+        });
         System.out.println(Arrays.toString(arr));
     }
 
     /**
-     * @
+     * @???
      */
     @Test
     public void test() {

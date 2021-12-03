@@ -1933,7 +1933,7 @@ JavaBean是一个遵循特定写法的Java类，是一种Java语言编写的可�
 
 2. 子类可以在父类的基础上进行修改和扩展，方式是重写、重载、隐藏
 
-3. 父类的private属性和方法也是可以被继承的，只是子类拥有但无法访问（封装性）；不能直接访问，但可以间接通过非private的父类方法进行访问。
+3. 父类的private属性和方法也是可以被继承的，只是子类拥有但无法访问（封装性）；不能直接访问，但可以通过非private的父类方法进行间接访问。
 
 4. Java 的继承是【单继承】，但是可以【多重继承】。单继承是一个子类只能继承一个父类（只能有一个父亲），多重继承就是子类也可以当父类（传代），例如 A 类 -> B 类 -> C 类
 
@@ -2454,13 +2454,15 @@ public enum Payment {
 
 # 接口
 
-接口（Interface），是Java语言中一种引用类型，是方法的集合，是多个类的公共规范。
+接口就是规范，定义的是一组规则。接口的本质是契约，标准，规范，就像我们的法律一样，制定好后大家都要遵守。
 
-如果说类的内部封装了成员变量、构造方法和成员方法， 那么接口的内部主要就是封装了方法，其中最重要的就是的：**抽象方法**。
+在Java语言中，接口（Interface）是一种引用类型，是方法的集合，是类的公共规范。
+
+如果说类的内部封装了成员变量、构造方法和成员方法， 那么接口的内部**主要就是封装了方法**，其中最重要的就是的：**抽象方法**。
 
 编写接口的方式和类很相似，但是它们属于不同的概念，接口与类是并列的两个结构。
 
-接口是隐式抽象的。
+接口是**隐式抽象**的。
 
 
 
@@ -2468,6 +2470,10 @@ public enum Payment {
 
 - 多重实现：类只能单继承，但允许同时可以实现多个接口
 - 多重继承：接口允许同时继承多个父接口
+
+
+
+> **实现接口和继承类的通俗理解：**实现接口可以理解为一个人学一个技能，比如烹饪，那么他必须遵守了烹饪的相关规则，才能说学会了烹饪。当然一个人可以学很多技能：写作、开车、修理家具等等。继承类可以理解为一个人选择成为某个职业中的一员，比如成为厨师，那么他也必须遵守厨师的相关规则，但是职业只能一个（Java规定，其他语言不一定），不能既是厨师，又是运动员。
 
 
 
@@ -2763,7 +2769,151 @@ private [static] 返回值类型 方法名称(参数列表) {
 
 
 
-## 5 函数式接口？
+## 5 函数式接口
+
+函数式接口(Functional Interface)是对一类特殊类型的接口的称呼。 这类接口保证有且仅有一个抽象方法。
+
+函数式接口可以使用 @FunctionalInterface 注解，这样做可以检查它是否是一个函数式接口。同时 javadoc 也会包含一条声明，说明这个 接口是一个函数式接口。
+
+函数式接口可以被隐式转换为 **lambda 表达式**。
+
+其他方面与普通接口无异。
+
+
+
+注意，如果接口声明了一个**可被java.lang.Object中的某方法重写**的抽象方法，那么它不会计入接口的抽象方法数量中，因为所有的实现类都继承了Object类，该接口中的抽象方法一开始就已被重写。
+
+比如，虽然Comparator虽然有两个抽象方法：
+
+```java
+int compare(T o1, T o2);
+boolean equals(Object obj);
+```
+
+但其中 equals 被 Object 的 equals 重写，只剩下 compare 是唯一必须被重写的抽象方法，被所以Comparator可以作为函数式接口。
+
+
+
+### 1 内置函数式接口
+
+Java 8新增了 java.util.function 包，该包定义了丰富的函数式接口。
+
+
+
+**四大核心的内置函数式接口：**
+
+|   函数式接口   | 参数类型 | 返回类型 | 抽象方法          |                             用途                             |
+| :------------: | :------: | :------: | ----------------- | :----------------------------------------------------------: |
+|  Consumer<T>   |    T     |   void   | void accept(T t)  |             **消费型：**对类型为T的对象应用操作              |
+|  Supplier<T>   |    无    |    T     | T get()           |                **供给型：**返回类型为T的对象                 |
+| Function<T, R> |    T     |    R     | R apply(T t)      | **函数型：**对类型为T的对象应用操作，并返回结果。结果是R类型的对象。 |
+|  Predicate<T>  |    T     | boolean  | boolean test(T t) | **断定型：**确定类型为T的对象是否满足某约束，并返回boolean 值。 |
+
+
+
+**其他内置函数式接口：**
+
+|              函数式接口              | 参数类型 | 返回类型 |         抽象方法          |                       用途                       |
+| :----------------------------------: | :------: | :------: | :-----------------------: | :----------------------------------------------: |
+|         BiFunction<T, U, R>          |   T, U   |    R     |     R apply(T t, U u)     | 对类型为 T, U 参数应用操作，返回 R 类型的结果。  |
+|   UnaryOperator<T>(Function子接口)   |    T     |    T     |       T apply(T t)        | 对类型为T的对象进行一元运算，并返回T类型的结果。 |
+| BinaryOperator<T>(BiFunction 子接口) |   T, T   |    T     |    T apply(T t1, T t2)    | 对类型为T的对象进行二元运算，并返回T类型的结果。 |
+|           BiConsumer<T, U>           |   T, U   |   void   |   void accept(T t, U u)   |           对类型为T, U 参数应用操作。            |
+|           BiPredicate<T,U>           |   T,U    | boolean  |   boolean test(T t,U u)   |                    双参断定型                    |
+|           ToIntFunction<T>           |    T     |   int    |    int applyAsInt(T t)    |                  计算in值的函数                  |
+|          ToLongFunction<T>           |    T     |   long   |   long applyAsLong(T t)   |                 计算long值的函数                 |
+|         ToDoubleFunction<T>          |    T     |  double  | double applyAsDouble(T t) |                计算double值的函数                |
+|            IntFunction<R>            |   int    |    R     |    R apply(int value)     |               参数为int 类型的函数               |
+|           LongFunction<R>            |   long   |    R     |    R apply(long value)    |               参数为long类型的函数               |
+|          DoubleFunction<R>           |  double  |    R     |   R apply(double value)   |             参数为double 类型的函数              |
+
+
+
+### 2 Lambda表达式
+
+Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。使用 Lambda 表达式可以使代码变的更加简洁紧凑。
+
+**本质：**作为函数式接口的实例。它表达的是对象而不是函数。
+
+
+
+**格式：**
+
+```java
+// 函数式接口实现并实例化普通写法：
+接口 itfc = new 接口(){ 
+    @Override
+    public void 抽象方法(参数) {
+        方法体
+    }
+};
+
+// 改成Lambda表达式：
+接口 itfc = (参数) -> { 
+    方法体
+};
+
+// 若参数只有一个，可以省略圆括号；若方法体只有一句，可以省略大括号；若方法体只有一句，且是返回语句，可以省略return关键字：
+接口 itfc = 参数 -> 方法体/返回数据;
+```
+
+
+
+**lambda表达式的重要特征:**
+
+- 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。
+- 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。
+- 可选的大括号：如果主体只包含一个语句，就不需要使用大括号。
+- 可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。
+
+
+
+### 3 方法引用
+
+方法引用是Lambda表达式升级版，更加省略。
+
+当使用Lambda表达式时，方法体只有一句调用方法的语句，调用方法必须和接口中的抽象方法具有相同的形参，这时可简写成更简洁的Lambda表达式：方法引用格式。
+
+其本质还是Lambda表达式。
+
+
+
+**要求：**当使用Lambda表达式时，方法体只有一句调用方法的语句，调用方法必须和接口中的抽象方法具有相同的形参
+
+
+
+**格式：** 
+
+```java
+接口 itfc = 类\对象 :: 引用方法;
+```
+
+
+
+**方法引用有四种用法：**
+
+1. 对象::实例方法
+2. 类::静态方法
+3. 类::实例方法（最特殊）
+4. 类::new（构造器引用）
+
+
+
+#### 3.1 构造器引用
+
+当使用Lambda表达式时，lambda体是一个调用构造器、实例化的表达式，而是返回一个实例，可简写成构造器引用的格式。
+
+
+
+**要求：**引用的构造器方法必须和接口中的抽象方法具有相同的形参，而抽象方法返回这个类的实例。
+
+
+
+**格式：** 
+
+```java
+接口 itfc = 类 :: new;
+```
 
 
 
@@ -3123,7 +3273,331 @@ List<T extends Serialzable & Cloneable> 擦除后类型为 List<Serializable>。
 
 
 
-# 集合框架？
+# 集合框架
+
+集合框架是一个用来代表和操纵集合的统一架构。Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。
+
+集合和数组都属于Java容器，对多个数据进行储存操作的结构（注：这里的储存是内存层面的储存，非持久化储存）。
+
+![集合框架关系图](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\集合框架\集合框架关系图.gif)
+
+**所有的集合框架都包含如下内容：**
+
+- 接口：是代表集合的抽象数据类型。例如 Collection、List、Set、Map 等。之所以定义多个接口，是为了以不同的方式操作集合对象
+- 实现（类）：是集合接口的具体实现。从本质上讲，它们是可重复使用的数据结构，例如：ArrayList、LinkedList、HashSet、HashMap。
+- 算法：是实现集合接口的对象里的方法执行的一些有用的计算，例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。
+
+
+
+**集合框架结构（不全）：**
+
+```
+├── 集合框架
+    ├── Collection(I)
+        ├── List(I)
+            ├──ArrayList（C）   
+            ├──LinkedList（C）    
+            └──Vector（C）       
+        ├── Set(I)
+            ├──HashSet（C）     
+                └──LinkedHashSet（C）   
+            └──TreeSet（C）   
+        └── Queue(I)
+    └── Map(I)
+        ├── HashMap（C）
+            ├──LinkedHashMap（C）   
+        ├── treeMap（C）    
+        └── Hashtable（C）
+            └── Properties（C）
+```
+
+> 通俗理解：
+>
+> Java集合框架世界里有两大家族，一个叫**Collection（集）**，另一个是叫**Map（图）**。Collection 家族主张**单列集合**主义，Map家族主张**双列集合**主义。Collection 接口和 Map 接口分别是这2大家族中的大族长（顶层接口）。两大家族的大族长之下，便是一些干部：子接口、抽象类，他们不直接干活，而是叫他们之下的实现类（普通类）、子类（普通类）去干活。
+
+
+
+**说明：**
+
+- Collection：接口；单列集合，存储一个一个对象
+  - List：接口；储存有序的、可重复的数据；容量不固定，随着容量的增加而动态扩容（阈值基本不会达到），习惯称之为“动态数组”
+  - Set：接口；储存无序的、不可重复的数据；习惯称之为“集合”
+  - Queue：接口；储存有序的、可重复的数据；
+- Map：接口；双列集合，存储键/值对（key-value）映射；允许一对一、多对一，不允许一对多
+  - ArrayList：类；数组队列，Java集合框架中被使用最多的，线程不安全，效率高
+  - LinkedList：类；双向链表
+  - HashSet：类；HashSet 基于 HashMap 来实现的；
+
+
+
+**集合和数组的对比：**
+
+1. 数组只能放**同一类型**的数据，集合可以储存不同类型（可以使用泛型约束）
+2. 数组可以存放**基本类型**和**引用类型**数据，集合只能存放**引用类型**数据
+3. 数组**长度不可变**，集合**长度可变**
+4. 数组提供操作数据的手段非常有限，对于删除、增加、插入等操作非常不便，同时效率不高； 集合提供丰富的操作方法，十分便利
+5. 数组储存数据的特点：有序，可重复，对于无序，不可重复的数据无法满足，集合可以
+6. 获取数组中的元素个数，数组没有提供有效的属性或方法使用
+
+
+
+## 1 Collection
+
+Collection 是最基本的单列集合接口，存储一个一个对象，单列集合框架中最顶级的接口。其子接口和实现类都必须满足它设定的规则。
+
+
+
+**特性：**
+
+1. 继承了 Iterator 接口
+2. 由于Set是无序的，所以Collection不提供**索引相关的特性**，所以也没有类似 get 和 set 方法用于取值设值。
+2. Collection 的实现类的对象（不管是有序的List还是无序的Set），在往集合对象里添加元素 obj 时，要求 obj 所在类**必须重写equals方法**，因为 Collection 的许多方法（如：contains、remove、equals...）都会调用到元素对象的equals方法。
+
+
+
+**接口方法**：略。
+
+
+
+### 1.1 List
+
+储存**有序的、可重复**的数据；容量不固定，随着容量的增加而动态扩容（阈值基本不会达到），习惯称之为“动态数组”。List下面有三个实现类：ArrayList、linkedList、Vector。
+
+
+
+**实现类：**
+
+- ArrayList：主要实现类，使用最多；线程不安全，查询效率高；底层使用数组 Object[] elementData 储存数据
+- LinkedList：底层使用双向链表储存；对于频繁的插入、删除操作，使用此类效率比 ArrayList 高，但查询效率不如ArrayList
+- ~~Vector：出现比较早（1.0，比List还早），基本被ArrayList替代，**不推荐使用**；线程安全，效率低；底层使用 Object[] elementData 储存数据。~~
+
+
+
+**ArrayList和LinkedList对比区别：**[博客园](https://i.cnblogs.com/links?cateId=1980880)
+
+
+
+**接口方法**：略。
+
+
+
+**ArrayList的源码分析：**
+
+```
+1.jdk 7情况下
+    ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData
+    list.add(123);//elementData[0] = new Integer(123);
+    ...
+    list.add(11);//如果此次的添加导致底层elementData数组容量不够，则扩容。
+    默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。
+    结论：建议开发中使用带参的构造器：ArrayList list = new ArrayList(int capacity)
+
+2.jdk 8中ArrayList的变化：
+    ArrayList list = new ArrayList();//底层Object[] elementData初始化为{}.并没有创建长度为10的数组
+    list.add(123);//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]
+    ...
+    后续的添加和扩容操作与jdk 7 无异。
+3. 小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象的创建类似于单例的懒汉式，延迟了数组的创建，节省内存。
+```
+
+
+
+**LinkedList的源码分析：**
+
+```java
+LinkedList list = new LinkedList(); 内部声明了Node类型的first和last属性，默认值为null
+    list.add(123);//将123封装到Node中，创建了Node对象。
+
+其中，Node定义为：体现了LinkedList的双向链表的说法
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
+
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+```
+
+
+
+**Vector的源码分析：**
+
+```java
+jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。在扩容方面，默认扩容为原来的数组长度的2倍。
+```
+
+
+
+### 1.2 Set
+
+储存无序的、不可重复的数据；习惯称之为“集合”。
+
+Set里没有额外定义的方法，全部是继承自Collection的方法。
+
+list是一个有序的容器，保持了每个元素的插入顺序。即输出顺序就是输入顺序，而Set方法是无序容器，无法保证每个元素的存储顺序，TreeSet通过 Comparator 或者 Comparable 维护了一个排序顺序。
+
+
+
+**实现类：**
+
+- HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值，但只能储存一个
+  - LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历，对于频繁的遍历操作，LinkedHashSet效率高于HashSet
+- TreeSet：可以按照添加对象的指定属性，进行排序
+
+
+
+**特性：**
+
+1. 无序性：不等于随机性；存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的**哈希值**决定的。
+2. 不可重复性：保证添加的元素按照equals()判断时，不能返回true。即：相同的元素只能添加一个。
+
+
+
+**添加元素要求：**
+
+1. HashSet、LinkedHashSet中添加的数据，其所在的类一定要重写hashCode()和equals()，否则添加时都默认是未存在相同的，造成重复的数据
+2. 重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码（哈希值）
+
+> 重写两个方法的小技巧： 对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。
+
+
+
+**添加元素的过程(以HashSet为例)：**
+
+我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值， 此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断 数组此位置上是否已经有元素：
+
+- 如果此位置上没有其他元素，则元素a添加成功。 --->情况1
+- 如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：
+  - 如果hash值不相同，则元素a添加成功。--->情况2
+  - 如果hash值相同，进而需要调用元素a所在类的equals()方法： equals()返回true,元素a添加失败 equals()返回false,则元素a添加成功。--->情况3
+
+对于添加成功的情况2和情况3而言：元素a与已经存在指定索引位置上数据以链表的方式存储。
+
+jdk 7 :元素a放到数组中，指向原来的元素。 jdk 8 :原来的元素在数组中，指向元素a
+
+总结：七上八下
+
+
+
+## 2 Map
+
+Map 是最基本的双列集合接口，存储一个一个键/值对（key-value）映射。
+
+允许一对一、多对一，但不允许一对多。
+
+
+
+**理解Map结构：**
+
+- Map中的key：无序的、不可重复的，使用Set存储所有的key，key所在的类要重写equals()和hashCode() （以HashMap为例）
+- Map中的value：无序的、可重复的，使用Collection存储所有的value，所以value所在的类要重写equals()
+- 一个键值对：key-value构成了一个Entry对象
+- Map中的entry：无序的、不可重复的，使用Set存储所有的entry
+
+
+
+![Map结构](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\集合框架\Map结构.jpg)
+
+
+
+**实例方法：**略。
+
+
+
+**实现类：**
+
+- HashMap（C）：作为Map的主要实现类；线程不安全，效率高；允许存储null的key和value；底层实现：数组+链表 （jdk8之前），数组+链表+红黑树 （jdk 8+） 
+  - LinkedHashMap（C）：保证在遍历map元素时，可以按照添加的顺序实现遍历。原因：在原有的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。对于频繁的遍历操作，此类执行效率高于HashMap。
+- treeMap（C）：保证按照特定规则对添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序；底层使用红黑树
+- Hashtable（C）：作为古老的实现类；线程安全的，效率低；不能存储null的key和value
+  - Properties（C）：常用来处理配置文件。key和value都必须是String类型
+
+
+
+**HashMap的底层实现原理：**
+
+```
+HashMap map = new HashMap():
+在实例化以后，底层创建了长度是16的一维数组Entry[] table。
+...可能已经执行过多次put...
+map.put(key1,value1):
+首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。
+如果此位置上的数据为空，此时的key1-value1添加成功。 ----情况1
+如果此位置上的数据不为空，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据
+的哈希值：
+        如果key1的哈希值与已经存在的数据的哈希值都不相同，此时key1-value1添加成功。----情况2
+        如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值相同，继续比较：调用key1所在类的equals(key2)方法，比较：
+                如果equals()返回false:此时key1-value1添加成功。----情况3
+                如果equals()返回true:使用value1替换value2。
+
+补充：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。
+
+在不断的添加过程中，会涉及到扩容问题，当超出临界值(且要存放的位置非空)时，扩容。默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。
+
+jdk8 相较于jdk7在底层实现方面的不同：
+    1. new HashMap():底层没有创建一个长度为16的数组
+    2. jdk8底层的数组是：Node[],而非Entry[]
+    3. 首次调用put()方法时，底层创建长度为16的数组
+    4. jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。
+      4.1 形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）
+      4.2 当数组的某一个索引位置上的元素以链表形式存在的数据个数 > 8 且当前数组的长度 > 64时，此时此索引位置上的所数据改为使用红黑树存储。
+
+字段说明：
+    DEFAULT_INITIAL_CAPACITY : HashMap的默认容量，16
+    DEFAULT_LOAD_FACTOR：HashMap的默认加载因子：0.75
+    threshold：扩容的临界值，=容量*填充因子：16 * 0.75 => 12
+    TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值，转化为红黑树:8
+    MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量:64
+```
+
+
+
+**LinkedHashMap的底层实现原理（了解）：**
+
+```
+ static class Entry<K,V> extends HashMap.Node<K,V> {
+     Entry<K,V> before, after;//能够记录添加的元素的先后顺序
+     Entry(int hash, K key, V value, Node<K,V> next) {
+        super(hash, key, value, next);
+     }
+ }
+```
+
+
+
+## 3 Iterator
+
+Iterator接口（迭代器）不是一个集合，它是一种用于访问集合的迭代器模式，Iterator 是 Java 迭代器最简单的实现。Iterator就是为容器而生。
+
+Iterator可用于迭代 ArrayList 和 HashSet 等集合。
+
+ListIterator 是 Iterator 的子接口，它扩展了 Iterator 接口。
+
+
+
+![迭代器执行原理](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\集合框架\迭代器执行原理.jpg)
+
+
+
+**实例方法：**略。
+
+
+
+## 4 Collections
+
+Collections是操作Collection、Map的工具类，包含各种有关集合操作的静态方法，专门操作集合实现类里面的元素。
+
+这些方法有：常规操作（查找，最大，最小等）、排序、线程安全（同步）操作、不可变集合等。
+
+不能实例化(把构造函数私有化)。
+
+
+
+**静态方法：**略
 
 
 
@@ -3260,13 +3734,155 @@ method() throws ExceptionType1, ExceptionType2...{
 
 
 
-# 比较器？
+# 比较与排序
+
+在 Java 中经常会涉及到对象的排序问题，那么就涉及到对象之间的比较问题 。
+
+
+
+**Java 实现对象排序的方式有两种：**
+
+1. 自然排序： java.lang.Comparable 接口
+2. 定制排序： java.util.Comparator 接口
+
+
+
+## 1 自然排序
+
+自然排序即：使需要排序的类实现Comparable接口，重写 compareTo 方法。
+
+Comparable接口强行对实现它的每个类的对象进行整体排序。这种排序被称为类的自然排序。
+
+> 注： 实现 Comparable 接口的对象列表（和数组）可以通过 Collections.sort 或 Arrays.sort 进行自动排序。
+
+
+
+**步骤：**
+
+1. 需要排序的类要实现 Comparable 接口，并重写 compareTo 方法
+2. 在 compareTo 方法里，比较该类的两个实例的属性，按特定的规则比较一个或若干个属性，返回1（正数）、0、-1（负数）三个值，**正数代表往后排，0保持不变，负数往前排**
+3. 需要排序的类的实例调用compareTo 方法得出排序结果
+
+
+
+**已实现Comparable的类（默认都是从小到大排列的）：**
+
+1. 包装类
+
+   > 此外，包装类还提供静态的比较方法，如：Integer.compare(x, y)
+
+2. String
+
+3. Date、Time
+
+3. ...
+
+
+
+## 2 定制排序
+
+定制排序即：创建一个**比较器类**，使这个比较器类实现 Comparator 接口，重写 compare 方法。将需要比较的类的实例当作参数传入 compare 方法进行比较。
+
+当元素的类型没有实现 java.lang.Comparable 接口而又不方便修改代码，或者实现了 java.lang.Comparable 接口的排序规则不适合当前的操作，那么可以考虑使用Comparator接口来创建一个**比较器类**。
+
+> 注： 可以把比较器类传递给 sort 方法（如 Collections.sort 或 Arrays.sort）从而允许在排序顺序上实现精确控制 。
+
+
+
+**步骤：**
+
+1. 创建一个比较器类，实现 Comparator 接口，重写 compare 方法
+2. 在 compare 方法里，比较该类的两个实例的属性，按特定的规则比较一个或若干个属性，返回1（正数）、0、-1（负数）三个值，**正数代表往后排，0保持不变，负数往前排**
+3. 需要排序的类的实例调当作参数传入比较器类的 compare 方法得出排序结果
 
 
 
 # 注解？
 
+注解（Annotation）又称标注，是 JDK5.0 引入的一种注释机制。 
 
+Java 语言中的包，类，构造器，方法，成员变量，参数，局部变量的声明都可以被标注。和 Javadoc 不同，Java 标注可以通过反射获取标注内容。在编译器生成类文件时，标注可以被嵌入到字节码中。Java 虚拟机可以保留标注内容，在运行时可以获取到标注内容 。 
+
+当然它也支持自定义 Java 标注。
+
+Annotation 其实就是代码里的特殊标记, 这些标记可以在编译 , 类加载 , 运行时被读取 , 并执行相应 的处理。通过使用 Annotation, 程序员可以在不改变原有逻辑的情况下 , 在源文件中嵌入一些 补充信息 。 代码分析工具、开发工具和部署工具可以通过这些补充信息进行验证或者进行部署。
+
+Annotation 可以像修饰符一样被使用 , 可用于修饰包，类，构造器，方法，成员变量，参数，局部变量的声明，这些信息被保存在 Annotation 的 “name=value” 对中。
+
+未来的开发模式都是基于注解的， JPA 是基于注解的，Spring2.5 以上都是基于注解的，Hibernate3.x 以后也是基于注解的， 现在的Struts2 有一部分也是基于注解的了，注解是一种趋势 ，一定程度上可以说： 框架 = 注解 + 反射 + 设计模式。
+
+![Annotation 架构](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\注解\Annotation 架构.PNG)
+
+
+
+**按作用位置分，注解可分为类：**
+
+- 作用在代码的注解
+- 作用在其他注解的注解(元注解)
+
+
+
+**使用格式：** 
+
+```java
+@AnnotationName(...)
+```
+
+
+
+
+
+## 1 内置的注解
+
+Java 定义了一套内置的注解，有的在 java.lang 中，有的在 java.lang.annotation 中。
+
+
+
+**作用在代码的内置注解:**
+
+- @Override - 检查该方法是否是重写方法。如果发现其父类，或者是引用的接口中并没有该方法时，会报编译错误。 
+- @Deprecated - 标记过时方法。如果使用该方法，会报编译警告。
+- @SuppressWarnings - 指示编译器去忽略注解中声明的警告。
+- @SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。
+- @FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。
+
+
+
+**作用在其他注解的内置注解(元注解):**
+
+- @Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。
+- @Documented - 标记这些注解是否包含在用户文档中。
+- @Target - 标记这个注解应该是哪种 Java 成员。
+- @Inherited - 标记这个注解是继承于哪个注解类(默认 注解并没有继承于任何子类)
+- @Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。
+
+
+
+## 2 自定义注解
+
+自定义注解自动继承 java.lang.annotation.Annotation 接口。
+
+
+
+**关键字：** @interface
+
+
+
+**声明格式：**
+
+```java
+public @interface AnnotationName{
+	...
+}
+```
+
+
+
+```
+
+
+
+```
 
 # 反射
 
@@ -3425,10 +4041,6 @@ java.lang.Class类是Java反射的源头。
    classloader = Class.forName("exer2.ClassloaderDemo").getClassLoader();
    System.out.println(classloader);
    ```
-
-
-
-# Lambda表达式？
 
 
 

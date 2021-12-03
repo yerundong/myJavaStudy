@@ -4,25 +4,11 @@ import org.junit.jupiter.api.Test;
 import 示例.Pet;
 import 示例.Species;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 
-/**
- @Collection接口: Collection 是最基本的集合接口，存储一个元素集合，集合框架中最顶级的接口。其子接口和实现类都必须满足它重新设定的规则。
-
- @结构：
-    ├── Collection(I)
-        ├── List(I)
-        └── Set(I)
-
- @特性：
-    1.继承了 Iterator 接口
-    2.由于Set是无序的，所以Collection不提供索引相关的特性，所以也没有类似get和set方法用于取值设值
-
- @注意事项：
-    1.要求Collection接口的实现类（不管是有序的List还是无序的Set）的对象添加数据obj时，要求obj所在类需要重写equals方法，因为集合的许多方法（如：contains、remove、equals...）
-      都会调用到元素的equals方法。
-
- */
 public class Base {
     /**
      * @Description 添加
@@ -247,11 +233,11 @@ public class Base {
      */
     @Test
     public void iterator() {
-        // <M> Object[] toArray();
-        // <返> 集合转数组，返回数组
+        // <M> Iterator<E> iterator();
+        // <返> 返回集合迭代器
         Collection clt = Arrays.asList("a", "b");
         Iterator iterator = clt.iterator();
-        System.out.println(iterator);// [a, b]
+        System.out.println(iterator);
 
     }
 }

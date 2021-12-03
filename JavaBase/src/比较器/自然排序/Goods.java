@@ -1,21 +1,5 @@
 package 比较器.自然排序;
 
-/**
- @自然排序： Comparable 接口强行对实现它的每个类的对象进行整体排序。这种排序被称为类的自然排序
-
- @步骤：
-    1.需要排序的类要实现 Comparable 接口，并重写 compareTo 方法；
-    2.在 compareTo 接口里，比较该类的两个实例的属性，按特定的规则比较一个或若干个属性，返回1\-1\0三个值；
-    3.1代表往后排，-1往前排，0不变
-
- @实现Comparable的类（默认都是从小到大排列的）：
-    1.包装类
-    2.String
-    3.Date、Time
- 
- @注： 实现 Comparable 接口的对象列表（和数组）可以通过 Collections.sort 或 Arrays.sort 进行自动排序。
-
- */
 public class Goods implements Comparable<Goods> {
     private String name;
     private double price;
@@ -34,24 +18,26 @@ public class Goods implements Comparable<Goods> {
     }
 
     /**
-     * @Description 比较器：按价格从低到高
+     * @Description 按价格从低到高，名称从a-z排序
      */
     @Override
     public int compareTo(Goods g) {
         // 方式一：
-        if(this.price > g.price){
-            return 1;
-        }else if (this.price < g.price){
-            return -1;
-        }else{
-            // 若不比较名称：
-            // return 0;
-            // 若价格相等还需比较名称：
+        int priceCompare = Double.compare(this.price, g.price);
+        if (priceCompare == 0) {
             return g.name.compareTo(this.name);
         }
+        return priceCompare;
 
         // 方式二：
-        // return Double.compare(this.price, g.price);
+        // if (this.price > g.price) {
+        //     return 1;
+        // } else if (this.price < g.price) {
+        //     return -1;
+        // } else {
+        //     // 若价格相等还需比较名称：
+        //     return g.name.compareTo(this.name);
+        // }
     }
 
     @Override

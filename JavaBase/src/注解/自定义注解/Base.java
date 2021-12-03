@@ -1,6 +1,8 @@
 package 注解.自定义注解;
 
-/**
+import 注解.自定义注解.lib.*;
+
+/*
  @自定义注解： 自定义注解自动继承了 java.lang.annotation.Annotation 接口
 
  @关键字： @interface
@@ -35,17 +37,22 @@ package 注解.自定义注解;
 public class Base {
 
     @NoneParam
-    public void noneParams(){}
+    public void noneParams() {
+    }
 
     @OneParam(tip = 1)
-    public void OneParam(){}
+    public void OneParam() {
+    }
 
     @OneValueParam("hello")
-    public void OneValueParam(){}
+    public void OneValueParam() {
+    }
 
     @MultiParam(value = {"hi"}, key = 'a')
-    public void MultiParam(){}
+    public void MultiParam() {
+    }
 
     @DefaultParam
-    public void DefaultParam(){}
+    public void DefaultParam() {
+    }
 }
