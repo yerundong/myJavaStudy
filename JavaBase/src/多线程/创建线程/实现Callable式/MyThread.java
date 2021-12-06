@@ -1,9 +1,12 @@
-package 多线程.创建线程.实现Runnable式;
+package 多线程.创建线程.实现Callable式;
 
-public class MThread implements Runnable {
+import java.util.concurrent.Callable;
+
+public class MyThread implements Callable<Integer> {
 
     @Override
-    public void run() {
+    public Integer call() {
+        int sum = 0;
         for (int i = 0; i < 10; i++) {
 
             try {
@@ -13,6 +16,8 @@ public class MThread implements Runnable {
             }
 
             System.out.println(Thread.currentThread().getName() + "---" + i);
+            sum += i;
         }
+        return sum;
     }
 }

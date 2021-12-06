@@ -1,10 +1,11 @@
 package 多线程.创建线程.继承Thread式;
 
-public class SubThread extends Thread {
+public class MyThread extends Thread {
 
-    public SubThread() {
+    public MyThread() {
     }
-    public SubThread(String name) {
+
+    public MyThread(String name) {
         super(name);
     }
 
