@@ -2,7 +2,7 @@ package JUnit;
 
 import org.junit.jupiter.api.Test;
 
-/**
+/*
 @简介：
     JUnit是一个Java语言的单元测试框架。它由Kent Beck和Erich Gamma建立，逐渐成为源于Kent Beck的sUnit的xUnit家族中最为成功的一个。
     JUnit有它自己的JUnit扩展生态圈。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。
@@ -13,12 +13,14 @@ import org.junit.jupiter.api.Test;
 @要求：
     1.测试类是公共的
     2.测试类只能有一个公共无参的构造函数
+
+注意：多线程的情况不太适合使用Junit测试。
 */
 public class Base {
     private String name;
     private int age;
 
-    public void look(){
+    public void look() {
         System.out.println(name);
     }
 
@@ -28,12 +30,12 @@ public class Base {
         look();
     }
 
-    public void says(String str){
+    public void says(String str) {
         System.out.println(str);
     }
 
     @Test
-    public void testSays(){
+    public void testSays() {
         says("hello teacher.junit");
     }
 

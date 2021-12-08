@@ -22,6 +22,16 @@ public class Main {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+
+                        System.out.println(currentThread().getName() + "：再见，老板！");
+
+                        Main.class.notify();
+
+                        try {
+                            Main.class.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -43,12 +53,22 @@ public class Main {
                         System.out.println(Thread.currentThread().getName() + "：好嘞！请稍等！");
 
                         try {
-                            Thread.sleep(5000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
 
-                        System.out.println(Thread.currentThread().getName() + "：（5s后）好了，给您包子！");
+                        System.out.println(Thread.currentThread().getName() + "：（3s后）好了，给您包子！");
+
+                        try {
+                            Main.class.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        System.out.println(Thread.currentThread().getName() + "：再见，上帝！");
+
+                        Main.class.notify();
 
                         try {
                             Main.class.wait();

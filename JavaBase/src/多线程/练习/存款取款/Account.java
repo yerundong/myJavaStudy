@@ -28,7 +28,7 @@ public class Account {
 
     // 存钱
     public synchronized boolean deposit(double m) {
-        if(m <= 0){
+        if (m <= 0) {
             return false;
         }
 
@@ -39,19 +39,19 @@ public class Account {
         }
 
         balance += m;
-        System.out.println("存钱成功！" + Thread.currentThread().getName() + "：" + this.getBalance());
+        System.out.println("存钱成功！" + Thread.currentThread().getName() + "，余额：" + this.getBalance());
         return true;
     }
 
     // 取钱
-    public boolean withdraw (double m) {
+    public boolean withdraw(double m) {
 
         try {
             lock.lock();
-            if(balance < m){
+            if (balance < m) {
                 System.out.println("余额不足！" + Thread.currentThread().getName() + "：" + this.getBalance());
                 return false;
-            }else{
+            } else {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
