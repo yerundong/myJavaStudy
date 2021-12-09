@@ -196,7 +196,35 @@ https://baijiahao.baidu.com/s?id=1664760592941035748&wfr=spider&for=pc
 
 
 
+## 9 垃圾回收机制？
 
+垃圾回收机制关键点
+
+
+垃圾回收机制只回收JVM堆内存里的对象空间。
+
+
+对其他物理连接，比如数据库连接、输入流输出流、Socket连接无能为力
+
+
+现在的JVM有多种垃圾回收实现算法，表现各异。
+
+
+垃圾回收发生具有不可预知性，程序无法精确控制垃圾回收机制执行。
+
+
+可以将对象的引用变量设置为null，暗示垃圾回收机制可以回收该对象。
+
+
+程序员可以通过System.gc()或者Runtime.getRuntime().gc()来通知系统进行垃圾回收，会有
+一些效果，但是系统是否进行垃圾回收依然不确定。
+
+
+垃圾回收机制回收任何对象之前，总会先调用它的finalize方法（如果覆盖该方法，让一
+个新的引用变量重新引用该对象，则会重新激活对象）。
+
+
+永远不要主动调用某个对象的finalize方法，应该交给垃圾回收机制调用。
 
 # 数据类型
 
@@ -820,6 +848,12 @@ Java语言提供了很多修饰符，主要分为以下两类：
 
 
 
+### 2.5 transient
+
+参考：[transient修饰符](#9.3 transient修饰符)
+
+
+
 
 # 数组
 
@@ -1351,13 +1385,20 @@ StringBuffer是JDK1.0开始存在，StringBuilder是JDK1.5才新增的。
 
 ## 4 判等
 
-==
+**String类提供了两个实例方法用来判等：**
 
-equals
+- equals：比较字符串值，继承自Object类
 
-equalsIgnoreCase
+- equalsIgnoreCase：忽略大小写，比较字符串值
 
-Objects.equals
+  > 不容忍空指针异常，可以使用字符串常量、字符串字面值作为调用实例来避免："Lily".equals(name);
+
+
+
+**另外可以用以下来判等：**
+
+- ==：比较地址。常量池字符串值一样，地址就一致，可以用\==间接比较字符串值。不推荐使用。
+- Objects.equals：比较字符串值，可以容忍空指针异常
 
 
 
@@ -2302,20 +2343,11 @@ final类不可被继承（太监类），成为最终类，被继承会报错。
 
 ## 9 对象的序列化和反序列化
 
- 在Java中，我们可以通过多种方式来创建对象，并且只要对象没有被回收我们都可以复用此对象。但是，我们创建出来的这些对象都存在于JVM中的堆（heap）内存中， 只有JVM处于运行状态的时候，这些对象才可能存在。**一旦JVM停止，这些对象也就随之消失**；但是在真实的应用场景中，我们需要将这些对象**持久化**下来，并且在需要的时候 将对象重新读取出来，Java的序列化可以帮助我们实现该功能。
+在Java中，我们可以通过多种方式来创建对象，并且只要对象没有被回收我们都可以复用此对象。但是，我们创建出来的这些对象都存在于JVM中的堆（heap）内存中， 只有JVM处于运行状态的时候，这些对象才可能存在。**一旦JVM停止，这些对象也就随之消失**；但是在真实的应用场景中，我们需要将这些对象**持久化**下来，并且在需要的时候 将对象重新读取出来，Java的序列化可以帮助我们实现该功能。
 
  对象序列化机制（object serialization）是java语言内建的一种对象持久化方式，通过对象序列化，可以将对象的状态信息保存为**字节数组**，并且可以在有需要的时候将这个字节数组通过**反序列化**的方式转换成对象，对象的序列化可以很容易的在JVM中的**活动对象和字节数组（流）**之间进行转换。
 
-**在JAVA中，对象的序列化和反序列化被广泛的应用到RMI（远程方法调用）及网络传输中。**
-
-
-
-**定义一个可序列化的类的步骤：**
-
-1. 继承Serializable接口
-2. 声明全局常量：serialVersionUID
-
-> 注意：如果内部属性有其他对象，这些对象也必须是可序列化的，否则该类无法可序列化
+在JAVA中，对象的序列化和反序列化被广泛的应用到RMI（远程方法调用）及网络传输中。
 
 
 
@@ -2332,9 +2364,55 @@ serialVersionUID有两种显示的生成方式：
 
 
 
-**注意**
+**注意：**
 
-1. static 和 transient 修饰的成员变量无法序列化
+1. transient、static修饰的成员都无法序列化
+2. 在序列化对象的时候，静态字段并没有被序列化，但使用反序列化对象去访问静态字段的时候会自动去访问类的静态字段，而不是反序列化对象的。
+
+2. 要想将父类也序列化，则父类必须可序列化
+3. 如果可序列化类内部成员有访问其他对象，这些对象也必须是可序列化的，否则会导致该类无法可序列化
+
+
+
+**对象的序列化方式有两种：**
+
+- Serializable接口
+- Externalizable 接口
+
+
+
+### 9.1 Serializable接口
+
+
+
+**步骤：**
+
+1. 让需要序列化的类继承Serializable接口
+2. 声明全局常量：serialVersionUID
+
+
+
+### 9.2 Externalizable接口？
+
+有特殊需要时，如不希望对象的某一部分被序列化，或者不希望某个对象的子对象被序列化等，可通过实现Externalizable接口来替代实现Serializable接口，对序列化过程进行控制。
+
+将类实现为Externalizable后，没有任何东西可以自动序列化，并且可以在writeExternal方法中对所需部分进行显示的序列化。
+
+Externalizable接口继承了Serializable接口，并添加了两个方法：writeExternal(ObjectOutput out)和readExternal(ObjectInput in)方法，这两个方法会在序列化和反序列化还原的过程中被自动调用。
+
+在重构 Externalizable 对象时，先使用无参数的公共构造方法创建一个实例，然后调用 readExternal 方法。通过从 ObjectInputStream 中读取 Serializable 对象可以恢复这些对象。因此，对于一个Externalizable对象，所有普通的默认构造器都会被调用（包括在字段定义时的初始化），然后调用readExternal()方法，因此默认构造器要设为public。在反序列化过程中，带参数的构造器不会被调用，因此在带参数构造器中所有初始化操作也就不会被保存，所以要在readExternal方法中重新初始化。
+
+
+
+### 9.3 transient修饰符
+
+transient关键字用于可序列化类中，将==不需要序列化的成员变量==前添加关键字transient，序列化对象的时候，这些成员变量就不会序列化到指定的目的地中。
+
+
+
+**修饰对象：**成员变量；不可修饰于成员方法；也一般不修饰静态成员，因为静态成员本来就无法序列化，修饰了也无用。
+
+
 
 
 
@@ -3135,7 +3213,7 @@ int num = (int) 100.5;// 精度损失
 
 
 
-**类型传入的时间点：**在方法<u>被调用的时候确定类型</u>，通过实参类型、接收变量类型来确定。
+**类型传入的时间点：**在方法<u>被调用的时候确定类型</u>，通过==实参类型==或==接收变量类型==来确定。
 
 **类型传入格式：**
 
@@ -4771,15 +4849,33 @@ Condition类提供了await()、signal()/signalAll()来实现线程通讯，其�
 
 
 
-```
+# 文件
 
-```
+File对象是Java中文件和目录路径名的抽象表示。File类的一个对象代表一个文件或文件目录（文件夹）。
 
-# 网络编程？
+==File类只涉及到文件层面的操作，不涉及到文件内容层面，文件内容层面需要IO流来操作==。
 
-# File?
 
-# IO流？
+
+**不同系统的路径分隔符：**
+
+1. windows和DOS系统默认使用反斜杆“\”来表示（\在java代码中有特殊意义，需要转义写成/），但在windows下也能识别“/”
+
+2. Linux、UNIX和URL使用正斜杆“/”来表示
+
+3. 最好使用“/”，因为java是跨平台的。
+
+4. File类提供了一个常量：separator/separatorChar，会根据操作系统，动态的提供分隔符。
+
+  > 注：Java程序支持跨平台运行，因此路径分隔符要慎用。
+
+
+
+**实例方法：**略。
+
+
+
+# IO流
 
 I/O是Input/Output的缩写， I/O技术是非常实用的技术，用于处理设备之间的数据传输。如读/写文件，网络通讯等。
 
@@ -4827,11 +4923,13 @@ Java的IO流共涉及40多个类，实际上非常规则，都是从如下4个**
 
 ## 2 流的操作
 
-**流的操作一般包括：**
+**IO流的基础操作：**
 
-1. 流的实例化
-2. 读、写文件操作
-3. 流的关闭
+1. 流的实例化（new）
+2. 读、写文件操作（read、write）
+3. 流的关闭（close）
+
+**其他操作：**刷新缓冲区（flush）、换行（newline）……
 
 
 
@@ -4869,6 +4967,8 @@ Java的IO流共涉及40多个类，实际上非常规则，都是从如下4个**
 - BufferedWriter：字符输出缓冲流
 
 
+
+缓冲流属于处理流。
 
 为了提高数据读写的速度，Java API提供了带缓冲功能的流类，在使用这些流类时，会创建一个**内部缓冲区数组**，缺省使用**8192个字节(8Kb)的缓冲区**。 
 
@@ -4912,51 +5012,259 @@ java缓冲流本身不具IO功能，只是在别的流上加上缓冲提高效�
 
 ### 3.3 转换流
 
-- InputStreamReader：字节转字符输入流。期间做了一个解码的操作
-- OutputStreamWriter：字符转字节输出流。期间做了一个编码的操作
+- InputStreamReader：将字节输入流转字符输入流。期间做了一个解码的操作
+- OutputStreamWriter：将字符输出流转字节输出流。期间做了一个编码的操作
 
 
 
-转换流提供了在字节流和字符流之间的转换。
+转换流属于处理流，提供了在字节流和字符流之间的转换。
 
-当我们拿到一个字节流，但里面数据都是字符时，我们可以使用转换流将它转成字符流，==转成字符流操作更高效。==
+**功能：**
 
-通过转换流可以解决一定的编码问题。很多时候我们使用转换流来处理文件乱码问题。实现编码和解码的功能。
+- 字节流和字符流互相转换：当我们拿到一个字节流，但里面数据都是字符时，我们可以使用转换流将它转成字符流，==转成字符流操作更高效。==
 
+- 字符集转换：转换流还提供了字符集转换的功能，很多时候我们使用转换流来处理文件乱码问题（字符集导致）。
 
+  > 字符集是保存在文件中，跟随文件的。
 
 
 
 ![转换流](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\IO流\转换流.png)
 
-```
 
-
-```
 
 ### 3.4 数据流
+
+- DataInputStream：数据字节输入流
+
+- DataOutputStream：数据字节输出流
+
+
+
+数据流属于处理流，用于读写**基本类型**、**字符串类型**、**byte[]类型**的数据，能够持久化储存==带有类型==的数据。
+
+
+
+**注意：**
+
+1. 数据流读取类型数据的顺序需要与写入类型数据的顺序一致
 
 
 
 ### 3.5 对象流
 
+- ObjectInputStream：对象字节输入流
 
+- OjbectOutputSteam：对象字节输出流
+
+
+
+用于存储和读取**基本数据类型数据**或**对象**的处理流。它的强大之处就是可以把Java中的对象写入到数据源中，也能把对象从数据源中还原回来。
+
+
+
+**注意：**
+
+1. 对象流操作的对象要求是[可序列化的对象](#9 对象的序列化和反序列化)。
+
+   
 
 ### 3.6 打印流
+
+- PrintStream：打印字节输出流
+- PrintWriter：打印字符输出流
+
+
+
+打印流属于处理流，实现将**基本数据类型的数据格式**转化为**字符串**输出。
+
+
+
+**注意：**
+
+1. PrintStream和PrintWriter提供了一系列重载的print()和println()方法，用于多种数据类型的输出。
+2. PrintStream和PrintWriter的输出不会抛出IOException异常。
+3. PrintStream和PrintWriter有自动flush功能。
+4. PrintStream 打印的所有字符都使用平台的默认字符编码转换为字节。在需要写入字符而不是写入字节的情况下，应该使用 PrintWriter 类。 
 
 
 
 ### 3.7 标准输入输出流
 
+- System.in：标准输入流，类型是InputStream，是InputStream子类的实例。
+
+  > System.in一般和Scanner类来配合使用。
+
+- System.out：标准输出流，是PrintStream的一个实例对象。
+
+- System.err：标准错误输出流，是PrintStream的一个实例对象。
+
+
+
+System.in/out/err都是使用单列模式。
+
+System.in和System.out分别代表了系统标准的输入和输出设备。
+
+默认输入设备是==键盘==，输出设备是==显示器==。
+
+> 重定向：通过System类的静态方法setIn()，setOut()来对默认设备进行改变。
+
+
+
+**注意：**
+
+1. 一般标准输入输出流不用手动关闭，关闭了就不能用了，留给的垃圾回收机制去处理就可以。
+
 
 
 ### 3.8 随机存取文件流
 
+RandomAccessFile类声明在java.io包下，但直接继承于java.lang.Object类，并不是继承于四大IO抽象基类。
+
+它实现了DataInput、DataOutput这两个接口，也就意味着这个类==既可以读也可以写==。
+
+属于字节流。
+
+RandomAccessFile 类支持 “随机访问” 的方式，程序可以直接跳到文件的任意地方来读、写文件：
+
+- 支持只访问文件的部分内容
+- 可以向已存在的文件后追加内容
+
+RandomAccessFile 对象包含一个记录指针，用以标示当前读写处的位置。RandomAccessFile 类对象可以自由移动记录指针：
+
+- long getFilePointer()：获取文件记录指针的当前位置
+- void seek(long pos)：将文件记录指针定位到 pos 位置
 
 
-## 4 NIO
+
+**构造器：**
+
+- public RandomAccessFile(File file, String mode) 
+- public RandomAccessFile(String name, String mode)
+
+创建 RandomAccessFile 类实例需要指定一个 mode 参数，该参数指 定 RandomAccessFile 的访问模式：
+
+- r: 以只读方式打开（输入流）
+- rw：打开以便读取和写入（输入、输出流）
+- rwd:打开以便读取和写入；同步文件内容的更新（输入、输出流）
+- rws:打开以便读取和写入；同步文件内容和元数据的更新（输入、输出流）
+
+**注意：**
+
+- rw模式虽然既可当输出流又可当输入流，但创建出来的流只能当一种角色的流：输出流或输入流
+- 如果模式为只读r。则不会创建文件，而是会去读取一个已经存在的文件，如果读取的文件不存在则会出现异常。 如果模式为rw读写。如果文件不存在则会去创建文件，如果存在则不会创建。
+- RandomAccessFile充当输出流时，对文件实现文件内容上的从头覆盖，而不是整体文件的覆盖，如先写入“abcdef”， 再写入“hij”，就会变成“hijdef”，覆盖位置可自定义，默认是0
+- JDK 1.6上面写的每次write数据时，"rw"模式，数据不会立即写到硬盘中；如果写数据过程发生异常，"rwd"模式中已被write的数据被保存到硬盘,而“rw”则全部丢失。
 
 
+
+**运用：**
+
+我们可以用RandomAccessFile这个类，来实现一个多线程断点下载的功能，用过下载工具的朋友们都知道，下载前都会建立两个临时文件，一个是与被下载文件大小相同的空文件，另一个是记录文件指针的位置文件，每次暂停的时候，都会保存上一次的指针，然后断点下载的时候，会继续从上 一次的地方下载，从而实现断点下载或上传的功能，有兴趣的朋友们可以自己实现下。
+
+
+
+## 4 NIO？
+
+Java NIO (New IO，Non-Blocking IO)是从Java 1.4版本开始引入的一套新 的IO API，可以替代标准的Java IO API。NIO与原来的IO有同样的作用和目 的，但是使用的方式完全不同，NIO支持面向缓冲区的(IO是面向流的)、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
+
+NIO是一种同步非阻塞的I/O模型，也是I/O多路复用的基础，已经被越来越多地应用到大型应用服务器，成为解决高并发与大量连接、I/O处理问题的有效方式。
+
+Java API中提供了两套NIO，一套是针对标准输入输出NIO，另一套就是网络编程NIO。
+
+随着 JDK 7 的发布，Java对NIO进行了极大的扩展，增强了对文件处理和文件系统特性的支持，以至于我们称他们为 NIO.2。 因为 NIO 提供的一些功能，NIO已经成为文件处理中越来越重要的部分。
+
+```
+  ├──FileChannel:处理本地文件
+  ├──SocketChannel：TCP网络编程的客户端的Channel
+  ├──ServerSocketChannel:TCP网络编程的服务器端的Channel
+  └──DatagramChannel：UDP网络编程中发送端和接收端的Channel
+```
+
+
+
+**NIO.2中Path、Paths、Files类：**：
+
+早期的Java只提供了一个File类来访问文件系统，但File类的功能比较有限，所提供的方法性能也不高。而且，大多数方法在出错时仅返回失败，并不会提供异 常信息。
+
+NIO. 2为了弥补这种不足，引入了Path接口，代表一个平台无关的平台路径，描述了目录结构中文件的位置。Path可以看成是File类的升级版本，实际引用的资 源也可以不存在。
+
+在以前IO操作都是这样写的:
+
+```
+import java.io.File;
+File file = new File("index.html");
+```
+
+但在Java7 中，我们可以这样写：
+
+```
+import java.nio.file.Path; 
+import java.nio.file.Paths; 
+Path path = Paths.get("index.html");
+```
+
+同时，NIO.2在java.nio.file包下还提供了Files、Paths工具类，Files包含了大量静态的工具方法来操作文件和目录； Paths则包含了两个返回Path的静态工厂方法。
+
+
+
+**Paths 类提供的静态 get() 方法用来获取 Path 对象：**
+
+- static Path get(String first, String … more) : 用于将多个字符串串连成路径
+- static Path get(URI uri): 返回指定uri对应的Path路径
+
+
+
+**Path 常用方法：**
+
+```
+- String toString() ： 返回调用 Path 对象的字符串表示形式
+- boolean startsWith(String path) : 判断是否以 path 路径开始
+- boolean endsWith(String path) : 判断是否以 path 路径结束
+- boolean isAbsolute() : 判断是否是绝对路径
+- Path getParent() ：返回Path对象包含整个路径，不包含 Path 对象指定的文件路径
+- Path getRoot() ：返回调用 Path 对象的根路径
+- Path getFileName() : 返回与调用 Path 对象关联的文件名
+- int getNameCount() : 返回Path 根目录后面元素的数量
+- Path getName(int idx) : 返回指定索引位置 idx 的路径名称
+- Path toAbsolutePath() : 作为绝对路径返回调用 Path 对象
+- Path resolve(Path p) :合并两个路径，返回合并后的路径对应的Path对象
+- File toFile(): 将Path转化为File类的对象
+```
+
+
+
+**Files常用方法：**
+
+```
+- Path copy(Path src, Path dest, CopyOption … how) : 文件的复制
+- Path createDirectory(Path path, FileAttribute<?> … attr) : 创建一个目录
+- Path createFile(Path path, FileAttribute<?> … arr) : 创建一个文件
+- void delete(Path path) : 删除一个文件/目录，如果不存在，执行报错
+- void deleteIfExists(Path path) : Path对应的文件/目录如果存在，执行删除
+- Path move(Path src, Path dest, CopyOption…how) : 将 src 移动到 dest 位置
+- long size(Path path) : 返回 path 指定文件的大小
+
+用于判断
+- boolean exists(Path path, LinkOption … opts) : 判断文件是否存在
+- boolean isDirectory(Path path, LinkOption … opts) : 判断是否是目录
+- boolean isRegularFile(Path path, LinkOption … opts) : 判断是否是文件
+- boolean isHidden(Path path) : 判断是否是隐藏文件
+- boolean isReadable(Path path) : 判断文件是否可读
+- boolean isWritable(Path path) : 判断文件是否可写
+- boolean notExists(Path path, LinkOption … opts) : 判断文件是否不存在
+
+用于操作内容
+- SeekableByteChannel newByteChannel(Path path, OpenOption…how) : 获取与指定文件的连
+  接，how 指定打开方式。
+- DirectoryStream<Path> newDirectoryStream(Path path) : 打开 path 指定的目录
+- InputStream newInputStream(Path path, OpenOption…how):获取 InputStream 对象
+- OutputStream newOutputStream(Path path, OpenOption…how) : 获取 OutputStream 对象
+```
+
+
+
+# 网络编程？
 
 
 

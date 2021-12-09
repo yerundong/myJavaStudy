@@ -1,1 +1,4 @@
-xx work must be something wrong
+gggccc
+a
+我是重定向打印
+println test

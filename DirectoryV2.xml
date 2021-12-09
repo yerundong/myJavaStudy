@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trees>
+    <tree path="/IOTestFile" title="IO流测试文件"/>
+    <tree path="/JavaBase/src/IO流/NIO" title="Non-Blocking IO"/>
+    <tree path="/JavaBase/src/IO流/commonIO" title="常用流的使用"/>
+    <tree path="/JavaBase/src/IO流/commonIO/对象流/SerClass.java" title="可序列化类" extension="java"/>
+    <tree path="/JavaBase/src/类和对象/对象的序列化/lib/SerClass_Serializable.java" title="Serializable方式" extension="java"/>
+    <tree path="/JavaBase/src/类和对象/对象的序列化/lib/SerClass_Externalizable.java" title="Externalizable方式" extension="java"/>
+</trees>

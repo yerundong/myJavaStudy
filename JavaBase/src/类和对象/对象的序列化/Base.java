@@ -1,32 +1,32 @@
 package 类和对象.对象的序列化;
 
-import java.io.Serializable;
+import org.junit.jupiter.api.Test;
+import 类和对象.对象的序列化.lib.IOUtils;
+import 类和对象.对象的序列化.lib.SerClass_Serializable;
 
-public class Base implements Serializable {
-    private static final long serialVersionUID = 236544445544346L;
-    private String name;
-    // private Person person = new Person();// Person也必须可序列化
+import java.io.File;
 
-    public Base(String name) {
-        this.name = name;
-    }
+public class Base {
+    private File file = new File("IOTestFile/serialize.dat");
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+    @Test
+    public void test_Serializable() {
+        SerClass_Serializable ser = new SerClass_Serializable("我是可序列化类");
 
-    public String getName() {
-        return name;
-    }
+        IOUtils.write(file, ser);// 将序列化对象储存到本地
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        SerClass_Serializable ser_ = IOUtils.read(file);// 将本地序列化对象读取到内存
 
-    @Override
-    public String toString() {
-        return "serializedClass{" +
-                "name='" + name + '\'' +
-                '}';
+        // 非静态成员
+        System.out.println(ser_.msg);
+        System.out.println(ser_.see());
+
+        // 静态成员
+        SerClass_Serializable.tip = "nononononono";
+        System.out.println(ser_.tip);// nononononono，并没有取到反序列化对象的值，而是取类的值
+        System.out.println(ser_.look());
+
+        // transient修饰的变量
+        System.out.println(ser_.tra);
     }
 }
