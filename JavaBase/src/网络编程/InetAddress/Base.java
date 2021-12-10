@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 
 public class Base {
     /**
@@ -13,16 +14,16 @@ public class Base {
     @Test
     public void getByName() {
         // <SM> public static InetAddress getByName(String host)
-        // <返> 在给定主机名的情况下获取 IP 地址对象。
+        // <返> 在给定主机名\IP地址\域名的情况下获取 IP 地址对象。
         // <注> host可以是主机名（如 "localhost"、"www.baidu.com"）、IP地址（"127.0.0.1"）、域名（"www.baidu.com"）
         try {
-            InetAddress ip = InetAddress.getByName("163.177.151.110");// /163.177.151.110
-            // ia = InetAddress.getByName("www.baidu.com");// www.baidu.com/163.177.151.110
-            // ia = InetAddress.getByName("localhost");// localhost/127.0.0.1
-            // ia = InetAddress.getByName("PC-20200607IERO");// PC-20200607IERO/172.18.150.181
+            // InetAddress ip = InetAddress.getByName("163.177.151.110");// /163.177.151.110
+            InetAddress ip = InetAddress.getByName("www.baidu.com");// www.baidu.com/163.177.151.110
+            // InetAddress ip = InetAddress.getByName("localhost");// localhost/127.0.0.1
+            // InetAddress ip = InetAddress.getByName("PC-20200607IERO");// PC-20200607IERO/172.18.150.181
 
             System.out.println(ip);
-            System.out.println(ip.getHostName());
+            System.out.println(ip.getHostAddress());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -38,7 +39,7 @@ public class Base {
         try {
             InetAddress ip = InetAddress.getLocalHost();
             System.out.println(ip);
-            System.out.println(ip.getHostName());
+            System.out.println(ip.getHostAddress());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -87,16 +88,14 @@ public class Base {
             byte[] address = ip.getAddress();
             System.out.println(address);
 
-            for (int i = 0; i < address.length; i++) {
-                System.out.println(address[i]);
-            }
+            System.out.println(Arrays.toString(address));
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * @测试
+     * @测试是否可以达到该地址
      */
     @Test
     public void reachable() {
@@ -104,8 +103,8 @@ public class Base {
         // <返> 测试是否可以达到该地址。实现尽最大努力试图到达主机，但防火墙和服务器配置可能阻塞请求，使其在某些特定的端口可以访问时处于不可到达状态。
         // <注> timeout - 调用中止前的时间（以毫秒为单位）
         try {
-            InetAddress ip = InetAddress.getByName("172.18.150.169");
-            boolean reachable = ip.isReachable(3000);
+            InetAddress ip = InetAddress.getByName("172.18.166.134");
+            boolean reachable = ip.isReachable(5000);
             System.out.println(reachable);
         } catch (IOException e) {
             e.printStackTrace();

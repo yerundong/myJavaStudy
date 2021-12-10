@@ -1,4 +1,4 @@
-package 网络编程.UDP通讯;
+package 网络编程.通讯协议.基于Socket的UDP编程;
 
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +40,7 @@ public class Base {
             socket = new DatagramSocket(8090);
             byte[] buffer = new byte[100];
             DatagramPacket packet = new DatagramPacket(buffer, 0, buffer.length);
-            socket.receive(packet);
+            socket.receive(packet);// 监听接收，阻塞
             byte[] data = packet.getData();
             System.out.println(new String(data, 0, data.length));
         } catch (IOException e) {
