@@ -13,6 +13,7 @@ public class Base {
     public void test() {
         Person person = new Person("李四");
         this.say(person);
+        this.say(null);
     }
 
     public void say(Person p) {

@@ -1,11 +1,10 @@
-package 比较器.定制排序;
+package 比较与排序.定制排序;
 
 import org.junit.jupiter.api.Test;
-import 比较器.自然排序.Goods;
+import 比较与排序.自然排序.Goods;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.function.Function;
 
 public class Main {
     @Test
@@ -75,16 +74,31 @@ public class Main {
     }
 
     /**
-     * @???
+     * @comparing： 接收一个类的属性，作为排序排序关键字，返回这个类的比较器（Comparator）
      */
     @Test
-    public void test() {
-        Comparator<Integer> comparing = Comparator.comparing(new Function<Integer, Integer>() {
-            @Override
-            public Integer apply(Integer i) {
-                return i + 1;
-            }
-        });
+    public void comparing() {
+        Goods[] arr = new Goods[6];
+        arr[0] = new Goods("华为", 2999);
+        arr[1] = new Goods("小米", 1899);
+        arr[2] = new Goods("苹果", 8900);
+        arr[3] = new Goods("一加", 4200);
+        arr[4] = new Goods("三星", 5200);
+        arr[5] = new Goods("三星", 6200);
 
+        Comparator<Goods> comparator = Comparator.comparing(Goods::getPrice);
+        Arrays.sort(arr, comparator);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * @
+     */
+    @Test
+    public void comparingInt() {
+        Integer[] arr = new Integer[]{2, 57, 1, 25, 46, 7, 22};
+        Comparator<Integer> comparator = Comparator.comparingInt(t -> t);
+        Arrays.sort(arr, comparator);
+        System.out.println(Arrays.toString(arr));
     }
 }

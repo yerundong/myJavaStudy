@@ -1,4 +1,4 @@
-package 反射.ClassLoader类;
+package 反射.类加载器;
 
 import org.junit.jupiter.api.Test;
 import 示例.Person;

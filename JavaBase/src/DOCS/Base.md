@@ -2955,13 +2955,11 @@ Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要�
 
 方法引用是Lambda表达式升级版，更加省略。
 
-当使用Lambda表达式时，方法体只有一句调用方法的语句，调用方法必须和接口中的抽象方法具有相同的形参，这时可简写成更简洁的Lambda表达式：方法引用格式。
-
 其本质还是Lambda表达式。
 
 
 
-**要求：**当使用Lambda表达式时，方法体只有一句调用方法的语句，调用方法必须和接口中的抽象方法具有相同的形参
+**要求：**当使用Lambda表达式时，方法体是**只有一句调用方法的语句**，调用方法和接口中的抽象方法具有**相同的形参和返回值（同参同返）**。
 
 
 
@@ -2975,10 +2973,18 @@ Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要�
 
 **方法引用有四种用法：**
 
-1. 对象::实例方法
-2. 类::静态方法
-3. 类::实例方法（最特殊）
-4. 类::new（构造器引用）
+1. **实例方法引用：**`对象::实例方法`，同参同返
+
+2. **静态方法引用：**`类::静态方法`，同参同返
+
+3. **类的任意实例方法引用：**`类::实例方法`，同返不同参
+
+   最特殊，有两种情况都适合：
+
+   1. 双参-单参：`(s1, s2) -> s1.equals(s2)` ==> `S::equals`
+   2. 单参-空参：`(s) -> s.getName()` ==> `S::getName`
+
+4. **构造器引用：**`类::new`，同参同返
 
 
 
@@ -3870,7 +3876,7 @@ Comparable接口强行对实现它的每个类的对象进行整体排序。这�
 
 当元素的类型没有实现 java.lang.Comparable 接口而又不方便修改代码，或者实现了 java.lang.Comparable 接口的排序规则不适合当前的操作，那么可以考虑使用Comparator接口来创建一个**比较器类**。
 
-> 注： 可以把比较器类传递给 sort 方法（如 Collections.sort 或 Arrays.sort）从而允许在排序顺序上实现精确控制 。
+> 注： 可以把比较器类传递给 sort 方法（如 Collections.sort 、 Arrays.sort、stream.sorted）从而允许在排序顺序上实现精确控制 。
 
 
 
@@ -4096,6 +4102,10 @@ Reflection（反射）是被视为<u>动态语言</u>的关键，反射机制允
 
 
 
+![正常方式和反射方式](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\反射\正常方式和反射方式.png)
+
+
+
 **Java反射机制提供的功能：**
 
 - 在运行时判断任意一个对象所属的类
@@ -4122,7 +4132,7 @@ java.lang.Class类是Java反射的源头。
 
 对于每个类而言，JRE 都为其保留一个不变的 Class 对象。一个 Class 对象包含了特定某个结构(class/interface/enum/annotation/primitive type/void/[])的有关信息。
 
-
+![Class类](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\反射\Class类.png)
 
 **注意：**
 
@@ -4133,21 +4143,6 @@ java.lang.Class类是Java反射的源头。
 - 每个类的实例都会记得自己是由哪个 Class 实例所生成
 - 通过Class可以完整地得到一个类中的所有被加载的结构
 - Class类是Reflection的根源，针对任何你想动态加载、运行的类，唯有先获得相应的Class对象
-
-
-
-**Class对象的常用方法：**
-
-- static Class forName(String name) 返回指定类名 name 的 Class 对象
-- Object newInstance() 调用缺省构造函数，返回该Class对象的一个实例
-- getName() 返回此Class对象所表示的实体（类、接口、数组类、基本类型或void）名称
-- Class getSuperClass() 返回当前Class对象的父类的Class对象
-- Class [] getInterfaces() 获取当前Class对象的接口
-- ClassLoader getClassLoader() 返回该类的类加载器
-- Class getSuperclass() 返回表示此Class所表示的实体的超类的Class
-- Constructor[] getConstructors() 返回一个包含某些Constructor对象的数组
-- Field[] getDeclaredFields() 返回Field对象的一个数组
-- Method getMethod(String name,Class … paramTypes)返回一个Method对象，此对象的形参类型为paramType
 
 
 
@@ -4163,16 +4158,42 @@ java.lang.Class类是Java反射的源头。
 
 
 
+### 1.1 获取运行时类
+
+**方式：**
+
+1. **类的class属性：**若已知具体的类，通过类的静态属性：`class`来获取，该方法最为安全可靠，程序性能最高。
+2. **实例getClass方法：**已知某个类的实例，可通过此调用方法获取运行时类
+3. **forName方法：**Class的静态方法：`Class.forName(...)`，已知一个类的全类名，可通过此调用方法获取运行时类
+4. **loadClass方法：**ClassLoader的实例方法：`cl.loadClass(...)`，已知一个类加载器的实例和一个类的全类名，可通过此调用方法获取运行时类
+
+
+
+### 1.2 获取运行时类对象
+
+略。
+
+
+
+### 1.3 获取运行时类的相关信息
+
+略。
+
+
+
 ## 2 类的加载过程
 
-![ ](file:///E:/Desktop/myJavaStudy/JavaBase/src/%E5%8F%8D%E5%B0%84/%E6%88%AA%E5%9B%BE/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B1.png)
+![类的加载过程1](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\反射\类的加载过程1.png)
 
-1. 加载：将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据只能通过这个Class对象。这个加载的过程需要类加载器参与。 
-2. 链接：将Java类的二进制代码合并到JVM的运行状态之中的过程。
+
+
+1. **加载：**将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据只能通过这个Class对象。这个加载的过程需要**类加载器**参与。 
+2. **链接：**将Java类的二进制代码合并到JVM的运行状态之中的过程。
    - 验证：确保加载的类信息符合JVM规范，例如：以cafe开头，没有安全方面的问题
-   - 准备：正式为类变量（static）分配内存并设置类变量默认初始值的阶段，这些内存都将在方法区中进行分配。 解析：虚拟机常量池内的符号引用（常量名）替换为直接引用（地址）的过程。 
-3. 初始化：
-   - 执行类构造器()方法的过程。类构造器()方法是由编译期自动收集类中所有类变量的赋值动作和静态代码块中的语句合并产生的。（类构造器是构造类信息的，不是构造该类对象的构造器）。 
+   - 准备：正式为类变量（static）分配内存并设置类变量默认初始值的阶段，这些内存都将在方法区中进行分配。 
+   - 解析：虚拟机常量池内的符号引用（常量名）替换为直接引用（地址）的过程。 
+3. **初始化：**
+   - 执行类构造器方法的过程。类构造器()方法是由编译期自动收集类中所有类变量的赋值动作和静态代码块中的语句合并产生的。（类构造器是构造类信息的，不是构造该类对象的构造器）。 
    - 当初始化一个类的时候，如果发现其父类还没有进行初始化，则需要先触发其父类的初始化。 
    - 虚拟机会保证一个类的()方法在多线程环境中被正确加锁和同步
 
@@ -4182,65 +4203,60 @@ java.lang.Class类是Java反射的源头。
 
 1. 类的主动引用（一定会发生类的初始化）
 
-    
-
    - 当虚拟机启动，先初始化main方法所在的类 
    - new一个类的对象
    - 调用类的静态成员（除了final常量）和静态方法
    - 使用java.lang.reflect包的方法对类进行反射调用
    - 当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类
-
+   
 2. 类的被动引用（不会发生类的初始化）
-
-    
 
    - 当访问一个静态域时，只有真正声明这个域的类才会被初始化
    - 当通过子类引用父类的静态变量，不会导致子类初始化
    - 通过数组定义类引用，不会触发此类的初始化
    - 引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）
-
    
 
-**类加载器的作用**
 
-![ ](file:///E:/Desktop/myJavaStudy/JavaBase/src/%E5%8F%8D%E5%B0%84/%E6%88%AA%E5%9B%BE/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B2.png)
+
+## 3 类加载器
+
+![ClassLoader](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\反射\ClassLoader.png)
+
+1. 获取一个**系统类加载器**
+
+   ```java
+   ClassLoader sysClassloader = ClassLoader.getSystemClassLoader();
+   ```
+   
+2. 获取系统类加载器的父类加载器，即**扩展类加载器**
+
+   ```java
+   Classloader exClassloader = sysClassloader.getParent();
+   ```
+   
+3. 获取扩展类加载器的父类加载器，即**引导类加载器**
+
+   ```java
+   classloader bootClassloader = exClassloader.getParent();
+   ```
+
+
+
+**类加载器的作用：**
+
+![类的加载过程2](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\反射\类的加载过程2.png)
 
 - 类加载的作用：将class文件字节码内容加载到内存中，并将这些静态数据转换成方 法区的运行时数据结构，然后在堆中生成一个代表这个类的java.lang.Class对象，作为 方法区中类数据的访问入口。
 - 类缓存：标准的JavaSE类加载器可以按要求查找类，但一旦某个类被加载到类加载器 中，它将维持加载（缓存）一段时间。不过JVM垃圾回收机制可以回收这些Class对象。
 
 
 
-**类加载器ClassLoader**
+## 4 代理？
 
-![ ](file:///E:/Desktop/myJavaStudy/JavaBase/src/%E5%8F%8D%E5%B0%84/%E6%88%AA%E5%9B%BE/ClassLoader.png)
+### 4.1 静态代理
 
-1. 获取一个系统类加载器
-
-   ```java
-   ClassLoader classloader = ClassLoader.getSystemClassLoader();
-   System.out.println(classloader);
-   ```
-
-2. 获取系统类加载器的父类加载器，即扩展类加载器
-
-   ```java
-   classloader = classloader.getParent();
-   System.out.println(classloader);
-   ```
-
-3. 获取扩展类加载器的父类加载器，即引导类加载器
-
-   ```java
-   classloader = classloader.getParent();
-   System.out.println(classloader);
-   ```
-
-4. 测试当前类由哪个类加载器进行加载
-
-   ```java
-   classloader = Class.forName("exer2.ClassloaderDemo").getClassLoader();
-   System.out.println(classloader);
-   ```
+### 4.2 动态代理
 
 
 
@@ -5264,7 +5280,7 @@ Path path = Paths.get("index.html");
 
 
 
-# 网络编程？
+# 网络编程
 
 Java是 Internet 上的语言，它从语言级上提供了对网络应用程序的支持，程序员能够很容易开发常见的网络应用程序。
 
@@ -5608,7 +5624,124 @@ UDP 是User Datagram Protocol的简称， 中文名是用户数据包协议。UD
 
 
 
-# Stream？
+## 3 URL编程
+
+URL(Uniform Resource Locator)表示统一资源定位符，它表示 Internet 上某一 资源的地址。它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何定位到这个资源。
+
+通过 URL 我们可以访问 Internet 上的各种网络资源，比如最常见的 www，ftp 站点。浏览器通过解析给定的 URL 可以在网络上查找相应的文件或其他资源。
+
+
+
+**URL的基本结构由5部分组成：**<传输协议>://<主机名>:<端口号>/<文件名>#片段名?参数列表
+
+**片段名：**即锚点，例如看小说，直接定位到章节
+
+**参数列表格式：**参数名=参数值&参数名=参数值
+
+**例如：**`http://192.168.1.100:8080/helloworld/index.jsp#a?username=shkstart&password=123`
+
+
+
+**URI、URL、URN的区别：**
+
+URI，是uniform resource identifier，统一资源标识符，用来唯一的标识一个资源。
+
+URL是uniform resource locator，统一资源定位符。URL是URI的一种，不仅标识了一个资源，还指定了操作或者获取方式，同时指出了主要访问机制和网络位置。
+
+URN，uniform resource name，统一资源命名，是通过名字来标识资源，比如`mailto:java-net@java.sun.com`。
+
+也就是说，URI是以一种抽象的，高层次概念定义统一资源标识，而URL和URN则是具体的资源标识的方式。URL 和URN都是一种URI。
+
+在Java的URI中，一个URI实例可以代表绝对的，也可以是相对的，只要它符合URI的语法规则。而URL类则 不仅符合语义，还包含了定位该资源的信息， 因此它不能是相对的。
+
+URL和URN都是URI的子集。
+
+![URI,URL,URN关系图](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\网络编程\URI,URL,URN关系图.webp)
+
+
+
+### 3.1 Java中的URL编程
+
+Java中使用java.net.URL类表示URL，使用java.net.HttpURLConnection类表示Java应用程序和URL之间的http特性的通信连接。
+
+
+
+**步骤：**
+
+1. 创建URL对象：URL url = new URL(...)
+2. 创建连接对象：HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+3. 建立连接：urlConnection.connect()
+4. 获取输入流：urlConnection.getInputStream()
+5. 操作流数据：读取、写出数据
+6. 关闭流
+
+
+
+# Stream API
+
+Stream API ( java.util.stream) 把真正的**函数式编程风格**引入到Java中。这 是目前为止对Java类库最好的补充，因为Stream API可以极大提供Java程 序员的生产力，让程序员写出高效率、干净、简洁的代码。
+
+Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进 行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。 使用 Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。 也可以使用 Stream API 来并行执行操作。简言之，**Stream API 提供了一种 高效且易于使用的处理数据的方式。**
+
+Stream到底是什么呢？是数据渠道，用于操作数据源（集合、数组等）所生成的元素序列。
+
+“集合讲的是数据，Stream讲的是计算！”
+
+
+
+**为什么要使用Stream API：**
+
+实际开发中，项目中多数数据源都来自于Mysql，Oracle等。但现在数据源可以更多了，有MongDB，Radis等，而这些NoSQL的数据就需要**Java层面**去处理。
+
+
+
+**Stream 和 Collection 集合的区别：**
+
+Collection 是一种静态的内存数据结构，而 Stream 是有关计算的。前者是主要面向内存，存储在内存中，后者主要是面向 CPU，通过 CPU 实现计算。
+
+
+
+**特性：**
+
+- Stream 自己不会存储元素。
+- Stream 不会改变源对象。相反，他们会返回一个持有结果的新Stream。 
+- Stream 操作是延迟执行的。这意味着他们会等到需要结果的时候才执行。
+
+
+
+**Stream 操作步骤：**
+
+1. **创建 Stream 对象：**一个数据源（如：集合、数组），获取一个 Stream 对象
+2. **中间操作：**一个中间操作链，对数据源的数据进行处理
+3. **终止操作(终端操作)：**一旦执行终止操作，就**执行中间操作链**，并产生结果。之后，不会再被使用
+
+> 多个中间操作可以连接起来形成一个流水线，除非流水线上触发终止操作，否则中间操作不会执行任何的处理！而在终止操作时一次性全部处理，称为“惰性求值”。
+
+![Stream操作步骤](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\Stream API\Stream操作步骤.jpg)
+
+
+
+## 1 创建实例
+
+**获取Stream实例方式：**
+
+1. 通过容器（集合、数组）获取Stream实例
+   1. 集合的实例方法返回：collection.stream()、collection.parallelStream()
+   2. Arrays 的静态方法：Arrays.stream(arr)
+2. 通过Stream.of()获取实例：Stream.of(T... values)
+3. 创建无限流
+   1. 用静态方法 Stream.iterate() 
+   2. 用静态方法 Stream.generate()
+
+
+
+## 2 中间操作
+
+略。
+
+## 3 终止操作
+
+略。
 
 
 

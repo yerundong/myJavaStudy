@@ -1,6 +1,6 @@
-package Stream;
+package StreamAPI;
 
-import Stream.lib.Employee;
+import StreamAPI.lib.Employee;
 import org.junit.jupiter.api.Test;
 import 示例.Person;
 
@@ -76,8 +76,11 @@ public class 终止操作 {
     public void findAny() {
         // <M> Optional<T> findAny();
         // <返> 返回当前流中的任意元素
+        // 可以看到findAny()操作，返回的元素是不确定的，对于同一个列表多次调用 findAny()有可能会返回不同的值。
+        // 使用findAny()是为了更高效的性能。如果是数据较少，串行地情况下，一般会返回第一个结果，如果是并行的情况，那就不能确保是第一个。
         List<Person> ls = Employee.getEmployee();
-        Optional<Person> any = ls.stream().findAny();
+        // Optional<Person> any = ls.stream().findAny();
+        Optional<Person> any = ls.parallelStream().findAny();
         System.out.println(any);
     }
 
@@ -101,7 +104,7 @@ public class 终止操作 {
         // <M> Optional<T> max(Comparator<? super T> comparator);
         // <返> 返回流中最大值
         List<Person> ls = Employee.getEmployee();
-        Optional<Person> max = ls.stream().max((p1, p2) -> p1.getAge() - p2.getAge());
+        Optional<Person> max = ls.stream().max(Comparator.comparingInt(Person::getAge));
         System.out.println(max);
     }
 
@@ -113,7 +116,7 @@ public class 终止操作 {
         // <M> Optional<T> min(Comparator<? super T> comparator);
         // <返> 返回流中最小值
         List<Person> ls = Employee.getEmployee();
-        Optional<Person> min = ls.stream().min((p1, p2) -> p1.getAge() - p2.getAge());
+        Optional<Person> min = ls.stream().min(Comparator.comparingInt(Person::getAge));
         System.out.println(min);
     }
 

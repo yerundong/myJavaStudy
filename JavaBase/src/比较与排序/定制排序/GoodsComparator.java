@@ -1,6 +1,6 @@
-package 比较器.定制排序;
+package 比较与排序.定制排序;
 
-import 比较器.自然排序.Goods;
+import 比较与排序.自然排序.Goods;
 
 import java.util.Comparator;
 

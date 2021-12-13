@@ -1,4 +1,4 @@
-package Stream;
+package StreamAPI;
 
 import org.junit.jupiter.api.Test;
 import 示例.Person;

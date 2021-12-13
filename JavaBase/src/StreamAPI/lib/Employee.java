@@ -1,4 +1,4 @@
-package Stream.lib;
+package StreamAPI.lib;
 
 import 示例.Person;
 

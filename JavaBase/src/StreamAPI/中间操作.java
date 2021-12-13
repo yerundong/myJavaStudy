@@ -1,10 +1,9 @@
-package Stream;
+package StreamAPI;
 
-import Stream.lib.Employee;
+import StreamAPI.lib.Employee;
 import org.junit.jupiter.api.Test;
 import 示例.Person;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -95,30 +94,28 @@ public class 中间操作 {
 
         // 一个嵌套的流，类似于嵌套数组[[123]]
         Stream<Stream<Integer>> s1 = Stream.of(Stream.of(1, 2, 3), Stream.of(4, 5, 6), Stream.of(7));
-        // s1.forEach(s -> {
-        //     s.forEach(System.out::println);
-        // });
+        Stream<Integer> s2 = s1.flatMap(s -> s);
+        s2.forEach(System.out::println);
 
-        // Stream<Integer> s2 = s1.flatMap(s -> s);
+
+        // 多维数组平铺
+        // ArrayList al1 = new ArrayList();
+        // al1.add(1);
+        // al1.add(2);
+        // al1.add(3);
+        // ArrayList al2 = new ArrayList();
+        // al2.add(al1);
+        // al2.add(4);
         //
-        // s2.forEach(System.out::println);
-
-
-        ArrayList al1 = new ArrayList();
-        al1.add(1);
-        al1.add(2);
-        al1.add(3);
-        ArrayList al2 = new ArrayList();
-        al2.add(al1);
-        al2.add(4);
-
-        al2.stream().flatMap(s -> {
-            if (s instanceof List) {
-                return ((List) s).stream();
-            } else {
-                return Stream.of(s);
-            }
-        }).forEach(System.out::println);
+        // System.out.println(al2);
+        //
+        // al2.stream().flatMap(s -> {
+        //     if (s instanceof List) {
+        //         return ((List) s).stream();
+        //     } else {
+        //         return Stream.of(s);
+        //     }
+        // }).forEach(System.out::println);
     }
 
     @Test
@@ -137,8 +134,6 @@ public class 中间操作 {
         // <M> Stream<T> sorted();
         List<Person> ls = Employee.getEmployee();
         ls.stream().sorted().forEach(System.out::println);
-
-        System.out.println("---------------");
 
         // 定制排序
         // <M> Stream<T> sorted(Comparator<? super T> comparator);

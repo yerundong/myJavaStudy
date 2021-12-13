@@ -1,4 +1,4 @@
-package 比较器.自然排序;
+package 比较与排序.自然排序;
 
 import org.junit.jupiter.api.Test;
 
