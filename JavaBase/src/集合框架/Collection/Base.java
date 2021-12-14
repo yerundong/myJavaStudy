@@ -1,8 +1,8 @@
 package 集合框架.Collection;
 
+import lib.Pet;
+import lib.Species;
 import org.junit.jupiter.api.Test;
-import 示例.Pet;
-import 示例.Species;
 
 import java.util.ArrayList;
 import java.util.Arrays;

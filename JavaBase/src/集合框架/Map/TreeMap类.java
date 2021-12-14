@@ -1,7 +1,7 @@
 package 集合框架.Map;
 
+import lib.Person;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
 
 import java.util.Comparator;
 import java.util.TreeMap;

@@ -1,7 +1,7 @@
 package 注解.内置注解.作用于代码的注解;
 
+import lib.Person;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
 
 import java.util.ArrayList;
 

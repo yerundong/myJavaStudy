@@ -9,15 +9,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Locale;
 
-/**
-    对ZonedDateTime或LocalDateTime进行格式化，需要使用DateTimeFormatter类；DateTimeFormatter可以通过格式化字符串和Locale对日期和时间进行定制输出。
- */
 public class DateTimeFormatter类 {
     /**
      * @获得ISO格式的格式化对象
      */
     @Test
-    public void getISO(){
+    public void getISO() {
         // <注> 这些ISO格式的实例都储存在静态变量中，直接取
         DateTimeFormatter dtf1 = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         DateTimeFormatter dtf2 = DateTimeFormatter.ISO_DATE_TIME;
@@ -27,7 +24,7 @@ public class DateTimeFormatter类 {
      * @获得本地格式化对象
      */
     @Test
-    public void getLocalized(){
+    public void getLocalized() {
         // FormatStyle.SHORT/FormatStyle.LONG/FormatStyle.FULL/FormatStyle.MEDIUM
         // <注> 这些ISO格式的实例都储存在静态变量中，直接取
         DateTimeFormatter dtf1 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
@@ -45,7 +42,7 @@ public class DateTimeFormatter类 {
      * @自定义格式化对象
      */
     @Test
-    public void ofPattern(){
+    public void ofPattern() {
         // <M> public static DateTimeFormatter ofPattern(String pattern)
         // <返> 使用指定的模式创建格式化程序。
         // public static DateTimeFormatter ofPattern(String pattern, Locale locale)

@@ -1,6 +1,6 @@
 package 方法;
 
-import 示例.Student;
+import lib.Student;
 
 public class 局部常量 {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package 数据类型;
 
-import common.Util;
+import lib.Util;
 import org.junit.jupiter.api.Test;
 
 public class 基本数据类型之间的自动转换 {

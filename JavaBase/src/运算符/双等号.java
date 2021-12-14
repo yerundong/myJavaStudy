@@ -1,6 +1,6 @@
 package 运算符;
 
-import 示例.Student;
+import lib.Student;
 
 public class 双等号 {
     public static void main(String[] args) {

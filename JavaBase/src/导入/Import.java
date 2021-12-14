@@ -1,7 +1,7 @@
 package 导入;
 
+import lib.Student;
 import 接口.接口成员.静态方法.MyClass;
-import 示例.Student;
 
 /**
  * @规则： import 包名称.类名称；例如：import 类.JavaBean.TestJavaBean;

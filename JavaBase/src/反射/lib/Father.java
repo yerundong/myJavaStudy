@@ -1,6 +1,6 @@
 package 反射.lib;
 
-import 示例.Pet;
+import lib.Pet;
 
 public class Father<T> {
     public String name;

@@ -1,7 +1,7 @@
 package StreamAPI;
 
+import lib.Person;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
 
 import java.util.Arrays;
 import java.util.HashSet;

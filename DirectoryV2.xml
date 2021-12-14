@@ -6,4 +6,13 @@
     <tree path="/JavaBase/src/IO流/commonIO/对象流/SerClass.java" title="可序列化类" extension="java"/>
     <tree path="/JavaBase/src/类和对象/对象的序列化/lib/SerClass_Serializable.java" title="Serializable方式" extension="java"/>
     <tree path="/JavaBase/src/类和对象/对象的序列化/lib/SerClass_Externalizable.java" title="Externalizable方式" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/静态代理/ProxyClothFactory.java" title="代理类" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/静态代理/NikeFactory.java" title="被代理类" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/静态代理/ClothFactory.java" title="方法工厂" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/ClothFactory.java" title="方法工厂" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/NikeFactory.java" title="被代理类" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/ProxyFactory.java" title="代理类" extension="java"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/proxy" title="代理类"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/proxied" title="被代理类"/>
+    <tree path="/JavaBase/src/反射/代理/动态代理/interfaces" title="方法接口"/>
 </trees>

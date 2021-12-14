@@ -1,6 +1,6 @@
 package 变量与常量;
 
-import common.Util;
+import lib.Util;
 
 public class 常量 {
     public static void main(String[] args) {

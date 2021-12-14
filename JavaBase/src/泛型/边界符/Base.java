@@ -1,7 +1,10 @@
 package 泛型.边界符;
 
+import lib.Person;
+import lib.Sola;
+import lib.Student;
+import lib.USB;
 import org.junit.jupiter.api.Test;
-import 示例.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +16,7 @@ public class Base {
      * 限定为目标类及其子类，T型和通配型均可用
      */
     @Test
-    public void test1(){
+    public void test1() {
         // look(new Person());//编译报错，超出边界
         look(new Student());
         look(new Sola());
@@ -24,7 +27,7 @@ public class Base {
      * 限定为目标类及其父类，仅通配型可用
      */
     @Test
-    public void test2(){
+    public void test2() {
         see(new ArrayList<Student>());
         see(new ArrayList<Person>());
         // see(new ArrayList<Sola>());//编译报错，超出边界
@@ -35,7 +38,8 @@ public class Base {
 
     // 只有通配符?才能使用super
     // public <T super Student> void see(T t) {}
-    public void see(List<? super Student> t) {}
+    public void see(List<? super Student> t) {
+    }
 
     /**
      * @& 多重界符（<=）
@@ -44,7 +48,7 @@ public class Base {
      * 仅T型可用
      */
     @Test
-    public void test3(){
+    public void test3() {
         // slip(new ArrayList<Person>());//编译报错，必须是是 Student 和 USB 的共同子类
         // see(new ArrayList<Sola>());//编译报错，必须是是 Student 和 USB 的共同子类
     }

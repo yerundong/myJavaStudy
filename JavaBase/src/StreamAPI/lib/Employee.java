@@ -1,6 +1,6 @@
 package StreamAPI.lib;
 
-import 示例.Person;
+import lib.Person;
 
 import java.util.ArrayList;
 import java.util.List;

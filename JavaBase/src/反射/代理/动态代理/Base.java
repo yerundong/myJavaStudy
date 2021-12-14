@@ -1,20 +1,13 @@
 package 反射.代理.动态代理;
 
 import org.junit.jupiter.api.Test;
+import 反射.代理.动态代理.interfaces.ClothFactory;
+import 反射.代理.动态代理.interfaces.PhoneFactory;
+import 反射.代理.动态代理.proxied.MiFactory;
+import 反射.代理.动态代理.proxied.NikeFactory;
+import 反射.代理.动态代理.proxy.ProxyFactory;
 
 /*
-动态代理是指客户通过代理类来调用其它对象的方法，并且是在程序运行时根据需要动态创建目标类的代理对象。
-
-@动态代理使用场合:
-    1.调试
-    2.远程方法调用
-
-@动态代理相比于静态代理的优点：
-    抽象角色中（接口）声明的所有方法都被转移到调用处理器一个集中的方法中处理，这样，我们可以更加灵活和统一的处理众多的方法
-
-@要想实现动态代理，需要解决的问题：
- 问题一：如何根据加载到内存中的被代理类，动态的创建一个代理类及其对象。
- 问题二：当通过代理类的对象调用方法a时，如何动态的去调用被代理类中的同名方法a。
 
 @AOP代理:
     使用Proxy生成一个动态代理时，往往并不会凭空产生一个动态代理，这样没有太大的意义。通常都是为指定的目标对象生成动态代理
@@ -22,13 +15,17 @@ import org.junit.jupiter.api.Test;
     AOP代理里的方法可以在执行目标方法之前、之后插入一些通用处理。
  */
 public class Base {
-    /**
-     * @测试动态代理
-     */
     @Test
-    public void test() {
+    public void test1() {
         NikeFactory nikeFactory = new NikeFactory();
-        ClothFactory proxyInstance = (ClothFactory) ProxyFactory.getProxyInstance(nikeFactory);
+        ClothFactory proxyInstance = ProxyFactory.getProxyInstance(nikeFactory);
         proxyInstance.produceCloth();
+    }
+
+    @Test
+    public void test2() {
+        MiFactory miFactory = new MiFactory();
+        PhoneFactory proxyInstance = ProxyFactory.getProxyInstance(miFactory);
+        proxyInstance.producePhone();
     }
 }

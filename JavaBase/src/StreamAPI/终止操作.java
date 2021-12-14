@@ -1,8 +1,8 @@
 package StreamAPI;
 
 import StreamAPI.lib.Employee;
+import lib.Person;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
 
 import java.util.*;
 import java.util.stream.Collectors;

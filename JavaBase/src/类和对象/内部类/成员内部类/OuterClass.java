@@ -1,6 +1,6 @@
 package 类和对象.内部类.成员内部类;
 
-import 示例.Student;
+import lib.Student;
 
 public class OuterClass {
     int num = 10;
@@ -8,11 +8,12 @@ public class OuterClass {
     static int year = 2020;
 
     // 成员内部类
-    public class InnerClass{
+    public class InnerClass {
 
         int num = 20;
         int age2 = 20;
-        public void says(){
+
+        public void says() {
             System.out.println("非静态成员内部类执行了");
 
             int num = 30;
@@ -37,18 +38,18 @@ public class OuterClass {
     }
 
     // 静态内部类
-    public static class StaticInnerClass{
-        public void see(){
+    public static class StaticInnerClass {
+        public void see() {
             System.out.println("静态成员内部类执行了");
         }
     }
 
     // 成员内部类也可以做继承和实现的操作
-    public class collegeStudent extends Student{
+    public class collegeStudent extends Student {
 
     }
 
-    public void cook(){
+    public void cook() {
         // 通过成员方法访问非静态成员内部类
         new InnerClass().says();
 

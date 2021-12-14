@@ -1,6 +1,6 @@
 package 枚举类.Enum枚举类实现接口;
 
-import 示例.USB;
+import lib.USB;
 
 public enum WeekDays implements USB {
     MONDAY("星期一", 1),

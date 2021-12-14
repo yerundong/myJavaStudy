@@ -1,7 +1,7 @@
 package 方法;
 
+import lib.Student;
 import org.junit.jupiter.api.Test;
-import 示例.Student;
 
 import java.util.Arrays;
 

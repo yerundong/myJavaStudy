@@ -1,8 +1,8 @@
 package 集合框架.Collection.Set;
 
+import lib.Person;
+import lib.Tool;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
-import 示例.Tool;
 
 import java.util.Comparator;
 import java.util.TreeSet;

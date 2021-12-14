@@ -14,7 +14,7 @@ public class LazySingleton {
 
     private static LazySingleton instance;
 
-    // 性能稍差
+    // 线程安全，性能稍差
     // public static synchronized LazySingleton getInstance() {
     //     if(instance == null){
     //         instance = new LazySingleton();
@@ -22,11 +22,11 @@ public class LazySingleton {
     //     return instance;
     // }
 
-    // 双重检索
+    // 线程安全，双重检索，性能高
     public static LazySingleton getInstance() {
-        if(instance == null){
-            synchronized(LazySingleton.class){
-                if(instance == null){
+        if (instance == null) {
+            synchronized (LazySingleton.class) {
+                if (instance == null) {
                     instance = new LazySingleton();
                 }
             }

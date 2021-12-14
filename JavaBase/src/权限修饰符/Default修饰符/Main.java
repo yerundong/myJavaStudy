@@ -1,6 +1,6 @@
 package 权限修饰符.Default修饰符;
 
-import 示例.Student;
+import lib.Student;
 
 public class Main {
     public static void main(String[] args) {

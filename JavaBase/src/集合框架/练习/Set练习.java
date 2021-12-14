@@ -1,13 +1,13 @@
 package 集合框架.练习;
 
+import lib.Person;
 import org.junit.jupiter.api.Test;
-import 示例.Person;
 
 import java.util.HashSet;
 
 public class Set练习 {
     @Test
-    public void main(){
+    public void main() {
         Person p1 = new Person("AA", 25);
         Person p2 = new Person("BB", 25);
         HashSet hashSet = new HashSet();

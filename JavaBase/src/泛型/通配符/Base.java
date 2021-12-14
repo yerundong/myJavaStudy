@@ -1,9 +1,9 @@
 package 泛型.通配符;
 
+import lib.Person;
+import lib.Student;
 import org.junit.jupiter.api.Test;
 import 泛型.泛型类.GenericClass;
-import 示例.Person;
-import 示例.Student;
 
 import java.util.ArrayList;
 import java.util.List;
