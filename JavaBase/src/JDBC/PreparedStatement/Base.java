@@ -15,7 +15,7 @@ public class Base {
         try {
             // 1.取配置
             Properties properties = new Properties();
-            FileReader fileReader = new FileReader("jdbc.properties");
+            FileReader fileReader = new FileReader("JavaBase/src/JDBC/lib/jdbc.properties");
             properties.load(fileReader);
             String user = properties.getProperty("user");
             String password = properties.getProperty("password");

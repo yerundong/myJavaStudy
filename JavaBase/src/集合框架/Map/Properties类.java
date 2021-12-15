@@ -16,7 +16,7 @@ public class Properties类 {
     @Test
     public void test() throws IOException {
         Properties properties = new Properties();
-        FileReader fileReader = new FileReader("jdbc.properties");
+        FileReader fileReader = new FileReader("JavaBase/src/JDBC/lib/jdbc.properties");
         properties.load(fileReader);
         String userName = properties.getProperty("user");
         String password = properties.getProperty("password");

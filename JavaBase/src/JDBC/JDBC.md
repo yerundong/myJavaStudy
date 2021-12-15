@@ -70,11 +70,11 @@
 
 #### 2.1.1 Driver接口介绍
 
-- java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口。这个接口是提供给数据库厂商使用的，不同数据库厂商提供不同的实现。
+==java.sql.Driver 接口是所有的 JDBC 驱动程序需要实现的接口，驱动程序提供了java.sql.Driver 接口的实现类==。这个接口是提供给数据库厂商使用的，不同数据库厂商提供不同的实现。
 
-- 在程序中不需要直接去访问实现了 Driver 接口的类，而是由驱动程序管理器类(java.sql.DriverManager)去调用这些Driver实现。
-  - Oracle的驱动：**oracle.jdbc.driver.OracleDriver**
-  - mySql的驱动： **com.mysql.jdbc.Driver**
+在程序中==不需要直接==去访问 Driver 接口的实现类，而是由==驱动程序管理器类(java.sql.DriverManager)==去调用这些Driver实现。
+- Oracle的驱动：**oracle.jdbc.driver.OracleDriver**
+- mySql的驱动： **com.mysql.jdbc.Driver**（[下载地址](https://mvnrepository.com/artifact/mysql/mysql-connector-java)）
 
 ![1555576157618](jdbc-images/1555576157618.png)
 
@@ -94,15 +94,16 @@
 
 #### 2.1.2 加载与注册JDBC驱动
 
-- 加载驱动：加载 JDBC 驱动需调用 Class 类的静态方法 forName()，向其传递要加载的 JDBC 驱动的类名
+- **加载驱动：**加载 JDBC 驱动需调用 Class 类的静态方法 forName()，向其传递要加载的 JDBC 驱动的类名
 
   - **Class.forName(“com.mysql.jdbc.Driver”);**
 
-- 注册驱动：DriverManager 类是驱动程序管理器类，负责管理驱动程序
+- **注册驱动：**DriverManager 类是驱动程序管理器类，负责管理驱动程序
+  
   - **使用DriverManager.registerDriver(com.mysql.jdbc.Driver)来注册驱动**
-
+  
   - 通常不用显式调用 DriverManager 类的 registerDriver() 方法来注册驱动程序类的实例，因为 Driver 接口的驱动程序类**都**包含了静态代码块，在这个静态代码块中，会调用 DriverManager.registerDriver() 方法来注册自身的一个实例。下图是MySQL的Driver实现类的源码：
-
+  
     ![1566136831283](jdbc-images/1566136831283.png)
 
 ### 2.2 要素二：URL
@@ -113,7 +114,7 @@
   - **jdbc:子协议:子名称**
   - **协议**：JDBC URL中的协议总是jdbc 
   - **子协议**：子协议用于标识一个数据库驱动程序
-  - **子名称**：一种标识数据库的方法。子名称可以依不同的子协议而变化，用子名称的目的是为了**定位数据库**提供足够的信息。包含**主机名**(对应服务端的ip地址)**，端口号，数据库名**
+  - **子名称**：一种标识数据库的方法。子名称可以依不同的子协议而变化，用子名称的目的是为了==定位数据库==提供足够的信息。包含==**主机名**(对应服务端的ip地址)，**端口号，数据库名**==。
 
 - 举例：
 
@@ -277,7 +278,7 @@
     }
 ```
 
-> 说明：不必显式的注册驱动了。因为在DriverManager的源码中已经存在静态代码块，实现了驱动的注册。
+> **说明：**不必显式的注册驱动了。因为在DriverManager的源码中已经存在==静态代码块==，加载的时候已实现了驱动的注册。
 
 #### 2.4.5 连接方式五(最终版)
 
