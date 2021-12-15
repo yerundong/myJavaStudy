@@ -8,10 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @Arrays： Arrays是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作。
- * @关键点： 拷贝（一层）、排序、查找、替换、判断相等、格式化成字符串
- */
 public class Base {
     /**
      * @Description toString

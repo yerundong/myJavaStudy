@@ -4,23 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-/**
- @System类： 代表程序所在系统，提供了对应的一些系统属性信息和系统操作。 它不能被实例化。
-
- @注：
-    1.System无法实例化，都是静态方法和变量，是一个系统相关的工具类
-    2.静态变量有：in\out\err：
-        in：标准输入流（键盘输入）
-        out：标准输出流（显示器）
-        err：标准错误输出流（显示器）
-
-*/
 public class Base {
     /**
      * @Description 获取系统当前毫秒值
      */
     @Test
-    public void currentTimeMillis(){
+    public void currentTimeMillis() {
         // <SM> public static native long currentTimeMillis()
         // <返> 返回绝对值获取系统当前毫秒值，可用来测试程序运行时间
         //      返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间（格林威治时间）1970 年 1 月 1 号 0 时 0 分 0 秒所差的毫秒数。
@@ -40,7 +29,7 @@ public class Base {
      * @Description 获取系统当前纳秒值
      */
     @Test
-    public void nanoTime(){
+    public void nanoTime() {
         // <SM> public static native long nanoTime();
         // <返> 返回最准确的可用系统计时器的当前值，以纳秒为单位。
         System.out.println(System.nanoTime());// 872517608865700
@@ -50,12 +39,12 @@ public class Base {
      * @Description 获取系统当前纳秒值
      */
     @Test
-    public void exit(){
+    public void exit() {
         // <SM> public static void exit(int status)
         // <注> 终止当前运行的Java虚拟机，结束正在运行的Java程序
         //     参数传入一个数字即可。通常传入0记为正常状态，其它为异常状态。
         for (int i = 0; ; i++) {
-            if (i>10) System.exit(0);
+            if (i > 10) System.exit(0);
             System.out.println(i);
         }
     }
@@ -64,7 +53,7 @@ public class Base {
      * @Description 垃圾回收方法
      */
     @Test
-    public void gc(){
+    public void gc() {
         // <SM> public static void gc()
         // <注> 运行垃圾回收器。
         System.gc();
@@ -74,7 +63,7 @@ public class Base {
      * @Description 获取当前的系统属性
      */
     @Test
-    public void getProperty_getProperties(){
+    public void getProperty_getProperties() {
         // <SM> public static String getProperty(String key)
         // <返> 获取当前的系统特定属性。
         // <注> 全部key值对应表请查阅api
@@ -89,11 +78,12 @@ public class Base {
         System.out.println(System.getProperty("os.arch", "abc"));// Oracle Corporation
         System.out.println(System.getProperties());
     }
+
     /**
      * @Description 获取当前的系统属性
      */
     @Test
-    public void arraycopy(){
+    public void arraycopy() {
         // <SM> public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length)
         // <改> 用来实现将材料数组部分元素复制替换到目标数组的指定位置，修改目标数组，材料数组不变
         // <参>

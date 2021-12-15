@@ -2,10 +2,6 @@ package 常用类.Math;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * @Math: java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，完成与数学运算相关的操作。
- * @注： Math类操作的是数字类型数据，包括int\long\float\double
- */
 public class Base {
     /**
      * @绝对值

@@ -1,15 +1,14 @@
-package 常用类.Object.Objects工具类;
+package 常用类.Objects;
 
 import lib.Student;
+import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
-/**
- * Objects.equals() 与 equals区别在于可以容忍空指针异常（null），判断基本类型时不用包装类，其他一致
- */
-
-public class Equals {
-    public static void main(String[] args) {
+public class Base {
+    @Test
+    public void equals() {
+        // <SM> public static boolean equals(Object a, Object b)
         Student stu1 = new Student("张三");
         Student stu2 = new Student("张三");
         char[] arr1 = {'a'};
@@ -32,5 +31,10 @@ public class Equals {
         System.out.println(Objects.equals(str1, str2));// true
         System.out.println(Objects.equals(str3, str4));// true
         System.out.println(Objects.equals(str2, str3));// true
+    }
+
+    @Test
+    public void deepEquals() {
+        // <SM> public static boolean deepEquals(Object a, Object b)
     }
 }

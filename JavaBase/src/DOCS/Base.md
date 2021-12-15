@@ -1069,281 +1069,13 @@ Java9改进了字符串（包括String、StringBuffer、StringBuilder）的实�
 
 ## 2 实例方法
 
-由于String的不可变性，String的所有方法都不会改变原字符串。
+由于String的不可变性，String的所有方法都==不会改变原字符串==。
 
-String实现了CharSequence接口，CharSequence是char值的可读序列。
+String实现了CharSequence接口，CharSequence是char值的可读序列。CharSequence已知实现类：CharBuffer ，Segment ，String ，StringBuffer ，StringBuilder。
 
-CharSequence已知实现类：CharBuffer ，Segment ，String ，StringBuffer ，StringBuilder。
 
 
-
-### length()
-
-```java
-public int length()
-```
-
-- <返回> 返回字符串长度
-- <底层实现> byte[]数组的长度：value.length
-
-
-
-### concat()
-
-```java
-public String concat(String str)
-```
-
-- <返回> 拼接，等价于+，创建一个新的 String 对象并返回
-
-
-
-### charAt()
-
-```java
-public char charAt(int index)
-```
-
-- <返回> 返回指定索引处的 char 值
-
-
-
-### indexOf()
-
-```java
-public int indexOf(String str/char char)
-```
-
-- <返回> 返回指定字符（串）在此字符串中第一次出现处的索引,未找到返回-1
-
-
-
-```java
-public int indexOf(String str/char char, int fromIndex)
-```
-
-- <返回> 返回指定字符（串）在此字符串中第一次出现处的索引,从指定的索引 fromIndex (包含)开始,未找到返回-1
-
-
-
-### lastIndexOf()
-
-```java
-public int lastIndexOf(String str/int ch)
-```
-
-- <返回> 返回最后一次出现目标字符串 str 或目标字符 ch 的索引位置，未找到返回-1
-
-
-
-```java
-public int lastIndexOf(String str/int ch, int fromIndex)
-```
-
-- <返回> 索引0 - fromIndex之间寻找，返回最后一次出现目标字符串 str 或目标字符 ch 的索引位置，未找到返回-1
-- <注> int ch是字符对应的Unicode值，传入char会自动转型
-
-
-
-### contains()
-
-```java
-public boolean contains(CharSequence s)
-```
-
-- <返回> 判断字符串是否包含 s
-
-- <底层实现> return indexOf(s.toString()) >= 0;
-
-
-
-### substring()
-
-```java
-public String substring(int beginIndex)
-```
-
-- <返回> 剪切，从指定索引 beginIndex (包含)的字符开始，直到此字符串末尾，创建并返回剪切的字符串。
-
-
-
-```java
-public String substring(int beginIndex, int endIndex)
-```
-
-- <返回> 剪切，从指定索引 beginIndex (包含)的字符开始，直到索引 endIndex （不包含）结束，创建并返回剪切的字符串。
-- <注> 左闭右开[)，beginIndex - 起始索引（包含）,endIndex - 结束索引（不包含）。
-
-
-
-### toCharArray()
-
-```java
-public char[] toCharArray()
-```
-
-- <返回> 将此字符串转换为一个新的字符数组并返回。
-
-
-
-### getBytes()
-
-```java
-public byte[] getBytes()
-```
-
-- <返回> 编码，将此字符串转换为一个新的字节数组并返回，使用默认字符集转换。
-
-
-
-```java
-public byte[] getBytes(String charsetName)
-```
-
-- <返回> 编码，将此字符串转换为一个新的字节数组并返回，使用特定字符集转换。
-
-
-
-### intern()
-
-```java
-public native String intern()
-```
-
-- <返回> 判断该字符串实例引用是否在常量池中，若在，返回引用地址，若不在，将引用地址加入常量池，并返回。该方法一定不会创建新的实例。
-
-
-
-### isEmpty()
-
-```java
-public boolean isEmpty()
-```
-
-- <返回> length()为0时返回true,其他返回false
-
-
-
-### toLowerCase()
-
-```java
-public String toLowerCase()
-```
-
-- <返回> 转换成小写，创建并返回新的字符串。
-
-
-
-### toUpperCase()
-
-```java
-public String toUpperCase()
-```
-
-- <返回> 转换成大写，创建并返回新的字符串。
-
-
-
-### trim()
-
-```java
-public String trim()
-```
-
-- <返回> 去除首位空格,创建并返回新的字符串。
-- <应用> 用户输入账号密码可用到
-
-
-
-### compareTo()
-
-```java
-public int compareTo(String anotherString)
-```
-
-- <返回> 按字典顺序比较两个字符串。 比较是基于字符串中每个字符的Unicode值。 由该String对象表示的字符序列按字典顺序与由参数字符串表示的字符序列进行比较。
-- <应用> 用于字符串排序比较
-
-
-
-### endsWith()
-
-```java
-public boolean endsWith(String suffix)
-```
-
-- <返回> 判断字符串是否以 suffix 结尾
-
-
-
-### startsWith()
-
-```java
-public boolean startsWith(String prefix)
-```
-
-- <返回> 判断字符串是否以 prefix 开头
-
-
-
-```java
-public boolean startsWith(String prefix, int toffset)
-```
-
-- <返回> 判断字符串从 toffset （包含）索引开始，是否以 prefix开头
-
-
-
-### replace()
-
-```java
-public String replace(CharSequence target, CharSequence replacement)
-```
-
-- <返回> 替换，匹配所有 target 字符串，替换成 replacement 字符串，创建并返回新的字符串。
-
-
-
-```java
-public String replace(char oldChar, char newChar)
-```
-
-- <返回> 
-
-
-
-### replaceAll()
-
-```java
-public String replaceAll(String regex, String replacement)
-```
-
-- <返回> 替换，匹配所有 regex 字符串，替换成 replacement 字符串，创建并返回新的字符串。
-- <注> regex 字符串表示正则表达式的字符串
-
-
-
-### matches()
-
-```java
-public boolean matches(String regex)
-```
-
-- <返回> 匹配，匹配字符串是否符合正则表达式的规则
-- <注> regex 字符串表示正则表达式的字符串
-
-
-
-### split()
-
-```java
-public String[] split(String regex)
-public String[] split(String regex, int limit)
-```
-
-- <参数> regex 分割标识符，limit 切割个数阈值
-- <返回> 分割，从左往右切割，直到达到阈值为止，创建并返回的字符串数组。
-- <注> regex 字符串表示正则表达式的字符串
+**具体用法：**详见代码示例。
 
 
 
@@ -1399,6 +1131,189 @@ StringBuffer是JDK1.0开始存在，StringBuilder是JDK1.5才新增的。
 
 - ==：比较地址。常量池字符串值一样，地址就一致，可以用\==间接比较字符串值。不推荐使用。
 - Objects.equals：比较字符串值，可以容忍空指针异常
+
+
+
+# 常用类
+
+## 1 Object
+
+### 1.1 equals方法
+
+equals是Object中的成员方法，而Object是所有类的父类，所有类都继承了该方法，基本类型需要包装类才能使用。
+
+
+
+**源码：**
+
+```java
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+```
+
+
+
+**判断机制：** 除==所有基本类型==和==部分重写了equals的引用类型==外，其他引用类型没有重写equals，他们equals的方法继承自Object，判断机制与 == 一样，判断两个类是否地址一样。
+
+
+
+**重写了equals的类：** 包装类（Byte，Integer...）、String、Date、File、BigInteger、BigDecimal...
+**未重写了equals的类：** 数组...
+
+
+
+**特性：**
+
+1. 对称性：如果x.equals(y)返回是“true”，那么y.equals(x)也应该返回是“true”。
+1. 自反性：x.equals(x)必须返回是“true”。
+1. 传递性：如果x.equals(y)返回是“true”，而且y.equals(z)返回是“true”，那么z.equals(x)也应该返回是“true”。
+1. 一致性：如果x.equals(y)返回是“true”，只要x和y内容一直不变，不管你重复x.equals(y)多少次，返回都是“true”。
+
+
+
+**注意事项：**
+
+1. 只能引用类型数据调用，基本类型数据需要使用==包装类==才能调用
+2. x.equals(null)，永远返回是“false”，x.equals(和x不同类型的对象)永远返回是“false
+3. null.equals()会报空指针异常，所以调用之前需要判断一下非null
+4. 推荐把==常量==或==确定非null的对象==用来放在前面：推荐："abc".equals(str)    不推荐：str.equals("abc")
+
+
+
+**重写equals方法：**详见代码示例。
+
+
+
+### 1.2 toString
+
+返回该对象的字符串表示。通常，toString 方法会返回一个“以文本方式表示”此对象的字符串。结果应是一个简明但易于读懂的信息表达式。
+
+建议所有Object子类都重写此方法。
+
+
+
+**源码：**
+
+```java
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+```
+
+
+
+**重写了toString的类：** 包装类（Byte，Integer...）、String、Date、File、BigInteger、BigDecimal...
+
+**未重写了toString的类：** 数组...
+
+
+
+**重写toString方法：**详见代码示例。
+
+
+
+## 2 Objects
+
+jdk1.7后，Java在java.util包中有一个工具类Objects，用于处理对象。
+
+它由所有静态方法组成。 
+
+Objects类中的大多数方法都会优雅地==处理空值==。
+
+判断基本类型时不用包装类。
+
+
+
+**具体使用：**详见代码示例。
+
+
+
+## 3 Arrays
+
+Arrays是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作。
+
+
+
+**具体使用：**详见代码示例。
+
+
+
+## 4 System
+
+System类代表程序所在系统，提供了对应的一些系统属性信息和系统操作。 
+
+它不能被实例化。
+
+
+
+**注意：**
+
+1. System无法实例化，都是静态方法和变量，是一个系统相关的工具类
+2. 静态变量有：
+   - in：标准输入流（键盘输入）
+   - out：标准输出流（显示器）
+   - err：标准错误输出流（显示器）
+
+
+
+**具体使用：**详见代码示例。
+
+
+
+## 5 Math
+
+java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，完成与数学运算相关的操作。
+
+Math类操作的是数字类型数据，包括int\long\float\double
+
+
+
+**具体使用：**详见代码示例。
+
+
+
+## 6 BigInteger和BigDecimal
+
+### 6.1 BigInteger
+
+Integer能存储的最大整型值为 2^31^-1，Long类也是有限的，最大为2^63^-1。如果要表示再大的整数，他们都无能为力，更不用说进行运算了。
+
+java.math包的BigInteger可以表示==不可变的任意精度的整数==。BigInteger提供所有Java的基本整数操作符的对应物，并提供 java.lang.Math 的所有相关方法。
+
+另外， BigInteger 还提供以下运算：模算术、 GCD 计算、质数测试、素数生成、位操作以及一些其他操作。
+
+
+
+**注意：**
+
+1. 不可变性：BigInteger的操作方法不会改变主对象
+2. BigInteger重写了toString方法
+2. BigInteger不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法
+
+
+
+**具体使用：**详见代码示例。
+
+
+
+### 6.2 BigDecimal
+
+一般的 Float 类和 Double 类可以用来做科学计算或工程计算，双精度浮点型变量double可以处理16位有效数，但在商业计算中，要求数字精度更高，故用到 java.math.BigDecimal类 。
+
+BigDecimal类支持==不可变的、任意精度的有符号十进制定点数==。
+
+
+
+**注意：**
+
+1. 不可变性：BigDecimal的操作方法不会改变主对象
+2. BigDecimal重写了toString方法
+3. BigDecimal不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法
+
+
+
+**具体使用：**详见代码示例。
 
 
 
@@ -6078,5 +5993,4 @@ Collection 是一种静态的内存数据结构，而 Stream 是有关计算的�
 
 
 # JDBC?
-
 

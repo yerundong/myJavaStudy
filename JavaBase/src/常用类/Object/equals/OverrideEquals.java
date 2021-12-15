@@ -3,10 +3,7 @@ package 常用类.Object.equals;
 import java.util.Objects;
 
 /**
- * @Description 重写引用类型的equals方法，自定义判断机制
- * @Author 叶润东
- * @Date 2020/10/23
- * @Version 1.0
+ * @Description 重写equals方法，自定义判等机制
  */
 public class OverrideEquals {
     private String name;
@@ -43,7 +40,6 @@ public class OverrideEquals {
     //     return getAge() == that.getAge() &&
     //             Objects.equals(getName(), that.getName());
     // }
-
     public OverrideEquals(String name, int age) {
         this.name = name;
         this.age = age;
