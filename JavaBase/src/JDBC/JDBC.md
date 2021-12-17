@@ -64,7 +64,7 @@
 
 > 补充：ODBC(**Open Database Connectivity**，开放式数据库连接)，是微软在Windows平台下推出的。使用者在程序中只需要调用ODBC API，由 ODBC 驱动程序将调用转换成为对特定的数据库的调用请求。
 
-## 第2章：获取数据库连接
+## 第2章：连接数据库
 
 ### 2.1 要素一：Driver接口实现类
 
@@ -102,19 +102,24 @@
   
   - **使用DriverManager.registerDriver(com.mysql.jdbc.Driver)来注册驱动**
   
-  - 通常不用显式调用 DriverManager 类的 registerDriver() 方法来注册驱动程序类的实例，因为 Driver 接口的驱动程序类**都**包含了静态代码块，在这个静态代码块中，会调用 DriverManager.registerDriver() 方法来注册自身的一个实例。下图是MySQL的Driver实现类的源码：
+    > 通常可以省略，不用显式调用 DriverManager 类的 registerDriver() 方法来注册驱动程序类的实例，因为 Driver 接口的驱动程序类都包含了==静态代码块==，在这个静态代码块中，会调用 DriverManager.registerDriver() 方法来注册自身的一个实例。
+    >
+    > 下图是MySQL的Driver实现类的源码：
   
     ![1566136831283](jdbc-images/1566136831283.png)
 
 ### 2.2 要素二：URL
 
-- JDBC URL 用于标识一个被注册的驱动程序，驱动程序管理器通过这个 URL 选择正确的驱动程序，从而建立到数据库的连接。
+JDBC URL 用于标识一个被注册的驱动程序，驱动程序管理器通过这个 URL 选择正确的驱动程序，从而建立到数据库的连接。
 
-- JDBC URL的标准由三部分组成，各部分间用冒号分隔。 
-  - **jdbc:子协议:子名称**
-  - **协议**：JDBC URL中的协议总是jdbc 
-  - **子协议**：子协议用于标识一个数据库驱动程序
-  - **子名称**：一种标识数据库的方法。子名称可以依不同的子协议而变化，用子名称的目的是为了==定位数据库==提供足够的信息。包含==**主机名**(对应服务端的ip地址)，**端口号，数据库名**==。
+
+
+JDBC URL的标准由三部分组成，各部分间用冒号分隔。 
+
+- **jdbc:子协议:子名称**
+- **协议**：JDBC URL中的协议总是jdbc 
+- **子协议**：子协议用于标识一个数据库驱动程序
+- **子名称**：一种标识数据库的方法。子名称可以依不同的子协议而变化，用子名称的目的是为了==定位数据库==提供足够的信息。包含==**主机名**(对应服务端的ip地址)，**端口号，数据库名**==。
 
 - 举例：
 
@@ -137,363 +142,103 @@
   - SQLServer的连接URL编写方式：
 
     - jdbc:sqlserver://主机名称:sqlserver服务端口号:DatabaseName=数据库名称
-
     - jdbc:sqlserver://localhost:1433:DatabaseName=atguigu
+    
+    
 
 ### 2.3 要素三：用户名和密码
 
-- user,password可以用“属性名=属性值”方式告诉数据库
-- 可以调用 DriverManager 类的 getConnection() 方法建立到数据库的连接
+可以调用driver.connect，将user、password用Properties的格式（键值对）告诉数据库，
+
+也可以调用 DriverManager 类的 getConnection() 方法，用String的格式一一传入。（推荐DriverManager ）
+
+
 
 ### 2.4 数据库连接方式举例
 
-#### 2.4.1 连接方式一
-
-```java
-	@Test
-    public void testConnection1() {
-        try {
-            //1.提供java.sql.Driver接口实现类的对象
-            Driver driver = null;
-            driver = new com.mysql.jdbc.Driver();
-
-            //2.提供url，指明具体操作的数据
-            String url = "jdbc:mysql://localhost:3306/test";
-
-            //3.提供Properties的对象，指明用户名和密码
-            Properties info = new Properties();
-            info.setProperty("user", "root");
-            info.setProperty("password", "abc123");
-
-            //4.调用driver的connect()，获取连接
-            Connection conn = driver.connect(url, info);
-            System.out.println(conn);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-```
-
-> 说明：上述代码中显式出现了第三方数据库的API
-
-#### 2.4.2 连接方式二
-
-```java
-	@Test
-    public void testConnection2() {
-        try {
-            //1.实例化Driver
-            String className = "com.mysql.jdbc.Driver";
-            Class clazz = Class.forName(className);
-            Driver driver = (Driver) clazz.newInstance();
-
-            //2.提供url，指明具体操作的数据
-            String url = "jdbc:mysql://localhost:3306/test";
-
-            //3.提供Properties的对象，指明用户名和密码
-            Properties info = new Properties();
-            info.setProperty("user", "root");
-            info.setProperty("password", "abc123");
-
-            //4.调用driver的connect()，获取连接
-            Connection conn = driver.connect(url, info);
-            System.out.println(conn);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-```
-
-> 说明：相较于方式一，这里使用反射实例化Driver，不在代码中体现第三方数据库的API。体现了面向接口编程思想。
-
-#### 2.4.3 连接方式三
-
-```java
-	@Test
-    public void testConnection3() {
-        try {
-            //1.数据库连接的4个基本要素：
-            String url = "jdbc:mysql://localhost:3306/test";
-            String user = "root";
-            String password = "abc123";
-            String driverName = "com.mysql.jdbc.Driver";
-
-            //2.实例化Driver
-            Class clazz = Class.forName(driverName);
-            Driver driver = (Driver) clazz.newInstance();
-            //3.注册驱动
-            DriverManager.registerDriver(driver);
-            //4.获取连接
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println(conn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-```
-
-> 说明：使用DriverManager实现数据库的连接。体会获取连接必要的4个基本要素。
-
-#### 2.4.4 连接方式四
-
-```java
-	@Test
-    public void testConnection4() {
-        try {
-            //1.数据库连接的4个基本要素：
-            String url = "jdbc:mysql://localhost:3306/test";
-            String user = "root";
-            String password = "abc123";
-            String driverName = "com.mysql.jdbc.Driver";
-
-            //2.加载驱动 （①实例化Driver ②注册驱动）
-            Class.forName(driverName);
+共5种方式对比，详见代码。
 
 
-            //Driver driver = (Driver) clazz.newInstance();
-            //3.注册驱动
-            //DriverManager.registerDriver(driver);
-            /*
-            可以注释掉上述代码的原因，是因为在mysql的Driver类中声明有：
-            static {
-                try {
-                    DriverManager.registerDriver(new Driver());
-                } catch (SQLException var1) {
-                    throw new RuntimeException("Can't register driver!");
-                }
-            }
 
-             */
-
-
-            //3.获取连接
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println(conn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-```
-
-> **说明：**不必显式的注册驱动了。因为在DriverManager的源码中已经存在==静态代码块==，加载的时候已实现了驱动的注册。
-
-#### 2.4.5 连接方式五(最终版)
-
-```java
-	@Test
-    public  void testConnection5() throws Exception {
-    	//1.加载配置文件
-        InputStream is = ConnectionTest.class.getClassLoader().getResourceAsStream("jdbc.properties");
-        Properties pros = new Properties();
-        pros.load(is);
-        
-        //2.读取配置信息
-        String user = pros.getProperty("user");
-        String password = pros.getProperty("password");
-        String url = pros.getProperty("url");
-        String driverClass = pros.getProperty("driverClass");
-
-        //3.加载驱动
-        Class.forName(driverClass);
-
-        //4.获取连接
-        Connection conn = DriverManager.getConnection(url,user,password);
-        System.out.println(conn);
-
-    }
-```
-
-其中，配置文件声明在工程的src目录下：【jdbc.properties】
-
-```properties
-user=root
-password=abc123
-url=jdbc:mysql://localhost:3306/test
-driverClass=com.mysql.jdbc.Driver
-```
-
-> 说明：使用配置文件的方式保存配置信息，在代码中加载配置文件
->
-> **使用配置文件的好处：**
->
-> ①实现了代码和数据的分离，如果需要修改配置信息，直接在配置文件中修改，不需要深入代码
-> ②如果修改了配置信息，省去重新编译的过程。
-
-## 第3章：使用PreparedStatement实现CRUD操作
+## 第3章：操作数据库，实现CRUD
 
 ### 3.1 操作和访问数据库
 
-- 数据库连接被用于向数据库服务器发送命令和 SQL 语句，并接受数据库服务器返回的结果。其实一个数据库连接就是一个Socket连接。
+数据库连接被用于向数据库服务器发送==命令==和 ==SQL 语句==，并接受数据库服务器返回的==结果==。
 
-- 在 java.sql 包中有 3 个接口分别定义了对数据库的调用的不同方式：
-  - Statement：用于执行静态 SQL 语句并返回它所生成结果的对象。 
-  - PrepatedStatement：SQL 语句被预编译并存储在此对象中，可以使用此对象多次高效地执行该语句。
-  - CallableStatement：用于执行 SQL 存储过程
+其实一个数据库连接就是一个==Socket连接==。
 
-  ![1566573842140](jdbc-images/1566573842140.png)
 
-### 3.2 使用Statement操作数据表的弊端
 
-- 通过调用 Connection 对象的 createStatement() 方法创建该对象。该对象用于执行静态的 SQL 语句，并且返回执行结果。
+**在 java.sql 包中有 3 个接口分别定义了对数据库的调用的不同方式：**
 
-- Statement 接口中定义了下列方法用于执行 SQL 语句：
+- Statement：用于执行静态 SQL 语句并返回它所生成结果的对象。 
+- PrepatedStatement：SQL 语句被预编译并存储在此对象中，可以使用此对象多次高效地执行该语句。
+- CallableStatement：用于执行 SQL 存储过程（学框架的时候再了解）
 
-  ```sql
-  int excuteUpdate(String sql)：执行更新操作INSERT、UPDATE、DELETE
-  ResultSet executeQuery(String sql)：执行查询操作SELECT
-  ```
+![1566573842140](jdbc-images/1566573842140.png)
 
-- 但是使用Statement操作数据表存在弊端：
 
-  - **问题一：存在拼串操作，繁琐**
-  - **问题二：存在SQL注入问题**
 
-- SQL 注入是利用某些系统没有对用户输入的数据进行充分的检查，而在用户输入数据中注入非法的 SQL 语句段或命令(如：SELECT user, password FROM user_table WHERE user='a' OR 1 = ' AND password = ' OR '1' = '1') ，从而利用系统的 SQL 引擎完成恶意行为的做法。
 
-- 对于 Java 而言，要防范 SQL 注入，只要用 PreparedStatement(从Statement扩展而来) 取代 Statement 就可以了。
 
-- 代码演示：
+### 3.2 使用Statement的弊端
 
-```java
-public class StatementTest {
+通过调用 Connection 对象的 ==createStatement() 方法==创建该对象。该对象用于执行静态的 SQL 语句，并且返回执行结果。
 
-	// 使用Statement的弊端：需要拼写sql语句，并且存在SQL注入的问题
-	@Test
-	public void testLogin() {
-		Scanner scan = new Scanner(System.in);
 
-		System.out.print("用户名：");
-		String userName = scan.nextLine();
-		System.out.print("密   码：");
-		String password = scan.nextLine();
 
-		// SELECT user,password FROM user_table WHERE USER = '1' or ' AND PASSWORD = '='1' or '1' = '1';
-		String sql = "SELECT user,password FROM user_table WHERE USER = '" + userName + "' AND PASSWORD = '" + password
-				+ "'";
-		User user = get(sql, User.class);
-		if (user != null) {
-			System.out.println("登陆成功!");
-		} else {
-			System.out.println("用户名或密码错误！");
-		}
-	}
+Statement 接口中定义了下列方法用于执行 SQL 语句：
 
-	// 使用Statement实现对数据表的查询操作
-	public <T> T get(String sql, Class<T> clazz) {
-		T t = null;
-
-		Connection conn = null;
-		Statement st = null;
-		ResultSet rs = null;
-		try {
-			// 1.加载配置文件
-			InputStream is = StatementTest.class.getClassLoader().getResourceAsStream("jdbc.properties");
-			Properties pros = new Properties();
-			pros.load(is);
-
-			// 2.读取配置信息
-			String user = pros.getProperty("user");
-			String password = pros.getProperty("password");
-			String url = pros.getProperty("url");
-			String driverClass = pros.getProperty("driverClass");
-
-			// 3.加载驱动
-			Class.forName(driverClass);
-
-			// 4.获取连接
-			conn = DriverManager.getConnection(url, user, password);
-
-			st = conn.createStatement();
-
-			rs = st.executeQuery(sql);
-
-			// 获取结果集的元数据
-			ResultSetMetaData rsmd = rs.getMetaData();
-
-			// 获取结果集的列数
-			int columnCount = rsmd.getColumnCount();
-
-			if (rs.next()) {
-
-				t = clazz.newInstance();
-
-				for (int i = 0; i < columnCount; i++) {
-					// //1. 获取列的名称
-					// String columnName = rsmd.getColumnName(i+1);
-
-					// 1. 获取列的别名
-					String columnName = rsmd.getColumnLabel(i + 1);
-
-					// 2. 根据列名获取对应数据表中的数据
-					Object columnVal = rs.getObject(columnName);
-
-					// 3. 将数据表中得到的数据，封装进对象
-					Field field = clazz.getDeclaredField(columnName);
-					field.setAccessible(true);
-					field.set(t, columnVal);
-				}
-				return t;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			// 关闭资源
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (st != null) {
-				try {
-					st.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return null;
-	}
-}
+```sql
+int excuteUpdate(String sql)：执行更新操作INSERT、UPDATE、DELETE
+ResultSet executeQuery(String sql)：执行查询操作SELECT
 ```
 
-综上：
 
-![1566569819744](jdbc-images/1566569819744.png)
+
+但是使用Statement操作数据表存在==弊端==：
+
+- **问题一：存在拼串操作，繁琐**
+- **问题二：存在SQL注入的安全问题（拼串引起的）**
+
+
+
+SQL 注入是利用某些系统==没有对用户输入的数据进行充分的检查==，而在用户输入数据中注入非法的 SQL 语句段或命令(如：SELECT user, password FROM user_table WHERE user='a' OR 1 = ' AND password = ' OR '1' = '1') ，从而利用系统的 SQL 引擎完成恶意行为的做法。
+
+对于 Java 而言，==要防范 SQL 注入，只要用 PreparedStatement(从Statement扩展而来) 取代 Statement 就可以了。==
+
+
+
+**代码演示：**查看代码示例。
+
+
 
 ### 3.3 PreparedStatement的使用
 
+![1566569819744](jdbc-images/1566569819744.png)
+
 #### 3.3.1 PreparedStatement介绍
 
-- 可以通过调用 Connection 对象的 **preparedStatement(String sql)** 方法获取 PreparedStatement 对象
+PreparedStatement 接口是 Statement 的==子接口==，它表示一条==预编译==过的 SQL 语句。
 
-- **PreparedStatement 接口是 Statement 的子接口，它表示一条预编译过的 SQL 语句**
+可以通过调用 Connection 对象的 ==preparedStatement(String sql)方法==获取 PreparedStatement 对象
 
-- PreparedStatement 对象所代表的 SQL 语句中的参数用问号(?)来表示，调用 PreparedStatement 对象的 setXxx() 方法来设置这些参数. setXxx() 方法有两个参数，第一个参数是要设置的 SQL 语句中的参数的索引(从 1 开始)，第二个是设置的 SQL 语句中的参数的值
+PreparedStatement 对象所代表的 SQL 语句中的参数用==问号(?)==来表示，调用 PreparedStatement 对象的 setXxx() 方法来设置这些参数. setXxx() 方法有两个参数，第一个参数是要设置的 SQL 语句中的参数的索引(从 1 开始)，第二个是设置的 SQL 语句中的参数的值
+
+
 
 #### 3.3.2 PreparedStatement vs Statement
 
-- 代码的可读性和可维护性。
-
-- **PreparedStatement 能最大可能提高性能：**
-  - DBServer会对**预编译**语句提供性能优化。因为预编译语句有可能被重复调用，所以<u>语句在被DBServer的编译器编译后的执行代码被缓存下来，那么下次调用时只要是相同的预编译语句就不需要编译，只要将参数直接传入编译过的语句执行代码中就会得到执行。</u>
-  - 在statement语句中,即使是相同操作但因为数据内容不一样,所以整个语句本身不能匹配,没有缓存语句的意义.事实是没有数据库会对普通语句编译后的执行代码缓存。这样<u>每执行一次都要对传入的语句编译一次。</u>
+- PreparedStatement不用拼串，提升代码的==可读性==和==可维护性==。
+- PreparedStatement 可以操作blob数据，而Statement做不到
+- **PreparedStatement 能最大可能==提高性能==：**
+  - 数据库服务器会对PreparedStatement 的**预编译**语句提供==性能优化==。因为预编译语句有可能被重复调用，所以<u>语句在被DBServer的编译器编译后的执行代码被==缓存==下来，那么==下次调用==时只要是相同的预编译语句就==不需要编译==，只要将参数直接传入编译过的语句执行代码中就会得到执行。</u>从而实现了更高效的批量操作。
+  - 而在statement语句中,即使是相同操作但因为数据内容不一样,所以整个语句本身不能匹配，没有缓存语句的意义。事实是没有数据库会对普通语句编译后的执行代码缓存。这样<u>每执行一次都要对传入的语句编译一次。</u>
   - (语法检查，语义检查，翻译成二进制命令，缓存)
+- 极大地提高了安全性，PreparedStatement 可以==防止 SQL 注入== ，原因是PreparedStatement 会==对sql语句进行预编译==。
 
-- PreparedStatement 可以防止 SQL 注入 
+
 
 #### 3.3.3 Java与SQL对应数据类型转换表
 
@@ -510,101 +255,19 @@ public class StatementTest {
 | java.sql.Time      | TIME                     |
 | java.sql.Timestamp | TIMESTAMP                |
 
+
+
 #### 3.3.4 使用PreparedStatement实现增、删、改操作
 
-```java
-	//通用的增、删、改操作（体现一：增、删、改 ； 体现二：针对于不同的表）
-	public void update(String sql,Object ... args){
-		Connection conn = null;
-		PreparedStatement ps = null;
-		try {
-			//1.获取数据库的连接
-			conn = JDBCUtils.getConnection();
-			
-			//2.获取PreparedStatement的实例 (或：预编译sql语句)
-			ps = conn.prepareStatement(sql);
-			//3.填充占位符
-			for(int i = 0;i < args.length;i++){
-				ps.setObject(i + 1, args[i]);
-			}
-			
-			//4.执行sql语句
-			ps.execute();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}finally{
-			//5.关闭资源
-			JDBCUtils.closeResource(conn, ps);
-			
-		}
-	}
-```
+详见代码。
 
 
 
 #### 3.3.5 使用PreparedStatement实现查询操作
 
-```java
-	// 通用的针对于不同表的查询:返回一个对象 (version 1.0)
-	public <T> T getInstance(Class<T> clazz, String sql, Object... args) {
+详见代码。
 
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			// 1.获取数据库连接
-			conn = JDBCUtils.getConnection();
 
-			// 2.预编译sql语句，得到PreparedStatement对象
-			ps = conn.prepareStatement(sql);
-
-			// 3.填充占位符
-			for (int i = 0; i < args.length; i++) {
-				ps.setObject(i + 1, args[i]);
-			}
-
-			// 4.执行executeQuery(),得到结果集：ResultSet
-			rs = ps.executeQuery();
-
-			// 5.得到结果集的元数据：ResultSetMetaData
-			ResultSetMetaData rsmd = rs.getMetaData();
-
-			// 6.1通过ResultSetMetaData得到columnCount,columnLabel；通过ResultSet得到列值
-			int columnCount = rsmd.getColumnCount();
-			if (rs.next()) {
-				T t = clazz.newInstance();
-				for (int i = 0; i < columnCount; i++) {// 遍历每一个列
-
-					// 获取列值
-					Object columnVal = rs.getObject(i + 1);
-					// 获取列的别名:列的别名，使用类的属性名充当
-					String columnLabel = rsmd.getColumnLabel(i + 1);
-					// 6.2使用反射，给对象的相应属性赋值
-					Field field = clazz.getDeclaredField(columnLabel);
-					field.setAccessible(true);
-					field.set(t, columnVal);
-
-				}
-
-				return t;
-
-			}
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		} finally {
-			// 7.关闭资源
-			JDBCUtils.closeResource(conn, ps, rs);
-		}
-
-		return null;
-
-	}
-```
-
-> 说明：使用PreparedStatement实现的查询操作可以替换Statement实现的查询操作，解决Statement拼串和SQL注入问题。
->
 
 ### 3.4 ResultSet与ResultSetMetaData
 
@@ -619,7 +282,7 @@ public class StatementTest {
 - 当指针指向一行时, 可以通过调用 getXxx(int index) 或 getXxx(int columnName) 获取每一列的值。
 
   - 例如: getInt(1), getString("name")
-  - **注意：Java与数据库交互涉及到的相关Java API中的索引都从1开始。**
+  - ==注意：Java与数据库交互涉及到的相关Java API中的索引都从1开始。==
 
 - ResultSet 接口的常用方法：
   - boolean next()
@@ -658,10 +321,12 @@ public class StatementTest {
 
 ![1555579816884](jdbc-images/1555579816884.png)
 
+
+
 ### 3.5 资源的释放
 
 - 释放ResultSet, Statement,Connection。
-- 数据库连接（Connection）是非常稀有的资源，用完后必须马上释放，如果Connection不能及时正确的关闭将导致系统宕机。Connection的使用原则是**尽量晚创建，尽量早的释放。**
+- ==数据库连接（Connection）是非常稀有的资源，用完后必须马上释放==，如果Connection不能及时正确的关闭将导致系统宕机。Connection的使用原则是==尽量晚创建，尽量早的释放。==
 - 可以在finally中关闭，保证及时其他代码出现异常，资源也一定能被关闭。
 
 
@@ -671,18 +336,20 @@ public class StatementTest {
 - 两种思想
   - 面向接口编程的思想
 
-  - ORM思想(object relational mapping)
+  - ==ORM思想==(object relational mapping)
     - 一个数据表对应一个java类
     - 表中的一条记录对应java类的一个对象
     - 表中的一个字段对应java类的一个属性
 
-  > sql是需要结合列名和表的属性名来写。注意起别名。
+  > sql是需要结合列名和表的属性名来写。==注意起别名==。
 
+  
+  
 - 两种技术
   - JDBC结果集的元数据：ResultSetMetaData
     - 获取列数：getColumnCount()
     - 获取列的别名：getColumnLabel()
-  - 通过反射，创建指定类的对象，获取指定的属性并赋值
+  - 通过==反射==，创建指定类的对象，获取指定的属性并赋值
 
 
 

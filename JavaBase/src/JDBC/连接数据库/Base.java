@@ -12,7 +12,8 @@ import java.util.Properties;
 
 public class Base {
     /**
-     * @方式一
+     * @ 方式一
+     * 缺点：出现了第三方数据库的API：com.mysql.jdbc.Driver
      */
     @Test
     public void connect1() {
@@ -37,7 +38,8 @@ public class Base {
     }
 
     /**
-     * @方式二：使用反射
+     * @ 方式二：使用反射
+     * 体现了面向接口编程思想
      */
     @Test
     public void connect2() {
@@ -64,7 +66,8 @@ public class Base {
     }
 
     /**
-     * @方式三：反射+DriverManager
+     * @ 方式三：反射+DriverManager
+     * 使用DriverManager实现数据库的连接
      */
     @Test
     public void connect3() {
@@ -93,7 +96,8 @@ public class Base {
     }
 
     /**
-     * @方式四：反射+DriverManager（省略注册）
+     * @ 方式四：反射+DriverManager（省略注册）
+     * 不必显式的注册驱动了。因为在DriverManager的源码中已经存在静态代码块中，加载的时候已实现了驱动的注册。
      */
     @Test
     public void connect4() {
@@ -117,7 +121,10 @@ public class Base {
     }
 
     /**
-     * @方式五：反射+DriverManager+配置文件（最终版）
+     * @ 方式五：反射+DriverManager+配置文件（最终版）
+     * 使用配置文件的好处：
+     * ①实现了代码和数据的分离，如果需要修改配置信息，直接在配置文件中修改，不需要深入代码
+     * ②如果只修改了配置信息，可以省去重新编译的过程。
      */
     @Test
     public void connect5() {

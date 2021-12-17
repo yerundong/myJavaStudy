@@ -8,7 +8,7 @@ import 反射.lib.myAnno;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 
-public class 获取运行时类的相关信息 {
+public class 获取运行时类的相关信息及设置 {
     /**
      * @获取运行时类的构造器(所有)
      */

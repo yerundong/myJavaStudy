@@ -211,7 +211,7 @@ public class LocalXxx {
     }
 
     /**
-     * @获取秒数
+     * @获取秒数时间戳
      */
     @Test
     public void toEpochSecond() {
@@ -222,7 +222,7 @@ public class LocalXxx {
     }
 
     /**
-     * @获取毫秒数\时间戳
+     * @获取毫秒数时间戳
      */
     @Test
     public void toEpochMilli() {

@@ -1,4 +1,4 @@
-package 网络编程.通讯协议.基于Socket的TCP编程;
+package 网络编程.Socket编程.基于Socket的TCP编程;
 
 import org.junit.jupiter.api.Test;
 

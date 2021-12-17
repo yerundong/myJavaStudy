@@ -23,30 +23,6 @@ public class Instant类 {
     }
 
     /**
-     * @秒数时间戳转Instant
-     */
-    @Test
-    public void ofEpochSecond() {
-        // <SM> public static Instant ofEpochSecond(long epochSecond)
-        // <返> 秒数时间戳转Instant
-        Instant instant = Instant.ofEpochSecond(1607503461);
-        System.out.println(instant);// 2020-12-09T08:44:21Z
-
-    }
-
-    /**
-     * @毫秒数时间戳转Instant
-     */
-    @Test
-    public void ofEpochMilli() {
-        // <SM> public static Instant ofEpochSecond(long epochSecond)
-        // <返> 毫秒数时间戳转Instant
-        Instant instant = Instant.ofEpochMilli(1607503451326L);
-        System.out.println(instant);// 2020-12-09T08:44:11.326Z
-    }
-
-
-    /**
      * @获取秒数时间戳
      */
     @Test
@@ -68,6 +44,29 @@ public class Instant类 {
         Instant instant = Instant.now();
         long epochMilli = instant.toEpochMilli();
         System.out.println(epochMilli);// 1607503451326
+    }
+
+    /**
+     * @秒数时间戳转Instant
+     */
+    @Test
+    public void ofEpochSecond() {
+        // <SM> public static Instant ofEpochSecond(long epochSecond)
+        // <返> 秒数时间戳转Instant
+        Instant instant = Instant.ofEpochSecond(1607503461);
+        System.out.println(instant);// 2020-12-09T08:44:21Z
+
+    }
+
+    /**
+     * @毫秒数时间戳转Instant
+     */
+    @Test
+    public void ofEpochMilli() {
+        // <SM> public static Instant ofEpochSecond(long epochSecond)
+        // <返> 毫秒数时间戳转Instant
+        Instant instant = Instant.ofEpochMilli(1607503451326L);
+        System.out.println(instant);// 2020-12-09T08:44:11.326Z
     }
 
     /**

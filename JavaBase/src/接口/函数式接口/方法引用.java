@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public class 方法引用 {
     /**
-     * @情况1：无参无返
+     * @情况1：实例方法引用-无参无返
      */
     @Test
     public void test1() {
@@ -27,7 +27,7 @@ public class 方法引用 {
     }
 
     /**
-     * @情况1：单参无返
+     * @情况1：实例方法引用-单参无返
      */
     @Test
     public void test2() {
@@ -42,7 +42,7 @@ public class 方法引用 {
     }
 
     /**
-     * @情况1：无参有返
+     * @情况1：实例方法引用-无参有返
      */
     @Test
     public void test3() {
@@ -56,7 +56,7 @@ public class 方法引用 {
     }
 
     /**
-     * @情况1：单参有返
+     * @情况1：实例方法引用-单参有返
      */
     @Test
     public void test4() {
@@ -70,7 +70,7 @@ public class 方法引用 {
     }
 
     /**
-     * @情况1：多参有返
+     * @情况1：实例方法引用-多参有返
      */
     @Test
     public void test5() {
@@ -143,5 +143,27 @@ public class 方法引用 {
         Function<Integer, String[]> fc1 = i -> new String[i];
         // 等同写法
         Function<Integer, String[]> fc2 = String[]::new;
+    }
+
+    /**
+     * @匿名实现类方法引用表达式写法
+     */
+    @Test
+    public void test9() {
+        TestClass tc = new TestClass("Tom", 13);
+
+        // 匿名实现类的普通写法
+        new Interface1() {
+            @Override
+            public void say() {
+                tc.look();
+            }
+        }.say();
+
+        // 匿名实现类的lambda写法
+        ((Interface1) () -> tc.look()).say();
+
+        // 方法引用写法
+        ((Interface1) tc::look).say();
     }
 }

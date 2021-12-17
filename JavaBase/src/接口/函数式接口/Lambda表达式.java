@@ -125,4 +125,22 @@ public class Lambda表达式 {
         inst2.say("say2", 2);
         inst2.say("say3", 3);
     }
+
+    /**
+     * @匿名实现类的lambda表达式写法
+     */
+    @Test
+    public void test5() {
+        new Interface1() {
+            @Override
+            public void say() {
+                System.out.println("say1");
+            }
+        }.say();
+
+        // 等同于
+        ((Interface1) () -> {
+            System.out.println("say2");
+        }).say();
+    }
 }

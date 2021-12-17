@@ -1,9 +1,11 @@
 package 类和对象.内部类.局部内部类;
 
-public class Base {
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
-        Base outCla = new Base();
+public class 局部内部类 {
+    @Test
+    public void test() {
+        局部内部类 outCla = new 局部内部类();
         outCla.says();
     }
 
@@ -29,7 +31,7 @@ public class Base {
 
                 System.out.println(num);// ③或②
                 // System.out.println(this.num);// ③
-                System.out.println(Base.this.num);// ①
+                System.out.println(局部内部类.this.num);// ①
             }
         }
 
