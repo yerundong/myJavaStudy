@@ -16,13 +16,27 @@ public class 实现增删改查 {
     private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
+     * @测试插入
+     */
+    @Test
+    public void test_add() {
+        String updateSql = "INSERT INTO `jdbc_login` VALUES (?, ?, ?, ?, ?)";
+        commonUpdate(updateSql, 4, "王五", 132789, 66, new Date(1638773434000L));
+        System.out.println("插入成功！");
+    }
+
+    /**
      * @测试更新
      */
     @Test
     public void test_update() {
-        String updateSql = "UPDATE `login_info` SET `password` = ?, `age` = ? WHERE `id` = ?";
-        commonUpdate(updateSql, "666666", 88, 4);
-        System.out.println("更新成功！");
+        String updateSql = "UPDATE `jdbc_login` SET `password` = ?, `age` = ? WHERE `id` = ?";
+        int res = commonUpdate(updateSql, "666666", 88, 4);
+        if (res > 0) {
+            System.out.println("更新成功！");
+        } else {
+            System.out.println("更新失败！");
+        }
     }
 
     /**
@@ -30,19 +44,13 @@ public class 实现增删改查 {
      */
     @Test
     public void test_dalete() {
-        String updateSql = "DELETE FROM `login_info` WHERE  `id` = ?";
-        commonUpdate(updateSql, 4);
-        System.out.println("删除成功！");
-    }
-
-    /**
-     * @测试插入
-     */
-    @Test
-    public void test_add() {
-        String updateSql = "INSERT INTO `login_info` VALUES (?, ?, ?, ?, ?)";
-        commonUpdate(updateSql, 4, "王五", 132789, 66, new Date(1638773434000L));
-        System.out.println("插入成功！");
+        String updateSql = "DELETE FROM `jdbc_login` WHERE  `id` = ?";
+        int res = commonUpdate(updateSql, 4);
+        if (res > 0) {
+            System.out.println("删除成功！");
+        } else {
+            System.out.println("删除失败！");
+        }
     }
 
     /**
@@ -50,7 +58,7 @@ public class 实现增删改查 {
      */
     @Test
     public void test_select() {
-        String sql = "SELECT `id`, `user` AS `name`, `age`, `birthday`, `password` FROM `login_info` WHERE `id` < ?";
+        String sql = "SELECT `id`, `user` AS `name`, `age`, `birthday`, `password` FROM `jdbc_login` WHERE `id` < ?";
         ArrayList<LoginInfo> res = commonQuery(LoginInfo.class, sql, 5);
         System.out.println(res);
     }
@@ -58,7 +66,7 @@ public class 实现增删改查 {
     /**
      * @Description 更新操作(包含增删改)
      */
-    public void commonUpdate(String sql, Object... args) {
+    public int commonUpdate(String sql, Object... args) {
         // 1、获取连接
         Connection connect = jdbcUtil.getConnect();
         PreparedStatement ps = null;
@@ -73,22 +81,23 @@ public class 实现增删改查 {
             }
 
             // 4、执行
-            ps.execute();
+            return ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            // 5、关闭
+            try {
+                ps.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            try {
+                connect.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
-
-        // 5、关闭
-        try {
-            ps.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
-            connect.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        return 0;
     }
 
     /**
@@ -153,7 +162,7 @@ public class 实现增删改查 {
 
             if (ps != null)
                 ps.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

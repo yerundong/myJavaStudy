@@ -34,8 +34,8 @@ public class Base {
         File file = new File("IOTestFile/img/剪纸.jpg");
         FileInputStream fis = new FileInputStream(file);
 
-        for (int i = 0; i < 200000; i++) {
-            int read = fis.read();
+        int read;
+        while ((read = fis.read()) != -1) {
             System.out.println(read);
         }
         fis.close();
@@ -52,11 +52,12 @@ public class Base {
         //      （比如第一次取“12,13,14,15,16”，第二次取“22,23,24”，b的最后一次更新就是：[12,13,14,15,16] => [22,23,24,15,16]）
         File file = new File("IOTestFile/img/剪纸.jpg");
         FileInputStream fis = new FileInputStream(file);
-        byte[] cbuf = new byte[1024];
+        // 缓冲数组：相当于拿小车运，一次运多个字符，减少运输次数，提升效率。但是太大了太占内存，所以需要一个适合的数值。
+        byte[] bbuf = new byte[1024];
         int len;
-        while ((len = fis.read(cbuf)) != -1) {
+        while ((len = fis.read(bbuf)) != -1) {
             for (int i = 0; i < len; i++) {
-                System.out.println(cbuf[i]);
+                System.out.println(bbuf[i]);
             }
         }
         fis.close();

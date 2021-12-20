@@ -51,6 +51,7 @@ public class Base {
         File file = new File("IOTestFile\\hello-io.txt");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
+        // 缓冲数组：相当于拿小车运，一次运多个字符，减少运输次数，提升效率。但是太大了太占内存，所以需要一个适合的数值。
         char[] cbuf = new char[1024];
         int len;
         while ((len = br.read(cbuf)) != -1) {

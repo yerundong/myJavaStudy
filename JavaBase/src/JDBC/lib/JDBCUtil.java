@@ -48,7 +48,7 @@ public class JDBCUtil {
     /**
      * @Description 更新操作(包含增删改)
      */
-    public void update(String sql, Object... args) {
+    public int update(String sql, Object... args) {
         // 1、获取连接
         Connection connect = getConnect();
         PreparedStatement ps = null;
@@ -63,22 +63,23 @@ public class JDBCUtil {
             }
 
             // 4、执行
-            ps.execute();
+            return ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            // 5、关闭
+            try {
+                ps.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            try {
+                connect.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
-
-        // 5、关闭
-        try {
-            ps.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
-            connect.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        return 0;
     }
 
     /**

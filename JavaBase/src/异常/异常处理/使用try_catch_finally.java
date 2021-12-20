@@ -74,5 +74,6 @@ public class 使用try_catch_finally {
             System.out.println("*** finally ***");
             return 3;
         }
+        // return 4;// 执不执行需要看try-catch-finally结构有没有执行return
     }
 }

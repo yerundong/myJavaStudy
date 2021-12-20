@@ -3831,9 +3831,10 @@ try-catch-finally语句用来捕获并处理异常（编译时+运行时）。
 **try-catch-finally中的return：**
 
 1. try、catch、finally的代码块执行不会被 return 截止，会先执行各自return前的代码，最后再按顺序执行return
-2. try、catch、finally只会执行一次return，最后执行的那个return会覆盖前面的return
-3. finally的return总是大于try、catch
+2. try、catch、finally只会执行一次return，最后执行的那个return会==覆盖前面的return==
+3. finally的return总是会覆盖try、catch
 3. 若try-catch-finally都有return，return执行顺序是：try => catch => finally
+3. try、catch、finally中任意一个retrun执行了，则try-catch-finally结构之后的所有代码都将==不执行==
 
 
 
@@ -5160,7 +5161,7 @@ java缓冲流本身不具IO功能，只是在别的流上加上缓冲提高效�
 
 刷新缓冲区，手动将buffer中内容写入文件。
 
-> 注意：执行缓冲流的close()方法，不但会关闭流，还会先调用flush()方法，在关闭流之前刷新缓冲区。
+> 注意：执行缓冲流的close()方法，不但会关闭流，还会先调用flush()方法，在关闭流之前刷新缓冲区，所以不用手动调用。
 
 
 

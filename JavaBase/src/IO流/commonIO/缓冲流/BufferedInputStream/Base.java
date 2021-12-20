@@ -34,8 +34,8 @@ public class Base {
         FileInputStream fis = new FileInputStream(file);
         BufferedInputStream bis = new BufferedInputStream(fis);
 
-        for (int i = 0; i < 200000; i++) {
-            int read = bis.read();
+        int read;
+        while ((read = bis.read()) != -1) {
             System.out.println(read);
         }
         bis.close();
@@ -53,11 +53,12 @@ public class Base {
         File file = new File("IOTestFile/img/剪纸.jpg");
         FileInputStream fis = new FileInputStream(file);
         BufferedInputStream bis = new BufferedInputStream(fis);
-        byte[] bytes = new byte[1024];
+        // 缓冲数组：相当于拿小车运，一次运多个字符，减少运输次数，提升效率。但是太大了太占内存，所以需要一个适合的数值。
+        byte[] bbuf = new byte[1024];
         int len;
-        while ((len = bis.read(bytes)) != -1) {
+        while ((len = bis.read(bbuf)) != -1) {
             for (int i = 0; i < len; i++) {
-                System.out.println(bytes[i]);
+                System.out.println(bbuf[i]);
             }
         }
         bis.close();

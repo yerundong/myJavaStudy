@@ -32,7 +32,7 @@ public class SQL注入问题模拟 {
         System.out.println(password);
 
         // 需要拼写sql语句
-        String sql = "SELECT `user`, `password` FROM login_info WHERE `user` = '" + userName + "' AND `password` = '" + password + "'";
+        String sql = "SELECT `user`, `password` FROM jdbc_login WHERE `user` = '" + userName + "' AND `password` = '" + password + "'";
         System.out.println("sql语句：" + sql);
 
         LoginInfo_statement obj = select(LoginInfo_statement.class, sql);

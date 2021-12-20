@@ -55,10 +55,11 @@ public class Base {
         InputStreamReader isr = new InputStreamReader(fis, "gbk");
         // InputStreamReader isr = new InputStreamReader(fis, "utf-8");
         int len;
-        char[] chars = new char[1024];
-        while ((len = isr.read(chars)) != -1) {
+        // 缓冲数组：相当于拿小车运，一次运多个字符，减少运输次数，提升效率。但是太大了太占内存，所以需要一个适合的数值。
+        char[] cbuf = new char[1024];
+        while ((len = isr.read(cbuf)) != -1) {
             PrintStream out = System.out;
-            System.out.print(new String(chars, 0, len));
+            System.out.print(new String(cbuf, 0, len));
         }
         isr.close();
     }

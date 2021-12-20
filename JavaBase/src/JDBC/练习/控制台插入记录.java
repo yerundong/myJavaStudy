@@ -22,7 +22,7 @@ public class 控制台插入记录 {
     public void test() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请填写插入数据相关信息：");
-        
+
         System.out.print("id：");
         int id = scanner.nextInt();
 
@@ -44,7 +44,7 @@ public class 控制台插入记录 {
         long timestamp = localDate.atStartOfDay(ZoneOffset.ofHours(8)).toInstant().toEpochMilli();
         Date birth = new Date(timestamp);
 
-        String sql = "INSERT INTO `login_info` VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `jdbc_login` VALUES(?, ?, ?, ?, ?)";
         jdbcUtil.update(sql, id, name, password, age, birth);
         System.out.println("插入成功！");
     }
