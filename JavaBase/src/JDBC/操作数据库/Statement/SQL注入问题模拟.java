@@ -18,7 +18,6 @@ import java.util.Scanner;
 public class SQL注入问题模拟 {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     @Test
     public void testLogin() {
@@ -48,10 +47,12 @@ public class SQL注入问题模拟 {
     // 使用Statement实现对数据表的查询操作
     public <T> T select(Class<T> clazz, String sql) {
         T t = null;
-        Connection conn = jdbcUtil.getConnect();
+        Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
         try {
+            conn = JDBCUtil.getConnect(JDBC_CONFIG);
+
             st = conn.createStatement();
 
             rs = st.executeQuery(sql);
@@ -89,27 +90,12 @@ public class SQL注入问题模拟 {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (st != null) {
-                try {
-                    st.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            try {
+                JDBCUtil.close(conn);
+                JDBCUtil.close(rs);
+                JDBCUtil.close(st);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
 

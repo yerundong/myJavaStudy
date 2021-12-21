@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class 控制台插入记录 {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
      * @
@@ -45,7 +44,7 @@ public class 控制台插入记录 {
         Date birth = new Date(timestamp);
 
         String sql = "INSERT INTO `jdbc_login` VALUES(?, ?, ?, ?, ?)";
-        jdbcUtil.update(sql, id, name, password, age, birth);
+        JDBCUtil.onceUpdate(JDBC_CONFIG, sql, id, name, password, age, birth);
         System.out.println("插入成功！");
     }
 }

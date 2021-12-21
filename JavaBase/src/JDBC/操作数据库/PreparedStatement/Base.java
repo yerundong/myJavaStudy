@@ -9,29 +9,29 @@ import java.sql.*;
 public class Base {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
      * @预编译sql语句，并且获取PreparedStatement实例
      */
     @Test
     public void test1() {
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = 4";
         PreparedStatement ps = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             System.out.println(ps);
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
-            if (ps != null) {
-                ps.close();
+            if (connect != null) {
+                connect.close();
             }
             if (ps != null) {
-                connect.close();
+                ps.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -43,24 +43,25 @@ public class Base {
      */
     @Test
     public void test2() {
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = ? OR `age` = ?";
         PreparedStatement ps = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
             ps.setInt(1, 33);
             System.out.println(ps);
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
-            if (ps != null) {
-                ps.close();
+            if (connect != null) {
+                connect.close();
             }
             if (ps != null) {
-                connect.close();
+                ps.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -74,24 +75,25 @@ public class Base {
     public void test_execute() {
         // <M> boolean execute()
         // <返> 返回不是表示是否执行成功，而是是否是查询操作，PreparedStatement建议使用executeQuery和executeUpdate
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` > ?";
         PreparedStatement ps = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 222);
             boolean execute = ps.execute();
             System.out.println(execute);
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
-            if (ps != null) {
-                ps.close();
+            if (connect != null) {
+                connect.close();
             }
             if (ps != null) {
-                connect.close();
+                ps.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -105,24 +107,25 @@ public class Base {
     public void test_executeQuery() {
         // <M> ResultSet executeQuery()
         // <返> 查询返回结果集对象，结果集对象可遍历记录
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` > ?";
         PreparedStatement ps = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 222);
             ResultSet resultSet = ps.executeQuery();
             System.out.println(resultSet);
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
-            if (ps != null) {
-                ps.close();
+            if (connect != null) {
+                connect.close();
             }
             if (ps != null) {
-                connect.close();
+                ps.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -136,10 +139,11 @@ public class Base {
     public void test_executeUpdate() {
         // <M> int executeUpdate()
         // <返> 返回影响记录条数，为0表示无影响，即未更新成功
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "INSERT INTO `jdbc_login` VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 9);
             ps.setObject(2, "王石");
@@ -148,16 +152,16 @@ public class Base {
             ps.setObject(5, new Date(1638773434000L));
             int i = ps.executeUpdate();
             System.out.println(i);
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
-            if (ps != null) {
-                ps.close();
+            if (connect != null) {
+                connect.close();
             }
             if (ps != null) {
-                connect.close();
+                ps.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -171,11 +175,12 @@ public class Base {
     public void test3() {
         // <M> boolean next()
         // <返> 是否有数据，执行一次游标往下移动，初始位置在-1
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = ?";
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
 
@@ -183,16 +188,19 @@ public class Base {
             System.out.println(resultSet);
             System.out.println(resultSet.next());
             System.out.println(resultSet.next());
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
+            if (connect != null) {
+                connect.close();
+            }
             if (ps != null) {
                 ps.close();
             }
-            if (ps != null) {
-                connect.close();
+            if (resultSet != null) {
+                resultSet.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -204,11 +212,12 @@ public class Base {
      */
     @Test
     public void test4() {
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = ?";
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
 
@@ -234,16 +243,19 @@ public class Base {
                 System.out.println(age);
                 System.out.println(birth);
             }
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
+            if (connect != null) {
+                connect.close();
+            }
             if (ps != null) {
                 ps.close();
             }
-            if (ps != null) {
-                connect.close();
+            if (resultSet != null) {
+                resultSet.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -255,11 +267,12 @@ public class Base {
      */
     @Test
     public void test5() {
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT * FROM `jdbc_login`";
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connect.prepareStatement(sql);
             resultSet = ps.executeQuery();
             while (true) {
@@ -279,16 +292,19 @@ public class Base {
                 }
             }
 
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
+            if (connect != null) {
+                connect.close();
+            }
             if (ps != null) {
                 ps.close();
             }
-            if (ps != null) {
-                connect.close();
+            if (resultSet != null) {
+                resultSet.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -300,11 +316,13 @@ public class Base {
      */
     @Test
     public void test6() {
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         String sql = "SELECT `user` AS `usr` FROM `jdbc_login`";
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+
             ps = connect.prepareStatement(sql);
             resultSet = ps.executeQuery();
             ResultSetMetaData metaData = resultSet.getMetaData();// 元数据
@@ -315,16 +333,19 @@ public class Base {
             System.out.println(metaData.getColumnName(1));// 字段名
             System.out.println(metaData.getColumnLabel(1));// 别名，没有别名就是字段名
 
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
 
         try {
+            if (connect != null) {
+                connect.close();
+            }
             if (ps != null) {
                 ps.close();
             }
-            if (ps != null) {
-                connect.close();
+            if (resultSet != null) {
+                resultSet.close();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

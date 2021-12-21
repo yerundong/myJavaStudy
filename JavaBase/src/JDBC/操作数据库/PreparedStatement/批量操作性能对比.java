@@ -12,7 +12,6 @@ import java.sql.Statement;
 public class 批量操作性能对比 {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
      * @PreparedStatement批量插入性能测试：1000000条-1.094s（最终版）
@@ -20,16 +19,18 @@ public class 批量操作性能对比 {
     @Test
     public void test_PreparedStatement() {
         long start = System.currentTimeMillis();
-        // 1、获取连接
-        Connection connect = jdbcUtil.getConnect();
-        PreparedStatement ps;
+        Connection connect = null;
+        PreparedStatement ps = null;
         String sql = "INSERT INTO `jdbc_batch` VALUES (?, ?)";
 
         try {
+            // 1、获取连接
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
 
-            // 关闭自动提交
+            // 关闭自动提交，提高性能
             connect.setAutoCommit(false);
 
             // 3、填充占位符
@@ -61,12 +62,13 @@ public class 批量操作性能对比 {
 
             // 提交数据
             connect.commit();
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         } finally {
             // 5、关闭
             try {
-                connect.close();
+                JDBCUtil.close(connect);
+                JDBCUtil.close(ps);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -81,12 +83,14 @@ public class 批量操作性能对比 {
     @Test
     public void test_Statement() {
         long start = System.currentTimeMillis();
-        // 1、获取连接
-        Connection connect = jdbcUtil.getConnect();
-        Statement st;
+        Connection connect = null;
+        Statement st = null;
 
 
         try {
+            // 1、获取连接
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+
             // 2、预编译sql语句，返回prepareStatement实例
             st = connect.createStatement();
             // 3、填充占位符
@@ -97,16 +101,18 @@ public class 批量操作性能对比 {
                 st.executeUpdate(sql);
             }
 
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         } finally {
             // 5、关闭
             try {
-                connect.close();
+                JDBCUtil.close(connect);
+                JDBCUtil.close(st);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
+
         long end = System.currentTimeMillis();
         System.out.println("花费时间：" + (end - start));
     }

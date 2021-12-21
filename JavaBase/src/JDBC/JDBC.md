@@ -413,132 +413,13 @@ JDBC的批量处理语句包括下面三个方法：
 
 举例：向数据表中插入20000条数据
 
-- 数据库中提供一个goods表。创建如下：
-
-```sql
-CREATE TABLE goods(
-id INT PRIMARY KEY AUTO_INCREMENT,
-NAME VARCHAR(20)
-);
-```
-
-
-
 #### 5.2.1 实现层次一：使用Statement
 
-```java
-Connection conn = JDBCUtils.getConnection();
-Statement st = conn.createStatement();
-for(int i = 1;i <= 20000;i++){
-	String sql = "insert into goods(name) values('name_' + "+ i +")";
-	st.executeUpdate(sql);
-}
-```
-
-
+详见代码。
 
 #### 5.2.2 实现层次二：使用PreparedStatement
 
-```java
-long start = System.currentTimeMillis();
-		
-Connection conn = JDBCUtils.getConnection();
-		
-String sql = "insert into goods(name)values(?)";
-PreparedStatement ps = conn.prepareStatement(sql);
-for(int i = 1;i <= 20000;i++){
-	ps.setString(1, "name_" + i);
-	ps.executeUpdate();
-}
-		
-long end = System.currentTimeMillis();
-System.out.println("花费的时间为：" + (end - start));//82340
-		
-		
-JDBCUtils.closeResource(conn, ps);
-```
-
-#### 5.2.3 实现层次三
-
-```java
-/*
- * 修改1： 使用 addBatch() / executeBatch() / clearBatch()
- * 修改2：mysql服务器默认是关闭批处理的，我们需要通过一个参数，让mysql开启批处理的支持。
- * 		 ?rewriteBatchedStatements=true 写在配置文件的url后面
- * 修改3：使用更新的mysql 驱动：mysql-connector-java-5.1.37-bin.jar
- * 
- */
-@Test
-public void testInsert1() throws Exception{
-	long start = System.currentTimeMillis();
-		
-	Connection conn = JDBCUtils.getConnection();
-		
-	String sql = "insert into goods(name)values(?)";
-	PreparedStatement ps = conn.prepareStatement(sql);
-		
-	for(int i = 1;i <= 1000000;i++){
-		ps.setString(1, "name_" + i);
-			
-		//1.“攒”sql
-		ps.addBatch();
-		if(i % 500 == 0){
-			//2.执行
-			ps.executeBatch();
-			//3.清空
-			ps.clearBatch();
-		}
-	}
-		
-	long end = System.currentTimeMillis();
-	System.out.println("花费的时间为：" + (end - start));//20000条：625                                                                         //1000000条:14733  
-		
-	JDBCUtils.closeResource(conn, ps);
-}
-```
-
-#### 5.2.4 实现层次四（最终版）
-
-```java
-/*
-* 层次四：在层次三的基础上操作
-* 使用Connection 的 setAutoCommit(false)  /  commit()
-*/
-@Test
-public void testInsert2() throws Exception{
-	long start = System.currentTimeMillis();
-		
-	Connection conn = JDBCUtils.getConnection();
-		
-	//1.设置为不自动提交数据
-	conn.setAutoCommit(false);
-		
-	String sql = "insert into goods(name)values(?)";
-	PreparedStatement ps = conn.prepareStatement(sql);
-		
-	for(int i = 1;i <= 1000000;i++){
-		ps.setString(1, "name_" + i);
-			
-		//1.“攒”sql
-		ps.addBatch();
-			
-		if(i % 500 == 0){
-			//2.执行
-			ps.executeBatch();
-			//3.清空
-			ps.clearBatch();
-		}
-	}
-		
-	//2.提交数据
-	conn.commit();
-		
-	long end = System.currentTimeMillis();
-	System.out.println("花费的时间为：" + (end - start));//1000000条:4978 
-		
-	JDBCUtils.closeResource(conn, ps);
-}
-```
+详见代码。
 
 
 
@@ -546,7 +427,7 @@ public void testInsert2() throws Exception{
 
 ### 6.1 数据库事务介绍
 
-- **事务：一组逻辑操作单元,使数据从一种状态变换到另一种状态。**
+- **事务：一组逻辑操作单元，使数据从一种状态变换到另一种状态。**
 
 - **事务处理（事务操作）：**保证所有事务都作为一个工作单元来执行，即使出现了故障，都不能改变这种执行方式。当在一个事务中执行多个操作时，要么所有的事务都**被提交(commit)**，那么这些修改就永久地保存下来；要么数据库管理系统将放弃所作的所有修改，整个事务**回滚(rollback)**到最初状态。
 
@@ -556,8 +437,8 @@ public void testInsert2() throws Exception{
 
 - 数据一旦提交，就不可回滚。
 - 数据什么时候意味着提交？
-  - **当一个连接对象被创建时，默认情况下是自动提交事务**：每次执行一个 SQL 语句时，如果执行成功，就会向数据库自动提交，而不能回滚。
-  - **关闭数据库连接，数据就会自动的提交。**如果多个操作，每个操作使用的是自己单独的连接，则无法保证事务。即同一个事务的多个操作必须在同一个连接下。
+  - **当一个连接对象被创建时，==默认情况==下是自动提交事务**：每次执行一个 SQL 语句时，如果执行成功，就会向数据库自动提交，而不能回滚。
+  - ==关闭数据库连接，数据就会自动的提交。==如果多个操作，每个操作使用的是自己单独的连接，则无法保证事务。==即同一个事务的多个操作必须在同一个连接下。==
 - **JDBC程序中为了让多个 SQL 语句作为一个事务执行：**
 
   - 调用 Connection 对象的 **setAutoCommit(false);** 以取消自动提交事务
@@ -568,71 +449,7 @@ public void testInsert2() throws Exception{
 
 【案例：用户AA向用户BB转账100】
 
-```java
-public void testJDBCTransaction() {
-	Connection conn = null;
-	try {
-		// 1.获取数据库连接
-		conn = JDBCUtils.getConnection();
-		// 2.开启事务
-		conn.setAutoCommit(false);
-		// 3.进行数据库操作
-		String sql1 = "update user_table set balance = balance - 100 where user = ?";
-		update(conn, sql1, "AA");
-
-		// 模拟网络异常
-		//System.out.println(10 / 0);
-
-		String sql2 = "update user_table set balance = balance + 100 where user = ?";
-		update(conn, sql2, "BB");
-		// 4.若没有异常，则提交事务
-		conn.commit();
-	} catch (Exception e) {
-		e.printStackTrace();
-		// 5.若有异常，则回滚事务
-		try {
-			conn.rollback();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-    } finally {
-        try {
-			//6.恢复每次DML操作的自动提交功能
-			conn.setAutoCommit(true);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-        //7.关闭连接
-		JDBCUtils.closeResource(conn, null, null); 
-    }  
-}
-
-```
-
-其中，对数据库操作的方法为：
-
-```java
-//使用事务以后的通用的增删改操作（version 2.0）
-public void update(Connection conn ,String sql, Object... args) {
-	PreparedStatement ps = null;
-	try {
-		// 1.获取PreparedStatement的实例 (或：预编译sql语句)
-		ps = conn.prepareStatement(sql);
-		// 2.填充占位符
-		for (int i = 0; i < args.length; i++) {
-			ps.setObject(i + 1, args[i]);
-		}
-		// 3.执行sql语句
-		ps.execute();
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		// 4.关闭资源
-		JDBCUtils.closeResource(null, ps);
-
-	}
-}
-```
+​				详见代码。
 
 
 

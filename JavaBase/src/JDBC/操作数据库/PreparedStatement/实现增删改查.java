@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class 实现增删改查 {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
      * @测试插入
@@ -67,11 +66,13 @@ public class 实现增删改查 {
      * @Description 更新操作(包含增删改)
      */
     public int commonUpdate(String sql, Object... args) {
-        // 1、获取连接
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         PreparedStatement ps = null;
 
         try {
+            // 1、获取连接
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
 
@@ -82,17 +83,16 @@ public class 实现增删改查 {
 
             // 4、执行
             return ps.executeUpdate();
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         } finally {
             // 5、关闭
             try {
-                ps.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            try {
-                connect.close();
+                if (connect != null)
+                    connect.close();
+
+                if (ps != null)
+                    ps.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -104,13 +104,14 @@ public class 实现增删改查 {
      * 通用sql查询，使用ArrayList做容器
      */
     public <T> ArrayList<T> commonQuery(Class<T> clazz, String sql, Object... args) {
-        // 1、获取连接
-        Connection connect = jdbcUtil.getConnect();
+        Connection connect = null;
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         ArrayList<T> al = new ArrayList<>();
 
         try {
+            // 1、获取连接
+            connect = JDBCUtil.getConnect(JDBC_CONFIG);
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
 

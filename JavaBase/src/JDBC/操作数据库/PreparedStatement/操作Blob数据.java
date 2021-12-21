@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 public class 操作Blob数据 {
     // jdbc配置
     private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-    private JDBCUtil jdbcUtil = new JDBCUtil(JDBC_CONFIG);
 
     /**
      * 插入数据库一条网络图片
@@ -28,7 +27,7 @@ public class 操作Blob数据 {
             huc.connect();
             inputStream = huc.getInputStream();
             String sql = "INSERT INTO `jdbc_blob` VALUES(?, ?)";
-            int update = jdbcUtil.update(sql, 1, inputStream);
+            int update = JDBCUtil.onceUpdate(JDBC_CONFIG, sql, 1, inputStream);
             if (update > 0) {
                 System.out.println("更新成功！");
             }
@@ -36,7 +35,9 @@ public class 操作Blob数据 {
             e.printStackTrace();
         } finally {
             try {
-                inputStream.close();
+                if (inputStream != null) {
+                    inputStream.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -48,13 +49,14 @@ public class 操作Blob数据 {
      */
     @Test
     public void testQuery() {
-        Connection connection = jdbcUtil.getConnect();
+        Connection connection = null;
         String sql = "SELECT * FROM `jdbc_blob` WHERE `id` = ?";
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
         try {
+            connection = JDBCUtil.getConnect(JDBC_CONFIG);
             ps = connection.prepareStatement(sql);
             ps.setInt(1, 1);
             resultSet = ps.executeQuery();
@@ -80,14 +82,9 @@ public class 操作Blob数据 {
             throwables.printStackTrace();
         } finally {
             try {
-                if (resultSet != null)
-                    resultSet.close();
-
-                if (ps != null)
-                    ps.close();
-
-                if (connection != null)
-                    connection.close();
+                JDBCUtil.close(connection);
+                JDBCUtil.close(resultSet);
+                JDBCUtil.close(ps);
 
                 if (bis != null)
                     bis.close();
