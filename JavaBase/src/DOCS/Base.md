@@ -880,6 +880,7 @@ Java语言提供了很多修饰符，主要分为以下两类：
 1. 数组只能储存同一种类型数据
 2. 数组的长度在程序运行期间不可改变
 3. 数组未重写 equals、toString 方法
+3. 数组是==协变（*covariant*）==的，支持==元素类型==上的协变和==数组类型==上的协变（见代码示例）
 
 
 
@@ -1719,7 +1720,9 @@ new Person("张三", 30).tell();
 
 
 
-### 1.2 this关键字
+### 1.2 this关键字?
+
+继承中父类的this指向子类实例？？？
 
 **使用格式：** 
 
@@ -2047,7 +2050,7 @@ JavaBean是一个遵循特定写法的Java类，是一种Java语言编写的可�
 
 ### 4.1 super关键字
 
-我们可以通过super关键字来实现对父类成员的访问，相当于父类的this，指向父类实例。
+我们可以通过super关键字来实现对父类成员的访问，相当于父类的this。
 
 
 
@@ -3239,7 +3242,9 @@ int num = (int) 100.5;// 精度损失
 
 # 泛型
 
-泛型（Generic），即“参数化类型”。顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，此时类型也定义成参数形式（可以称之为类型形参）， 然后在使用/调用时传入具体的类型（类型实参）。
+Java泛型是JDK 5引入的一个特性。
+
+泛型（Generic），即“==参数化类型==”。顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，此时类型也定义成参数形式（可以称之为类型形参）， 然后在使用/调用时传入具体的类型（类型实参）。
 
 泛型提供了编译时<u>类型安全检测机制</u>，该机制允许程序员在编译时检测到非法的类型。 泛型的引入加强了参数类型的安全性，减少了类型的转换。
 
@@ -3298,7 +3303,11 @@ int num = (int) 100.5;// 精度损失
 **类型传入格式：**
 
 ```java
-methodName(param);// 与普通的方法调用无分别
+// 通过实参类型确定
+methodName(param);
+
+// 通过接收变量类型确定
+Type obj = methodName(param);
 ```
 
 
@@ -3337,8 +3346,10 @@ new ClassName<Type>();
 
 // 2.有变量接收
 ClassName<Type> Var = new ClassName<Type>();
-// 注：JDK7.0 以后，增加类型推断，后面的泛型参数可省略，即：ClassName<Type> Var = new ClassName<>();
-// 但后面的尖括号<>不可省略，省略了<>等于不使用泛型。
+
+// JDK7.0 以后，增加类型推断，后面的泛型参数可省略：
+ClassName<Type> Var = new ClassName<>();
+// 注：后面的尖括号<>不可省略，省略了<>等于不使用泛型。
 ```
 
 
@@ -3351,7 +3362,6 @@ ClassName<Type> Var = new ClassName<Type>();
 4. 静态方法不能使用类的泛型，但可以有自己的泛型，因为静态方法加载时，泛型有可能还未传入（实例化）
 5. 泛型类是无法继承自 Throwable 类（包括异常类（Exception\Error）），即异常类等不能使用泛型，
     参考：https://blog.csdn.net/ziwang_/article/details/56288597
-6. 泛型只是变量，泛型不能充当类直接拿来创建（new），new后面只能是具体的类，但是可以作为类型强转的变量，参考例test4
 
 
 
@@ -3381,9 +3391,23 @@ ClassName<Type> Var = new ClassName<Type>();
 
 ## 3 类型擦除机制
 
-Java的泛型在编译阶段实现，<u>在运行期被删除</u>。编译器生成的字节码在运行期间并不包含泛型的类型信息。
+Java的泛型只在<u>编译阶段</u>实现，<u>在运行期被删除</u>。编译器生成的字节码在运行期间并不存在泛型的类型。
+
+由于类型擦除机制，显性地引用==运行时类型==的操作都是不允许的。
+
+与c++对比，java的泛型只停留在编译阶段，是==不彻底的泛型机制==。
 
 
+
+既然泛型会被类型擦除，那为什么在运行期仍然可以使用反射获取到具体的泛型类型？
+
+答案是在运行期只能获取当前class对象中==包含泛型类型的信息==，而不能在运行时动态获取某个==泛型引用的类型==。
+
+实际上==泛型信息==是被编译进字节码文件的，这样我们就可以通过==反射==来获取泛型信息，创建具体类型。
+
+
+
+在泛型类被类型擦除的时候，之前泛型类中的类型参数部分如果==没有指定上限==，如 `<T>`则会被转译成`<Object>`类型，如果指定了上限如 `<T extends String>`则类型参数就被替换成类型上限`<String>`。
 
 **在编译后所有的泛型类型都会做相应的转化，转化如下：**
 
@@ -3396,43 +3420,200 @@ List<T extends Serialzable & Cloneable> 擦除后类型为 List<Serializable>。
 
 
 
-**jvm如此操作的原因：**
+**泛型只停留在编译阶段的原因：**
 
 1. 如果把类型信息保留到运行时，需要做大量的重构工作
 2. 兼容原生的老版本类型
 
 
 
-**注意:**
+**类型擦除不会改变class属性:**
 
-1. 泛型的class对象时一样的，类型擦除不会改变class属性:
+```java
+List<String> t1 = new ArrayList<String>();
+List<String> t2 = new ArrayList<Integer>();
+System.out.println(t1.getclass() == t2.getclass());
+```
+
+
+
+**不允许以下操作:**
+
+1. new 泛型参数
 
    ```java
-   List<String> t1 = new ArrayList<String>();
-   List<String> t2 = new ArrayList<Integer>();
-   System.out.println(t1.getclass() == t2.getclass());
+   T t = new T();
    ```
 
+2. 引用泛型参数的方法、属性
+
+   ```java
+   T.class;
+   T.get();
+   ```
+
+4. 打印
+
+   ```java
+   System.out.println(T);
+   ```
    
-
-2. 泛型数组初始化时不能声明泛型类型
-
-   ```java
-   List<String>[] list = new List<String>[];
-   ```
-
-   在这里可以声明一个带有泛型参数的数组，但是不能初始化该数组，因为执行了类型擦除操作后，相当于List[Object] list = new List()[];编译器拒绝如此声明,所以提前报错，不允许到jvm那一边，java实现的是伪泛型。
-
-   
-
-3. instanceof 不能带泛型参数:
+3. 不支持创建具体类型的泛型数组，因为这样做会破坏类型安全。
 
    ```java
-   List<String> list = new ArrayList<String>();
-   System.out.println(list instanceof List<String>);
+   ArrayList<String>[] list = new ArrayList<String>[2];// 编译报错
    ```
 
-   jvm编译后会丢失信息，所以编译器不允许这么做，因为要是这么做，在运行时候会出问题。实际上list是一个实例，但是丢失类型后无法判断。
+2. instanceof 不能带泛型参数:
+
+   ```java
+   list instanceof List<String>// 编译报错
+   obj instanceof T// 编译报错
+   ```
+
+
+6. ==不同泛型参数的泛型类（接口）==会被编译器认定为==不同类型==，==不支持泛型上的多态和转型==，体现了泛型类型的==不变性（*invariant*）==。所以不同泛型参数之间的==赋值，传参==是不允许的：
+
+   ```java
+   List<Object> ls1 = new ArrayList<>();
+   List<String> ls2 = new ArrayList<>();
+   ls1 = ls2;// 编译报错
+   ```
+
+​		……
+
+
+
+## 4 通配符
+
+在java泛型中，引入了通配符和边界符来支持==协变==和==逆变==。解决了不同泛型参数之间的==赋值，传参==的限制，但也带来了一些==副作用==。
+
+通配符表示一种==未知类型==，并且对这种未知类型存在==约束关系==。
+
+通配符（?）、边界符（extends、super）一般配合使用。
+
+
+
+**分类：**
+
+- **上边界通配符(upper bounded wildcard)** ：`? extends T`对应==协变关系==，表示 `?` 是继承自 `T`的任意子类型（包括T自身），即? <= T。
+  
+  - **无边界通配符**：`?` 的等于 `? extends Object`，表示 `?` 是继承自`Object`的任意类型。
+  
+  ![上边界](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\泛型\上边界.jpg)
+  
+- **下边界通配符（lower bounded wildcard）**：`? super T`对应==逆变关系==，表示 `?` 是 `T`的任意父类型（包括T自身）），即? >= T。
+
+![下边界](E:\Desktop\myJavaStudy\JavaBase\src\DOCS\images\泛型\下边界.jpg)
+
+**使用地方限制：**
+
+1. 只能用于==泛型类、接口的泛型参数==中，如：`List<?>`、`ArrayList<? extend String>`、`List<? super String>`
+
+2. 只能用于==方法和变量接收处==：
+
+   1. 方法定义
+
+      1. 形参接收处：`public void look(List<?> ls) {}`
+      2. 返参限定处：`public List<?> look() {}`
+
+   2. 变量接收处：`List<? extends String> ls = new ArrayList<>();`
+
+   > 注：不可用于任何泛型结构（泛型类、接口、方法）的泛型参数==定义==处。
+
+
+
+**存、取约束：**
+
+- 上边界通配符：善取不善存
+
+- 下边界通配符：善存不善取
+
+> 详见代码示例
+
+
+
+**PECS原则(producer-extends,consumer-super)：**
+
+这个是 `Effective Java`中提出的一种概念。如果类型变量是生产者，则用 `extends`，如果类型变量是消费者，则使用 `super`。
+
+通俗地讲即：
+
+1. 需要频繁往外==读取==内容的，适合用上界Extends。
+2. 需要经常往里==插入==的，适合用下界Super。
+
+
+
+**? 与 T 的差别：**
+
+1. `?` 表示一个未知类型, `T` 是表示一个确定的类型. 因此,无法使用 `?` 像 `T` 声明变量和使用变量.如
+
+   ```java
+   // OK
+   static <T> void test1(List<T> list) {
+       T t = list.get(0);
+       t.toString();
+   }
+   // Error
+   static void test2(List<?> list){
+       ? t = list.get(0);
+       t.toString();
+   }
+   ```
+
+2. `?` 主要针对泛型类（接口）的限制, 无法像 `T`类型参数一样单独存在.如
+
+   ```java
+   // OK
+   static <T> void test1(T t) {
+   }
+   // Error
+   static void test2(? t){
+   }
+   ```
+
+3. `?` 主要表示==使用泛型==,`T`表示==声明泛型==。泛型类无法使用`?`来声明,泛型表达式无法使用`T`.如
+
+   ```java
+   // Error
+   public class Holder<?> {
+       ...
+   // OK
+   public class Holder<T> {
+       ...
+   public static void main(String[] args) {
+       // OK
+       Holder<?> holder;
+       // Error
+       Holder<T> holder;
+   }
+   ```
+
+
+
+## 5 边界符
+
+**说明：**
+
+- T型：使用字母T，E，K，V的用法
+
+- 通配型：使用通配符?的用法
+
+
+
+**边界符分类：**
+
+- **上边界符（extends）**
+
+  上边界符限定为==目标类及其子类==，==T型==和==通配型==均可用。
+
+- **下边界符（super）**
+
+  下边界符限定为==目标类及其父类==，仅==通配型==可用。
+
+- **多重界符（T extends ClassA & InterfaceB）**
+
+  多重界符限定为ClassA 和 InterfaceB的共有子类型，仅==T型==可用。
 
 
 

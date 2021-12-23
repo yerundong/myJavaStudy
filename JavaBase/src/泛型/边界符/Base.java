@@ -1,58 +1,48 @@
 package 泛型.边界符;
 
-import lib.Person;
-import lib.Sola;
 import lib.Student;
 import lib.USB;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Base {
+public class Base<T extends String> {
 
     /**
-     * @extends 上边界符（<=）
-     * 限定为目标类及其子类，T型和通配型均可用
+     * @extends 上边界符
      */
     @Test
     public void test1() {
-        // look(new Person());//编译报错，超出边界
+        // 这里值展示T型，通配型用法请查看通配符章
         look(new Student());
-        look(new Sola());
+    }
+
+    public <T extends Student> T look(T t) {
+        return t;
     }
 
     /**
-     * @super 下边界符（>=）
-     * 限定为目标类及其父类，仅通配型可用
+     * @super 下边界符
      */
     @Test
     public void test2() {
-        see(new ArrayList<Student>());
-        see(new ArrayList<Person>());
-        // see(new ArrayList<Sola>());//编译报错，超出边界
+        // 下边界符super只有通配型使用，请查看通配符章
     }
 
-    public <T extends Student> void look(T t) {
-    }
-
-    // 只有通配符?才能使用super
+    // T型不支持下边界符
     // public <T super Student> void see(T t) {}
-    public void see(List<? super Student> t) {
-    }
+
 
     /**
-     * @& 多重界符（<=）
-     * 使用 & 符号设定多重边界（Multi Bounds)，指定泛型类型 T 必须是 Student 和 USB 的共有子类型，
-     * 此时变量 t 就具有了所有限定的方法和属性。对于通配符？来说，因为它不是一个确定的类型，所以不能进行多重限定。
-     * 仅T型可用
+     * @多重界符
      */
     @Test
     public void test3() {
         // slip(new ArrayList<Person>());//编译报错，必须是是 Student 和 USB 的共同子类
-        // see(new ArrayList<Sola>());//编译报错，必须是是 Student 和 USB 的共同子类
     }
 
-    public <T extends Student & USB> void slip(T t) {
+    public <E extends Student & USB> void slip(E t) {
     }
+
+    // 通配型不支持多重界符
+    // public List<? extends Student & USB> miss(List<? super Student & USB> t) {
+    // }
 }

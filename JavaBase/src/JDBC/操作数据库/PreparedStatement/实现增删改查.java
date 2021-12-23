@@ -4,16 +4,13 @@ import JDBC.lib.JDBCUtil;
 import JDBC.lib.LoginInfo;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class 实现增删改查 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
-
     /**
      * @测试插入
      */
@@ -58,7 +55,7 @@ public class 实现增删改查 {
     @Test
     public void test_select() {
         String sql = "SELECT `id`, `user` AS `name`, `age`, `birthday`, `password` FROM `jdbc_login` WHERE `id` < ?";
-        ArrayList<LoginInfo> res = commonQuery(LoginInfo.class, sql, 5);
+        List<LoginInfo> res = commonQuery(LoginInfo.class, sql, 5);
         System.out.println(res);
     }
 
@@ -71,7 +68,7 @@ public class 实现增删改查 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -103,15 +100,15 @@ public class 实现增删改查 {
     /**
      * 通用sql查询，使用ArrayList做容器
      */
-    public <T> ArrayList<T> commonQuery(Class<T> clazz, String sql, Object... args) {
+    public <T> List<T> commonQuery(Class<T> clazz, String sql, Object... args) {
         Connection connect = null;
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        ArrayList<T> al = new ArrayList<>();
+        List<T> ls = new ArrayList<>();
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
 
@@ -143,7 +140,7 @@ public class 实现增删改查 {
                         declaredField.set(obj, columnValue);
                     }
 
-                    al.add(obj);// 装入容器
+                    ls.add(obj);// 装入容器
                 } else {
                     break;
                 }
@@ -167,6 +164,6 @@ public class 实现增删改查 {
             e.printStackTrace();
         }
 
-        return al;
+        return ls;
     }
 }

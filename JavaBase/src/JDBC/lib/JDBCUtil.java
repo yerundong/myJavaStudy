@@ -6,19 +6,23 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
  * @Description jdbc通用方法封装，包括连接、查询、更新操作
  */
 public class JDBCUtil {
+    // jdbc配置
+    private static final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
     /**
      * @Description 获取连接
      */
-    public static Connection getConnect(File jdbcConfig) throws Exception {
+    public static Connection getConnect() throws Exception {
         // 1.取配置
         Properties properties = new Properties();
-        FileReader fileReader = new FileReader(jdbcConfig);
+        FileReader fileReader = new FileReader(JDBC_CONFIG);
         properties.load(fileReader);
         String user = properties.getProperty("user");
         String password = properties.getProperty("password");
@@ -46,8 +50,8 @@ public class JDBCUtil {
     /**
      * @Description 将查询结果集生成对象返回
      */
-    public static <T> ArrayList<T> getQueryObjects(Class<T> clazz, ResultSet rs, ResultSetMetaData metaData) throws Exception {
-        ArrayList<T> al = new ArrayList<>();
+    public static <T> List<T> getQueryObjects(Class<T> clazz, ResultSet rs, ResultSetMetaData metaData) throws Exception {
+        List<T> ls = new ArrayList<>();
         // 获取列数
         int columnCount = metaData.getColumnCount();// 从元数据中获取列数
 
@@ -67,12 +71,12 @@ public class JDBCUtil {
                     declaredField.set(obj, columnValue);
                 }
 
-                al.add(obj);// 装入容器
+                ls.add(obj);// 装入容器
             } else {
                 break;
             }
         }
-        return al;
+        return ls;
     }
 
     /**
@@ -111,13 +115,13 @@ public class JDBCUtil {
     /**
      * @Description 一次性更新操作(包含增删改)
      */
-    public static int onceUpdate(File jdbcConfig, String sql, Object... args) {
+    public static int onceUpdate(String sql, Object... args) {
         // 1、获取连接
         Connection connect = null;
         PreparedStatement ps = null;
 
         try {
-            connect = getConnect(jdbcConfig);
+            connect = getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -145,15 +149,15 @@ public class JDBCUtil {
     /**
      * 一次性通用查询，使用ArrayList做容器
      */
-    public static <T> ArrayList<T> onceQuery(File jdbcConfig, Class<T> clazz, String sql, Object... args) {
+    public static <T> List<T> onceQuery(Class<T> clazz, String sql, Object... args) {
         Connection connect = null;
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        ArrayList<T> al = null;
+        List<T> ls = null;
 
         try {
             // 1、获取连接
-            connect = getConnect(jdbcConfig);
+            connect = getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -167,7 +171,7 @@ public class JDBCUtil {
             // 5、获取元数据，从而获取列数
             ResultSetMetaData metaData = ps.getMetaData();// 获取元数据
 
-            al = getQueryObjects(clazz, resultSet, metaData);
+            ls = getQueryObjects(clazz, resultSet, metaData);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,6 +186,6 @@ public class JDBCUtil {
             e.printStackTrace();
         }
 
-        return al;
+        return ls;
     }
 }

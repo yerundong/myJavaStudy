@@ -4,8 +4,7 @@ import JDBC.lib.JDBCUtil;
 import JDBC.lib.LoginInfo;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,8 +13,7 @@ import java.util.Scanner;
  * 密码：=1 or '1' = '1
  */
 public class 解决SQL注入问题 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
 
     @Test
     public void testLogin() {
@@ -29,7 +27,7 @@ public class 解决SQL注入问题 {
         System.out.println(password);
 
         String sql = "SELECT `id`, `user` AS `name`, `age`, `birthday`, `password` FROM `jdbc_login` WHERE `user` = ? AND `password` = ?";
-        ArrayList<LoginInfo> res = JDBCUtil.onceQuery(JDBC_CONFIG, LoginInfo.class, sql, userName, password);
+        List<LoginInfo> res = JDBCUtil.onceQuery(LoginInfo.class, sql, userName, password);
         System.out.println(res);
 
 

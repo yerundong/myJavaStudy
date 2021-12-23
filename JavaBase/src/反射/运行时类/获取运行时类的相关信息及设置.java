@@ -121,12 +121,14 @@ public class 获取运行时类的相关信息及设置 {
     }
 
     /**
-     * @获取运行时类的带泛型的父类
+     * @获取运行时类的带泛型的父类及泛型
      */
     @Test
     public void getGenericSuperclass() {
         // <M> public Type getGenericSuperclass()
         // <返> 获取运行时类带泛型的父类
+        // <注> 只能获取继承时父类泛型已确定的父类泛型信息，如：public class Son extends Father<String>
+        // 而保留的泛型参数是取不到的，如：public class Son<T> extends Father<T>
         Class<Son> clazz = Son.class;
         Type genericSuperclass = clazz.getGenericSuperclass();
         System.out.println(genericSuperclass);

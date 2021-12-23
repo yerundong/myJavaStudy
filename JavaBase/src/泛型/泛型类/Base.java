@@ -2,9 +2,7 @@ package 泛型.泛型类;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Base {
     /**
@@ -46,36 +44,5 @@ public class Base {
         SubClass4<Character, List<Integer>> subClass4 = new SubClass4<>();
         Object name = subClass4.getName();
         Object age = subClass4.getAge();
-    }
-
-    /**
-     * @Description 不同泛型参数的引用不能互相赋值
-     */
-    @Test
-    public void test3() {
-        GenericClass<String, Integer> stringInteger1 = new GenericClass<>("Tom", 13);
-        GenericClass<String, String> stringInteger2 = new GenericClass<>("Tom", "13");
-        // stringInteger1 = stringInteger2;// 编译报错
-
-        // 通配泛型可以赋值
-        List<String> list1 = new ArrayList<>();
-        ArrayList<Integer> list2 = new ArrayList<>();
-        List<?> list3 = new ArrayList<>();
-        // list1 = list2;// 编译报错
-        list3 = list1;
-        list3 = list2;
-
-
-    }
-
-    /**
-     * @Description 不可充当具体的类，只能是变量
-     */
-    @Test
-    public <T> void test4() {
-        // T[] ts = new T[10];// 错误写法
-        // T t = new T();// 错误写法
-
-        T[] objects = (T[]) new Objects[10];// 允许
     }
 }

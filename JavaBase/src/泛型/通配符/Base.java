@@ -1,77 +1,90 @@
 package 泛型.通配符;
 
 import lib.Person;
+import lib.Sola;
 import lib.Student;
 import org.junit.jupiter.api.Test;
-import 泛型.泛型类.GenericClass;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @通配符: ?表示不确定的 java 类型
- * @用处： 通常用于变量声明、泛型方法的调用代码和形参，不能用于定义泛型类、方法、接口。
- * 1.变量接收
- * 2.方法形参
- */
 public class Base {
-
     /**
-     * @Description 无边界通配符
+     * @Description 接收-上边界通配符
      */
     @Test
-    public void test() {
-        // 表示 list1 可以指向任何泛型的 List 的引用
-        // 1.变量接收
-        List<?> list1 = new ArrayList<>();
-        ArrayList<Person> list2 = new ArrayList<>();
-        list1 = list2;
+    public void test1() {
+        // Student是Person子类
+        List<? extends Person> ls1 = new ArrayList<>();
+        List<Student> ls2 = new ArrayList<>();
+        ls1 = ls2;
 
-        // 2.方法形参
-        ArrayList<?> look = look(new ArrayList<String>());
-
-        // 读取
-        GenericClass<?, ?> genericClass = new GenericClass<>();
-        Object name = genericClass.getName();// 只能使用 Object 接收，因为不确定?代表哪个类型
-        // ? name = genericClass.getName();// 错误写法
-
-        // 写入
-        // genericClass.setName(456);// 编译报错
-        genericClass.setName(null);// 只有null允许，因为不确定?代表哪个类型
-    }
-
-    public ArrayList<?> look(ArrayList<?> l) {
-        return l;
+        // 无边界通配符，相当于<? extends Object>
+        List<?> ls3 = new ArrayList<>();
+        ls3 = ls1;
+        ls3 = ls2;
     }
 
     /**
-     * @Description 上边界限定通配符
+     * @Description 接收-下边界通配符
      */
     @Test
     public void test2() {
-        // 表示 list1 可以指向任何泛型是 Person 或 Person 子类的 List 的引用
-        // 表示 ? <= Person
-        List<? extends Person> list1 = new ArrayList<>();
-        ArrayList<Student> list2 = new ArrayList<>();
-        list1 = list2;
-
-        // list1.add(new Person());// 编译报错，因为不确定?代表哪个类型
-        // list1.add(new Student());// 编译报错，因为不确定?代表哪个类型
+        // Student是Person子类
+        List<? super Student> ls1 = new ArrayList<>();
+        List<Person> ls2 = new ArrayList<>();
+        List<Student> ls3 = new ArrayList<>();
+        ls1 = ls2;
+        ls1 = ls3;
+        // ls2 = ls1;// Error
+        // ls3 = ls1;// Error
     }
 
     /**
-     * @Description 下边界限定通配符
+     * @使用处：形参、返参、变量接收处
      */
     @Test
     public void test3() {
-        // 表示 list1 可以指向任何泛型是 Student 或 Student 父类的 List 的引用
-        // 表示 ? >= Student
-        ArrayList<? super Student> list1 = new ArrayList<>();
-        ArrayList<Person> list2 = new ArrayList<>();
-        list1 = list2;
-
-        list1.add(new Student());// 允许，因为不管?代表哪个类型，都 >= Student，
-        // list1.add(new Person());// 编译报错，不一定 >= Student
+        List<? extends Number> work = work(new ArrayList<Integer>());
     }
 
+    public List<? extends Number> work(List<? extends Integer> ls) {
+        return ls;
+    }
+
+    /**
+     * @上边界通配符存、取
+     */
+    @Test
+    public void test4() {
+        List<? extends Person> ls2 = new ArrayList<>();
+
+        // 因为?<=Person，只知?最大为Person，不知最小
+        // 只能取，但取只能用Person接收
+        Person person = ls2.get(0);
+        // Student stu = ls2.get(0);// Error
+
+        // 所有类型都不能存，无论传入多小，都可能比?大，所以禁止存
+        // ls2.add(new Student());// Error
+        // ls2.add(new Person());// Error
+    }
+
+    /**
+     * @下边界通配符存、取
+     */
+    @Test
+    public void test5() {
+        List<? super Student> ls2 = new ArrayList<>();
+
+        // 因为?>=Student，知?最小为Student，最大为Object
+
+        // 可以取，但取只能用Object接收
+        Object object = ls2.get(0);
+        // Student stu = ls2.get(0);// Error
+
+        // 可以存，但只能存Student及子类，才能确保存入的比?小
+        ls2.add(new Student());
+        ls2.add(new Sola());
+        // ls2.add(new Person());// Error
+    }
 }

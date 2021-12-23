@@ -1,16 +1,14 @@
-package JDBC.操作数据库.事务;
+package JDBC.事务;
 
 import JDBC.lib.JDBCUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class 无事务会出现的问题模拟 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
 
     /**
      * @无事务可能会出现的情况
@@ -21,7 +19,7 @@ public class 无事务会出现的问题模拟 {
         Connection connect = null;
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             String sql = "UPDATE `jdbc_trans` SET `balance` = ? WHERE `id` = ?";
             ps = connect.prepareStatement(sql);
 
@@ -55,7 +53,7 @@ public class 无事务会出现的问题模拟 {
         Connection connect = null;
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             String sql = "UPDATE `jdbc_trans` SET `balance` = ? WHERE `id` = ?";
             ps = connect.prepareStatement(sql);
 

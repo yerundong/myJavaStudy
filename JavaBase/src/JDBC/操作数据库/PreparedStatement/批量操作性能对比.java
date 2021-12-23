@@ -3,15 +3,12 @@ package JDBC.操作数据库.PreparedStatement;
 import JDBC.lib.JDBCUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class 批量操作性能对比 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
 
     /**
      * @PreparedStatement批量插入性能测试：1000000条-1.094s（最终版）
@@ -25,7 +22,7 @@ public class 批量操作性能对比 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -89,7 +86,7 @@ public class 批量操作性能对比 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             st = connect.createStatement();

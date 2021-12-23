@@ -1,17 +1,15 @@
-package JDBC.操作数据库.事务;
+package JDBC.事务;
 
 import JDBC.lib.JDBCUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Savepoint;
 
 public class Base {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
 
     /**
      * @设置事务自动提交
@@ -22,7 +20,7 @@ public class Base {
         Connection connect = null;
 
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
 
             // 取消事务自动提交
             // System.out.println(connect.getAutoCommit());
@@ -51,7 +49,7 @@ public class Base {
         int count = 1;
 
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             String sql = "INSERT INTO `jdbc_trans` VALUES(NULL, ?)";
             ps = connect.prepareStatement(sql);
 
@@ -102,7 +100,7 @@ public class Base {
         Savepoint point = null;
 
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             String sql = "INSERT INTO `jdbc_trans` VALUES(NULL, ?)";
             ps = connect.prepareStatement(sql);
 
@@ -148,7 +146,7 @@ public class Base {
 
     /**
      * @获取、设置事务隔离级别
-     * @注：数据库服务重启会恢复到默认隔离级别
+     * @注：每次新的连接、数据库服务重启会恢复到默认隔离级别
      */
     @Test
     public void test_isolation() {
@@ -156,7 +154,7 @@ public class Base {
         PreparedStatement ps = null;
 
         try {
-            connect = JDBCUtil.getConnect(JDBC_CONFIG);
+            connect = JDBCUtil.getConnect();
             int isolation = connect.getTransactionIsolation();
             System.out.println(isolation);
 

@@ -4,7 +4,6 @@ import JDBC.lib.JDBCUtil;
 import JDBC.lib.LoginInfo_statement;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.Scanner;
@@ -16,8 +15,7 @@ import java.util.Scanner;
  * 密码：=1 or '1' = '1
  */
 public class SQL注入问题模拟 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
 
     @Test
     public void testLogin() {
@@ -51,7 +49,7 @@ public class SQL注入问题模拟 {
         Statement st = null;
         ResultSet rs = null;
         try {
-            conn = JDBCUtil.getConnect(JDBC_CONFIG);
+            conn = JDBCUtil.getConnect();
 
             st = conn.createStatement();
 

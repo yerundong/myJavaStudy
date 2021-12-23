@@ -3,7 +3,6 @@ package JDBC.练习;
 import JDBC.lib.JDBCUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -11,8 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class 控制台插入记录 {
-    // jdbc配置
-    private final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+
 
     /**
      * @
@@ -44,7 +42,7 @@ public class 控制台插入记录 {
         Date birth = new Date(timestamp);
 
         String sql = "INSERT INTO `jdbc_login` VALUES(?, ?, ?, ?, ?)";
-        JDBCUtil.onceUpdate(JDBC_CONFIG, sql, id, name, password, age, birth);
+        JDBCUtil.onceUpdate(sql, id, name, password, age, birth);
         System.out.println("插入成功！");
     }
 }

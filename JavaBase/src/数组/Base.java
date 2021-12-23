@@ -136,6 +136,21 @@ public class Base {
         System.out.println(arr1[0].length);
     }
 
+    /**
+     * @数组的协变性
+     */
+    @Test
+    public void covariant() {
+        // 元素类型上的协变
+        Object[] arr1 = new Object[1];
+        arr1[0] = 5;
+
+        // 数组类型上的协变
+        Number[] arr2 = new Integer[5];
+        arr1 = arr2;
+        // arr2 = arr1;// Error
+    }
+
     static void testMethod(int[] arr) {
     }
 }
