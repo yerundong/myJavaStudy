@@ -40,8 +40,8 @@ public class 批量操作性能对比 {
                 //“攒”sql
                 ps.addBatch();
 
-                // 每满小车时执行一次
-                if (i % cbuf == 0) {
+                // 每满小车条数时执行一次
+                if ((i + 1) % cbuf == 0) {
                     //执行
                     ps.executeBatch();
                     //清空
@@ -62,13 +62,16 @@ public class 批量操作性能对比 {
         } catch (Exception throwables) {
             throwables.printStackTrace();
         } finally {
-            // 5、关闭
             try {
-                JDBCUtil.close(connect);
-                JDBCUtil.close(ps);
+                // 恢复事务自动提交
+                connect.setAutoCommit(true);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
+
+            // 5、关闭
+            JDBCUtil.close(connect);
+            JDBCUtil.close(ps);
         }
         long end = System.currentTimeMillis();
         System.out.println("花费时间：" + (end - start));
@@ -102,12 +105,8 @@ public class 批量操作性能对比 {
             throwables.printStackTrace();
         } finally {
             // 5、关闭
-            try {
-                JDBCUtil.close(connect);
-                JDBCUtil.close(st);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            JDBCUtil.close(connect);
+            JDBCUtil.close(st);
         }
 
         long end = System.currentTimeMillis();

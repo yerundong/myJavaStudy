@@ -5,7 +5,10 @@ import JDBC.lib.LoginInfo_statement;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -88,13 +91,9 @@ public class SQL注入问题模拟 {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            try {
-                JDBCUtil.close(conn);
-                JDBCUtil.close(rs);
-                JDBCUtil.close(st);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            JDBCUtil.close(conn);
+            JDBCUtil.close(rs);
+            JDBCUtil.close(st);
         }
 
         return null;

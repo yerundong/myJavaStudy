@@ -1,5 +1,8 @@
 package JDBC.lib;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Constructor;
@@ -10,11 +13,26 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @Description jdbc通用方法封装，包括连接、查询、更新操作
+ * @Description jdbc通用方法封装，类似于Apache Commons DbUtils
  */
 public class JDBCUtil {
     // jdbc配置
     private static final File JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/jdbc.properties");
+    // druid jdbc配置
+    private static final File DRUID_JDBC_CONFIG = new File("JavaBase/src/JDBC/lib/druid.jdbc.properties");
+
+    // 连接池
+    private static DataSource dataSource = null;
+
+    static {
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileReader(DRUID_JDBC_CONFIG));
+            dataSource = DruidDataSourceFactory.createDataSource(properties);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * @Description 获取连接
@@ -38,12 +56,82 @@ public class JDBCUtil {
     }
 
     /**
+     * @Description 获取连接池中的连接（推荐）
+     */
+    public static Connection getPoolConnect() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+    /**
      * @Description 设置PreparedStatement占位符
      */
     public static void setPrepareStatement(PreparedStatement ps, Object... args) throws SQLException {
         // 填充占位符
         for (int i = 0; i < args.length; i++) {
             ps.setObject(i + 1, args[i]);
+        }
+    }
+
+    /**
+     * @Description 更新
+     */
+    public static int update(Connection connect, String sql, Object... args) {
+        PreparedStatement ps = null;
+        int count = 0;
+        try {
+            ps = connect.prepareStatement(sql);
+            setPrepareStatement(ps, args);
+            count = ps.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            close(ps);
+            return count;
+        }
+    }
+
+    /**
+     * @Description 批量更新
+     */
+    public static int batchUpdate(Connection connect, String sql, List<Object[]> ls) {
+        PreparedStatement ps = null;
+        int count = 0;
+        try {
+            connect.setAutoCommit(false);
+            ps = connect.prepareStatement(sql);
+            int len = ls.size();// 更新数据总条数
+            int cbuf = 2;// 缓冲小车
+
+            for (int i = 0; i < len; i++) {
+                Object[] args = ls.get(i);
+                setPrepareStatement(ps, args);
+                ps.addBatch();
+                if ((i + 1) % cbuf == 0) {
+                    int[] counts = ps.executeBatch();
+                    for (int c : counts) {
+                        count += c;
+                    }
+                    ps.clearBatch();
+                }
+            }
+
+            // 若有剩余，最后执行一次
+            if (len % cbuf != 0) {
+                int[] ints = ps.executeBatch();
+                ps.clearBatch();
+            }
+
+            connect.commit();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            try {
+                connect.setAutoCommit(true);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            close(ps);
+            return count;
         }
     }
 
@@ -80,112 +168,111 @@ public class JDBCUtil {
     }
 
     /**
-     * @Description 关闭操作
+     * @查询
      */
-    public static void close(Connection conn) throws SQLException {
-        if (conn != null)
-            conn.close();
-    }
-
-    /**
-     * @Description 关闭操作
-     */
-    public static void close(PreparedStatement ps) throws SQLException {
-        if (ps != null)
-            ps.close();
-    }
-
-    /**
-     * @Description 关闭操作
-     */
-    public static void close(Statement st) throws SQLException {
-        if (st != null)
-            st.close();
-    }
-
-    /**
-     * @Description 关闭操作
-     */
-    public static void close(ResultSet rs) throws SQLException {
-        if (rs != null)
-            rs.close();
-    }
-
-
-    /**
-     * @Description 一次性更新操作(包含增删改)
-     */
-    public static int onceUpdate(String sql, Object... args) {
-        // 1、获取连接
-        Connection connect = null;
-        PreparedStatement ps = null;
-
-        try {
-            connect = getConnect();
-
-            // 2、预编译sql语句，返回prepareStatement实例
-            ps = connect.prepareStatement(sql);
-
-            // 3、填充占位符
-            setPrepareStatement(ps, args);
-
-            // 4、执行
-            return ps.executeUpdate();
-        } catch (Exception throwables) {
-            throwables.printStackTrace();
-        } finally {
-            // 5、关闭
-            try {
-                close(connect);
-                close(ps);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
-        return 0;
-    }
-
-
-    /**
-     * 一次性通用查询，使用ArrayList做容器
-     */
-    public static <T> List<T> onceQuery(Class<T> clazz, String sql, Object... args) {
-        Connection connect = null;
+    public static <T> List<T> query(Connection connect, Class<T> clazz, String sql, Object... args) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         List<T> ls = null;
 
         try {
-            // 1、获取连接
-            connect = getConnect();
-
-            // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
-
-            // 3、填充占位符
             setPrepareStatement(ps, args);
-
-            // 4、执行查询，获得结果集
             resultSet = ps.executeQuery();
-
-            // 5、获取元数据，从而获取列数
-            ResultSetMetaData metaData = ps.getMetaData();// 获取元数据
-
+            ResultSetMetaData metaData = ps.getMetaData();
             ls = getQueryObjects(clazz, resultSet, metaData);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // 关闭
-        try {
-            close(connect);
-            close(resultSet);
+        } catch (Exception throwables) {
+            throwables.printStackTrace();
+        } finally {
             close(ps);
+            close(resultSet);
+            return ls == null ? new ArrayList<T>() : ls;
+        }
+    }
+
+    /**
+     * @Description 关闭操作
+     */
+    public static void close(Connection conn) {
+        if (conn != null)
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+    }
+
+    /**
+     * @Description 关闭操作
+     */
+    public static void close(PreparedStatement ps) {
+        if (ps != null)
+            try {
+                ps.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+    }
+
+    /**
+     * @Description 关闭操作
+     */
+    public static void close(Statement st) {
+        if (st != null)
+            try {
+                st.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+    }
+
+    /**
+     * @Description 关闭操作
+     */
+    public static void close(ResultSet rs) {
+        if (rs != null)
+            try {
+                rs.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+    }
+
+
+    /**
+     * 完整的更新操作(包含连接 、 更新 、 关闭操作)
+     */
+    public static int onceUpdate(String sql, Object... args) {
+        Connection connect = null;
+        int update = 0;
+
+        try {
+            connect = getConnect();
+            update = update(connect, sql, args);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            close(connect);
+            return update;
         }
+    }
 
-        return ls;
+
+    /**
+     * 完整的查询操作(包含连接 、 查询 、 关闭操作)，使用ArrayList做容器
+     */
+    public static <T> List<T> onceQuery(Class<T> clazz, String sql, Object... args) {
+        Connection connect = null;
+        List<T> ls = null;
+
+        try {
+            connect = getConnect();
+            ls = query(connect, clazz, sql, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(connect);
+            return ls == null ? new ArrayList<T>() : ls;
+        }
     }
 }

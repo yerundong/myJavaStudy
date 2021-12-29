@@ -36,17 +36,12 @@ public class 无事务会出现的问题模拟 {
             e.printStackTrace();
         }
 
-        try {
-            JDBCUtil.close(connect);
-            JDBCUtil.close(ps);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        JDBCUtil.close(connect);
+        JDBCUtil.close(ps);
     }
 
     /**
-     * @无事务可能会出现的情况
-     * @实现：id1给id2转账100写法，id1钱减少了，但id2钱未转入
+     * @引入事务解决以上问题
      */
     @Test
     public void test2() {
@@ -86,11 +81,12 @@ public class 无事务会出现的问题模拟 {
             try {
                 // 恢复事务自动提交
                 connect.setAutoCommit(true);
-                JDBCUtil.close(connect);
-                JDBCUtil.close(ps);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
+
+            JDBCUtil.close(connect);
+            JDBCUtil.close(ps);
         }
     }
 }

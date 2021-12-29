@@ -231,10 +231,6 @@ public class LocalXxx {
         Instant instant = localDateTime1.toInstant(ZoneOffset.of("+8"));
         long msec = instant.toEpochMilli();
         System.out.println(msec);// 1607567014805
-
-
     }
-
-
 }
 

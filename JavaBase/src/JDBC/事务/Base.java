@@ -164,11 +164,7 @@ public class Base {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                JDBCUtil.close(connect);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            JDBCUtil.close(connect);
         }
     }
 }

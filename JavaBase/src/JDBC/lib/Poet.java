@@ -1,16 +1,16 @@
 package JDBC.lib;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Poet {
     private int id;
     private String name;
-    private LocalDate birthDay;
+    private Date birthDay;
 
     public Poet() {
     }
 
-    public Poet(int id, String name, LocalDate birthDay) {
+    public Poet(int id, String name, Date birthDay) {
         this.id = id;
         this.name = name;
         this.birthDay = birthDay;
@@ -41,11 +41,11 @@ public class Poet {
         this.name = name;
     }
 
-    public LocalDate getBirthDay() {
+    public Date getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(LocalDate birthDay) {
+    public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
     }
 }
