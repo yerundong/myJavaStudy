@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<books>
+    <book id="10000001">
+        <name>罪与罚</name>
+        <author>费奥多尔·米哈伊洛维奇·陀思妥耶夫斯基</author>
+        <price>60.00</price>
+    </book>
+    <book id="10000002">
+        <name>战争与和平</name>
+        <author>列夫·尼古拉耶维奇·托尔斯泰</author>
+        <price>56.66</price>
+    </book>
+</books>

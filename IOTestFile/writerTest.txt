@@ -1,4 +1,0 @@
-gggccc
-a
-我是重定向打印
-println test

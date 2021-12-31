@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<trees>
-    <tree path="/src">
-        <tree path="/common" title="插件">
-        </tree>
-    </tree>
-    <tree path="/项目-客户信息管理软件" title="pppp"/>
-</trees>
