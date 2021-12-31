@@ -148,3 +148,8 @@ File -> Settings：
 
 
 
+# IDEA 创建一个Web工程
+
+创建一个新模块：
+
+![20211231174731](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231174731.png)
