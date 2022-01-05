@@ -140,7 +140,7 @@ https://www.cnblogs.com/fanshuyao/p/13813340.html
 
 
 
-## IDEA 整合 Tomcat 服务器
+# IDEA 整合 Tomcat 服务器
 
 File -> Settings：
 
@@ -152,4 +152,72 @@ File -> Settings：
 
 创建一个新模块：
 
-![20211231174731](.\images\javaWeb\20211231174731.png)
+![20220105114621](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220105114621.png)
+
+
+
+# IDEA 使用 Tomcat 服务器运行WEB项目
+
+1. 打开项目结构，添加一个web项目所在模块的facet。
+
+![image-20220105141206447](.\images\javaWeb\image-20220105141206447.png)
+
+2. 打开项目结构，添加一个web项目所在模块的Artifact。
+
+![image-20220105141529130](.\images\javaWeb\image-20220105141529130.png)
+
+3. 打开tomcat配置信息窗口
+
+![image-20220105141606933](.\images\javaWeb\image-20220105141606933.png)
+
+配置以下信息
+
+![image-20220105141708799](.\images\javaWeb\image-20220105141708799.png)
+
+再到部署里添加web项目的Artifact，并填写上下文
+
+![image-20220105141757216](.\images\javaWeb\image-20220105141757216.png)
+
+
+
+# 概念解释
+
+### jar包和war包
+
+https://www.jianshu.com/p/3b5c45e8e5bd
+
+
+
+### Facet
+
+Facet表述了在Module中使用的各种各样的框架、技术和语言。这些Facets让Intellij IDEA知道怎么对待module内容，并保证与相应的框架和语言保持一致。
+
+Facet表示某个module有的特征，比如web、strtus2、spring、hibernate等。
+
+它的作用就是配置项目框架类支持。比如我们现在要开发的是一个 web 项目，那就需要 web 相关的 Facet，事实上，如果没有这个配置支持，编译器也不知道这个项目是个 web 项目，也就不会去读取 web.xml 的配置，更无法被 tomcat 这种容器支持。
+
+Facet 是和 Module 紧密结合的，你如果是在 Module 里配置了，那么 Facet 里边也会出现，而如果你先在 Facet 里配置，它会要求你选择 Module，所以结果是一致的。
+
+
+
+### Artifact
+
+Artifact是maven中的一个概念，表示某个module要如何打包，例如war exploded、war、jar、ear等等这种打包形式。
+
+它的作用是整合编译后的 java 文件，资源文件等，有不同的整合方式，比如war、jar、war exploded 等，对于 Module 而言，有了 Artifact 就可以部署到 web 容器中了。其中 war 和 war exploded 区别就是后者不压缩，开发时选后者便于看到修改文件后的效果。
+
+
+
+#### web application exploded和web application archive
+
+- web application exploded：这个是以文件夹形式发布项目，发布项目时就会自动生成文件夹在指定的output directory
+
+- web application archive：就是war包形式,将项目打成一个war包在指定位置
+
+
+
+# servlet
+
+Servlet（Server Applet）是Java Servlet的简称，称为==小服务程序==或==服务连接器==，用Java编写的服务器端程序，具有独立于平台和协议的特性，主要功能在于==交互式地浏览和生成数据==，生成动态Web内容。
+
+狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet接口的类，一般情况下，人们将Servlet理解为后者。Servlet运行于支持Java的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下Servlet只用来扩展基于HTTP协议的Web服务器。
