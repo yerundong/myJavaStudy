@@ -56,7 +56,7 @@ Web服务器一般指网站服务器，是指驻留于[因特网](https://baike.
 
 ## 目录介绍
 
-![20211231153428](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231153428.png)
+![20211231153428](.\images\javaWeb\20211231153428.png)
 
 ## 环境变量
 
@@ -80,7 +80,7 @@ Tomcat 默认的端口号是：8080。
 
 http默认端口号是80，80端口不显示。
 
-![20211231162426056](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231162426056.png)
+![20211231162426056](.\images\javaWeb\20211231162426056.png)
 
 改完重启生效。
 
@@ -92,7 +92,7 @@ http默认端口号是80，80端口不显示。
 
 进入bin目录：
 
-![20211231153947](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231153947.png)
+![20211231153947](.\images\javaWeb\20211231153947.png)
 
 
 
@@ -144,7 +144,7 @@ https://www.cnblogs.com/fanshuyao/p/13813340.html
 
 File -> Settings：
 
-![20211231171118](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231171118.png)
+![20211231171118](.\images\javaWeb\20211231171118.png)
 
 
 
@@ -152,4 +152,4 @@ File -> Settings：
 
 创建一个新模块：
 
-![20211231174731](E:\Desktop\myJavaStudy\JavaWeb\src\docs\images\20211231174731.png)
+![20211231174731](.\images\javaWeb\20211231174731.png)

@@ -12,7 +12,7 @@
 
 **Java基础知识图解：**
 
-![Java基础知识图解](.\images\总概\Java基础知识图解.png)
+![Java基础知识图解](.\images\javaSe\总概\Java基础知识图解.png)
 
 
 
@@ -112,7 +112,7 @@ Java中基本类型的包装类的大部分都实现了常量池技术，这些�
 
 ## 5 JDK、JRE、JVM关系
 
-![JDK&JRE&JVM关系示意图](.\images\总概\JDK&JRE&JVM关系示意图.png)
+![JDK&JRE&JVM关系示意图](.\images\javaSe\总概\JDK&JRE&JVM关系示意图.png)
 
 - **JDK：**
 
@@ -134,7 +134,7 @@ Java中基本类型的包装类的大部分都实现了常量池技术，这些�
 
 ## 6 JVM内存
 
-![java内存](.\images\总概\java内存.png)
+![java内存](.\images\javaSe\总概\java内存.png)
 
 - **堆（Heap）**
 
@@ -234,7 +234,7 @@ Java数据类型可分为**基本类型**和**引用类型**两大类。
 
 **引用类型：**类、接口、数组
 
-![数据类型](.\images\数据类型\数据类型.png)
+![数据类型](.\images\javaSe\数据类型\数据类型.png)
 
 
 
@@ -421,7 +421,7 @@ Java语言是一个面向对象的语言，但并不是<u>纯面向对象的语�
 
 
 
-![包装类的继承关系](.\images\数据类型\包装类的继承关系.png)
+![包装类的继承关系](.\images\javaSe\数据类型\包装类的继承关系.png)
 
 
 
@@ -491,7 +491,7 @@ Type var = value;
 
 **快速记忆：** 基本转String用valueOf，toString，拼接符号黑科技；String转基本用parse，只有char搞特殊。
 
-![基本类型、包装类、String的转换](.\images\数据类型\基本类型、包装类、String的转换.png)
+![基本类型、包装类、String的转换](.\images\javaSe\数据类型\基本类型、包装类、String的转换.png)
 
 ### 6.1 **基本类型转String**
 
@@ -1021,7 +1021,7 @@ API中说：Java 程序中的所有字**符串字面值**（如 "abc" ）都作�
 - 构造函数创建返回的**一定是堆中的引用地址**，字面量创建返回的**一定是字符串常量池中的引用地址**。
 - 构造函数创建一定会在堆中创建新实例，字面量创建不一定会创建新实例。
 
-![字符串常量池内存](.\images\字符串\字符串常量池内存.png)
+![字符串常量池内存](.\images\javaSe\字符串\字符串常量池内存.png)
 
 
 
@@ -1451,7 +1451,7 @@ DateTimeFormatter可以通过==格式化字符串==和Locale对日期和时间�
 
 
 
-![日期时间的模式字母](.\images\日期和时间\日期时间的模式字母.PNG)
+![日期时间的模式字母](.\images\javaSe\日期和时间\日期时间的模式字母.PNG)
 
 
 
@@ -1733,14 +1733,14 @@ new Person("张三", 30).tell();
 **作用：**
 
 - 指向==当前实例对象==，用于访问实例的成员变量\方法，如：this.field/this.method()
-    
+  
     > 注：
     >
     > 1. 当与成员变量或形参不重名的情况下，this可以省略
     > 2. 继承中，如果子类实例化，父类中的this（==包括代码块、构造器、方法中的this==）是指向子类实例；若父类实例化，父类的this还是指向父类实例。
     
 - 充当本类的构造函数，用法：this()\this(...)
-    
+  
   > 注：
   >
   > 1. 只允许在构造器的==第一行代码==执行
@@ -2013,7 +2013,7 @@ JavaBean是一个遵循特定写法的Java类，是一种Java语言编写的可�
 
 继承（extends）就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。
 
-![继承类型](.\images\类和对象\继承类型.png)
+![继承类型](.\images\javaSe\类和对象\继承类型.png)
 
 **书写格式：**
 
@@ -2098,7 +2098,7 @@ JavaBean是一个遵循特定写法的Java类，是一种Java语言编写的可�
 
   > 记忆：新增一种实现方式
 
-![重写和重载](.\images\类和对象\重写和重载.png)
+![重写和重载](.\images\javaSe\类和对象\重写和重载.png)
 
 
 
@@ -2490,7 +2490,7 @@ transient关键字用于可序列化类中，将==不需要序列化的成员变
 
 当一个类的对象数量是已知的、确定的、有限的，这个类称为枚举类。
 
-![枚举类归纳](.\images\枚举类\枚举类归纳.png)
+![枚举类归纳](.\images\javaSe\枚举类\枚举类归纳.png)
 
 
 
@@ -3628,7 +3628,7 @@ System.out.println(t1.getclass() == t2.getclass());
 
 集合和数组都属于Java容器，对多个数据进行储存操作的结构（注：这里的储存是内存层面的储存，非持久化储存）。
 
-![集合框架关系图](.\images\集合框架\集合框架关系图.gif)
+![集合框架关系图](.\images\javaSe\集合框架\集合框架关系图.gif)
 
 **所有的集合框架都包含如下内容：**
 
@@ -3849,7 +3849,7 @@ Map 是最基本的双列集合接口，存储一个一个键/值对（key-value
 
 
 
-![Map结构](.\images\集合框架\Map结构.jpg)
+![Map结构](.\images\javaSe\集合框架\Map结构.jpg)
 
 
 
@@ -3928,7 +3928,7 @@ ListIterator 是 Iterator 的子接口，它扩展了 Iterator 接口。
 
 
 
-![迭代器执行原理](.\images\集合框架\迭代器执行原理.jpg)
+![迭代器执行原理](.\images\javaSe\集合框架\迭代器执行原理.jpg)
 
 
 
@@ -3972,7 +3972,7 @@ Collections是操作Collection、Map的工具类，包含各种有关集合操�
 
 >注： Error也属于不可检测（unchecked），在运行时才抛出
 
-![异常分类](.\images\异常\异常分类.png)
+![异常分类](.\images\javaSe\异常\异常分类.png)
 
 
 
@@ -4163,7 +4163,7 @@ Annotation 可以像修饰符一样被使用 , 可用于修饰包，类，构造
 
 未来的开发模式都是基于注解的， JPA 是基于注解的，Spring2.5 以上都是基于注解的，Hibernate3.x 以后也是基于注解的， 现在的Struts2 有一部分也是基于注解的了，注解是一种趋势 ，一定程度上可以说： 框架 = 注解 + 反射 + 设计模式。
 
-![Annotation 架构](.\images\注解\Annotation 架构.PNG)
+![Annotation 架构](.\images\javaSe\注解\Annotation 架构.PNG)
 
 
 
@@ -4363,7 +4363,7 @@ Reflection（反射）是被视为<u>动态语言</u>的关键，反射机制允
 
 
 
-![正常方式和反射方式](.\images\反射\正常方式和反射方式.png)
+![正常方式和反射方式](.\images\javaSe\反射\正常方式和反射方式.png)
 
 
 
@@ -4393,7 +4393,7 @@ java.lang.Class类是Java反射的源头。
 
 对于每个类而言，JRE 都为其保留一个不变的 Class 对象。一个 Class 对象包含了特定某个结构(class/interface/enum/annotation/primitive type/void/[])的有关信息。
 
-![Class类](.\images\反射\Class类.png)
+![Class类](.\images\javaSe\反射\Class类.png)
 
 **注意：**
 
@@ -4448,7 +4448,7 @@ java.lang.Class类是Java反射的源头。
 
 类的加载过程分为：加载、链接、初始化三个步骤，这三个流程可以统称为：类的加载。
 
-![类的加载过程1](.\images\反射\类的加载过程1.png)
+![类的加载过程1](.\images\javaSe\反射\类的加载过程1.png)
 
 
 
@@ -4486,7 +4486,7 @@ java.lang.Class类是Java反射的源头。
 
 Java中使用java.lang.ClassLoader类表示一个类加载器。
 
-![类的加载过程2](.\images\反射\类的加载过程2.png)
+![类的加载过程2](.\images\javaSe\反射\类的加载过程2.png)
 
 **类加载器的作用：**
 
@@ -4506,7 +4506,7 @@ Java中使用java.lang.ClassLoader类表示一个类加载器。
 - 扩展类加载器：加载jre/lib/ext下的jar包
 - 系统类加载器：加载自定义类，最常用
 
-![ClassLoader](.\images\反射\ClassLoader.png)
+![ClassLoader](.\images\javaSe\反射\ClassLoader.png)
 
 1. 获取一个**系统类加载器**
 
@@ -4603,9 +4603,9 @@ AOP（Aspect Oriented Programming）意为：**面向切面编程**，通过预�
 
 ​	每个线程拥有独立的**栈、程序计数器**；一个进程中的多个线程共享进程的**堆、方法区**
 
-![进程概念](.\images\多线程\进程概念.png)
+![进程概念](.\images\javaSe\多线程\进程概念.png)
 
-![线程概念](.\images\多线程\线程概念.png)
+![线程概念](.\images\javaSe\多线程\线程概念.png)
 
 ### 1.2 并发与并行
 
@@ -4621,9 +4621,9 @@ AOP（Aspect Oriented Programming）意为：**面向切面编程**，通过预�
 
 
 
-![并发与并行](.\images\多线程\并发与并行.png)
+![并发与并行](.\images\javaSe\多线程\并发与并行.png)
 
-![并行和并发](.\images\多线程\并行和并发.jpeg)
+![并行和并发](.\images\javaSe\多线程\并行和并发.jpeg)
 
 
 
@@ -4815,13 +4815,13 @@ AOP（Aspect Oriented Programming）意为：**面向切面编程**，通过预�
 
 
 
-![线程状态](.\images\多线程\线程状态.jpeg)
+![线程状态](.\images\javaSe\多线程\线程状态.jpeg)
 
 
 
 
 
-![线程状态转换](.\images\多线程\线程状态转换.png)
+![线程状态转换](.\images\javaSe\多线程\线程状态转换.png)
 
 ## 4 线程优先级
 
@@ -4944,7 +4944,7 @@ thread.getPriority()
 
 
 
-![线程安全之卖票](.\images\多线程\线程安全之卖票.bmp)
+![线程安全之卖票](.\images\javaSe\多线程\线程安全之卖票.bmp)
 
 **现象举例：**
 
@@ -5712,7 +5712,7 @@ Java中使用InetAddress类主要表示IP地址。
 2. 注册端口：1024~49151。分配给用户进程或应用程序。（如：Tomcat默认占用端口8080，MySQL默认占用端口3306，Oracle默认占用端口1521等）。
 3. 动态/私有端口：49152~65535。
 
-![端口号](.\images\网络编程\端口号.png)
+![端口号](.\images\javaSe\网络编程\端口号.png)
 
 
 
@@ -5738,7 +5738,7 @@ Java中使用InetAddress类主要表示IP地址。
 
 尽管IP地址能够唯一地标记网络上的计算机，但IP地址是一长串数字，不直观，而且用户记忆十分不方便，于是人们又发明了另一套字符型的地址方案，即所谓的域名地址。IP地址和域名是一一对应的，这份域名地址的信息存放在一个叫域名服务器(DNS，Domain name server)的主机内，使用者只需了解易记的域名地址，其对应转换工作就留给了域名服务器。域名服务器就是提供IP地址和域名之间的转换服务的服务器。
 
-![域名ip之间的关系](.\images\网络编程\域名ip之间的关系.png)
+![域名ip之间的关系](.\images\javaSe\网络编程\域名ip之间的关系.png)
 
 
 
@@ -5791,7 +5791,7 @@ TCP/IP 以其两个主要协议：传输控制协议(TCP)和网络互联协议(I
 
 传统的开放式系统（OSI）互连参考模型，是一种通信协议的7层抽象的参考模型，其中每一层执行某一特定任务。该模型的目的是使各种硬件在相同的层次上相互通信。而TCP/IP通讯协议采用了4层的层级结构，每一层都呼叫它的下一层所提供的网络来完成自己的需求。TCP/IP协议模型从更实用的角度出发，形成了高效的四层体系结构，即==物理+数据链路层、网络层、传输层和应用层==。
 
-![网络通信协议](.\images\网络编程\网络通信协议.png)
+![网络通信协议](.\images\javaSe\网络编程\网络通信协议.png)
 
 
 
@@ -5811,13 +5811,13 @@ TCP/IP 以其两个主要协议：传输控制协议(TCP)和网络互联协议(I
 
 
 
-![socket](.\images\网络编程\socket.jpg)
+![socket](.\images\javaSe\网络编程\socket.jpg)
 
 
 
-![三次握手](.\images\网络编程\三次握手.png)
+![三次握手](.\images\javaSe\网络编程\三次握手.png)
 
-![四次挥手](.\images\网络编程\四次挥手.png)
+![四次挥手](.\images\javaSe\网络编程\四次挥手.png)
 
 ### 2.2 UDP协议
 
@@ -5835,7 +5835,7 @@ UDP 是User Datagram Protocol的简称， 中文名是用户数据包协议。UD
 
 
 
-![udp](.\images\网络编程\udp.gif)
+![udp](.\images\javaSe\网络编程\udp.gif)
 
 
 
@@ -5985,7 +5985,7 @@ URN，uniform resource name，统一资源命名，是通过名字来标识资�
 
 URL和URN都是URI的子集。
 
-![URI,URL,URN关系图](.\images\网络编程\URI,URL,URN关系图.webp)
+![URI,URL,URN关系图](.\images\javaSe\网络编程\URI,URL,URN关系图.webp)
 
 
 
