@@ -49,9 +49,30 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 # 配置本地仓库
 
-settings.xml中添加localRepository标签。
+新建一个本地文件，将其路径添加到settings.xml中的localRepository标签。以后下载到本地的包将会储存在此处。
 
 ```
 <localRepository>D:\apache-maven-3.8.4\maven-repo</localRepository>
 ```
 
+
+
+# IDEA配置Maven
+
+![20220105164910](E:\Desktop\myJavaStudy\docs\images\maven\20220105164910.png)
+
+配置导入参数：
+
+![20220105170251](E:\Desktop\myJavaStudy\docs\images\maven\20220105170251.png)
+
+# 使用maven创建一个项目
+
+![20220105171005](E:\Desktop\myJavaStudy\docs\images\maven\20220105171005.png)
+
+不使用模板创建，创建完目录结构为：
+
+![20220105171501](E:\Desktop\myJavaStudy\docs\images\maven\20220105171501.png)
+
+如果是web项目，则在main下增加目录：
+
+![20220105172326](E:\Desktop\myJavaStudy\docs\images\maven\20220105172326.png)
