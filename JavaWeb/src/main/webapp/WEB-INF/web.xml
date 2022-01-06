@@ -4,4 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!-- servlet标签给TomCat配置servlet程序 -->
+  <servlet>
+    <!-- servlet-name标签给servlet程序起一个别名（一般是servlet类名） -->
+    <servlet-name>HelloServlet</servlet-name>
+    <!-- servlet-class标签是servlet程序的全类名 -->
+    <servlet-class>servlet.HelloServlet</servlet-class>
+  </servlet>>
+  <!-- servlet-mapping标签给servlet程序配置访问地址 -->
+  <servlet-mapping>
+    <!-- servlet-name标签是配置目标servlet程序的别名（对应上面servlet-name） -->
+    <servlet-name>HelloServlet</servlet-name>
+    <!-- servlet-pattern标签配置访问地址 -->
+    <url-pattern>/123</url-pattern>
+  </servlet-mapping>
 </web-app>
