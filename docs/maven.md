@@ -76,3 +76,13 @@ https://blog.csdn.net/geekswg/article/details/119976216
 如果是web项目，则在main下增加目录：
 
 ![20220105172326](E:\Desktop\myJavaStudy\docs\images\maven\20220105172326.png)
+
+
+
+# POM
+
+https://www.runoob.com/maven/maven-pom.html
+
+https://blog.csdn.net/shao_yc/article/details/105317764
+
+https://www.cnblogs.com/64Byte/p/13054759.html

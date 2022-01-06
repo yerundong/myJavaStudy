@@ -148,15 +148,27 @@ File -> Settings：
 
 
 
-# IDEA 创建一个Web工程
+# IDEA 创建Web工程
 
-创建一个新模块：
+## 普通方式创建Web工程
 
 ![20220105114621](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220105114621.png)
 
+生成完目录结构如下。与maven生成的目录有所不同。
+
+![20220106143828](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220106143828.png)
+
+WEB-INF是Java的WEB应用的安全目录。所谓安全就是客户端无法访问，只有服务端可以访问的目录。如果想在页面中直接访问其中的文件，必须通过web.xm文件对要访问的文件进行相应映射才能访问。
+
+web.xml是Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。
 
 
-# IDEA 使用 Tomcat 服务器运行WEB项目
+
+## 使用maven模板创建一个Web项目
+
+![20220104160553](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220104160553.png)
+
+# IDEA 运行Web项目
 
 1. 打开项目结构，添加一个web项目所在模块的facet。
 
@@ -216,8 +228,94 @@ Artifact是maven中的一个概念，表示某个module要如何打包，例如w
 
 
 
-# servlet
+# Servlet 技术
 
 Servlet（Server Applet）是Java Servlet的简称，称为==小服务程序==或==服务连接器==，用Java编写的服务器端程序，具有独立于平台和协议的特性，主要功能在于==交互式地浏览和生成数据==，生成动态Web内容。
 
 狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet接口的类，一般情况下，人们将Servlet理解为后者。Servlet运行于支持Java的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下Servlet只用来扩展基于HTTP协议的Web服务器。
+
+一个 Servlet 就是 Java 编程语言中的一个类，它被用来扩展服务器的性能，服务器上驻留着可以通过==“请求-响应”编程模型==来访问的应用程序。虽然 Servlet 可以对任何类型的请求产生响应，但通常只用来扩展 ==Web 服务器==的应用程序。
+
+Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。
+
+使用 Servlet，您可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。
+
+Java Servlet 是运行在带有支持 Java Servlet 规范的解释器的 web 服务器上的 Java 类。
+
+我们通常把实现了Servlet接口的 Java 类叫作Servlet 。
+
+Servlet 是 Java 企业版（JavaEE）的标准组成部分，Java 企业版是支持大型开发项目的 Java 类库的扩展版本。
+
+Servlet是JavaEE的规范之一，规范即接口。
+
+Servlet是javaWeb三大组件之一。三大组件分别是：Servlet程序、Filter过滤器、Listener监听器。
+
+
+
+**开发一个Servlet程序需要两个步骤：**
+
+1. 编写一个实现Servlet接口的类
+2. 把这个类部署到web服务器上
+
+
+
+## Servlet 优势
+
+Java Servlet 通常情况下与使用 ==CGI（Common Gateway Interface，公共网关接口）==实现的程序可以达到异曲同工的效果。但是相比于 CGI，Servlet 有以下几点优势：
+
+- 性能明显更好（因为各个用户请求被激活成单个程序中的一个线程，而无需创建单独的进程）。
+- Servlet 在 Web 服务器的地址空间内执行。这样它就没有必要再创建一个单独的进程来处理每个客户端请求。
+- Servlet 是独立于平台的，因为它们是用 Java 编写的。
+- 服务器上的 Java 安全管理器执行了一系列限制，以保护服务器计算机上的资源。因此，Servlet 是可信的。
+- Java 类库的全部功能对 Servlet 来说都是可用的。它可以通过 sockets 和 RMI 机制与 applets、数据库或其他软件进行交互。
+
+
+
+## Servlet 架构
+
+下图显示了 Servlet 在 Web 应用程序中的位置。
+
+
+
+![servlet-arch](E:\Desktop\myJavaStudy\docs\images\javaWeb\servlet-arch.jpg)
+
+
+
+## Servlet 任务
+
+Servlet 执行以下主要任务：
+
+- 读取客户端（浏览器）发送的显式的数据。这包括网页上的 HTML 表单，或者也可以是来自 applet 或自定义的 HTTP 客户端程序的表单。
+- 读取客户端（浏览器）发送的隐式的 HTTP 请求数据。这包括 cookies、媒体类型和浏览器能理解的压缩格式等等。
+- 处理数据并生成结果。这个过程可能需要访问数据库，执行 RMI 或 CORBA 调用，调用 Web 服务，或者直接计算得出对应的响应。
+- 发送显式的数据（即文档）到客户端（浏览器）。该文档的格式可以是多种多样的，包括文本文件（HTML 或 XML）、二进制文件（GIF 图像）、Excel 等。
+- 发送隐式的 HTTP 响应到客户端（浏览器）。这包括告诉浏览器或其他客户端被返回的文档类型（例如 HTML），设置 cookies 和缓存参数，以及其他类似的任务。
+
+
+
+## Servlet 包
+
+使用Servlet 需要导入 **javax.servlet** 相关包：https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+
+### javax.servlet.Servlet接口
+
+javax.servlet.Servlet接口定义所有 servlet类 都必须实现的方法。 
+
+这些类实现 Java Servlet 和 JSP 规范。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
