@@ -114,6 +114,14 @@ Tomcat 的 bin 目录下打开cmd，执行`catalina run`，即启动。
 
 https://www.cnblogs.com/fanshuyao/p/13813340.html
 
+> 注：方式一无效，方式二有效
+
+
+
+### IDEA Tomcat控制台输出中文乱码解决方案
+
+https://blog.csdn.net/liu865033503/article/details/81094575
+
 
 
 ## 部署
@@ -140,14 +148,6 @@ https://www.cnblogs.com/fanshuyao/p/13813340.html
 
 
 
-# IDEA 整合 Tomcat 服务器
-
-File -> Settings：
-
-![20211231171118](.\images\javaWeb\20211231171118.png)
-
-
-
 # IDEA 创建Web工程
 
 ## 普通方式创建Web工程
@@ -168,7 +168,17 @@ web.xml是Web应用程序配置文件，描述了 servlet 和其他的应用组�
 
 ![20220104160553](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220104160553.png)
 
-# IDEA 运行Web项目
+
+
+# IDEA 整合 Tomcat 服务器
+
+File -> Settings：
+
+![20211231171118](.\images\javaWeb\20211231171118.png)
+
+
+
+# IDEA Tomcat 部署运行Web项目
 
 1. 打开项目结构，添加一个web项目所在模块的facet。
 
@@ -192,15 +202,15 @@ web.xml是Web应用程序配置文件，描述了 servlet 和其他的应用组�
 
 
 
-# 概念解释
+## 概念解释
 
-### jar包和war包
+### 一、jar包和war包
 
 https://www.jianshu.com/p/3b5c45e8e5bd
 
 
 
-### Facet
+### 二、Facet
 
 Facet表述了在Module中使用的各种各样的框架、技术和语言。这些Facets让Intellij IDEA知道怎么对待module内容，并保证与相应的框架和语言保持一致。
 
@@ -212,7 +222,7 @@ Facet 是和 Module 紧密结合的，你如果是在 Module 里配置了，那�
 
 
 
-### Artifact
+### 三、Artifact
 
 Artifact是maven中的一个概念，表示某个module要如何打包，例如war exploded、war、jar、ear等等这种打包形式。
 
@@ -220,7 +230,7 @@ Artifact是maven中的一个概念，表示某个module要如何打包，例如w
 
 
 
-#### web application exploded和web application archive
+### 四、web application exploded和web application archive
 
 - web application exploded：这个是以文件夹形式发布项目，发布项目时就会自动生成文件夹在指定的output directory
 
@@ -293,29 +303,209 @@ Servlet 执行以下主要任务：
 
 
 
-## Servlet 包
+## Servlet 包结构
 
 使用Servlet 需要导入 **javax.servlet** 相关包：https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 
-### javax.servlet.Servlet接口
+### Servlet接口
 
-javax.servlet.Servlet接口定义所有 servlet类 都必须实现的方法。 
+Servlet接口定义所有servlet类都必须实现的方法（==规范==）。 这些方法称为==生命周期方法==。
 
-这些类实现 Java Servlet 和 JSP 规范。
+除了生命周期方法之外，此接口还提供了 `getServletConfig` 方法和 `getServletInfo`  方法，servlet 可使用前一种方法获得任何启动信息，而后一种方法允许 servlet 返回有关其自身的基本信息，比如作者、版本和版权。
 
-
-
-
+开发中一般==不直接实现该接口==，而是选择继承GenericServlet类或HttpServlet类，更为便捷。
 
 
 
+### ServletConfig 类
+
+ServletConfig 类从类名上来看，就知道是 Servlet 程序的==配置信息==类（web.xml中的配置信息）。 
+
+Servlet 程序和 ServletConfig 对象都是由 Tomcat 负责创建，我们负责使用。 
+
+Servlet 程序默认是第一次访问的时候创建，ServletConfig 是每个 Servlet 程序创建时，就创建一个对应的 ServletConfig 对象。
+
+**ServletConfig** **类的三大作用：** 
+
+1. 可以获取 Servlet 程序的别名 servlet-name 的值 
+2. 获取初始化参数 init-param 
+3. 获取 ServletContext 对象 
 
 
 
+### GenericServlet类
+
+抽象类，定义一般的、与协议无关的 servlet。
+
+`GenericServlet`类 实现 `Servlet` 和 `ServletConfig`  接口。
+
+`GenericServlet` 使编写 servlet 变得更容易。它提供生命周期方法 `init` 和  `destroy` 的简单版本，以及 `ServletConfig`  接口中的方法的简单版本。`GenericServlet` 还实现 `log` 方法，在  `ServletContext` 接口中对此进行了声明。 
+
+要编写一般的 servlet，只需重写抽象 `service` 方法即可。 
 
 
 
+### HttpServlet类
+
+抽象类，提供将要被子类化以创建适用于 Web 站点的 HTTP servlet 的抽象类。`HttpServlet`  的子类至少必须重写一个方法，该方法通常是以下这些方法之一： 
+
+- `doGet`，如果 servlet 支持 HTTP GET 请求 
+- `doPost`，用于 HTTP POST 请求 
+- `doPut`，用于 HTTP PUT 请求 
+- `doDelete`，用于 HTTP DELETE 请求 
+- `init` 和 `destroy`，用于管理 servlet 的生命周期内保存的资源 
+- `getServletInfo`，servlet 使用它提供有关其自身的信息 
+
+==几乎没有理由重写 `service` 方法==。`service` 通过将标准 HTTP 请求分发给每个 HTTP  请求类型的处理程序方法（上面列出的 `do`*XXX* 方法）来处理它们。 
+
+==同样，几乎没有理由重写 `doOptions` 和 `doTrace` 方法==。 
+
+![6323142341234212ffd](E:\Desktop\myJavaStudy\docs\images\javaWeb\6323142341234212ffd.jpg)
+
+![20220107165058](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107165058.png)
 
 
 
+# 编写一个servlet 类步骤
 
+1. 创建一个类，继承HttpServlet类
+2. 根据实际需求，重写doGet或doPost或其他doXxx方法。
+3. web.xml配置servlet
+4. tomcat部署运行测试
+
+
+
+# web.xml配置servlet
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <!-- request-character-encoding标签用请求编码 -->
+    <request-character-encoding>UTF-8</request-character-encoding>
+    <!-- response-character-encoding标签用返回编码 -->
+    <response-character-encoding>UTF-8</response-character-encoding>
+    
+    <!-- context-para标签用来配置上下文参数(它属于整个 web 工程) -->
+    <context-param>
+        <param-name>context1</param-name>
+        <param-value>ct1</param-value>
+  	</context-param>
+    <context-param>
+        <param-name>context2</param-name>
+        <param-value>ct2</param-value>
+    </context-param>
+    
+    <!-- servlet标签给TomCat配置servlet程序 -->
+    <servlet>
+        <!-- servlet-name标签给servlet程序起一个别名（一般是servlet类名） -->
+        <servlet-name>HelloServlet</servlet-name>
+        <!-- servlet-class标签是servlet程序的全类名 -->
+        <servlet-class>servlet.HelloServlet</servlet-class>
+        <!-- init-param标签是servlet程序的初始化参数 -->
+        <init-param>
+          <!-- 参数名 -->
+          <param-name>key1</param-name>
+          <!-- 参数值 -->
+          <param-value>value1</param-value>
+        </init-param>
+        <init-param>
+          <param-name>key2</param-name>
+          <param-value>value2</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- servlet-mapping标签给servlet程序配置访问地址 -->
+    <servlet-mapping>
+        <!-- servlet-name标签是配置目标servlet程序的别名（对应上面servlet-name） -->
+        <servlet-name>HelloServlet</servlet-name>
+        <!-- servlet-pattern标签配置访问地址 -->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
+
+最终访问地址：http://localhost:8099/webapp/hello
+
+- http://localhost:8099：协议+主机名+端口
+
+- webapp：web上下文，一般为web应用的根目录
+- hello：资源路径，映射到servlet.HelloServlet类
+
+![20220107145005](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107145005.png)
+
+
+
+## 问题
+
+### 一、tomcat10 实例化servlet HTTP 500
+
+解决方式一：tomcat10 降级为 tomcat9
+
+解决方式二：https://blog.csdn.net/qq_38149542/article/details/115979379
+
+
+
+# IDEA 快捷方式创建Servlet并配置
+
+![20220107162417](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107162417.png)
+
+![20220107162829](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107162829.png)
+
+# Servlet 生命周期
+
+- Servlet 初始化后调用 **init ()** 方法。==只调用一次==。它在第一次创建 Servlet 时被调用，在后续每次用户请求时不再调用。
+- Servlet 调用 **service()** 方法来处理客户端的请求。==每次请求都会调用==，是执行实际任务的主要方法。每次服务器接收到一个 Servlet 请求时，服务器会产生一个==新的线程==并调用服务。service() 方法检查 HTTP 请求类型（GET、POST、PUT、DELETE 等），并在适当的时候调用 doGet、doPost、doPut，doDelete 等方法。
+- Servlet ==销毁前==调用 **destroy()** 方法。
+
+https://www.runoob.com/servlet/servlet-life-cycle.html
+
+
+
+# 获取Servlet 配置信息
+
+**ServletConfig** **类**提供了获取Servlet 配置信息的功能。GenericServlet中在==初始化==时，会取到配置信息，并存下来。
+
+![20220107174359](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107174359.png)
+
+配置信息中包含：servlet-name、init-param、servletContext等配置信息。
+
+
+
+## servletContext
+
+servletContext表示上下文信息对象。
+
+1、ServletContext 是一个接口，它表示 Servlet 上下文对象 
+
+2、一个 web 工程，==只有一个== ServletContext 对象实例。 
+
+3、ServletContext 对象是一个==域对象==。 
+
+4、ServletContext 是在 web 工程部署启动的时候创建。在 web 工程停止的时候销毁。 
+
+
+
+**什么是域对象?** 
+
+域对象，是可以像 Map 一样存取数据的对象，叫域对象。 
+
+这里的域指的是存取数据的操作范围，整个 web 工程。
+
+![20220107174951](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107174951.png)
+
+
+
+**ServletContext** **类的四个作用** 
+
+1、获取 web.xml 中配置的上下文参数 context-param 
+
+2、获取当前的工程路径，格式: /工程路径 
+
+3、获取工程部署后在服务器硬盘上的绝对路径 
+
+4、像 Map 一样存取数据

@@ -1,22 +1,54 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <request-character-encoding>UTF-8</request-character-encoding>
+  <response-character-encoding>UTF-8</response-character-encoding>
+  
+  <context-param>
+    <param-name>context1</param-name>
+    <param-value>ct1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>context2</param-name>
+    <param-value>ct2</param-value>
+  </context-param>
 
-  <!-- servlet标签给TomCat配置servlet程序 -->
   <servlet>
-    <!-- servlet-name标签给servlet程序起一个别名（一般是servlet类名） -->
-    <servlet-name>HelloServlet</servlet-name>
-    <!-- servlet-class标签是servlet程序的全类名 -->
-    <servlet-class>servlet.HelloServlet</servlet-class>
-  </servlet>>
-  <!-- servlet-mapping标签给servlet程序配置访问地址 -->
+    <servlet-name>HiServlet</servlet-name>
+    <servlet-class>servlet.HiServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <!-- servlet-name标签是配置目标servlet程序的别名（对应上面servlet-name） -->
+    <servlet-name>HiServlet</servlet-name>
+    <url-pattern>/hi</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>HelloServlet</servlet-name>
-    <!-- servlet-pattern标签配置访问地址 -->
-    <url-pattern>/123</url-pattern>
+    <servlet-class>servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetServletConfig</servlet-name>
+    <servlet-class>servlet.GetServletConfig</servlet-class>
+    <init-param>
+      <param-name>key1</param-name>
+      <param-value>value1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>key2</param-name>
+      <param-value>value2</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetServletConfig</servlet-name>
+    <url-pattern>/config</url-pattern>
   </servlet-mapping>
 </web-app>

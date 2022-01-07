@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <trees>
+     <tree path="/javaWeb/src/main/java/servlet/HiServlet.java" title="实现Servlet接口" extension="java"/>
+     <tree path="/javaWeb/src/main/java/servlet/HelloServlet.java" title="继承HttpServlet类" extension="java"/>
+ </trees>
