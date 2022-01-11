@@ -1,12 +1,14 @@
-package servlet;
+package servlet.创建Servlet类;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
 
+/**
+ * 继承HttpServlet类方式（推荐）
+ */
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -17,5 +19,4 @@ public class HelloServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("处理post请求");
     }
-
 }

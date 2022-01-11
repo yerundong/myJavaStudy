@@ -19,7 +19,7 @@
 
   <servlet>
     <servlet-name>HiServlet</servlet-name>
-    <servlet-class>servlet.HiServlet</servlet-class>
+    <servlet-class>servlet.创建Servlet类.HiServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HiServlet</servlet-name>
@@ -28,7 +28,7 @@
 
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>servlet.HelloServlet</servlet-class>
+    <servlet-class>servlet.创建Servlet类.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
@@ -36,8 +36,17 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>GetRequestInfo</servlet-name>
+    <servlet-class>servlet.获取请求信息</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetRequestInfo</servlet-name>
+    <url-pattern>/requestInfo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>GetServletConfig</servlet-name>
-    <servlet-class>servlet.GetServletConfig</servlet-class>
+    <servlet-class>servlet.获取ServletConfig和ServletContext</servlet-class>
     <init-param>
       <param-name>key1</param-name>
       <param-value>value1</param-value>

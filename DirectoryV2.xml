@@ -2,4 +2,7 @@
  <trees>
      <tree path="/javaWeb/src/main/java/servlet/HiServlet.java" title="实现Servlet接口" extension="java"/>
      <tree path="/javaWeb/src/main/java/servlet/HelloServlet.java" title="继承HttpServlet类" extension="java"/>
+     <tree path="/javaWeb/src/main/java/servlet/GetServletConfigAndContext.java" title=""
+           extension="java"/>
+     <tree path="/javaWeb/src/main/java/servlet/GetRequestInfo.java" title="" extension="java"/>
  </trees>

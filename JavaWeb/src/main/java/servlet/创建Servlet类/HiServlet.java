@@ -1,9 +1,12 @@
-package servlet;
+package servlet.创建Servlet类;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * 实现Servlet接口方式（不推荐）
+ */
 public class HiServlet implements Servlet {
     public HiServlet() {
         System.out.println("1.构造器执行了");
