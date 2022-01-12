@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>请求</title>
+    <title>通用请求</title>
     <script src="lib/jquery-3.3.1.min.js"></script>
     <style>
         .content {
@@ -10,6 +10,9 @@
             width: 1000px;
         }
         .prefix{
+            width: 250px;
+        }
+        .querystr{
             width: 250px;
         }
         .rq_wrap {
@@ -33,6 +36,7 @@
         <button>hello</button>
         <button>config</button>
         <button>requestInfo</button>
+        <button>dispatch</button>
     </div>
     <br>
 
@@ -54,9 +58,9 @@
 
 
 <script>
-    const defprefix = `http://172.18.150.176:8099/webapp/`;
+    const defprefix = `http://172.18.150.176:8099/web/`;
     const defRqData = `{\n\t"bar": "BAR", \n\t"foo": "缚"\n}`;
-    const defquerystr = `?a=1&b=2&c=西&c=熙`
+    const defquerystr = `?a=1&b=2&c=西&c=熙&to=dispatched`
     $(".prefix").val(defprefix);
     $(".POST_DATA, .GET_DATA").html(defRqData);
     $(".querystr").val(defquerystr);

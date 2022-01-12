@@ -1,0 +1,39 @@
+package servlet.请求转发;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class Dispatch extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 取到某个凭证
+        String to = request.getParameter("to");
+        request.setAttribute("to", to);
+
+        RequestDispatcher requestDispatcher = null;
+        if("dispatched".equals(to)){
+            // 获取请求转发对象(转发给其他虚拟路径)
+            requestDispatcher = request.getRequestDispatcher("/dispatched");
+        }else if("WEB-INF".equals(to)){
+            // 获取请求转发对象(转发其他资源)
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/index.html");
+        }else if("webXML".equals(to)){
+            // 获取请求转发对象(转发其他资源)
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/web.xml");
+        }else if("dispProb".equals(to)){
+            // 获取请求转发对象(转发其他资源)
+            requestDispatcher = request.getRequestDispatcher("/转发时相对路径问题演示/");
+        }
+
+        // 进行传递
+        if(requestDispatcher!=null){
+            requestDispatcher.forward(request, response);
+        }else{
+            System.out.println("to参数不合法，未进行转发");
+        }
+    }
+}

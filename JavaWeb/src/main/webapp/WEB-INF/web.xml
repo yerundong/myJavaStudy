@@ -60,4 +60,22 @@
     <servlet-name>GetServletConfig</servlet-name>
     <url-pattern>/config</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Dispatch</servlet-name>
+    <servlet-class>servlet.请求转发.Dispatch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dispatch</servlet-name>
+    <url-pattern>/dispatch</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DispatchedServlet</servlet-name>
+    <servlet-class>servlet.请求转发.DispatchedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DispatchedServlet</servlet-name>
+    <url-pattern>/dispatched</url-pattern>
+  </servlet-mapping>
 </web-app>

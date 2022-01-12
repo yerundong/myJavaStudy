@@ -230,6 +230,24 @@ web.xml是Web应用程序配置文件，描述了 servlet 和其他的应用组�
 
 
 
+## WEB资源目录（web resource directory）
+
+WEB资源是指存放浏览器可以访问的资源，前端代码（html、css、js）、文件（图片、视频...）、虚拟路径等。
+
+外部允许==直接访问==WEB资源目录下的资源，==除了WEB-INF目录==，但可以==通过转发间接访问==WEB-INF下的资源。
+
+
+
+**IDEA中WEB资源目录的图标标识：**![20220112164928](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220112164928.png)
+
+
+
+**设置WEB资源目录：**
+
+![20220112164716](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220112164716.png)
+
+
+
 # IDEA 整合 Tomcat 服务器
 
 File -> Settings：
@@ -531,7 +549,7 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 
 域对象，是可以像 Map 一样存取数据的对象，叫域对象。 
 
-这里的域指的是存取数据的操作范围，整个 web 工程。
+这里的域指的是==存取数据的操作范围==，整个 web 工程，所有Servlet类都能访问。
 
 ![20220107174951](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107174951.png)
 
@@ -643,13 +661,60 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 
 ## Servlet配置虚拟路径映射
 
+虚拟路径，也就是我们通常所说的==接口请求地址==，它是对外访问servlet的一个路径。
+
+配置完虚拟路径，虚拟路径会成为==web资源目录下的一个资源==，提供外部的==浏览器地址访问==或==接口请求==。
+
 http://c.biancheng.net/view/3996.html
 
 
 
 ## 请求转发
 
-当一个 Web 资源收到客户端的请求后，如果希望服务器通知另外一个资源处理请求，那么这时可以通过 RequestDispatcher 接口的实例对象实现。ServletRequest 接口中定义了一个获取 RequestDispatcher 对象的方法，如表 1 所示。
+当一个 Web 资源收到客户端的请求后，如果希望服务器通知==另外一个资源（还是同一个服务器）==处理请求，那么这时可以通过 RequestDispatcher 接口的实例对象实现。ServletRequest 接口中定义了一个获取 RequestDispatcher 对象的方法，如下表所示。
+
+
+
+**获取 RequestDispatcher 对象的方法：**
+
+| 方法声明                                             | 功能描述                                                     |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| RequestDispatcher getRequestDispatcher (String path) | 返回封装了某条路径所指定资源的 RequestDispatcher 对象。其中，==参数 path 必须以“/”开头==，用于表示当前 ==Web 资源根目录==。需要注意的是，==WEB-INF== 目录中的内容对 RequestDispatcher 对象也是可见的。因此，传递给 getRequestDispatcher(String path) 方法的资源可以是 WEB-INF 目录中的文件。 |
+
+
+
+获取到 RequestDispatcher 对象后，最重要的工作就是==通知==其他 ==Web 资源==处理当前的 Servlet 请求，为此，RequestDispatcher 接口定义了两个相关方法，如下表所示。
+
+**RequestDispatcher 接口的方法：**
+
+| 方法声明                                                 | 功能描述                                                     |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| forward(ServletRequest request,ServletResponse response) | 该方法用于将请求从一个 Servlet ==传递==给另一个 Web 资源。在 Servlet 中，可以对请求做一个初步处理，然后通过调用这个方法，将请求传递给其他资源进行响应。需要注意的是，该方法必须在响应提交给客户端之前被调用，否则将抛出 IllegalStateException 异常 |
+| include(ServletRequest request,ServletResponse response) | 该方法用于将其他的资源作为当前响应内容包含进来               |
+
+
+
+**转发的资源对象可以是web资源目录中的任意资源，包括:**
+
+1. 其他虚拟路径
+
+2. 前端代码（css、js、html...）
+
+3. 文件（图片...）
+
+4. WEB-INF 目录中的文件
+
+5. ###### ……
+
+> 无法转发web资源目录外的资源
+
+
+
+### 请求转发html页面相对路径错误问题
+
+当html标签是被使用转发访问时，其中的相对路径跳转就会出问题，此时可以在html的头部加入base标签进行解决。
+
+具体情况查看演示代码。
 
 
 
