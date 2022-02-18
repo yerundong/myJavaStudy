@@ -37,11 +37,20 @@
 
   <servlet>
     <servlet-name>GetRequestInfo</servlet-name>
-    <servlet-class>servlet.获取请求信息</servlet-class>
+    <servlet-class>servlet.请求与响应.获取请求信息</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetRequestInfo</servlet-name>
     <url-pattern>/requestInfo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SetResponseInfo</servlet-name>
+    <servlet-class>servlet.请求与响应.设置响应信息</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetResponseInfo</servlet-name>
+    <url-pattern>/responseInfo</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -71,11 +80,11 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>DispatchedServlet</servlet-name>
-    <servlet-class>servlet.请求转发.DispatchedServlet</servlet-class>
+    <servlet-name>Dispatched</servlet-name>
+    <servlet-class>servlet.请求转发.Dispatched</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DispatchedServlet</servlet-name>
+    <servlet-name>Dispatched</servlet-name>
     <url-pattern>/dispatched</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
-package servlet;
+package servlet.请求与响应;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

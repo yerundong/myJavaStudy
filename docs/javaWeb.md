@@ -406,6 +406,16 @@ https://www.runoob.com/servlet/servlet-life-cycle.html
 
 使用Servlet 需要导入 **javax.servlet** 相关包：https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 
+
+
+### 继承图
+
+![6323142341234212ffd](E:\Desktop\myJavaStudy\docs\images\javaWeb\6323142341234212ffd.jpg)
+
+![20220107165058](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107165058.png)
+
+
+
 ### Servlet接口
 
 Servlet接口定义所有servlet类都必须实现的方法（==规范==）。 这些方法称为==生命周期方法==。
@@ -469,66 +479,6 @@ ServletConfig 类提供了获取Servlet 配置信息的功能。GenericServlet�
 
 
 
-### HttpServletRequest接口
-
-HttpServletRequest 接口继承自 ServletRequest 接口，其对象代表客户端的请求，其主要作用是封装 HTTP 请求消息。由于 HTTP 请求消息分为请求行、请求消息头和请求消息体三部分。因此，在 HttpServletRequest 接口中定义了==获取请求行、请求头和请求消息体==的相关方法。
-
-
-
-#### 获取请求行信息的相关方法
-
-| 方法声明                     | 功能描述                                                     |
-| ---------------------------- | ------------------------------------------------------------ |
-| String getMethod()           | 获取 HTTP 请求消息中的==请求方式==（如 GET、POST 等）        |
-| String getRequestURI()       | 获取请求行中的==资源名称部分==，即位于 URL 的主机和端门==之后==、参数部分==之前==的部分 |
-| String getQueryString()      | 获取请求行中的参数部分，也就是资源路径后问号（？）以后的所有内容 |
-| String getContextPath()      | 获取请求 URL 中属于 Web 应用程序的路径，这个路径以 / 开头，表示相对于整个 Web 站点的根目录，路径结尾不含 /。如果请求 URL 属于 Web 站点的根目录，那么返回结果为空字符串（""） |
-| String getPathInfo()         | 返回在 servlet 名称之后但在查询字符串之前的额外路径信息，并将它转换为实际路径。 |
-| String getServletPath()      | 获取 Servlet 的名称或 Servlet 所映射的路径                   |
-| String getRemoteAddr()       | 获取请求客户端的 IP 地址，其格式类似于 192.168.0.3           |
-| String getRemoteHost()       | 获取请求客户端的完整主机名，其格式类似于 pcl.mengma.com。需要注意的是，如果无法解析出客户机的完整主机名，那么该方法将会返回客户端的 IP 地址 |
-| int getRemotePort()          | 获取请求客户端网络连接的端口号                               |
-| String getLocaIAddr()        | 获取 Web 服务器上接收当前请求网络连接的 IP 地址              |
-| String getLocalName()        | 获取 Web 服务器上接收当前网络连接 IP 所对应的主机名          |
-| int getLocalPort()           | 获取 Web 服务器上接收当前网络连接的端口号                    |
-| String getServerName()       | 获取当前请求所指向的主机名，即 HTTP 请求消息中 Host 头字段所对应的主机名部分 |
-| int getServerPort()          | 获取当前请求所连接的服务器端口号，即 HTTP 请求消息中 Host 头字段所对应的端口号部分 |
-| StringBuffcr getRequestURL() | 获取客户端发出请求时的完整 URL，包括协议、服务器名、端口号、 资源路径等信息，但不包括后面的査询参数部分。注意，getRequcstURL() 方法返冋的结果是 StringBuffer 类型，而不是 String 类型，这样更便于对结果进行修改 |
-
-
-
-#### 获取请求消息头的相关方法
-
-| 方法声明                            | 功能描述                                                     |
-| ----------------------------------- | ------------------------------------------------------------ |
-| String getHeader(String name)       | 获取一个指定头字段的值，如果请求消息中没有包含指定的头字段，则 getHeader() 方法返回 null；如果请求消息中包含多个指定名称的头字段，则 getHeader() 方法返回其中第一个头字段的值 |
-| Enumeration getHeaders(String name) | 返回一个 Enumeration 集合对象，该集合对象由请求消息中出现的某个指定名称的所有头字段值组成。在多数情况下，一个头字段名在请求消息中只出现一次，但有时可能会出现多次 |
-| Enumeration getHeaderNames()        | 获取一个包含所有请求头字段的 Enumeration 对象                |
-| int getIntHeader(String name)       | 获取指定名称的头字段，并且将其值转为 int 类型。需要注意的是，如果指定名称的头字段不存在，则返回值为 -1；如果获取到的头字段的值不能转为 int 类型，则将发生 NumberFormatException 异常 |
-| long getDateHeader(String name)     | 获取指定头字段的值，并将其按 GMT 时间格式转换为一个代表日期/时间的长整数，该长整数是自 1970 年 1 月 1 日 0 时 0 分 0 秒算起的以毫秒为单位的时间值 |
-| String getContentType()             | 获取 Content-Type 头字段的值，结果为 String 类型             |
-| int getContentLength()              | 获取 Content-Length 头字段的值，结果为 int 类型              |
-| String getCharacterEncoding()       | 返回请求体的字符集编码，通常是从 Content-Type 头字段中进行提取，结果为 String 类型 |
-
-
-
-#### 获取请求参数
-
-| 方法声明                                   | 功能描述                                                     |
-| ------------------------------------------ | ------------------------------------------------------------ |
-| String getParameter(String name)           | 获取某个指定名称的参数值。 如果请求消息中没有包含指定名称的参数，则 getParameter() 方法返回 null。 如果指定名称的参数存在但没有设置值，则返回一个空串。 如果请求消息中包含多个该指定名称的参数，则 getParameter() 方法返回第一个出现的参数值。 |
-| String [] getParameterValues (String name) | HTTP 请求消息中可以有==多个相同名称的参数==（通常由一个包含多个同名的字段元素的 form 表单生成），如果要获得 HTTP 请求消息中的同一个参数名所对应的所有参数值，那么就应该使用 getParameterValues() 方法，该方法用于返回一个 ==String 类型的数组==。 |
-| Enumeration getParameterNames()            | 返回一个包含请求消息中所有参数名的 Enumeration 对象，在此基础上，可以对请求消息中的所有参数进行遍历处理。 |
-| Map getParameterMap()                      | 将请求消息中的所有参数名和值装入一个 Map 对象中返回。(编写框架时常用) |
-
-
-
-#### 设置请求参数
-
-| 方法声明                              | 功能描述                                                     |
-| ------------------------------------- | ------------------------------------------------------------ |
-| void setCharacterEncoding(String env) | 覆盖==请求体中使用的字符编码==。必须在==读取请求参数==或使用 ==getReader()== 读取输入==之前==调用此方法。否则，它没有效果。（可解决中文乱码问题） |
-
 ### servletContext接口
 
 当 Tomcat 启动时，Tomcat 会为每个 Web 应用创建一个唯一的 ServletContext 对象代表当前的 Web 应用，该对象封装了当前 Web 应用的所有信息。可以利用该对象获取 Web 应用程序的==初始化参数信息、读取资源文件==等。下面对 ServletContext 接口的不同作用分别进行讲解。
@@ -564,14 +514,6 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 3、获取工程部署后在服务器硬盘上的绝对路径 
 
 4、像 Map 一样存取数据
-
-
-
-### 继承图
-
-![6323142341234212ffd](E:\Desktop\myJavaStudy\docs\images\javaWeb\6323142341234212ffd.jpg)
-
-![20220107165058](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107165058.png)
 
 
 
@@ -666,6 +608,74 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 配置完虚拟路径，虚拟路径会成为==web资源目录下的一个资源==，提供外部的==浏览器地址访问==或==接口请求==。
 
 http://c.biancheng.net/view/3996.html
+
+
+
+## 请求与响应
+
+### 获取请求信息
+
+HttpServletRequest 接口继承自 ServletRequest 接口，其对象==代表客户端的请求==，其主要作用是==封装 HTTP 请求消息==。由于 HTTP 请求消息分为请求行、请求消息头和请求消息体三部分。因此，在 HttpServletRequest 接口中定义了==获取请求行、请求头和请求消息体==的相关方法。
+
+
+
+#### 获取请求行信息的相关方法
+
+| 方法声明                     | 功能描述                                                     |
+| ---------------------------- | ------------------------------------------------------------ |
+| String getMethod()           | 获取 HTTP 请求消息中的==请求方式==（如 GET、POST 等）        |
+| String getRequestURI()       | 获取请求行中的==资源名称部分==，即位于 URL 的主机和端门==之后==、参数部分==之前==的部分 |
+| String getQueryString()      | 获取请求行中的参数部分，也就是资源路径后问号（？）以后的所有内容 |
+| String getContextPath()      | 获取请求 URL 中属于 Web 应用程序的路径，这个路径以 / 开头，表示相对于整个 Web 站点的根目录，路径结尾不含 /。如果请求 URL 属于 Web 站点的根目录，那么返回结果为空字符串（""） |
+| String getPathInfo()         | 返回在 servlet 名称之后但在查询字符串之前的额外路径信息，并将它转换为实际路径。 |
+| String getServletPath()      | 获取 Servlet 的名称或 Servlet 所映射的路径                   |
+| String getRemoteAddr()       | 获取请求客户端的 IP 地址，其格式类似于 192.168.0.3           |
+| String getRemoteHost()       | 获取请求客户端的完整主机名，其格式类似于 pcl.mengma.com。需要注意的是，如果无法解析出客户机的完整主机名，那么该方法将会返回客户端的 IP 地址 |
+| int getRemotePort()          | 获取请求客户端网络连接的端口号                               |
+| String getLocaIAddr()        | 获取 Web 服务器上接收当前请求网络连接的 IP 地址              |
+| String getLocalName()        | 获取 Web 服务器上接收当前网络连接 IP 所对应的主机名          |
+| int getLocalPort()           | 获取 Web 服务器上接收当前网络连接的端口号                    |
+| String getServerName()       | 获取当前请求所指向的主机名，即 HTTP 请求消息中 Host 头字段所对应的主机名部分 |
+| int getServerPort()          | 获取当前请求所连接的服务器端口号，即 HTTP 请求消息中 Host 头字段所对应的端口号部分 |
+| StringBuffcr getRequestURL() | 获取客户端发出请求时的完整 URL，包括协议、服务器名、端口号、 资源路径等信息，但不包括后面的査询参数部分。注意，getRequcstURL() 方法返冋的结果是 StringBuffer 类型，而不是 String 类型，这样更便于对结果进行修改 |
+
+
+
+#### 获取请求消息头的相关方法
+
+| 方法声明                            | 功能描述                                                     |
+| ----------------------------------- | ------------------------------------------------------------ |
+| String getHeader(String name)       | 获取一个指定头字段的值，如果请求消息中没有包含指定的头字段，则 getHeader() 方法返回 null；如果请求消息中包含多个指定名称的头字段，则 getHeader() 方法返回其中第一个头字段的值 |
+| Enumeration getHeaders(String name) | 返回一个 Enumeration 集合对象，该集合对象由请求消息中出现的某个指定名称的所有头字段值组成。在多数情况下，一个头字段名在请求消息中只出现一次，但有时可能会出现多次 |
+| Enumeration getHeaderNames()        | 获取一个包含所有请求头字段的 Enumeration 对象                |
+| int getIntHeader(String name)       | 获取指定名称的头字段，并且将其值转为 int 类型。需要注意的是，如果指定名称的头字段不存在，则返回值为 -1；如果获取到的头字段的值不能转为 int 类型，则将发生 NumberFormatException 异常 |
+| long getDateHeader(String name)     | 获取指定头字段的值，并将其按 GMT 时间格式转换为一个代表日期/时间的长整数，该长整数是自 1970 年 1 月 1 日 0 时 0 分 0 秒算起的以毫秒为单位的时间值 |
+| String getContentType()             | 获取 Content-Type 头字段的值，结果为 String 类型             |
+| int getContentLength()              | 获取 Content-Length 头字段的值，结果为 int 类型              |
+| String getCharacterEncoding()       | 返回请求体的字符集编码，通常是从 Content-Type 头字段中进行提取，结果为 String 类型 |
+
+
+
+#### 获取请求参数
+
+| 方法声明                                   | 功能描述                                                     |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| String getParameter(String name)           | 获取某个指定名称的参数值。 如果请求消息中没有包含指定名称的参数，则 getParameter() 方法返回 null。 如果指定名称的参数存在但没有设置值，则返回一个空串。 如果请求消息中包含多个该指定名称的参数，则 getParameter() 方法返回第一个出现的参数值。 |
+| String [] getParameterValues (String name) | HTTP 请求消息中可以有==多个相同名称的参数==（通常由一个包含多个同名的字段元素的 form 表单生成），如果要获得 HTTP 请求消息中的同一个参数名所对应的所有参数值，那么就应该使用 getParameterValues() 方法，该方法用于返回一个 ==String 类型的数组==。 |
+| Enumeration getParameterNames()            | 返回一个包含请求消息中所有参数名的 Enumeration 对象，在此基础上，可以对请求消息中的所有参数进行遍历处理。 |
+| Map getParameterMap()                      | 将请求消息中的所有参数名和值装入一个 Map 对象中返回。(编写框架时常用) |
+
+
+
+#### 设置请求参数
+
+| 方法声明                              | 功能描述                                                     |
+| ------------------------------------- | ------------------------------------------------------------ |
+| void setCharacterEncoding(String env) | 覆盖==请求体中使用的字符编码==。必须在==读取请求参数==或使用 ==getReader()== 读取输入==之前==调用此方法。否则，它没有效果。（可解决中文乱码问题） |
+
+### 设置响应信息
+
+
 
 
 
