@@ -33,11 +33,11 @@
 
 ## 2 镜像配置方式和比较
 
-1、maven镜像有两种配置,一种是在settings.xml中进行配置,第二种是在pom.xml中进行配置.
+1、maven镜像有两种配置,一种是在pom.xml中进行配置,第二种是在settings.xml中进行配置.
 
-2、在settings.xml中进行配置会对所有maven工程有效,当在升级maven版本的时候,需要注意复制已经配置好的settings.xml到新的maven目录下
+2、在settings.xml中进行配置会对**所有maven工程**有效,当在升级maven版本的时候,需要注意复制已经配置好的settings.xml到新的maven目录下
 
-3、使用第一种配置pom.xml的方式只会对当前工程有效,本文建议大家使用第二种配置方式。
+3、使用第一种配置pom.xml的方式只会对**当前工程**有效,本文建议大家使用第二种配置方式。
 
 
 
@@ -49,7 +49,7 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 # 配置本地仓库
 
-新建一个本地文件，将其路径添加到settings.xml中的localRepository标签。以后下载到本地的包将会储存在此处。
+新建一个本地文件，将其路径添加到settings.xml中的localRepository标签。以后下载到本地的包将会储存在此处。如下：
 
 ```
 <localRepository>D:\apache-maven-3.8.4\maven-repo</localRepository>
@@ -59,23 +59,23 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 # IDEA配置Maven
 
-![20220105164910](E:\Desktop\myJavaStudy\docs\images\maven\20220105164910.png)
+![20220105164910](.\images\maven\20220105164910.png)
 
 配置导入参数：
 
-![20220105170251](E:\Desktop\myJavaStudy\docs\images\maven\20220105170251.png)
+![20220105170251](.\images\maven\20220105170251.png)
 
 # 使用maven创建一个项目
 
-![20220105171005](E:\Desktop\myJavaStudy\docs\images\maven\20220105171005.png)
+![20220105171005](.\images\maven\20220105171005.png)
 
 不使用模板创建，创建完目录结构为：
 
-![20220105171501](E:\Desktop\myJavaStudy\docs\images\maven\20220105171501.png)
+![20220105171501](.\images\maven\20220105171501.png)
 
 如果是web项目，则在main下增加目录：
 
-![20220105172326](E:\Desktop\myJavaStudy\docs\images\maven\20220105172326.png)
+![20220105172326](.\images\maven\20220105172326.png)
 
 
 

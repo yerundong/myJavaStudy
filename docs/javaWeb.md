@@ -123,10 +123,9 @@ Tomcat服务器接受客户请求并做出响应的过程如下：
 需要新增JAVA_HOME和CATALINA_HOME两个系统变量。
 
 1. 新增一个系统变量，变量名：JAVA_HOME，变量值：jdk的安装路径。
-
 2. 编辑path系统变量，新建一个`%JAVA_HOME%\bin`
-
-CATALINA_HOME同此步骤。
+2. 新增一个系统变量，变量名：CATALINA_HOME，变量值：tomcat的安装路径。
+4. 编辑path系统变量，新建一个`%CATALINA_HOME%\bin
 
 
 
@@ -212,11 +211,11 @@ https://blog.csdn.net/liu865033503/article/details/81094575
 
 ## 普通方式创建Web工程
 
-![20220105114621](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220105114621.png)
+![20220105114621](.\images\javaWeb\20220105114621.png)
 
 生成完目录结构如下。与maven生成的目录有所不同。
 
-![20220106143828](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220106143828.png)
+![20220106143828](.\images\javaWeb\20220106143828.png)
 
 WEB-INF是Java的WEB应用的安全目录。所谓安全就是客户端无法访问，只有服务端可以访问的目录。如果想在页面中直接访问其中的文件，必须通过web.xm文件对要访问的文件进行相应映射才能访问。
 
@@ -226,7 +225,7 @@ web.xml是Web应用程序配置文件，描述了 servlet 和其他的应用组�
 
 ## 使用maven模板创建一个Web项目
 
-![20220104160553](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220104160553.png)
+![20220104160553](.\images\javaWeb\20220104160553.png)
 
 
 
@@ -238,13 +237,13 @@ WEB资源是指存放浏览器可以访问的资源，前端代码（html、css�
 
 
 
-**IDEA中WEB资源目录的图标标识：**![20220112164928](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220112164928.png)
+**IDEA中WEB资源目录的图标标识：**![20220112164928](.\images\javaWeb\20220112164928.png)
 
 
 
 **设置WEB资源目录：**
 
-![20220112164716](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220112164716.png)
+![20220112164716](.\images\javaWeb\20220112164716.png)
 
 
 
@@ -340,7 +339,7 @@ Servlet 容器会将 Servlet 动态加载到服务器上，然后通过 HTTP 请
 
 Servlet 应用程序的体系结构如下图所示。
 
-![5-1Z6061I51XX](E:\Desktop\myJavaStudy\docs\images\javaWeb\5-1Z6061I51XX.gif)
+![5-1Z6061I51XX](.\images\javaWeb\5-1Z6061I51XX.gif)
 
 在上图中，Servlet 的请求首先会==被 HTTP 服务器（如 Apache）接收==，HTTP 服务器只负责静态 HTML 页面的解析，而 Servlet 的请求会==转交给 Servlet 容器==（如 Tomcat），Servlet 容器会根据 web.xml 文件中的==映射关系==，调用相应的 Servlet，Servlet 再将处理的结果==返回给 Servlet 容器==，并通过 HTTP 服务器将响应==传输给客户端==。
 
@@ -348,7 +347,7 @@ Servlet 应用程序的体系结构如下图所示。
 
 针对 Servlet 的每次请求，Web 服务器在调用 service() 方法==之前==，都会创建 HttpServletRequest 和 HttpServletResponse 对象。其中，HttpServletRequest 对象用于封装 HTTP 请求消息，简称 request 对象。HttpServletResponse 对象用于封装 HTTP 响应消息，简称 response 对象。Servlet 的交互过程如下图所示。
 
-![5-1Z610154349322](E:\Desktop\myJavaStudy\docs\images\javaWeb\5-1Z610154349322.png)
+![5-1Z610154349322](.\images\javaWeb\5-1Z610154349322.png)
 
 在上图中，首先浏览器向 Web 服务器发送了一个 HTTP 请求，Web 服务器根据收到的请求，会先创建一个 HttpServletRequest 和 HttpServletResponse 对象，然后再调用相应的 Servlet 程序。
 
@@ -376,7 +375,7 @@ Java Servlet 通常情况下与使用 ==CGI（Common Gateway Interface，公共�
 
 
 
-![servlet-arch](E:\Desktop\myJavaStudy\docs\images\javaWeb\servlet-arch.jpg)
+![servlet-arch](.\images\javaWeb\servlet-arch.jpg)
 
 
 
@@ -410,9 +409,9 @@ https://www.runoob.com/servlet/servlet-life-cycle.html
 
 ### 继承图
 
-![6323142341234212ffd](E:\Desktop\myJavaStudy\docs\images\javaWeb\6323142341234212ffd.jpg)
+![6323142341234212ffd](.\images\javaWeb\6323142341234212ffd.jpg)
 
-![20220107165058](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107165058.png)
+![20220107165058](.\images\javaWeb\20220107165058.png)
 
 
 
@@ -436,7 +435,7 @@ Servlet 程序默认是==第一次访问==的时候创建，ServletConfig 是每
 
 ServletConfig 类提供了获取Servlet 配置信息的功能。GenericServlet中在==初始化==时，会取到配置信息，并存下来。
 
-![20220107174359](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107174359.png)
+![20220107174359](.\images\javaWeb\20220107174359.png)
 
 配置信息中包含：servlet-name、init-param、servletContext等配置信息。
 
@@ -501,7 +500,7 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 
 这里的域指的是==存取数据的操作范围==，整个 web 工程，所有Servlet类都能访问。
 
-![20220107174951](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107174951.png)
+![20220107174951](.\images\javaWeb\20220107174951.png)
 
 
 
@@ -528,9 +527,9 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 
 ### IDEA 快捷方式创建Servlet
 
-![20220107162417](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107162417.png)
+![20220107162417](.\images\javaWeb\20220107162417.png)
 
-![20220107162829](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107162829.png)
+![20220107162829](.\images\javaWeb\20220107162829.png)
 
 
 
@@ -597,7 +596,7 @@ ServletConfig对象是由ServletConfig 对象获取到的。
 - webapp：web上下文，一般为web应用的根目录
 - hello：资源路径，映射到servlet.HelloServlet类
 
-![20220107145005](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220107145005.png)
+![20220107145005](.\images\javaWeb\20220107145005.png)
 
 
 
@@ -772,8 +771,8 @@ MIME 的英文全称是"Multipurpose Internet Mail Extensions" 多功能 Interne
 
 ## 请求头（HTTP Request Header）
 
-![20220110113102](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220110113102.png)
+![20220110113102](.\images\javaWeb\20220110113102.png)
 
 ## 响应头（HTTP Responses Header） 
 
-![20220110113809](E:\Desktop\myJavaStudy\docs\images\javaWeb\20220110113809.png)
+![20220110113809](.\images\javaWeb\20220110113809.png)
