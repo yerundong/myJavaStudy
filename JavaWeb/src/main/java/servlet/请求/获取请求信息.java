@@ -1,15 +1,14 @@
-package servlet.请求与响应;
+package servlet.请求;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.Map;
 
 public class 获取请求信息 extends HttpServlet {
@@ -22,10 +21,10 @@ public class 获取请求信息 extends HttpServlet {
         System.out.println("getMethod: " + request.getMethod());
         System.out.println("getRequestURI: " + request.getRequestURI());
         System.out.println("getRequestURL: " + request.getRequestURL());
-        System.out.println("getQueryString : " + request.getQueryString ());
-        System.out.println("getContextPath : " + request.getContextPath ());
-        System.out.println("getPathInfo : " + request.getPathInfo ());
-        System.out.println("getServletPath : " + request.getServletPath ());
+        System.out.println("getQueryString : " + request.getQueryString());
+        System.out.println("getContextPath : " + request.getContextPath());
+        System.out.println("getPathInfo : " + request.getPathInfo());
+        System.out.println("getServletPath : " + request.getServletPath());
         System.out.println("getRemoteAddr: " + request.getRemoteAddr());
         System.out.println("getRemoteHost: " + request.getRemoteHost());
         System.out.println("getRemotePort: " + request.getRemotePort());
@@ -42,7 +41,7 @@ public class 获取请求信息 extends HttpServlet {
 
         Enumeration<String> headerNames = request.getHeaderNames();
         System.out.println("↓ headerNames ↓");
-        while(headerNames.hasMoreElements()){
+        while (headerNames.hasMoreElements()) {
             System.out.println(headerNames.nextElement());
         }
         System.out.println("↑ headerNames ↑");
@@ -64,7 +63,7 @@ public class 获取请求信息 extends HttpServlet {
 
         Enumeration<String> parameterNames = request.getParameterNames();
         System.out.println("↓ getParameterNames ↓");
-        while(parameterNames.hasMoreElements()){
+        while (parameterNames.hasMoreElements()) {
             System.out.println(parameterNames.nextElement());
         }
         System.out.println("↑ getParameterNames ↑");
@@ -79,7 +78,7 @@ public class 获取请求信息 extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("getMethod: " + request.getMethod());
-        System.out.println("getQueryString : " + request.getQueryString ());
+        System.out.println("getQueryString : " + request.getQueryString());
         System.out.println("getParameter: a=" + request.getParameter("a"));
         System.out.println("getParameter: b=" + request.getParameter("b"));
         System.out.println("getParameter: c=" + request.getParameter("c"));

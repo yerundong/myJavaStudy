@@ -1,0 +1,20 @@
+.content {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.prefix {
+    width: 250px;
+}
+
+.querystr {
+    width: 250px;
+}
+
+.rq_wrap {
+    display: flex;
+}
+
+.get_wrap {
+    margin-right: 15px;
+}

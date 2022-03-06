@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>转发时相对路径问题演示</title>
+
+    <!--  使用base标签解决转发时相对路径跳转问题，以下两种都可以解决  -->
+    <!-- <base href="http://172.18.150.176:8099/web/转发时相对路径问题演示/"> -->
+    <base href="/web/转发时相对路径问题演示/">
+</head>
+<body>
+<b>我是首页</b>
+<p>
+    <a href="./a/b/c.html">去c页面</a>
+</p>
+</body>
+</html>

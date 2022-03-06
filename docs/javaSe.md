@@ -5245,7 +5245,7 @@ java.io包下提供了各种“流”类和接口，用以获取不同种类的�
 
 
 
-![IO流分类](.\images\IO流\IO流分类.png)
+![IO流分类](.\images\javaSe\IO流\IO流分类.png)
 
 
 
@@ -5260,7 +5260,7 @@ Java的IO流共涉及40多个类，实际上非常规则，都是从如下4个**
 
 
 
-![IO流详细分类](.\images\IO流\IO流详细分类.jpg)
+![IO流详细分类](.\images\javaSe\IO流\IO流详细分类.jpg)
 
 ## 2 流的操作
 
@@ -5370,7 +5370,7 @@ java缓冲流本身不具IO功能，只是在别的流上加上缓冲提高效�
 
 
 
-![转换流](.\images\IO流\转换流.png)
+![转换流](.\images\javaSe\IO流\转换流.png)
 
 
 
