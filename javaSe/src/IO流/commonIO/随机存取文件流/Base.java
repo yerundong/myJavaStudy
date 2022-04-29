@@ -11,7 +11,7 @@ public class Base {
      */
     @Test
     public void read() throws IOException {
-        RandomAccessFile raf = new RandomAccessFile("JavaSe/src/lib/IOTestFile/writerTest.txt", "r");
+        RandomAccessFile raf = new RandomAccessFile("src/lib/IOTestFile/writerTest.txt", "r");
 
         byte[] bytes = new byte[1024];
         int len;
@@ -27,7 +27,7 @@ public class Base {
      */
     @Test
     public void write() throws IOException {
-        RandomAccessFile raf = new RandomAccessFile("JavaSe/src/lib/IOTestFile/writerTest.txt", "rw");
+        RandomAccessFile raf = new RandomAccessFile("src/lib/IOTestFile/writerTest.txt", "rw");
         // raf.write("my life must be something wrong".getBytes());
         raf.write("xx".getBytes());
         raf.close();
@@ -38,7 +38,7 @@ public class Base {
      */
     @Test
     public void seek() throws IOException {
-        RandomAccessFile raf = new RandomAccessFile("JavaSe/src/lib/IOTestFile/writerTest.txt", "rw");
+        RandomAccessFile raf = new RandomAccessFile("src/lib/IOTestFile/writerTest.txt", "rw");
         raf.seek(3);// 将指针调到索引3，从索引3开始覆盖
         raf.write("work".getBytes());
         raf.close();

@@ -23,11 +23,11 @@ public class Base {
         // <CM> public FileWriter(String fileName, boolean append) throws IOException
         // <改> 如果该文件路径不存在，则会自动创建文件，如果存在，在它基础上追加；
 
-        File file = new File("JavaSe/src/lib/IOTestFile/writerTest.txt");
-        // file = new File("JavaSe/src/lib/IOTestFile/none/writerTest.txt");// 父目录不存在
+        File file = new File("src/lib/IOTestFile/writerTest.txt");
+        // file = new File("src/lib/IOTestFile/none/writerTest.txt");// 父目录不存在
         // FileWriter fw = new FileWriter(file);
         // FileWriter fw = new FileWriter(file, true);// 追加
-        FileWriter fw = new FileWriter("JavaSe/src/lib/IOTestFile/writerTest.txt", true);// 追加
+        FileWriter fw = new FileWriter("src/lib/IOTestFile/writerTest.txt", true);// 追加
         fw.close();
     }
 
@@ -41,7 +41,7 @@ public class Base {
         // <M> public void write(char[] cbuf, int off, int len) throws IOException
         // <M> public void write(String str, int off, int len) throws IOException
         // <改> 通过FileWriter流对文件写入字符
-        File file = new File("JavaSe/src/lib/IOTestFile/writerTest.txt");
+        File file = new File("src/lib/IOTestFile/writerTest.txt");
         FileWriter fw = new FileWriter(file);
         // fw.write('a');
         fw.write("a\nbc");

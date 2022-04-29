@@ -13,7 +13,7 @@ public class Base {
      */
     @Test
     public void write() throws IOException {
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("JavaSe/src/lib/IOTestFile/object.dat"));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/lib/IOTestFile/object.dat"));
 
         // oos.writeObject(new Person("亚索"));// 写入的对象需要实现序列化，否则报错：NotSerializableException
         // oos.writeObject(new String("亚索"));// String已经实现序列化
@@ -27,7 +27,7 @@ public class Base {
      */
     @Test
     public void read() throws IOException, ClassNotFoundException {
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("JavaSe/src/lib/IOTestFile/object.dat"));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/lib/IOTestFile/object.dat"));
         SerClass_Serializable p = (SerClass_Serializable) ois.readObject();
         ois.close();
         System.out.println(p);

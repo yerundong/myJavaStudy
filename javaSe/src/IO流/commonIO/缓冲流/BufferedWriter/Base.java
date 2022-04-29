@@ -18,7 +18,7 @@ public class Base {
         // <CM> public BufferedWriter(Writer out, int sz)
         // <返> 创建 BufferedWriter 流，并返回
 
-        File file = new File("JavaSe/src/lib/IOTestFile/writerTest.txt");
+        File file = new File("src/lib/IOTestFile/writerTest.txt");
         FileWriter fw = new FileWriter(file, true);// 追加
         BufferedWriter bw = new BufferedWriter(fw);
         fw.close();
@@ -34,7 +34,7 @@ public class Base {
         // <M> public void write(char[] cbuf, int off, int len) throws IOException
         // <M> public void write(String str, int off, int len) throws IOException
         // <改> 通过 BufferedWriter 流对文件写入字符
-        File file = new File("JavaSe/src/lib/IOTestFile/writerTest.txt");
+        File file = new File("src/lib/IOTestFile/writerTest.txt");
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
         // bw.write('a');
@@ -52,7 +52,7 @@ public class Base {
     public void newLine() throws IOException {
         // <M> public void newLine() throws IOException
         // <改> 写入一个行分隔符。行分隔符字符串由系统属性 line.separator 定义，并且不一定是单个新行 ('\n') 符。
-        BufferedWriter bw = new BufferedWriter(new FileWriter(new File("JavaSe/src/lib/IOTestFile/writerTest.txt")));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(new File("src/lib/IOTestFile/writerTest.txt")));
         bw.write("abc");
         bw.newLine();
         bw.write("efg");

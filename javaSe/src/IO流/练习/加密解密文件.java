@@ -12,7 +12,7 @@ public class 加密解密文件 {
      */
     @Test
     public void test1() {
-        File file = new File("JavaSe/src/lib/IOTestFile/encrypt/test.txt");
+        File file = new File("src/lib/IOTestFile/encrypt/test.txt");
         // this.encrypt(file);
         this.decrypt(file);
     }

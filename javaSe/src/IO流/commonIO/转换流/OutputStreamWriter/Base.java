@@ -16,7 +16,7 @@ public class Base {
         // <CM> public OutputStreamWriter(OutputStream out)
         // <CM> public OutputStreamWriter(OutputStream out, String charsetName)
         // <返> 创建 OutputStreamWriter 对象
-        FileOutputStream fos = new FileOutputStream("JavaSe/src/lib/IOTestFile/gbk.txt");
+        FileOutputStream fos = new FileOutputStream("src/lib/IOTestFile/gbk.txt");
         // OutputStreamWriter osw = new OutputStreamWriter(fos);// 使用系统默认字符集
         OutputStreamWriter osw = new OutputStreamWriter(fos, "utf-8");// 使用utf-8写入
         osw.close();
@@ -32,7 +32,7 @@ public class Base {
         // <M> public void write(char[] cbuf, int off, int len) throws IOException
         // <M> public void write(String str, int off, int len) throws IOException
         // <改> 通过 OutputStreamWriter 流对文件写入特定编码的字节
-        FileOutputStream fos = new FileOutputStream("JavaSe/src/lib/IOTestFile/gbk.txt");
+        FileOutputStream fos = new FileOutputStream("src/lib/IOTestFile/gbk.txt");
         OutputStreamWriter osw = new OutputStreamWriter(fos, "utf-8");
         osw.write('中');
         osw.write("a\nbc");

@@ -10,8 +10,8 @@ public class Base {
      */
     @Test
     public void Constructor() throws IOException {
-        DataOutputStream dos = new DataOutputStream(new FileOutputStream("JavaSe/src/lib/IOTestFile/dataStream.txt"));
-        DataInputStream dis = new DataInputStream(new FileInputStream("JavaSe/src/lib/IOTestFile/dataStream.txt"));
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream("src/lib/IOTestFile/dataStream.txt"));
+        DataInputStream dis = new DataInputStream(new FileInputStream("src/lib/IOTestFile/dataStream.txt"));
         dis.close();
         dos.close();
     }
@@ -22,7 +22,7 @@ public class Base {
     @Test
     public void write() throws IOException {
         // DataOutputStream提供了针对各种基本数据类型的写入
-        FileOutputStream fos = new FileOutputStream("JavaSe/src/lib/IOTestFile/dataStream.txt");
+        FileOutputStream fos = new FileOutputStream("src/lib/IOTestFile/dataStream.txt");
         DataOutputStream dos = new DataOutputStream(fos);
         String name = "李潇";
         int age = 18;
@@ -40,7 +40,7 @@ public class Base {
     public void read() throws IOException {
         // DataInputStream提供了针对各种基本数据类型的读入
         // <注> 一定要按写入的顺序读，否则取不到对应的数据，甚至类型不同而报错EOFException
-        DataInputStream dis = new DataInputStream(new FileInputStream("JavaSe/src/lib/IOTestFile/dataStream.txt"));
+        DataInputStream dis = new DataInputStream(new FileInputStream("src/lib/IOTestFile/dataStream.txt"));
         // 数据流读取类型数据的顺序需要与写入类型数据的顺序一致
         String name = dis.readUTF();// readUTF()的作用，是从输入流中读取UTF-8编码的数据，并以String字符串的形式返回
         int age = dis.read();

@@ -7,7 +7,7 @@ import 类和对象.对象的序列化.lib.SerClass_Serializable;
 import java.io.File;
 
 public class Base {
-    private File file = new File("JavaSe/src/lib/IOTestFile/serialize.dat");
+    private File file = new File("src/lib/IOTestFile/serialize.dat");
 
     @Test
     public void test_Serializable() {

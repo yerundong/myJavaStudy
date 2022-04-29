@@ -62,7 +62,7 @@ public class exc1 {
      */
     @Test
     public void exe3() {
-        this.deleteDir(new File("JavaSe/src/lib/IOTestFile/ddd"));
+        this.deleteDir(new File("src/lib/IOTestFile/ddd"));
     }
 
     public void deleteDir(File dir) {

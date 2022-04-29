@@ -17,7 +17,7 @@ public class Base {
         // <CM> public BufferedOutputStream(OutputStream out)
         // <CM> public BufferedOutputStream(OutputStream out, int size)
         // <返> 创建 BufferedOutputStream 对象
-        File file = new File("JavaSe/src/lib/IOTestFile/img/剪纸.jpg");
+        File file = new File("src/lib/IOTestFile/img/剪纸.jpg");
         FileOutputStream fos = new FileOutputStream(file);
         BufferedOutputStream bos = new BufferedOutputStream(fos);
         bos.close();
@@ -32,7 +32,7 @@ public class Base {
         // <M> public void write(byte[] b) throws IOException
         // <M> public void write(byte[] b, int off, int len) throws IOException
         // <改> 通过 BufferedOutputStream 流对文件写入字节
-        File file = new File("JavaSe/src/lib/IOTestFile/img/剪纸.jpg");
+        File file = new File("src/lib/IOTestFile/img/剪纸.jpg");
         FileOutputStream fos = new FileOutputStream(file);
         BufferedOutputStream bos = new BufferedOutputStream(fos);
         bos.write(123);

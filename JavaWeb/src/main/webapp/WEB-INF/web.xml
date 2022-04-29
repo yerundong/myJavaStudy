@@ -105,4 +105,22 @@
         <servlet-name>Dispatched</servlet-name>
         <url-pattern>/dispatched</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Dedirect1</servlet-name>
+        <servlet-class>servlet.重定向.重定向1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dedirect1</servlet-name>
+        <url-pattern>/redirect1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Dedirect2</servlet-name>
+        <servlet-class>servlet.重定向.重定向2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dedirect2</servlet-name>
+        <url-pattern>/redirect2</url-pattern>
+    </servlet-mapping>
 </web-app>

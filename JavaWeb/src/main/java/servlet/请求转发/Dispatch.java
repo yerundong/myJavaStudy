@@ -33,7 +33,6 @@ public class Dispatch extends HttpServlet {
 
         // 进行传递
         if(requestDispatcher!=null){
-            response.setStatus(302);
             requestDispatcher.forward(request, response);
         }else{
             response.setStatus(500);

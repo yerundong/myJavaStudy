@@ -27,7 +27,7 @@ public class Base {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.connect();
             is = urlConnection.getInputStream();
-            fos = new FileOutputStream("JavaSe/src/lib/IOTestFile/img/下载.gif");
+            fos = new FileOutputStream("src/lib/IOTestFile/img/下载.gif");
             byte[] buffer = new byte[1024];
             int len;
             while ((len = is.read(buffer)) != -1) {

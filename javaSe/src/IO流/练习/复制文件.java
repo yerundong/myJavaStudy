@@ -10,8 +10,8 @@ public class 复制文件 {
      */
     @Test
     public void test1() {
-        File file1 = new File("JavaSe/src/lib/IOTestFile/copy/like.txt");
-        File file2 = new File("JavaSe/src/lib/IOTestFile/copy/like_copy.txt");
+        File file1 = new File("src/lib/IOTestFile/copy/like.txt");
+        File file2 = new File("src/lib/IOTestFile/copy/like_copy.txt");
         this.copyFile1(file1, file2);
     }
 
@@ -20,8 +20,8 @@ public class 复制文件 {
      */
     @Test
     public void test2() {
-        File file1 = new File("JavaSe/src/lib/IOTestFile/copy/like.txt");
-        File file2 = new File("JavaSe/src/lib/IOTestFile/copy/like_copy.txt");
+        File file1 = new File("src/lib/IOTestFile/copy/like.txt");
+        File file2 = new File("src/lib/IOTestFile/copy/like_copy.txt");
         this.copyFile2(file1, file2);
     }
 
