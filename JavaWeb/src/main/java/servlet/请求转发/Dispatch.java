@@ -6,10 +6,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Dispatch extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 取到某个凭证
+        response.setHeader("Content-Type", "text/html;charset=UTF-8");
+
+        // 取到to参数
         String to = request.getParameter("to");
         request.setAttribute("to", to);
 
@@ -30,9 +33,20 @@ public class Dispatch extends HttpServlet {
 
         // 进行传递
         if(requestDispatcher!=null){
+            response.setStatus(302);
             requestDispatcher.forward(request, response);
         }else{
-            System.out.println("to参数不合法，未进行转发");
+            response.setStatus(500);
+            // 写入字符数据
+            PrintWriter writer = null;
+            try {
+                writer = response.getWriter();
+                writer.write("to参数不合法！");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (writer != null) writer.close();
+            }
         }
     }
 }

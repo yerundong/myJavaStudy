@@ -63,6 +63,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>SetStatus</servlet-name>
+        <servlet-class>servlet.响应.设置状态码</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetStatus</servlet-name>
+        <url-pattern>/setStatus</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>GetServletConfig</servlet-name>
         <servlet-class>servlet.获取ServletConfig和ServletContext</servlet-class>
         <init-param>

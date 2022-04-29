@@ -1,0 +1,91 @@
+const oHead = document.querySelector('head');
+        const oStyle = document.createElement('style');
+        oStyle.innerHTML = `body, .comment-list, .bilibili-player-video-sendbar, .bilibili-player-video-inputbar-wrap, .bilibili-player-video-wrap,.bui-button-blue,#multi_page{
+     background: #ffffff!important;
+}
+
+#reco_list, #live_recommand_report, #comment,#arc_toolbar_report,#v_tag,#v_desc,#danmukuBox,#v_upinfo,#internationalHeader,#viewbox_report,.head-con, #biliMainHeader{
+    display: none!important;
+}
+.v-wrap{
+    height:2000px;
+    margin: 0;
+    float:right;
+    width: auto;
+    min-width: unset;
+    padding: 0;
+}
+.v-wrap>.l-con{
+    width: auto;
+}
+.v-wrap>.r-con{
+  width:0;
+}
+.bilibili-player-video{
+    margin: 0!important;
+}
+#bilibili-player,#bilibili-player.mini-player {
+    width: 1100px!important;
+    height: 670px!important;
+    position:static!important;
+}
+
+#bilibili-player.mini-player .player {
+    width: 100%!important;
+    height: 100%!important;
+} 
+
+#multi_page{
+    position:absolute;
+    left:0;
+    top: 1100px;
+}
+.bilibili-player-video-state {
+    width: 24px!important;
+    height: 18px!important;
+    right: 20px!important;
+    bottom: 20px!important;
+}
+
+#app::before{
+    position:absolute;
+    content: ' ';
+    width: 100vw;
+    height:100vh;
+    background-image: url(https://github.com/yerundong/MyFrontEnd/blob/master/%E6%88%AA%E5%9B%BE/codeFaker3.png?raw=true);
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+#playerWrap{
+    margin-top: 30px;
+}
+.bilibili-player-video-bottom-area{
+    opacity: 0;
+    transition: opacity .2s;
+}
+.bilibili-player-video-bottom-area:hover{
+    opacity: 1;
+}
+.bui-slider .bui-track.bui-track-video-progress .bui-bar-normal.bui-bar.bui-bar-normal {
+    background: #d1ddc1!important;
+}
+.bilibili-player-video-danmaku{
+    opacity: 0!important;
+}
+#playerWrap:hover .bilibili-player-video-danmaku{
+    opacity: 1!important;
+}
+.mini-player-drag-mask{
+    display: none;
+}
+#bannerAd{
+    display:none;
+}
+.bilibili-player .bilibili-player-area .bilibili-player-drag-mask-state{
+    top: 90%;
+}
+.bilibili-player .bilibili-player-area .bilibili-player-drag-mask-state .bilibili-player-drag-mask-icon{
+    width: 30px;
+    height: 30px;
+}`
+oHead.appendChild(oStyle)

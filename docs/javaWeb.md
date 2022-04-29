@@ -179,9 +179,9 @@ https://www.cnblogs.com/fanshuyao/p/13813340.html
 
 ### IDEA Tomcat控制台输出中文乱码解决方案
 
-先试试：https://blog.csdn.net/liu865033503/article/details/81094575
+在idea的上方点Help --> custom vm options 添加-Dfile.encoding=UTF-8，重启
 
-若不行再： 在idea的上方点Help --> custom vm options 添加-Dfile.encoding=UTF-8，重启
+若不行再试试：https://blog.csdn.net/liu865033503/article/details/81094575
 
 
 
@@ -686,24 +686,32 @@ HttpServletResponse 类和 HttpServletRequest 类一样。每次请求进来，T
 
 HttpServletRequest 表示请求过来的信息，HttpServletResponse 表示所有响应的信息， 
 
-doGet/doPost方法的response参数的类型是HttpServletResponse，HttpServletResponse是ServletResponse的子接口，功能和方法更加强大。
+doGet/doPost方法的response参数的类型是HttpServletResponse，HttpServletResponse是ServletResponse的子接口，功能和方法更加强大。、
 
 
 
 #### 设置响应的状态码
 
+
+
 #### 设置响应消息头
+
+```
+public void setHeader(String name, String value);
+public void addHeader(String name, String value);
+...
+```
 
 #### 发送响应消息体
 
-Servlet通过IO流来发送的字符或字节数据。获取IO流有两种方法，一种是获取字符流，一种是获取字节流：
+Servlet通过IO流来发送的字符或字节数据。**获取IO流有两种方法，一种是获取字符流，一种是获取字节流**：
 
 | 方法声明                              | 功能描述                                           |
 | ------------------------------------- | -------------------------------------------------- |
 | PrintWriter getWriter()               | 返回打印流，是一种字符输出处理流。用于写入字符数据 |
 | ServletOutputStream getOutputStream() | 返回字节输出流。用于写入字节数据                   |
 
-**注意：**这两个方法在一个response对象中不可以同时调用，否则会抛出一个IllegalStateException。
+**注意：**这两个方法在一个response对象中**不可以同时调用**，否则会抛出一个IllegalStateException。
 
 
 

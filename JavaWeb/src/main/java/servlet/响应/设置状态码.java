@@ -7,17 +7,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collection;
 
-public class 设置响应头 extends HttpServlet {
+public class 设置状态码 extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Content-Type", "text/html;charset=UTF-8");
-        // 或者
-        // response.setContentType("text/html;charset=UTF-8");
-        response.setHeader("abc", "123");
-        System.out.println(response.getContentType());
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setStatus(600);
         // 写入字符数据
         PrintWriter writer = null;
         try {

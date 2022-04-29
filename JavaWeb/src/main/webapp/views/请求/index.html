@@ -23,19 +23,20 @@
             <p>GET请求参数：</p>
             <textarea class="GET_DATA" cols="50" rows="10"></textarea>
             <br>
-            <button class="rqbtn" type="GET">GET</button>
+            <button class="rqbtn" type="GET">Send Get</button>
         </div>
         <div class="post_wrap">
             <p>POST请求参数：</p>
             <textarea class="POST_DATA" cols="50" rows="10"></textarea>
             <br>
-            <button class="rqbtn" type="POST">POST</button>
+            <button class="rqbtn" type="POST">Send Post</button>
         </div>
     </div>
 </div>
 
-<script>
-    const defprefix = `http://localhost:8055/web/`;
+<script type="module">
+    import serverConfig from '../../lib/server.config.js'
+    const defprefix = serverConfig.server;
     const defRqData = `{}`;
     const defquerystr = ``
     $(".prefix").val(defprefix);
