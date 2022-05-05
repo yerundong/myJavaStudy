@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .form-wrap{
+        border: 1px solid #ccc;
+        margin-top: 120px;
+        padding: 20px 60px 40px;
+        text-align: center;
+        box-shadow: 0px 0px 8px 4px #aaa;
+    }
+    .title-wrap{
+        line-height: 60px;
+    }
+    .input-wrap{
+        margin-bottom: 20px;
+    }
+    .input-wrap input{
+        height: 26px;
+    }
+    .btn{
+        padding: 5px 20px;
+    }
+    .regst{
+        margin-top: 10px;
+        display: inline-block;
+    }
+    .required{
+        color: red;
+    }
+</style>
+<body>
+<div id="app">
+    <form class="form-wrap" ref="form">
+        <strong class="title-wrap">用户登录</strong>
+        <div class="input-wrap">
+            <span class="required">*</span>用户名称：<input type="text" v-model="formData.userName">
+        </div>
+        <div class="input-wrap">
+            <span class="required">*</span>用户密码：<input type="password" v-model="formData.password">
+        </div>
+        <button class="btn" type="button" @click="onLogin">登录</button>
+        <br>
+        <a class="regst" href="../register/index.html">用户注册</a>
+    </form>
+</div>
+
+<script type="module">
+    import Schema from '../../lib/async-validator.js'
+    Vue.createApp({
+        data() {
+            return {
+                formData:{
+                    userName: '',
+                    password: ''
+                },
+                rules: {
+                    userName:{
+                        required: true,
+                        message: "用户名称必填"
+                    },
+                    password:{
+                        required: true,
+                        message: "用户密码必填"
+                    }
+                }
+            }
+        },
+        computed:{
+            validator(){
+                return new Schema(this.rules)
+            }
+        },
+        methods: {
+            async onLogin(){
+                const {validator, formData} = this
+                validator.validate(formData, errors => {
+                    if (errors) {
+                        alert(errors[0].message)
+                        return
+                    }else{
+                        console.log(formData)
+                        axios.get('/login', {
+                            params: formData
+                        })
+                    }
+                })
+            }
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>
