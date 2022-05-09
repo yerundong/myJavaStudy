@@ -112,3 +112,9 @@ settings -> plugins -> 设置-> Manage Repositories 中添加 https://plugins.zh
 # IDEA中启动Tomcat后一直在build，或者一直在Copying resource问题
 
 - 参考：https://blog.csdn.net/weixin_42248123/article/details/107234492
+
+
+
+# IDEA模块重命名
+
+- 参考：https://blog.csdn.net/xiaoyouyouaaa/article/details/122729353

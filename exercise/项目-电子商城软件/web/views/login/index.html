@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../../lib/vue.3.2.33.js"></script>
+    <script src="../../lib/axios.min.js"></script>
+    <link rel="stylesheet" href="../../lib/common.css">
 </head>
 <style>
-    body{
+    #app{
+        flex-grow: 1;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    .header{
+        background: #e3e4e5;
+        width: 100%;
+        line-height: 40px;
+        padding: 0 30px;
     }
     .form-wrap{
         border: 1px solid #ccc;
@@ -40,6 +49,7 @@
 </style>
 <body>
 <div id="app">
+    <div class="header">电子商城应用：包含登录、注册、首页、用户中心、商品列表、商品详情模块</div>
     <form class="form-wrap" ref="form">
         <strong class="title-wrap">用户登录</strong>
         <div class="input-wrap">
