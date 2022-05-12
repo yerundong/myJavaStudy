@@ -1,6 +1,6 @@
 package 操作数据库.PreparedStatement;
 
-import lib.JDBCUtil;
+import lib.jdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -22,7 +22,7 @@ public class 批量操作性能对比 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -70,8 +70,8 @@ public class 批量操作性能对比 {
             }
 
             // 5、关闭
-            JDBCUtil.close(connect);
-            JDBCUtil.close(ps);
+            jdbcUtilsComplete.close(connect);
+            jdbcUtilsComplete.close(ps);
         }
         long end = System.currentTimeMillis();
         System.out.println("花费时间：" + (end - start));
@@ -89,7 +89,7 @@ public class 批量操作性能对比 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             st = connect.createStatement();
@@ -105,8 +105,8 @@ public class 批量操作性能对比 {
             throwables.printStackTrace();
         } finally {
             // 5、关闭
-            JDBCUtil.close(connect);
-            JDBCUtil.close(st);
+            jdbcUtilsComplete.close(connect);
+            jdbcUtilsComplete.close(st);
         }
 
         long end = System.currentTimeMillis();

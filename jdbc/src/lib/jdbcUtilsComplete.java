@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @Description jdbc通用方法封装，类似于Apache Commons DbUtils
+ * @Description 完全自己写的jdbc通用方法封装（包含获取连接*2、更新、查询、关闭等操作）
  */
-public class JDBCUtil {
+public class jdbcUtilsComplete {
     // jdbc配置
-    private static final File JDBC_CONFIG = new File("JDBC\\src\\lib\\jdbc.properties");
+    private static final File JDBC_CONFIG = new File("src/jdbc.properties");
     // druid jdbc配置
-    private static final File DRUID_JDBC_CONFIG = new File("JDBC\\src\\lib\\druid.jdbc.properties");
+    private static final File DRUID_CONFIG = new File("src/druid.properties");
 
     // 连接池
     private static DataSource dataSource = null;
@@ -27,7 +27,7 @@ public class JDBCUtil {
     static {
         Properties properties = new Properties();
         try {
-            properties.load(new FileReader(DRUID_JDBC_CONFIG));
+            properties.load(new FileReader(DRUID_CONFIG));
             dataSource = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class JDBCUtil {
     }
 
     /**
-     * @Description 获取连接池中的连接（推荐）
+     * @Description 使用druid连接池获取连接（推荐）
      */
     public static Connection getPoolConnect() throws SQLException {
         return dataSource.getConnection();

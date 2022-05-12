@@ -1,6 +1,6 @@
 package 事务;
 
-import lib.JDBCUtil;
+import lib.jdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -20,7 +20,7 @@ public class Base {
         Connection connect = null;
 
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
 
             // 取消事务自动提交
             // System.out.println(connect.getAutoCommit());
@@ -32,7 +32,7 @@ public class Base {
             try {
                 // 恢复事务自动提交
                 connect.setAutoCommit(true);
-                JDBCUtil.close(connect);
+                jdbcUtilsComplete.close(connect);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -49,7 +49,7 @@ public class Base {
         int count = 1;
 
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             String sql = "INSERT INTO `jdbc_trans` VALUES(NULL, ?)";
             ps = connect.prepareStatement(sql);
 
@@ -60,7 +60,7 @@ public class Base {
             count++;
 
             // 数据库操作，受回滚影响
-            JDBCUtil.setPrepareStatement(ps, 2500);
+            jdbcUtilsComplete.setPrepareStatement(ps, 2500);
             ps.executeUpdate();
 
             System.out.println(10 / 0);// 模拟异常
@@ -82,8 +82,8 @@ public class Base {
             try {
                 // 恢复事务自动提交
                 connect.setAutoCommit(true);
-                JDBCUtil.close(connect);
-                JDBCUtil.close(ps);
+                jdbcUtilsComplete.close(connect);
+                jdbcUtilsComplete.close(ps);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -100,7 +100,7 @@ public class Base {
         Savepoint point = null;
 
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             String sql = "INSERT INTO `jdbc_trans` VALUES(NULL, ?)";
             ps = connect.prepareStatement(sql);
 
@@ -108,14 +108,14 @@ public class Base {
             connect.setAutoCommit(false);
 
             // 数据库操作，不受回滚影响
-            JDBCUtil.setPrepareStatement(ps, 55);
+            jdbcUtilsComplete.setPrepareStatement(ps, 55);
             ps.executeUpdate();
 
             // 设置断点
             point = connect.setSavepoint();
 
             // 数据库操作，受回滚影响
-            JDBCUtil.setPrepareStatement(ps, 66);
+            jdbcUtilsComplete.setPrepareStatement(ps, 66);
             ps.executeUpdate();
 
             System.out.println(10 / 0);// 模拟异常
@@ -136,8 +136,8 @@ public class Base {
             try {
                 // 恢复事务自动提交
                 connect.setAutoCommit(true);
-                JDBCUtil.close(connect);
-                JDBCUtil.close(ps);
+                jdbcUtilsComplete.close(connect);
+                jdbcUtilsComplete.close(ps);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -154,7 +154,7 @@ public class Base {
         PreparedStatement ps = null;
 
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             int isolation = connect.getTransactionIsolation();
             System.out.println(isolation);
 
@@ -164,7 +164,7 @@ public class Base {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtil.close(connect);
+            jdbcUtilsComplete.close(connect);
         }
     }
 }

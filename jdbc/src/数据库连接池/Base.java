@@ -15,7 +15,7 @@ public class Base {
     static {
         Properties properties = new Properties();
         try {
-            properties.load(new FileReader("JDBC/src/lib/druid.jdbc.properties"));
+            properties.load(new FileReader("src/lib/druid.properties"));
             dataSource = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
             e.printStackTrace();

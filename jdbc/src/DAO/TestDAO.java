@@ -1,6 +1,6 @@
 package DAO;
 
-import lib.JDBCUtil;
+import lib.jdbcUtils;
 import lib.Poet;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +16,10 @@ public class TestDAO {
         Connection connect = null;
         try {
             Poet lb = new Poet(1, "李白", new Date(-31245257943000L));
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtils.getConnect();
             insert = poetDAO.insert(connect, lb);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (insert > 0) {
@@ -39,12 +37,10 @@ public class TestDAO {
             Poet p1 = new Poet(2, "杜甫", new Date(-41245257943000L));
             Poet p2 = new Poet(3, "白居易", new Date(-41245257943000L));
             Poet[] poets = {p1, p2};
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtils.getConnect();
             insert = poetDAO.insert(connect, poets);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (insert > 0) {
@@ -59,12 +55,10 @@ public class TestDAO {
         int insert = 0;
         Connection connect = null;
         try {
-            connect = JDBCUtil.getConnect();
-            insert = poetDAO.deleteById(connect, 4);
+            connect = jdbcUtils.getConnect();
+            insert = poetDAO.deleteById(connect, 1);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (insert > 0) {
@@ -76,19 +70,17 @@ public class TestDAO {
 
     @Test
     public void testBatchDelete() {
-        int insert = 0;
+        int count = 0;
         Connection connect = null;
         try {
-            int[] ids = {5, 7, 8, 9, 10};
-            connect = JDBCUtil.getConnect();
-            insert = poetDAO.deleteById(connect, ids);
+            int[] ids = {1, 2, 8, 9, 10};
+            connect = jdbcUtils.getConnect();
+            count = poetDAO.deleteById(connect, ids);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
-        if (insert > 0) {
+        if (count > 0) {
             System.out.println("删除成功！");
         } else {
             System.out.println("删除失败！");
@@ -101,12 +93,10 @@ public class TestDAO {
         Connection connect = null;
         try {
             Poet p = new Poet(3, "白乐天", new Date(-41242257943000L));
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtils.getConnect();
             insert = poetDAO.update(connect, p);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (insert > 0) {
@@ -124,12 +114,10 @@ public class TestDAO {
             Poet p1 = new Poet(2, "杜子美", new Date(-41455257943000L));
             Poet p2 = new Poet(3, "白居易", new Date(-45245257943000L));
             Poet[] poets = {p1, p2};
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtils.getConnect();
             insert = poetDAO.update(connect, poets);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (insert > 0) {
@@ -144,12 +132,10 @@ public class TestDAO {
         Poet res = null;
         Connection connect = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtils.getConnect();
             res = poetDAO.getPoetById(connect, 2);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connect);
         }
 
         if (res != null) {

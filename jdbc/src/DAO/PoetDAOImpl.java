@@ -2,8 +2,10 @@ package DAO;
 
 import lib.Poet;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
@@ -17,7 +19,7 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
         Object[] args = {
                 poet.getId(), poet.getName(), poet.getBirthDay()
         };
-        return commonUpdate(cnn, sql, args);
+        return update(cnn, sql, args);
     }
 
     /**
@@ -26,14 +28,12 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public int insert(Connection cnn, Poet[] poets) {
         String sql = "INSERT INTO `jdbc_poet` VALUES(?, ?, ?)";
-        List ls = new ArrayList<>();
-        for (Poet poet : poets) {
-            Object[] args = {
-                    poet.getId(), poet.getName(), poet.getBirthDay()
-            };
-            ls.add(args);
+        Object[][] objects = new Object[poets.length][3];
+        for (int i = 0; i < poets.length; i++) {
+            objects[i] = new Object[]{poets[i].getId(), poets[i].getName(), poets[i].getBirthDay()};
         }
-        return commonBatchUpdate(cnn, sql, ls);
+        System.out.println(Arrays.deepToString(objects));
+        return batchUpdate(cnn, sql, objects);
     }
 
     /**
@@ -42,7 +42,7 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public int deleteById(Connection cnn, int id) {
         String sql = "DELETE FROM `jdbc_poet` WHERE `id` = ?";
-        return commonUpdate(cnn, sql, id);
+        return update(cnn, sql, id);
     }
 
     /**
@@ -51,12 +51,11 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public int deleteById(Connection cnn, int[] ids) {
         String sql = "DELETE FROM `jdbc_poet` WHERE `id` = ?";
-        List ls = new ArrayList<>();
-        for (int id : ids) {
-            Object[] args = {id};
-            ls.add(args);
+        Object[][] objects = new Object[ids.length][1];
+        for (int i = 0; i < ids.length; i++) {
+            objects[i] = new Object[]{ids[i]};
         }
-        return commonBatchUpdate(cnn, sql, ls);
+        return batchUpdate(cnn, sql, objects);
     }
 
     /**
@@ -65,7 +64,7 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public int update(Connection cnn, Poet poet) {
         String sql = "UPDATE `jdbc_poet` SET `name` = ?, `birthDay` = ? WHERE `id` = ?";
-        return commonUpdate(cnn, sql, poet.getName(), poet.getBirthDay(), poet.getId());
+        return update(cnn, sql, poet.getName(), poet.getBirthDay(), poet.getId());
     }
 
     /**
@@ -74,12 +73,11 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public int update(Connection cnn, Poet[] poets) {
         String sql = "UPDATE `jdbc_poet` SET `name` = ?, `birthDay` = ? WHERE `id` = ?";
-        List ls = new ArrayList<>();
-        for (Poet poet : poets) {
-            Object[] args = {poet.getName(), poet.getBirthDay(), poet.getId()};
-            ls.add(args);
+        Object[][] objects = new Object[poets.length][3];
+        for (int i = 0; i < poets.length; i++) {
+            objects[i] = new Object[]{poets[i].getName(), poets[i].getBirthDay(), poets[i].getId()};
         }
-        return commonBatchUpdate(cnn, sql, ls);
+        return batchUpdate(cnn, sql, objects);
     }
 
     /**
@@ -88,11 +86,7 @@ public class PoetDAOImpl extends BaseDAO<Poet> implements PoetDAO {
     @Override
     public Poet getPoetById(Connection cnn, int id) {
         String sql = "SELECT * FROM `jdbc_poet` WHERE `id` = ?";
-        List<Poet> poets = commonQuery(cnn, sql, id);
-        if (poets.size() > 0) {
-            return poets.get(0);
-        } else {
-            return null;
-        }
+        Poet poet = query(cnn, sql, id);
+        return poet;
     }
 }

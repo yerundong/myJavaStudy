@@ -1,6 +1,6 @@
 package 操作数据库.PreparedStatement;
 
-import lib.JDBCUtil;
+import lib.jdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.sql.*;
@@ -17,7 +17,7 @@ public class Base {
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = 4";
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             System.out.println(ps);
         } catch (Exception throwables) {
@@ -45,7 +45,7 @@ public class Base {
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` = ? OR `age` = ?";
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
             ps.setInt(1, 33);
@@ -77,7 +77,7 @@ public class Base {
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` > ?";
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 222);
             boolean execute = ps.execute();
@@ -109,7 +109,7 @@ public class Base {
         String sql = "SELECT * FROM `jdbc_login` WHERE `id` > ?";
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 222);
             ResultSet resultSet = ps.executeQuery();
@@ -141,7 +141,7 @@ public class Base {
         String sql = "INSERT INTO `jdbc_login` VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 9);
             ps.setObject(2, "王石");
@@ -178,7 +178,7 @@ public class Base {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
 
@@ -215,7 +215,7 @@ public class Base {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             ps.setObject(1, 4);
 
@@ -270,7 +270,7 @@ public class Base {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             ps = connect.prepareStatement(sql);
             resultSet = ps.executeQuery();
             while (true) {
@@ -319,7 +319,7 @@ public class Base {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
 
             ps = connect.prepareStatement(sql);
             resultSet = ps.executeQuery();

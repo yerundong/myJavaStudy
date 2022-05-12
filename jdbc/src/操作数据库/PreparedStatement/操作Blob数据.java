@@ -1,6 +1,6 @@
 package 操作数据库.PreparedStatement;
 
-import lib.JDBCUtil;
+import lib.jdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -26,7 +26,7 @@ public class 操作Blob数据 {
             huc.connect();
             inputStream = huc.getInputStream();
             String sql = "INSERT INTO `jdbc_blob` VALUES(?, ?)";
-            int update = JDBCUtil.onceUpdate(sql, 1, inputStream);
+            int update = jdbcUtilsComplete.onceUpdate(sql, 1, inputStream);
             if (update > 0) {
                 System.out.println("更新成功！");
             }
@@ -55,7 +55,7 @@ public class 操作Blob数据 {
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
         try {
-            connection = JDBCUtil.getConnect();
+            connection = jdbcUtilsComplete.getConnect();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, 1);
             resultSet = ps.executeQuery();
@@ -81,9 +81,9 @@ public class 操作Blob数据 {
             throwables.printStackTrace();
         } finally {
             try {
-                JDBCUtil.close(connection);
-                JDBCUtil.close(resultSet);
-                JDBCUtil.close(ps);
+                jdbcUtilsComplete.close(connection);
+                jdbcUtilsComplete.close(resultSet);
+                jdbcUtilsComplete.close(ps);
 
                 if (bis != null)
                     bis.close();

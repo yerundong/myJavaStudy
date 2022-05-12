@@ -131,7 +131,7 @@ public class Base {
         try {
             // 1.读取配置，提供用url、户名、密码、Driver实现全类名
             Properties properties = new Properties();
-            FileReader fileReader = new FileReader("JDBC/src/lib/jdbc.properties");
+            FileReader fileReader = new FileReader("src/lib/jdbc.properties");
             properties.load(fileReader);
             String user = properties.getProperty("user");
             String password = properties.getProperty("password");

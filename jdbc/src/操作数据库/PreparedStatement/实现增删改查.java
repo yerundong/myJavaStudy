@@ -1,6 +1,6 @@
 package 操作数据库.PreparedStatement;
 
-import lib.JDBCUtil;
+import lib.jdbcUtilsComplete;
 import lib.LoginInfo;
 import org.junit.jupiter.api.Test;
 
@@ -68,7 +68,7 @@ public class 实现增删改查 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
 
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class 实现增删改查 {
 
         try {
             // 1、获取连接
-            connect = JDBCUtil.getConnect();
+            connect = jdbcUtilsComplete.getConnect();
             // 2、预编译sql语句，返回prepareStatement实例
             ps = connect.prepareStatement(sql);
 
