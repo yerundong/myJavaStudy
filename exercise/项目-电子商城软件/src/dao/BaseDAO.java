@@ -32,18 +32,17 @@ public abstract class BaseDAO<T> {
         QueryRunner queryRunner = new QueryRunner();
         try {
             return queryRunner.update(cnn, sql, args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            return -1;
         }finally {
             DbUtils.closeQuietly(cnn);
         }
-        return -1;
     }
 
     /**
      * @批量更新
      */
-    public int batchUpdate(Connection cnn, String sql, Object[][] args) {
+    public int batchUpdate(Connection cnn, String sql, Object[]... args) {
         QueryRunner queryRunner = new QueryRunner();
         try {
             int[] batch = queryRunner.batch(cnn, sql, args);
@@ -52,43 +51,40 @@ public abstract class BaseDAO<T> {
                 count += i;
             }
             return count;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            return -1;
         }finally {
             DbUtils.closeQuietly(cnn);
         }
-        return -1;
     }
 
     /**
      * @查询
      */
-    public T query(Connection cnn, String sql, Object... args) {
+    public List<T> query(Connection cnn, String sql, Object... args) {
         QueryRunner queryRunner = new QueryRunner();
-        BeanHandler<T> tBeanHandler = new BeanHandler<T>(clazz);
+        BeanListHandler<T> beanListHandler = new BeanListHandler<>(clazz);
         try {
-            return queryRunner.query(cnn, sql, tBeanHandler, args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            return queryRunner.query(cnn, sql, beanListHandler, args);
+        } catch (SQLException e) {
+            return null;
         }finally {
             DbUtils.closeQuietly(cnn);
         }
-        return null;
     }
 
     /**
-     * @批量查询
+     * @查询单个
      */
-    public List<T> batchQuery(Connection cnn, String sql, Object... args) {
+    public T queryOne(Connection cnn, String sql, Object... args) {
         QueryRunner queryRunner = new QueryRunner();
-        BeanListHandler<T> tBeanListHandler = new BeanListHandler<>(clazz);
+        BeanHandler<T> beanHandler = new BeanHandler<T>(clazz);
         try {
-            return queryRunner.query(cnn, sql, tBeanListHandler, args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            return queryRunner.query(cnn, sql, beanHandler, args);
+        } catch (SQLException e) {
+            return null;
         }finally {
             DbUtils.closeQuietly(cnn);
         }
-        return null;
     }
 }

@@ -3670,12 +3670,12 @@ System.out.println(t1.getclass() == t2.getclass());
 
 - Collection：接口；单列集合，存储一个一个对象
   - List：接口；储存有序的、可重复的数据；容量不固定，随着容量的增加而动态扩容（阈值基本不会达到），习惯称之为“动态数组”
+    - ArrayList：类；数组队列，Java集合框架中被使用最多的，线程不安全，效率高
+    - LinkedList：类；双向链表
   - Set：接口；储存无序的、不可重复的数据；习惯称之为“集合”
+    - HashSet：类；HashSet 基于 HashMap 来实现的；
   - Queue：接口；储存有序的、可重复的数据；
 - Map：接口；双列集合，存储键/值对（key-value）映射；允许一对一、多对一，不允许一对多
-  - ArrayList：类；数组队列，Java集合框架中被使用最多的，线程不安全，效率高
-  - LinkedList：类；双向链表
-  - HashSet：类；HashSet 基于 HashMap 来实现的；
 
 
 

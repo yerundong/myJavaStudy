@@ -3,6 +3,7 @@ package DAO;
 import lib.Poet;
 
 import java.sql.Connection;
+import java.util.List;
 
 public interface PoetDAO {
 
@@ -40,4 +41,9 @@ public interface PoetDAO {
      * @根据一个id获取Poet对象
      */
     Poet getPoetById(Connection cnn, int id);
+
+    /**
+     * @根据一个name获取Poet对象
+     */
+    List<Poet> getPoetByName(Connection cnn, String name);
 }

@@ -7,8 +7,8 @@
    2. 创建表对应的bean对象，入用户对象：User，商品对象：Goods等；
    3. 编写jdbcUtils并测试，创建druid配置文件，配合druid连接池、Apache Commons DBUtils使用，这些作为提供操作jdbc的工具方法；
    4. 编写BaseDao抽象类并测试，包含基本的增删改查方法；
-   5. 编写bean对象对应的dao接口和对象并测试，如UserDao、GoodsDao；
-   6. 
+   5. 编写bean对象对应的dao接口，如UserDao、GoodsDao；
+   6. 编写bean对象对应的dao实现类并测试，如UserDaoImpl、GoodsDaoImpl；
 
 
 

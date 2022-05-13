@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.util.List;
 
 public class TestDAO {
     public PoetDAOImpl poetDAO = new PoetDAOImpl();
@@ -141,6 +142,25 @@ public class TestDAO {
         if (res != null) {
             System.out.println("查询成功！");
             System.out.println(res);
+        } else {
+            System.out.println("查询失败！");
+        }
+    }
+
+    @Test
+    public void testQueryName() {
+        List<Poet> res = null;
+        Connection connect = null;
+        try {
+            connect = jdbcUtils.getConnect();
+            res = poetDAO.getPoetByName(connect, "白居易");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (res != null) {
+            System.out.println("查询成功！");
+            System.out.println(res.get(0));
         } else {
             System.out.println("查询失败！");
         }

@@ -1,11 +1,6 @@
 package dao;
 
 import org.junit.jupiter.api.Test;
-import utils.jdbcUtils;
-
-import java.sql.Connection;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class BaseDAOTest extends BaseDAO {
 
