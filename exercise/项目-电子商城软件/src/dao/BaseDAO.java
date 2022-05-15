@@ -33,6 +33,7 @@ public abstract class BaseDAO<T> {
         try {
             return queryRunner.update(cnn, sql, args);
         } catch (SQLException e) {
+            e.printStackTrace();
             return -1;
         }finally {
             DbUtils.closeQuietly(cnn);

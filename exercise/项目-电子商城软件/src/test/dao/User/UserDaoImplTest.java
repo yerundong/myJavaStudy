@@ -62,7 +62,7 @@ class UserDaoImplTest {
 
     @Test
     void getUserById() {
-        User i = userDao.getUserById(connect, 10002);
+        User i = userDao.getUserById(connect, 10001);
         System.out.println(i);
     }
 
