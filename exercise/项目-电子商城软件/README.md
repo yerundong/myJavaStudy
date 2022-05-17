@@ -6,9 +6,10 @@
    1. 创建java代码目录结构：controller、dao、pojo、service、test、utils；
    2. 创建表对应的bean对象，入用户对象：User，商品对象：Goods等；
    3. 编写jdbcUtils并测试，创建druid配置文件，配合druid连接池、Apache Commons DBUtils使用，这些作为提供操作jdbc的工具方法；
-   4. 编写BaseDao抽象类并测试，包含基本的增删改查方法；
-   5. 编写bean对象对应的dao接口，如UserDao、GoodsDao；
-   6. 编写bean对象对应的dao实现类并测试，如UserDaoImpl、GoodsDaoImpl；
+   4. 编写BaseDao抽象类并测试，包含基本的增删改查方法，作为**基础**的操作数据库类；
+   5. 编写bean对象对应的dao接口以及实现类并测试，如UserDao、UserDaoImpl，作为**精确**的操作数据库类；
+   6. 编写bean对象对应service接口以及实现类并测试，如UserService、UserServiceImpl，作为提供业务方法的业务类，如：登录、注册等方法；
+   6. 
 
 
 

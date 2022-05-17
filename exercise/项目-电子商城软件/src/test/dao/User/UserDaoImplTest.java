@@ -2,8 +2,9 @@ package dao.User;
 
 import org.junit.jupiter.api.Test;
 import pojo.User;
-import utils.jdbcUtils;
+import utils.JdbcUtils;
 
+import java.io.File;
 import java.sql.Connection;
 import java.util.List;
 
@@ -12,7 +13,7 @@ class UserDaoImplTest {
     private Connection connect = null;
     {
         try {
-            connect = jdbcUtils.getConnect();
+            connect = JdbcUtils.getConnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -74,7 +75,7 @@ class UserDaoImplTest {
 
     @Test
     void getUserByName() {
-        User i = userDao.getUserByName(connect, "胡建仁2");
+        User i = userDao.getUserByName(connect, "胡建仁");
         System.out.println(i);
     }
 

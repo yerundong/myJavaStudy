@@ -1,6 +1,6 @@
 package 练习;
 
-import lib.jdbcUtilsComplete;
+import lib.JdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
@@ -42,7 +42,7 @@ public class 控制台插入记录 {
         Date birth = new Date(timestamp);
 
         String sql = "INSERT INTO `jdbc_login` VALUES(?, ?, ?, ?, ?)";
-        jdbcUtilsComplete.onceUpdate(sql, id, name, password, age, birth);
+        JdbcUtilsComplete.onceUpdate(sql, id, name, password, age, birth);
         System.out.println("插入成功！");
     }
 }

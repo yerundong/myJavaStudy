@@ -1,6 +1,6 @@
 package 操作数据库.Statement;
 
-import lib.jdbcUtilsComplete;
+import lib.JdbcUtilsComplete;
 import lib.LoginInfo_statement;
 import org.junit.jupiter.api.Test;
 
@@ -52,7 +52,7 @@ public class SQL注入问题模拟 {
         Statement st = null;
         ResultSet rs = null;
         try {
-            conn = jdbcUtilsComplete.getConnect();
+            conn = JdbcUtilsComplete.getConnect();
 
             st = conn.createStatement();
 
@@ -91,9 +91,9 @@ public class SQL注入问题模拟 {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            jdbcUtilsComplete.close(conn);
-            jdbcUtilsComplete.close(rs);
-            jdbcUtilsComplete.close(st);
+            JdbcUtilsComplete.close(conn);
+            JdbcUtilsComplete.close(rs);
+            JdbcUtilsComplete.close(st);
         }
 
         return null;

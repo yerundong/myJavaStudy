@@ -1,6 +1,6 @@
 package 操作数据库.PreparedStatement;
 
-import lib.jdbcUtilsComplete;
+import lib.JdbcUtilsComplete;
 import lib.LoginInfo;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +27,7 @@ public class 解决SQL注入问题 {
         System.out.println(password);
 
         String sql = "SELECT `id`, `user` AS `name`, `age`, `birthday`, `password` FROM `jdbc_login` WHERE `user` = ? AND `password` = ?";
-        List<LoginInfo> res = jdbcUtilsComplete.onceQuery(LoginInfo.class, sql, userName, password);
+        List<LoginInfo> res = JdbcUtilsComplete.onceQuery(LoginInfo.class, sql, userName, password);
         System.out.println(res);
 
 

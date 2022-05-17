@@ -1,18 +1,15 @@
 package servlet.请求;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Map;
 
 public class 获取请求信息 extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response){
         // 设置请求字符集编码
         // request.setCharacterEncoding("UTF-8");
 
@@ -51,11 +48,16 @@ public class 获取请求信息 extends HttpServlet {
         System.out.println("getCharacterEncoding: " + request.getCharacterEncoding());
 
         System.out.println("---------------- 获取请求参数 --------------------");
-        System.out.println("getParameter: a=" + request.getParameter("a"));
-        System.out.println("getParameter: b=" + request.getParameter("b"));
-        System.out.println("getParameter: c=" + request.getParameter("c"));
-        System.out.println("getParameter: bar=" + request.getParameter("bar"));
-        System.out.println("getParameter: foo=" + request.getParameter("foo"));
+        String a = request.getParameter("a");
+        String b = request.getParameter("b");
+        String c = request.getParameter("c");
+        String bar = request.getParameter("bar");
+        String foo = request.getParameter("foo");
+        System.out.println("getParameter: a=" + a);
+        System.out.println("getParameter: b=" + b);
+        System.out.println("getParameter: c=" + c);
+        System.out.println("getParameter: bar=" + bar);
+        System.out.println("getParameter: foo=" + foo);
 
         // 取多个相同名称的参数的值
         System.out.println("getParameterValues: c=" + Arrays.toString(request.getParameterValues("c")));
@@ -76,7 +78,7 @@ public class 获取请求信息 extends HttpServlet {
         System.out.println("↑ getParameterMap ↑");
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response){
         System.out.println("getMethod: " + request.getMethod());
         System.out.println("getQueryString : " + request.getQueryString());
         System.out.println("getParameter: a=" + request.getParameter("a"));

@@ -9,9 +9,10 @@ class UserServiceImplTest {
     private UserServiceImpl userServiceImpl = new UserServiceImpl();
 
     @Test
-    void resister() {
-        User user = new User(0, 1, "哈破仁2", "hpr123@qq.com", null, "321654");
-        System.out.println(userServiceImpl.resister(user));
+    void register() {
+        User user = new User("aaa", "123@qq.com", "bbb");
+        // User user = new User(0, 1, "哈破仁2", "hpr123@qq.com", null, "321654");
+        System.out.println(userServiceImpl.register(user));
     }
 
     @Test

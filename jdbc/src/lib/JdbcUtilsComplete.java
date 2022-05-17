@@ -15,7 +15,7 @@ import java.util.Properties;
 /**
  * @Description 完全自己写的jdbc通用方法封装（包含获取连接*2、更新、查询、关闭等操作）
  */
-public class jdbcUtilsComplete {
+public class JdbcUtilsComplete {
     // jdbc配置
     private static final File JDBC_CONFIG = new File("src/jdbc.properties");
     // druid jdbc配置

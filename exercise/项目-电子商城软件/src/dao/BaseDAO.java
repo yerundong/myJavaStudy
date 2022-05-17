@@ -53,6 +53,7 @@ public abstract class BaseDAO<T> {
             }
             return count;
         } catch (SQLException e) {
+            e.printStackTrace();
             return -1;
         }finally {
             DbUtils.closeQuietly(cnn);
@@ -68,6 +69,7 @@ public abstract class BaseDAO<T> {
         try {
             return queryRunner.query(cnn, sql, beanListHandler, args);
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }finally {
             DbUtils.closeQuietly(cnn);
@@ -83,6 +85,7 @@ public abstract class BaseDAO<T> {
         try {
             return queryRunner.query(cnn, sql, beanHandler, args);
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }finally {
             DbUtils.closeQuietly(cnn);

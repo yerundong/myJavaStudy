@@ -1,6 +1,6 @@
 package ApacheCommonsDBUtils;
 
-import lib.jdbcUtils;
+import lib.JdbcUtils;
 import lib.Poet;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.List;
 
 public class Base {
@@ -20,7 +19,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "INSERT INTO `jdbc_poet` VALUES (?, ?, ?)";
             count = queryRunner.update(poolConnect, sql, 4, "陆游", new Date(-52332234136L));
@@ -37,7 +36,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "INSERT INTO `jdbc_poet` VALUES (?, ?, ?)";
             Object[][] objects = {{4, "陆游", new Date(132234136L)}, {5, "李贺", new Date(-52332234136L)}};
@@ -58,7 +57,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "DELETE FROM `jdbc_poet` WHERE `id` = ?";
             count = queryRunner.update(poolConnect, sql, 4);
@@ -75,7 +74,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "DELETE FROM `jdbc_poet` WHERE `id` = ?";
             int[] batch = queryRunner.batch(poolConnect, sql, new Object[][]{{4}, {5}});
@@ -95,7 +94,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "UPDATE `jdbc_poet` SET `name` = ? WHERE `id` = ?";
             count = queryRunner.update(poolConnect, sql, "白居易", 3);
@@ -112,7 +111,7 @@ public class Base {
         Connection poolConnect = null;
         int count = 0;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "UPDATE `jdbc_poet` SET `name` = ? WHERE `id` = ?";
             int[] batch = queryRunner.batch(poolConnect, sql, new Object[][]{{"杜甫", 2}, {"白居易", 3}});
@@ -132,7 +131,7 @@ public class Base {
         Connection poolConnect = null;
         Poet query = null;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "SELECT * FROM `jdbc_poet` WHERE `id` = ?";
             BeanHandler<Poet> poetBeanHandler = new BeanHandler<>(Poet.class);
@@ -150,7 +149,7 @@ public class Base {
         Connection poolConnect = null;
         List<Poet> query = null;
         try {
-            poolConnect = jdbcUtils.getConnect();
+            poolConnect = JdbcUtils.getConnect();
             QueryRunner queryRunner = new QueryRunner();
             String sql = "SELECT * FROM `jdbc_poet` WHERE `id` > ?";
             BeanListHandler<Poet> poetBeanListHandler = new BeanListHandler<>(Poet.class);

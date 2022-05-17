@@ -37,10 +37,12 @@
 <script type="module">
     import serverConfig from '../../lib/server.config.js'
     const defprefix = serverConfig.server;
-    const defRqData = `{}`;
+    const defGetData = `{"a": "1", "b": "2", "c": "3"}`;
+    const defPostData = `{"bar": "bar","foo": "foo"}`;
     const defquerystr = ``
     $(".prefix").val(defprefix);
-    $(".POST_DATA, .GET_DATA").html(defRqData);
+    $(".GET_DATA").html(defGetData);
+    $(".POST_DATA").html(defPostData);
     $(".querystr").val(defquerystr);
 
     $("#piece button").click((e) => {
@@ -59,11 +61,11 @@
             data = JSON.parse($(`.${type}_DATA`).val())
         } catch (e) {
         }
-
         $.ajax({
             url: url,
             type: type,
             data: data,
+            // contentType: "application/json",
             success: function (res) {
                 console.log(res);
             }

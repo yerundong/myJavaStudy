@@ -7,7 +7,7 @@ public interface UserService {
     /**
      * 注册
      */
-    Boolean resister(User user);
+    Boolean register(User user);
 
     /**
      * 登录

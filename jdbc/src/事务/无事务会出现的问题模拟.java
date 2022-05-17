@@ -1,6 +1,6 @@
 package 事务;
 
-import lib.jdbcUtilsComplete;
+import lib.JdbcUtilsComplete;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -19,16 +19,16 @@ public class 无事务会出现的问题模拟 {
         Connection connect = null;
         PreparedStatement ps = null;
         try {
-            connect = jdbcUtilsComplete.getConnect();
+            connect = JdbcUtilsComplete.getConnect();
             String sql = "UPDATE `jdbc_trans` SET `balance` = ? WHERE `id` = ?";
             ps = connect.prepareStatement(sql);
 
-            jdbcUtilsComplete.setPrepareStatement(ps, 900, 1);
+            JdbcUtilsComplete.setPrepareStatement(ps, 900, 1);
             ps.executeUpdate();
 
             System.out.println(10 / 0);// 模拟异常
 
-            jdbcUtilsComplete.setPrepareStatement(ps, 1100, 2);
+            JdbcUtilsComplete.setPrepareStatement(ps, 1100, 2);
             ps.executeUpdate();
 
             System.out.println("更新成功！");
@@ -36,8 +36,8 @@ public class 无事务会出现的问题模拟 {
             e.printStackTrace();
         }
 
-        jdbcUtilsComplete.close(connect);
-        jdbcUtilsComplete.close(ps);
+        JdbcUtilsComplete.close(connect);
+        JdbcUtilsComplete.close(ps);
     }
 
     /**
@@ -48,7 +48,7 @@ public class 无事务会出现的问题模拟 {
         Connection connect = null;
         PreparedStatement ps = null;
         try {
-            connect = jdbcUtilsComplete.getConnect();
+            connect = JdbcUtilsComplete.getConnect();
             String sql = "UPDATE `jdbc_trans` SET `balance` = ? WHERE `id` = ?";
             ps = connect.prepareStatement(sql);
 
@@ -56,12 +56,12 @@ public class 无事务会出现的问题模拟 {
             // System.out.println(connect.getAutoCommit());
             connect.setAutoCommit(false);
 
-            jdbcUtilsComplete.setPrepareStatement(ps, 900, 1);
+            JdbcUtilsComplete.setPrepareStatement(ps, 900, 1);
             ps.executeUpdate();
 
             // System.out.println(10 / 0);// 模拟异常
 
-            jdbcUtilsComplete.setPrepareStatement(ps, 1100, 2);
+            JdbcUtilsComplete.setPrepareStatement(ps, 1100, 2);
             ps.executeUpdate();
 
             // 若没有异常，则提交事务
@@ -85,8 +85,8 @@ public class 无事务会出现的问题模拟 {
                 throwables.printStackTrace();
             }
 
-            jdbcUtilsComplete.close(connect);
-            jdbcUtilsComplete.close(ps);
+            JdbcUtilsComplete.close(connect);
+            JdbcUtilsComplete.close(ps);
         }
     }
 }

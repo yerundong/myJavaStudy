@@ -2,13 +2,25 @@ package pojo;
 
 public class User {
     private int id;
-    private int gender;
+    private int gender = 1;
     private String name;
     private String email;
     private String nickName;
     private String password;
 
     public User() {
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email,String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public User(int id, int gender, String name, String email, String nickName, String password) {

@@ -44,7 +44,7 @@
         <form class="form-wrap" ref="form">
             <strong class="title-wrap">用户注册</strong>
             <div class="input-wrap">
-                <span class="required">*</span>用户名称：<input type="text" v-model="formData.userName">
+                <span class="required">*</span>用户名称：<input type="text" v-model="formData.name">
             </div>
             <div class="input-wrap">
                 <span class="required">*</span>用户密码：<input type="password" v-model="formData.password">
@@ -67,13 +67,13 @@
             data() {
                 return {
                     formData:{
-                        userName: '',
+                        name: '',
                         password: '',
                         passwordAgain: '',
                         email: '',
                     },
                     rules: {
-                        userName:{
+                        name:{
                             required: true,
                             message: "用户名称必填"
                         },
@@ -110,15 +110,17 @@
             methods: {
                 async onRegst(){
                     const {validator, formData} = this
-                    validator.validate(this.formData, errors => {
+                    validator.validate(this.formData, async errors => {
                         if (errors) {
                             alert(errors[0].message)
                             return
                         }else{
-                            console.log(formData)
-                            axios.get('/register', {
-                                params: formData
-                            })
+                            try {
+                                await axios.post('/emall/register', formData)
+                                location.href="/emall/views/login/index.html"
+                            }catch (e) {
+                                alert("接口报错")
+                            }
                         }
                     })
                 }
