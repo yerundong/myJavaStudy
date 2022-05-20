@@ -14,7 +14,11 @@
         <input class="querystr" type="text" value=""/>
     </div>
     <div id="piece">
-        <button>requestInfo</button>
+        <button>requestInfo-hang</button>
+        <button>requestInfo-head</button>
+        <button>requestInfo-param1</button>
+        <button>requestInfo-param2</button>
+        <button>requestInfo-param3</button>
     </div>
     <br>
 
@@ -36,6 +40,7 @@
 
 <script type="module">
     import serverConfig from '../../lib/server.config.js'
+    import { jsonToFormData } from '../../lib/common.js'
     const defprefix = serverConfig.server;
     const defGetData = `{"a": "1", "b": "2", "c": "3"}`;
     const defPostData = `{"bar": "bar","foo": "foo"}`;
@@ -61,11 +66,24 @@
             data = JSON.parse($(`.${type}_DATA`).val())
         } catch (e) {
         }
+
+        let contentType = "application/x-www-form-urlencoded; charset=UTF-8"
+        let processData = true
+        if(piece === 'requestInfo-param2'){
+            data = jsonToFormData(data)
+            processData = false
+            contentType = false
+        }else if(piece === 'requestInfo-param3'){
+            data = JSON.stringify(data)
+            contentType = "application/json"
+        }
+
         $.ajax({
             url: url,
             type: type,
             data: data,
-            // contentType: "application/json",
+            processData: processData,
+            contentType: contentType,
             success: function (res) {
                 console.log(res);
             }

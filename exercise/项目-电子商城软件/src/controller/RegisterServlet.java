@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BufferedReader br = req.getReader();
-        String params = br.readLine();  //json字符串
+        String params = br.readLine();
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode node = mapper.readValue(params, ObjectNode.class);
         String name = node.get("name").asText();

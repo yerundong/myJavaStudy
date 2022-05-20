@@ -7,6 +7,7 @@ public class User {
     private String email;
     private String nickName;
     private String password;
+    private String avatar;
 
     public User() {
     }

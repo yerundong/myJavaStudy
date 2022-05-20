@@ -9,5 +9,6 @@ CREATE TABLE `user`
   `nickName` VARCHAR(50), 
   `email` VARCHAR(50), 
   `password` VARCHAR(200) NOT NULL, 
-  `gender` TINYINT CHECK(`gender` = 0 OR `gender` = 1) 
+  `gender` TINYINT CHECK(`gender` = 0 OR `gender` = 1),
+  `avatar` MEDIUMBLOB
 ); 

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+    <script src="../../lib/vue.3.2.33.js"></script>
+    <script src="../../lib/axios.min.js"></script>
+    <link rel="stylesheet" href="../../lib/common.css">
+</head>
+<style>
+    #app {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .form-wrap {
+        border: 1px solid #ccc;
+        margin-top: 120px;
+        padding: 20px 60px 40px;
+        text-align: center;
+        box-shadow: 0px 0px 8px 4px #aaa;
+    }
+
+    .title-wrap {
+        line-height: 60px;
+    }
+
+    .input-wrap {
+        margin-bottom: 20px;
+    }
+
+    .input-wrap input {
+        height: 26px;
+    }
+
+    .btn {
+        padding: 5px 20px;
+    }
+
+    .required {
+        color: red;
+    }
+</style>
+<body>
+<div id="app">
+    <form class="form-wrap" ref="form">
+        <strong class="title-wrap">上传文件</strong>
+        <div class="input-wrap">
+            <span class="required">*</span>用户名称：<input type="text" v-model="formData.name">
+        </div>
+        <div class="input-wrap">
+            <span class="required">*</span>用户头像：<input type="file" ref="file" v-model="formData.avatar" :files="files"
+                                                       @change="fileChange">
+        </div>
+        <button class="btn" type="button" @click="onSubmit">提交</button>
+    </form>
+</div>
+
+<script type="module">
+    import Schema from '../../lib/async-validator.js'
+
+    Vue.createApp({
+        data() {
+            return {
+                files: [],
+                formData: {
+                    name: '',
+                    avatar: ''
+                },
+                rules: {
+                    name: {
+                        required: true,
+                        message: "用户名称必填"
+                    },
+                }
+            }
+        },
+        computed: {
+            validator() {
+                return new Schema(this.rules)
+            }
+        },
+        methods: {
+            fileChange(e) {
+                console.log(this.$refs.file.files[0])
+                this.formData.avatar = this.$refs.file.files[0]
+            },
+            jsonToFormData(obj, deepStringify = false) {
+                const formData = new FormData()
+                Object.keys(obj).forEach(k => {
+                    ![undefined, null].includes(obj[k]) &&
+                    formData.append(
+                        k,
+                        deepStringify && typeof obj[k] === 'object'
+                            ? JSON.stringify(obj[k])
+                            : obj[k]
+                    )
+                })
+                return formData
+            },
+            async onSubmit() {
+                const {validator, formData, jsonToFormData} = this
+                // console.log(formData)
+                validator.validate(formData, async errors => {
+                    if (errors) {
+                        alert(errors[0].message)
+                        return
+                    } else {
+                        const formData_ = jsonToFormData(formData)
+                        console.log(formData_)
+                        console.log(formData_.get("name"))
+                        console.log(formData_.get("avatar"))
+                        try {
+                            await axios.post('/emall/upload', formData_)
+                        }catch (e) {
+                            alert("接口报错")
+                        }
+                    }
+                })
+            }
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>

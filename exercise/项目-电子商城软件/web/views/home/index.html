@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <script src="../../lib/vue.3.2.33.js"></script>
+    <link rel="stylesheet" href="../../lib/common.css">
 </head>
+<style>
+    .module-wrap{
+        display: flex;
+        margin: 50px;
+        justify-content: space-between;
+    }
+    .module-item{
+        width: 150px;
+        height: 150px;
+        border: 1px solid #eee;
+        text-align: center;
+        line-height: 150px;
+        box-shadow: 0 0 8px 8px #aaa;
+        cursor: pointer;
+        user-select: none;
+    }
+</style>
 <body>
-    我是首页
+    <div id="app" class="module-wrap">
+        <div class="module-item" v-for="(item, index) in modules" :key="index" @click="itemJump(item.url)">
+            {{item.name}}
+        </div>
+    </div>
+    <script type="module">
+        Vue.createApp({
+            data() {
+                return {
+                    modules:[{
+                        name: '上传文件',
+                        url: '/emall/views/upload/index.html'
+                    },{
+                        name: '商品列表',
+                        url: ''
+                    },{
+                        name: '个人中心',
+                        url: ''
+                    }],
+                }
+            },
+            methods: {
+                async itemJump(url){
+                    location.href = url
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>

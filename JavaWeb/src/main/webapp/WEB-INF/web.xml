@@ -36,43 +36,84 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>GetRequestInfo</servlet-name>
-        <servlet-class>servlet.请求.获取请求信息</servlet-class>
+        <servlet-name>获取请求行信息</servlet-name>
+        <servlet-class>servlet.请求.获取请求行信息</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetRequestInfo</servlet-name>
-        <url-pattern>/requestInfo</url-pattern>
+        <servlet-name>获取请求行信息</servlet-name>
+        <url-pattern>/requestInfo-hang</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>WriteResponse</servlet-name>
+        <servlet-name>获取请求头部信息</servlet-name>
+        <servlet-class>servlet.请求.获取请求头部信息</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>获取请求头部信息</servlet-name>
+        <url-pattern>/requestInfo-head</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>参数类型1</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>参数类型1</servlet-name>
+        <url-pattern>/requestInfo-param1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>参数类型2</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型2</servlet-class>
+        <multipart-config>
+            <max-file-size>20848820</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>参数类型2</servlet-name>
+        <url-pattern>/requestInfo-param2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>参数类型3</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>参数类型3</servlet-name>
+        <url-pattern>/requestInfo-param3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>设置响应体</servlet-name>
         <servlet-class>servlet.响应.设置响应体</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>WriteResponse</servlet-name>
+        <servlet-name>设置响应体</servlet-name>
         <url-pattern>/writeResponse</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SetRespHead</servlet-name>
+        <servlet-name>设置响应头</servlet-name>
         <servlet-class>servlet.响应.设置响应头</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SetRespHead</servlet-name>
+        <servlet-name>设置响应头</servlet-name>
         <url-pattern>/setRespHead</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SetStatus</servlet-name>
+        <servlet-name>设置状态码</servlet-name>
         <servlet-class>servlet.响应.设置状态码</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SetStatus</servlet-name>
+        <servlet-name>设置状态码</servlet-name>
         <url-pattern>/setStatus</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>GetServletConfig</servlet-name>
+        <servlet-name>获取ServletConfig和ServletContext</servlet-name>
         <servlet-class>servlet.获取ServletConfig和ServletContext</servlet-class>
         <init-param>
             <param-name>key1</param-name>
@@ -84,7 +125,7 @@
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetServletConfig</servlet-name>
+        <servlet-name>获取ServletConfig和ServletContext</servlet-name>
         <url-pattern>/config</url-pattern>
     </servlet-mapping>
 
@@ -107,20 +148,20 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Dedirect1</servlet-name>
+        <servlet-name>重定向1</servlet-name>
         <servlet-class>servlet.重定向.重定向1</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Dedirect1</servlet-name>
+        <servlet-name>重定向1</servlet-name>
         <url-pattern>/redirect1</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Dedirect2</servlet-name>
+        <servlet-name>重定向2</servlet-name>
         <servlet-class>servlet.重定向.重定向2</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Dedirect2</servlet-name>
+        <servlet-name>重定向2</servlet-name>
         <url-pattern>/redirect2</url-pattern>
     </servlet-mapping>
 </web-app>
