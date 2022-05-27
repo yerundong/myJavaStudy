@@ -6,14 +6,13 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.Map;
 
 /**
  * 获取Content-Type=application/x-www-form-urlencoded的参数
  * 使用request.getParameter可获取参数
  */
-public class 参数类型1 extends HttpServlet {
-    private void sout(HttpServletRequest request, HttpServletResponse response){
+public class 参数类型之默认 extends HttpServlet {
+    private void sout(HttpServletRequest request, HttpServletResponse response) {
         String a = request.getParameter("a");
         String b = request.getParameter("b");
         String c = request.getParameter("c");
@@ -25,11 +24,13 @@ public class 参数类型1 extends HttpServlet {
         System.out.println("getParameter: bar=" + bar);
         System.out.println("getParameter: foo=" + foo);
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("--------------------- get ---------------------");
         sout(request, response);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response){
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("--------------------- post ---------------------");
         sout(request, response);
 

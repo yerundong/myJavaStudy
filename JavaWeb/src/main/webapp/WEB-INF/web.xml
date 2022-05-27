@@ -54,17 +54,17 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>参数类型1</servlet-name>
-        <servlet-class>servlet.请求.获取请求参数.参数类型1</servlet-class>
+        <servlet-name>参数类型之默认</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型之默认</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>参数类型1</servlet-name>
-        <url-pattern>/requestInfo-param1</url-pattern>
+        <servlet-name>参数类型之默认</servlet-name>
+        <url-pattern>/requestInfo-default</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>参数类型2</servlet-name>
-        <servlet-class>servlet.请求.获取请求参数.参数类型2</servlet-class>
+        <servlet-name>参数类型之formData</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型之formData</servlet-class>
         <multipart-config>
             <max-file-size>20848820</max-file-size>
             <max-request-size>418018841</max-request-size>
@@ -72,17 +72,17 @@
         </multipart-config>
     </servlet>
     <servlet-mapping>
-        <servlet-name>参数类型2</servlet-name>
-        <url-pattern>/requestInfo-param2</url-pattern>
+        <servlet-name>参数类型之formData</servlet-name>
+        <url-pattern>/requestInfo-formData</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>参数类型3</servlet-name>
-        <servlet-class>servlet.请求.获取请求参数.参数类型3</servlet-class>
+        <servlet-name>参数类型之json</servlet-name>
+        <servlet-class>servlet.请求.获取请求参数.参数类型之json</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>参数类型3</servlet-name>
-        <url-pattern>/requestInfo-param3</url-pattern>
+        <servlet-name>参数类型之json</servlet-name>
+        <url-pattern>/requestInfo-json</url-pattern>
     </servlet-mapping>
 
     <servlet>

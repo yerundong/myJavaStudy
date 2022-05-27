@@ -1,7 +1,7 @@
 package controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +11,7 @@ import service.UserServiceImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class RegisterServlet extends HttpServlet {
     private final UserServiceImpl userServiceImpl = new UserServiceImpl();
@@ -20,17 +21,14 @@ public class RegisterServlet extends HttpServlet {
         BufferedReader br = req.getReader();
         String params = br.readLine();
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode node = mapper.readValue(params, ObjectNode.class);
-        String name = node.get("name").asText();
-        String email = node.get("email").asText();
-        String password = node.get("password").asText();
-        if (name == null || email  == null || password  == null) {
+        final HashMap hashMap = mapper.readValue(params, new TypeReference<HashMap>() {
+        });
+        hashMap.remove("passwordAgain");
+        String s = mapper.writeValueAsString(hashMap);
+        User user = mapper.readValue(s, User.class);
+        Boolean register = userServiceImpl.register(user);
+        if (!register) {
             resp.setStatus(500);
-        } else if (userServiceImpl.existUserName(name)) {
-            resp.setStatus(500);
-        } else {
-            User user = new User(name, email, password);
-            userServiceImpl.register(user);
         }
     }
 }

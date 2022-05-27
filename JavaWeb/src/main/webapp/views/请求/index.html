@@ -16,9 +16,9 @@
     <div id="piece">
         <button>requestInfo-hang</button>
         <button>requestInfo-head</button>
-        <button>requestInfo-param1</button>
-        <button>requestInfo-param2</button>
-        <button>requestInfo-param3</button>
+        <button>requestInfo-default</button>
+        <button>requestInfo-formData</button>
+        <button>requestInfo-json</button>
     </div>
     <br>
 
@@ -40,7 +40,8 @@
 
 <script type="module">
     import serverConfig from '../../lib/server.config.js'
-    import { jsonToFormData } from '../../lib/common.js'
+    import {jsonToFormData} from '../../lib/common.js'
+
     const defprefix = serverConfig.server;
     const defGetData = `{"a": "1", "b": "2", "c": "3"}`;
     const defPostData = `{"bar": "bar","foo": "foo"}`;
@@ -69,11 +70,11 @@
 
         let contentType = "application/x-www-form-urlencoded; charset=UTF-8"
         let processData = true
-        if(piece === 'requestInfo-param2'){
+        if (piece === 'requestInfo-formData') {
             data = jsonToFormData(data)
             processData = false
             contentType = false
-        }else if(piece === 'requestInfo-param3'){
+        } else if (piece === 'requestInfo-json') {
             data = JSON.stringify(data)
             contentType = "application/json"
         }

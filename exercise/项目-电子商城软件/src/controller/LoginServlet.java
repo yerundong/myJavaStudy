@@ -20,17 +20,10 @@ public class LoginServlet extends HttpServlet {
         BufferedReader br = req.getReader();
         String params = br.readLine();  //json字符串
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode node = mapper.readValue(params, ObjectNode.class);
-        String name = node.get("name").asText();
-        String password = node.get("password").asText();
-        if (name == null || password  == null) {
+        User user = mapper.readValue(params, User.class);
+        User login = userServiceImpl.login(user);
+        if (login == null) {
             resp.setStatus(500);
-        } {
-            User user = new User(name, password);
-            User login = userServiceImpl.login(user);
-            if(login == null){
-                resp.setStatus(500);
-            }
         }
     }
 }

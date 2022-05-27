@@ -50,16 +50,52 @@ Java ME 又称为J2ME（Java Platform，Micro Edition），是为机顶盒、移
 
 
 
-# 三层架构模式
+# 安装java环境
+
+## 1. 下载ide
+
+ide我们选择IntelliJ IDEA，下载地址：https://www.jetbrains.com/idea/download/#section=windows
+
+
+
+## 2. 下载JDK
+
+下载地址：https://www.oracle.com/java/technologies/downloads/
+
+
+
+## 3. 配置环境变量
+
+新增JAVA_HOME，值为：jdk文件夹的根路径，并将%JAVA_HOME%\bin添加到path上。
+
+配置完，在控制台分别输入java，javac，java -version 命令测试，这三个都可以的话，恭喜，java你已经成功安装了！
+
+
+
+# 三层架构和MVC
 
 https://www.cnblogs.com/1994-12/p/9958274.html?ivk_sa=1024320u
 
 https://blog.csdn.net/liguangyao213/article/details/123210858?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_default&spm=1001.2101.3001.4242.2&utm_relevant_index=3
 
+## 三层架构模式
+
+![360截图17290506467062](D:\Desktop\myJavaStudy\docs\images\java\360截图17290506467062.png)
+
 ![JavaEE的三层架构](.\images\java\JavaEE的三层架构.png)
 
 
 
-## 各层命名规则
+**各层命名规则：**
 
 ![360截图17001013355343](.\images\java\360截图17001013355343.png)
+
+## MVC架构
+
+![360截图17710331446076](D:\Desktop\myJavaStudy\docs\images\java\360截图17710331446076.png)
+
+## MVC和三层架构对应关系
+
+![360截图17991025091216](D:\Desktop\myJavaStudy\docs\images\java\360截图17991025091216.png)
+
+三层架构把不同层的业务职责分离得更加彻底，更好的实现了模块化编程，我们实际开发中依照三层架构进行模块化开发。

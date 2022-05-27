@@ -1,3 +1,19 @@
+# 视频教程
+
+黑马：https://www.bilibili.com/video/BV1Qf4y1T7Hx?p=42&spm_id_from=pageDriver
+
+
+
+# maven简介
+
+![360截图17620430204620](D:\Desktop\myJavaStudy\docs\images\maven\360截图17620430204620.png)
+
+![360截图16720331746995](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720331746995.png)
+
+![360截图16720403527988](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720403527988.png)
+
+![360截图16720331746995](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720331746995.png)
+
 # 安装
 
 官网下载：https://maven.apache.org/download.cgi
@@ -10,12 +26,12 @@
 
 需要配置两个环境变量：
 
-1. MAVEN_HOME，maven解压文件的路径
+1. MAVEN_HOME，maven解压文件的根路径
 2. M2_HOME，maven解压文件下bin文件夹的路径
 
 只将%MAVEN_HOME%\bin添加到path中即可。
 
-打开cmd，执行 `mvn -version` ，可执行则配置成功。
+打开cmd，执行 `mvn -version`测试 ，可执行则配置成功。
 
 
 
@@ -65,13 +81,19 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 ![20220105170251](.\images\maven\20220105170251.png)
 
+# 安装maben helper插件
+
+maben helper插件提供maven相关操作的右击菜单
+
+![360截图17970213395756](D:\Desktop\myJavaStudy\docs\images\maven\360截图17970213395756.png)
+
 # 使用maven创建一个项目
 
 ![20220105171005](.\images\maven\20220105171005.png)
 
-不使用模板创建，创建完目录结构为：
+不使用模板创建，标准的maven目录结构：
 
-![20220105171501](.\images\maven\20220105171501.png)
+![360截图16751026748377](D:\Desktop\myJavaStudy\docs\images\maven\360截图16751026748377.png)
 
 如果是web项目，则在main下增加目录：
 
@@ -79,10 +101,22 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 
 
-# POM
+# POM文件
 
 https://www.runoob.com/maven/maven-pom.html
 
 https://blog.csdn.net/shao_yc/article/details/105317764
 
 https://www.cnblogs.com/64Byte/p/13054759.html
+
+
+
+# maven命令
+
+![360截图18141216262831](D:\Desktop\myJavaStudy\docs\images\maven\360截图18141216262831.png)
+
+
+
+# maven生命周期
+
+![360截图17420922215209](D:\Desktop\myJavaStudy\docs\images\maven\360截图17420922215209.png)

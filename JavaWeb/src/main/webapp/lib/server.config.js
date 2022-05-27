@@ -1,3 +1,3 @@
 export default {
-    server: 'http://localhost:8088/web/'
+    server: 'http://localhost:8099/web/'
 }

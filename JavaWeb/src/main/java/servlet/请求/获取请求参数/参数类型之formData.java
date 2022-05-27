@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -16,8 +15,8 @@ import java.util.Collection;
  * 获取Content-Type=multipart/form-data的参数
  * 无法使用request.getParameter可获取form-data参数，需要使用io流读取（字符流或字节流）
  */
-public class 参数类型2 extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response){
+public class 参数类型之formData extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("--------------------- post ---------------------");
         // 第一种方式：io流
         // BufferedReader reader = null;
