@@ -6,13 +6,13 @@
 
 # maven简介
 
-![360截图17620430204620](D:\Desktop\myJavaStudy\docs\images\maven\360截图17620430204620.png)
+![360截图17620430204620](.\images\maven\360截图17620430204620.png)
 
-![360截图16720331746995](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720331746995.png)
+![360截图16720331746995](.\images\maven\360截图16720331746995.png)
 
-![360截图16720403527988](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720403527988.png)
+![360截图16720403527988](.\images\maven\360截图16720403527988.png)
 
-![360截图16720331746995](D:\Desktop\myJavaStudy\docs\images\maven\360截图16720331746995.png)
+![360截图16720331746995](.\images\maven\360截图16720331746995.png)
 
 # 安装
 
@@ -37,7 +37,7 @@
 
 # 配置镜像
 
-## 1 为什么需要配置maven国内镜像？
+## 为什么需要配置maven国内镜像？
 
 1、在不配置镜像的情况下,maven默认会使用**中央库**.
 
@@ -47,7 +47,7 @@
 
 
 
-## 2 镜像配置方式和比较
+## 镜像配置方式和比较
 
 1、maven镜像有两种配置,一种是在pom.xml中进行配置,第二种是在settings.xml中进行配置.
 
@@ -85,15 +85,21 @@ https://blog.csdn.net/geekswg/article/details/119976216
 
 maben helper插件提供maven相关操作的右击菜单
 
-![360截图17970213395756](D:\Desktop\myJavaStudy\docs\images\maven\360截图17970213395756.png)
+![360截图17970213395756](.\images\maven\360截图17970213395756.png)
 
-# 使用maven创建一个项目
+# 使用idea创建一个maven项目/模块
 
 ![20220105171005](.\images\maven\20220105171005.png)
 
+![360截图167510231059895](.\images\maven\360截图167510231059895.png)
+
+
+
+# maven项目的目录结构
+
 不使用模板创建，标准的maven目录结构：
 
-![360截图16751026748377](D:\Desktop\myJavaStudy\docs\images\maven\360截图16751026748377.png)
+![360截图16751026748377](.\images\maven\360截图16751026748377.png)
 
 如果是web项目，则在main下增加目录：
 
@@ -113,10 +119,36 @@ https://www.cnblogs.com/64Byte/p/13054759.html
 
 # maven命令
 
-![360截图18141216262831](D:\Desktop\myJavaStudy\docs\images\maven\360截图18141216262831.png)
+![360截图18141216262831](.\images\maven\360截图18141216262831.png)
 
 
 
 # maven生命周期
 
-![360截图17420922215209](D:\Desktop\myJavaStudy\docs\images\maven\360截图17420922215209.png)
+![360截图17420922215209](.\images\maven\360截图17420922215209.png)
+
+![360截图18020621110125146](.\images\maven\360截图18020621110125146.png)
+
+
+
+# maven坐标
+
+![360截图17350801579356](.\images\maven\360截图17350801579356.png)
+
+# 依赖管理
+
+## 安装依赖
+
+- **第一种方式：手写（可以去maven网复制）**
+
+![360截图17340906376864](.\images\maven\360截图17340906376864.png)
+
+
+
+- **第二种方式：本地导入**
+
+![360截图17860602618570](.\images\maven\360截图17860602618570.png)
+
+## 依赖范围
+
+![360截图17860604222564](.\images\maven\360截图17860604222564.png)
