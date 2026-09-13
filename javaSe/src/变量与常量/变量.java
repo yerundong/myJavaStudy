@@ -27,15 +27,19 @@ public class 变量 {
         System.out.println(num6);
 
         System.out.println("=========浮点数==========");
-        float num7 = 2.5F;// 一定要带f或F
-        System.out.println(num7);
+        float num7 = 2.5F;// 一定要带f或F，否则会报错
+        System.out.println();
         double num8 = 2.5;
         System.out.println(num8);
 
         System.out.println("=========字符==========");
         char zifu1 = 'a';
         zifu1 = '中';
+        char zifu2 = '\n';
+        char zifu3 = '\u0043';
         System.out.println(zifu1);
+        System.out.println(zifu2);
+        System.out.println(zifu3);
 
         System.out.println("=========布尔==========");
         boolean bool1 = false;

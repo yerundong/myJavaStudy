@@ -17,6 +17,12 @@ public class 基本数据类型之间的强制转换 {
         // double --> int，强类型转换，浮点型精度丢失
         int num3 = (int) 3.5;
         System.out.println(num3);// 3
+
+
+        // int --> byte，强类型转换，范围外的值，会发生溢出截断
+        int num4 = 128;
+        byte bt1 = (byte) num4;
+        System.out.println(bt1);// -128，这是因为 Java 中 byte 类型只有 8 位，范围是 -128 ~ 127，而 128 超出了这个范围，发生了溢出截断。128 超出 127 一个单位，所以"绕回"到 -128。
     }
 
     /**
