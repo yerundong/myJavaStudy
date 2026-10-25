@@ -5,7 +5,7 @@ public class Main {
         TestPublic tom = new TestPublic();
         System.out.println(tom.plnum);
 
-        // 不能修饰变量
+        // 不能修饰局部变量
         // public int num = 321;// 报错
     }
 }

@@ -22,8 +22,11 @@ public class 参数 {
 
     @Test
     public void 可变形参() {
+        // 可以不传
+        look("abc");
+        // 可以传多个
         look("abc", 1, 2, 3, 4);
-        // 直接传数组也可接收
+        // 也可以传数组
         look("abc", new int[]{7, 8, 9});
     }
 

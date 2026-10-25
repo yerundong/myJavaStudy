@@ -36,7 +36,7 @@ public class Base {
     }
 
     /**
-     * @Description 获取系统当前纳秒值
+     * @Description 终止退出Java虚拟机
      */
     @Test
     public void exit() {

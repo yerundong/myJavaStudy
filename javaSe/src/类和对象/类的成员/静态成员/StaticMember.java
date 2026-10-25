@@ -19,9 +19,12 @@ class StaticMember {
     public void setName(String name) {
         this.name = name;
 
-        // 实例方法中可以调用静态方法，类名可以省略
+        // 实例方法中可以调用静态方法:
         // StaticModifier.run();
+        // 类名可以省略:
         // run();
+        // 也可以调用通过实例调用静态方法:
+        this.run();
     }
 
     public void say() {

@@ -2,6 +2,8 @@ package 数组;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class 数组相关异常 {
     /**
      * @Description 空指针异常
@@ -10,7 +12,11 @@ public class 数组相关异常 {
     public void NullPointerException() {
         int[] arr = null;
         System.out.println(arr);// null
-        System.out.println(arr[0]);// NullPointerException
+//        System.out.println(arr[0]);// NullPointerException
+
+        int[][][] arr1 = new int[3][][];
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(arr1[0]);// NullPointerException
     }
 
     /**

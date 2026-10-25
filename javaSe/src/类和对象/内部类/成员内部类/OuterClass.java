@@ -37,7 +37,7 @@ public class OuterClass {
         }
     }
 
-    // 静态内部类
+    // 静态成员内部类
     public static class StaticInnerClass {
         public void see() {
             System.out.println("静态成员内部类执行了");
