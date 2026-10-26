@@ -7,7 +7,7 @@ public class Base {
 
     }
 
-    // 非静态代码块
+    // 实例代码块
     {
 
     }

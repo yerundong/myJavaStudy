@@ -124,3 +124,12 @@ settings -> plugins -> 设置-> Manage Repositories 中添加 https://plugins.zh
 # 设置项目、模块的编译输出路径
 
 [idea设置项目编译输出目录，模块编译输出目录，修改编译输出目录默认的production路径 - 百度文库 (baidu.com)](https://wenku.baidu.com/view/7509e5cdfbc75fbfc77da26925c52cc58bd69068.html)
+
+
+
+# Idea卡死，通过任务管理器关闭，重新打开报VFS错误
+
+参考：https://intellij-support.jetbrains.com/hc/zh-cn/community/posts/16474820363410-Can-t-start-IDEA-2024-1-EAP?f_link_type=f_linkinlinenote&flow_extra=eyJkb2NfcG9zaXRpb24iOjAsImRvY19pZCI6IjEwMjQwM2RlMzJjNzlhMWQtN2RhODU5ZTIxYzQ0MmNlOCIsImlubGluZV9kaXNwbGF5X3Bvc2l0aW9uIjowfQ%3D%3D
+
+解决：关闭所有idea进程，删除C:\Users\Administrator\AppData\Local\JetBrains\IntelliJIdea2026.2下的caches文件，重新打开idea即可
+
