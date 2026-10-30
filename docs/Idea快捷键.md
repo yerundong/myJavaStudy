@@ -25,5 +25,5 @@
 + 跳到实现类和子类：`Ctrl + Alt + 点击左键`
 + 最近文件：`Ctrl + E`
 + 撤销：**Ctrl + Z**
-+ 反撤销（重做）：**Ctrl + Shift + Z**
++ 反撤销：**Ctrl + Shift + Z**
 

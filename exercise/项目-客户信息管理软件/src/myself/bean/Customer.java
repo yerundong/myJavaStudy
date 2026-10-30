@@ -1,5 +1,7 @@
 package myself.bean;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * @Description Customer为实体对象，用来封装客户信息
  * @Author 叶润东

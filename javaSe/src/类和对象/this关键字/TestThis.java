@@ -5,8 +5,10 @@ public class TestThis {
     public static int num2 = 260;
 
     public TestThis() {
-        this(150);// java可以通过方法重载设置形参默认值
+        this(150);// this充当本类的构造函数
         this.says2();
+        // 等同于
+        // says2();
         System.out.println(this.num);
     }
 
